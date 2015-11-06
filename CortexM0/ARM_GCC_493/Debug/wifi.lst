@@ -1,0 +1,5556 @@
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"wifi.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.updateBuf,"ax",%progbits
+  18              		.align	2
+  19              		.global	updateBuf
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	updateBuf, %function
+  23              	updateBuf:
+  24              	.LFB34:
+  25              		.file 1 ".\\wifi.c"
+   1:.\wifi.c      **** ///* ========================================
+   2:.\wifi.c      **** // *
+   3:.\wifi.c      **** // * Copyright YOUR COMPANY, THE YEAR
+   4:.\wifi.c      **** // * All Rights Reserved
+   5:.\wifi.c      **** // * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\wifi.c      **** // *
+   7:.\wifi.c      **** // * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\wifi.c      **** // * WHICH IS THE PROPERTY OF your company.
+   9:.\wifi.c      **** // *
+  10:.\wifi.c      **** // * ========================================
+  11:.\wifi.c      **** //*/
+  12:.\wifi.c      **** 
+  13:.\wifi.c      **** #include <stdio.h>
+  14:.\wifi.c      **** #include <stdlib.h>
+  15:.\wifi.c      **** #include "wifi.h"
+  16:.\wifi.c      **** 
+  17:.\wifi.c      **** /***********************************DIVERSE GLOBALE VARIABLER********************************/
+  18:.\wifi.c      **** uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er data i RX bufferen
+  19:.\wifi.c      **** uint8 stringRX_len = 0;                     //Længde af RX buffer
+  20:.\wifi.c      **** char stringRX[255] = {0};                   //RX buffer til interrupts
+  21:.\wifi.c      **** char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modta
+  22:.\wifi.c      **** uint8 plantID = '-';                         //Pottens ID / PSoC ID
+  23:.\wifi.c      **** 
+  24:.\wifi.c      **** CY_ISR(UART_ISR)
+  25:.\wifi.c      **** {
+  26:.\wifi.c      ****     updateBuf();
+  27:.\wifi.c      **** }
+  28:.\wifi.c      **** 
+  29:.\wifi.c      **** void updateBuf()
+  30:.\wifi.c      **** {
+  26              		.loc 1 30 0
+  27              		.cfi_startproc
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 2
+
+
+  28 0000 38B5     		push	{r3, r4, r5, lr}
+  29              		.cfi_def_cfa_offset 16
+  30              		.cfi_offset 3, -16
+  31              		.cfi_offset 4, -12
+  32              		.cfi_offset 5, -8
+  33              		.cfi_offset 14, -4
+  31:.\wifi.c      ****     if(RXnewData)
+  34              		.loc 1 31 0
+  35 0002 144B     		ldr	r3, .L7
+  36 0004 1B78     		ldrb	r3, [r3]
+  37 0006 002B     		cmp	r3, #0
+  38 0008 22D1     		bne	.L1
+  32:.\wifi.c      ****         return;
+  33:.\wifi.c      ****     uint8 size = UART_GetRxBufferSize();
+  39              		.loc 1 33 0
+  40 000a FFF7FEFF 		bl	UART_GetRxBufferSize
+  41              	.LVL0:
+  42 000e 051C     		mov	r5, r0
+  43              	.LVL1:
+  34:.\wifi.c      ****     int i;
+  35:.\wifi.c      ****     for(i = 0; i < size + 1; i++)
+  44              		.loc 1 35 0
+  45 0010 0024     		mov	r4, #0
+  46 0012 1AE0     		b	.L3
+  47              	.LVL2:
+  48              	.L6:
+  49              	.LBB2:
+  36:.\wifi.c      ****     {
+  37:.\wifi.c      ****         char rxdata = (char)UART_ReadRxData();      //læser data fra uarten
+  50              		.loc 1 37 0
+  51 0014 FFF7FEFF 		bl	UART_ReadRxData
+  52              	.LVL3:
+  38:.\wifi.c      **** 
+  39:.\wifi.c      ****         if(rxdata == 0 || rxdata == '\n' || rxdata == '\r' || stringRX_len == 255)   //hvis der ikk
+  53              		.loc 1 39 0
+  54 0018 0028     		cmp	r0, #0
+  55 001a 07D0     		beq	.L4
+  56              		.loc 1 39 0 is_stmt 0 discriminator 1
+  57 001c 0A28     		cmp	r0, #10
+  58 001e 05D0     		beq	.L4
+  59              		.loc 1 39 0 discriminator 2
+  60 0020 0D28     		cmp	r0, #13
+  61 0022 03D0     		beq	.L4
+  62              		.loc 1 39 0 discriminator 3
+  63 0024 0C4B     		ldr	r3, .L7+4
+  64 0026 1B78     		ldrb	r3, [r3]
+  65 0028 FF2B     		cmp	r3, #255
+  66 002a 08D1     		bne	.L5
+  67              	.L4:
+  40:.\wifi.c      ****         {
+  41:.\wifi.c      ****             stringRX[stringRX_len] = 0;     //buffer sættes til 0 på index stringRX_len
+  68              		.loc 1 41 0 is_stmt 1
+  69 002c 0A4A     		ldr	r2, .L7+4
+  70 002e 1378     		ldrb	r3, [r2]
+  71 0030 D318     		add	r3, r2, r3
+  72 0032 0022     		mov	r2, #0
+  73 0034 1A71     		strb	r2, [r3, #4]
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 3
+
+
+  42:.\wifi.c      ****             RXnewData = 1;                  //RXnewData sættes til 1 for at enable interrupt
+  74              		.loc 1 42 0
+  75 0036 0132     		add	r2, r2, #1
+  76 0038 064B     		ldr	r3, .L7
+  77 003a 1A70     		strb	r2, [r3]
+  43:.\wifi.c      ****             return;
+  78              		.loc 1 43 0
+  79 003c 08E0     		b	.L1
+  80              	.L5:
+  44:.\wifi.c      ****         }
+  45:.\wifi.c      ****         
+  46:.\wifi.c      ****         stringRX[stringRX_len] = rxdata;    //data fra uarten skrives ind i stringRX med index stri
+  81              		.loc 1 46 0 discriminator 2
+  82 003e 064A     		ldr	r2, .L7+4
+  83 0040 D118     		add	r1, r2, r3
+  84 0042 0871     		strb	r0, [r1, #4]
+  47:.\wifi.c      ****         stringRX_len++;  
+  85              		.loc 1 47 0 discriminator 2
+  86 0044 0133     		add	r3, r3, #1
+  87 0046 1370     		strb	r3, [r2]
+  88              	.LBE2:
+  35:.\wifi.c      ****     {
+  89              		.loc 1 35 0 discriminator 2
+  90 0048 0134     		add	r4, r4, #1
+  91              	.LVL4:
+  92              	.L3:
+  35:.\wifi.c      ****     {
+  93              		.loc 1 35 0 is_stmt 0 discriminator 1
+  94 004a 6B1C     		add	r3, r5, #1
+  95 004c A342     		cmp	r3, r4
+  96 004e E1DC     		bgt	.L6
+  97              	.LVL5:
+  98              	.L1:
+  48:.\wifi.c      ****     }
+  49:.\wifi.c      **** }
+  99              		.loc 1 49 0 is_stmt 1
+ 100              		@ sp needed
+ 101 0050 38BD     		pop	{r3, r4, r5, pc}
+ 102              	.L8:
+ 103 0052 C046     		.align	2
+ 104              	.L7:
+ 105 0054 00000000 		.word	RXnewData
+ 106 0058 00000000 		.word	.LANCHOR0
+ 107              		.cfi_endproc
+ 108              	.LFE34:
+ 109              		.size	updateBuf, .-updateBuf
+ 110              		.section	.text.UART_ISR,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	UART_ISR
+ 113              		.code	16
+ 114              		.thumb_func
+ 115              		.type	UART_ISR, %function
+ 116              	UART_ISR:
+ 117              	.LFB33:
+  25:.\wifi.c      ****     updateBuf();
+ 118              		.loc 1 25 0
+ 119              		.cfi_startproc
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 4
+
+
+ 120 0000 08B5     		push	{r3, lr}
+ 121              		.cfi_def_cfa_offset 8
+ 122              		.cfi_offset 3, -8
+ 123              		.cfi_offset 14, -4
+  26:.\wifi.c      **** }
+ 124              		.loc 1 26 0
+ 125 0002 FFF7FEFF 		bl	updateBuf
+ 126              	.LVL6:
+  27:.\wifi.c      **** 
+ 127              		.loc 1 27 0
+ 128              		@ sp needed
+ 129 0006 08BD     		pop	{r3, pc}
+ 130              		.cfi_endproc
+ 131              	.LFE33:
+ 132              		.size	UART_ISR, .-UART_ISR
+ 133              		.section	.text.getStringFromUart,"ax",%progbits
+ 134              		.align	2
+ 135              		.global	getStringFromUart
+ 136              		.code	16
+ 137              		.thumb_func
+ 138              		.type	getStringFromUart, %function
+ 139              	getStringFromUart:
+ 140              	.LFB35:
+  50:.\wifi.c      **** 
+  51:.\wifi.c      **** char getStringFromUart(char *data)
+  52:.\wifi.c      **** {
+ 141              		.loc 1 52 0
+ 142              		.cfi_startproc
+ 143              	.LVL7:
+ 144 0000 10B5     		push	{r4, lr}
+ 145              		.cfi_def_cfa_offset 8
+ 146              		.cfi_offset 4, -8
+ 147              		.cfi_offset 14, -4
+  53:.\wifi.c      ****     
+  54:.\wifi.c      ****     uint8 i;
+  55:.\wifi.c      ****     
+  56:.\wifi.c      ****     if(!RXnewData)
+ 148              		.loc 1 56 0
+ 149 0002 114B     		ldr	r3, .L15
+ 150 0004 1B78     		ldrb	r3, [r3]
+ 151 0006 002B     		cmp	r3, #0
+ 152 0008 1CD0     		beq	.L14
+ 153 000a 041C     		mov	r4, r0
+  57:.\wifi.c      ****         return 0;
+  58:.\wifi.c      ****     
+  59:.\wifi.c      ****     updateBuf();
+ 154              		.loc 1 59 0
+ 155 000c FFF7FEFF 		bl	updateBuf
+ 156              	.LVL8:
+  60:.\wifi.c      ****         
+  61:.\wifi.c      ****     for(i = 0; i<stringRX_len; i++)     //string fra uarten skrives ind i data
+ 157              		.loc 1 61 0
+ 158 0010 0023     		mov	r3, #0
+ 159 0012 07E0     		b	.L12
+ 160              	.LVL9:
+ 161              	.L13:
+  62:.\wifi.c      ****     {
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 5
+
+
+  63:.\wifi.c      ****         data[i] = stringRX[i];  
+ 162              		.loc 1 63 0 discriminator 3
+ 163 0014 0D4A     		ldr	r2, .L15+4
+ 164 0016 D218     		add	r2, r2, r3
+ 165 0018 1179     		ldrb	r1, [r2, #4]
+ 166 001a E154     		strb	r1, [r4, r3]
+  64:.\wifi.c      ****         stringRX[i] = 0;
+ 167              		.loc 1 64 0 discriminator 3
+ 168 001c 0021     		mov	r1, #0
+ 169 001e 1171     		strb	r1, [r2, #4]
+  61:.\wifi.c      ****     {
+ 170              		.loc 1 61 0 discriminator 3
+ 171 0020 0133     		add	r3, r3, #1
+ 172              	.LVL10:
+ 173 0022 DBB2     		uxtb	r3, r3
+ 174              	.LVL11:
+ 175              	.L12:
+  61:.\wifi.c      ****     {
+ 176              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 177 0024 094A     		ldr	r2, .L15+4
+ 178 0026 1278     		ldrb	r2, [r2]
+ 179 0028 9342     		cmp	r3, r2
+ 180 002a F3D3     		bcc	.L13
+  65:.\wifi.c      ****     }
+  66:.\wifi.c      ****     data[stringRX_len] = 0;
+ 181              		.loc 1 66 0 is_stmt 1
+ 182 002c A218     		add	r2, r4, r2
+ 183 002e 0023     		mov	r3, #0
+ 184              	.LVL12:
+ 185 0030 1370     		strb	r3, [r2]
+  67:.\wifi.c      ****     stringRX_len = 0;
+ 186              		.loc 1 67 0
+ 187 0032 064A     		ldr	r2, .L15+4
+ 188 0034 1370     		strb	r3, [r2]
+  68:.\wifi.c      ****     RXnewData = 0;                      //interrupt resettes
+ 189              		.loc 1 68 0
+ 190 0036 044A     		ldr	r2, .L15
+ 191 0038 1370     		strb	r3, [r2]
+  69:.\wifi.c      ****     
+  70:.\wifi.c      ****     return strlen(data);
+ 192              		.loc 1 70 0
+ 193 003a 201C     		mov	r0, r4
+ 194 003c FFF7FEFF 		bl	strlen
+ 195              	.LVL13:
+ 196 0040 C0B2     		uxtb	r0, r0
+ 197 0042 00E0     		b	.L11
+ 198              	.LVL14:
+ 199              	.L14:
+  57:.\wifi.c      ****     
+ 200              		.loc 1 57 0
+ 201 0044 0020     		mov	r0, #0
+ 202              	.LVL15:
+ 203              	.L11:
+  71:.\wifi.c      **** }
+ 204              		.loc 1 71 0
+ 205              		@ sp needed
+ 206 0046 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 6
+
+
+ 207              	.L16:
+ 208              		.align	2
+ 209              	.L15:
+ 210 0048 00000000 		.word	RXnewData
+ 211 004c 00000000 		.word	.LANCHOR0
+ 212              		.cfi_endproc
+ 213              	.LFE35:
+ 214              		.size	getStringFromUart, .-getStringFromUart
+ 215              		.section	.text.findResponse,"ax",%progbits
+ 216              		.align	2
+ 217              		.global	findResponse
+ 218              		.code	16
+ 219              		.thumb_func
+ 220              		.type	findResponse, %function
+ 221              	findResponse:
+ 222              	.LFB36:
+  72:.\wifi.c      **** 
+  73:.\wifi.c      **** uint8 findResponse(char *textToFind)
+  74:.\wifi.c      **** {
+ 223              		.loc 1 74 0
+ 224              		.cfi_startproc
+ 225              	.LVL16:
+ 226 0000 70B5     		push	{r4, r5, r6, lr}
+ 227              		.cfi_def_cfa_offset 16
+ 228              		.cfi_offset 4, -16
+ 229              		.cfi_offset 5, -12
+ 230              		.cfi_offset 6, -8
+ 231              		.cfi_offset 14, -4
+ 232 0002 051C     		mov	r5, r0
+  75:.\wifi.c      ****     uint8 textToFindLength = strlen(textToFind);    //finder længden af den text man gerne vil fin
+ 233              		.loc 1 75 0
+ 234 0004 FFF7FEFF 		bl	strlen
+ 235              	.LVL17:
+ 236 0008 C6B2     		uxtb	r6, r0
+ 237              	.LVL18:
+  76:.\wifi.c      ****     uint8 index = 0;
+ 238              		.loc 1 76 0
+ 239 000a 0024     		mov	r4, #0
+  77:.\wifi.c      ****     char currentChar;
+  78:.\wifi.c      ****     
+  79:.\wifi.c      ****     while((currentChar = UART_GetChar()) != 0)      //læser data fra uarten
+ 240              		.loc 1 79 0
+ 241 000c 08E0     		b	.L18
+ 242              	.LVL19:
+ 243              	.L21:
+  80:.\wifi.c      ****     {
+  81:.\wifi.c      ****         if(currentChar == textToFind[index])        //Hvis den currentChar matcher én char fra uar
+ 244              		.loc 1 81 0
+ 245 000e 2B5D     		ldrb	r3, [r5, r4]
+ 246 0010 8342     		cmp	r3, r0
+ 247 0012 04D1     		bne	.L22
+  82:.\wifi.c      ****         {
+  83:.\wifi.c      ****             if(++index >= textToFindLength)         //så incrementeres index for at læse næste p
+ 248              		.loc 1 83 0
+ 249 0014 0134     		add	r4, r4, #1
+ 250              	.LVL20:
+ 251 0016 E4B2     		uxtb	r4, r4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 7
+
+
+ 252              	.LVL21:
+ 253 0018 B442     		cmp	r4, r6
+ 254 001a 01D3     		bcc	.L18
+ 255 001c 05E0     		b	.L23
+ 256              	.L22:
+  84:.\wifi.c      ****                 return 1;                           //og der ses om index er større eller lig med 
+  85:.\wifi.c      ****         }
+  86:.\wifi.c      ****         else
+  87:.\wifi.c      ****             index = 0;                              //hvis den char man ser på ikke er lig med den
+ 257              		.loc 1 87 0
+ 258 001e 0024     		mov	r4, #0
+ 259              	.LVL22:
+ 260              	.L18:
+  79:.\wifi.c      ****     {
+ 261              		.loc 1 79 0
+ 262 0020 FFF7FEFF 		bl	UART_GetChar
+ 263              	.LVL23:
+ 264 0024 0028     		cmp	r0, #0
+ 265 0026 F2D1     		bne	.L21
+ 266 0028 00E0     		b	.L20
+ 267              	.L23:
+  84:.\wifi.c      ****                 return 1;                           //og der ses om index er større eller lig med 
+ 268              		.loc 1 84 0
+ 269 002a 0120     		mov	r0, #1
+ 270              	.LVL24:
+ 271              	.L20:
+  88:.\wifi.c      ****     }
+  89:.\wifi.c      ****     return 0;                                       //hvis ingen text findes returneres false
+  90:.\wifi.c      **** }
+ 272              		.loc 1 90 0
+ 273              		@ sp needed
+ 274              	.LVL25:
+ 275              	.LVL26:
+ 276              	.LVL27:
+ 277 002c 70BD     		pop	{r4, r5, r6, pc}
+ 278              		.cfi_endproc
+ 279              	.LFE36:
+ 280              		.size	findResponse, .-findResponse
+ 281 002e C046     		.section	.text.connectToWiFi,"ax",%progbits
+ 282              		.align	2
+ 283              		.global	connectToWiFi
+ 284              		.code	16
+ 285              		.thumb_func
+ 286              		.type	connectToWiFi, %function
+ 287              	connectToWiFi:
+ 288              	.LFB37:
+  91:.\wifi.c      **** 
+  92:.\wifi.c      **** int connectToWiFi(char *wifiSSID, char *wifiPASS)
+  93:.\wifi.c      **** {
+ 289              		.loc 1 93 0
+ 290              		.cfi_startproc
+ 291              	.LVL28:
+ 292 0000 00B5     		push	{lr}
+ 293              		.cfi_def_cfa_offset 4
+ 294              		.cfi_offset 14, -4
+ 295 0002 C1B0     		sub	sp, sp, #260
+ 296              		.cfi_def_cfa_offset 264
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 8
+
+
+ 297 0004 021C     		mov	r2, r0
+ 298 0006 0B1C     		mov	r3, r1
+  94:.\wifi.c      ****     char sendString[255];                                            //char array på 64 pladser, s
+  95:.\wifi.c      ****     sprintf(sendString,"AT+CWJAP=\"%s\",\"%s\"\r\n",wifiSSID, wifiPASS);    //tilslut net med SSID 
+ 299              		.loc 1 95 0
+ 300 0008 6846     		mov	r0, sp
+ 301              	.LVL29:
+ 302 000a 0B49     		ldr	r1, .L27
+ 303              	.LVL30:
+ 304 000c FFF7FEFF 		bl	sprintf
+ 305              	.LVL31:
+  96:.\wifi.c      ****     UART_PutString(sendString);                                     //sendString printes på uarten
+ 306              		.loc 1 96 0
+ 307 0010 6846     		mov	r0, sp
+ 308 0012 FFF7FEFF 		bl	UART_PutString
+ 309              	.LVL32:
+  97:.\wifi.c      ****     CyDelay(5000);
+ 310              		.loc 1 97 0
+ 311 0016 0948     		ldr	r0, .L27+4
+ 312 0018 FFF7FEFF 		bl	CyDelay
+ 313              	.LVL33:
+  98:.\wifi.c      ****     if(findResponse("OK"))
+ 314              		.loc 1 98 0
+ 315 001c 0848     		ldr	r0, .L27+8
+ 316 001e FFF7FEFF 		bl	findResponse
+ 317              	.LVL34:
+ 318 0022 0028     		cmp	r0, #0
+ 319 0024 04D0     		beq	.L26
+  99:.\wifi.c      ****     {
+ 100:.\wifi.c      ****         CyDelay(100);
+ 320              		.loc 1 100 0
+ 321 0026 6420     		mov	r0, #100
+ 322 0028 FFF7FEFF 		bl	CyDelay
+ 323              	.LVL35:
+ 101:.\wifi.c      ****         return 1;
+ 324              		.loc 1 101 0
+ 325 002c 0120     		mov	r0, #1
+ 326 002e 00E0     		b	.L25
+ 327              	.L26:
+ 102:.\wifi.c      ****     }
+ 103:.\wifi.c      ****     else
+ 104:.\wifi.c      ****         return 0;
+ 328              		.loc 1 104 0
+ 329 0030 0020     		mov	r0, #0
+ 330              	.L25:
+ 105:.\wifi.c      **** }
+ 331              		.loc 1 105 0
+ 332 0032 41B0     		add	sp, sp, #260
+ 333              		@ sp needed
+ 334 0034 00BD     		pop	{pc}
+ 335              	.L28:
+ 336 0036 C046     		.align	2
+ 337              	.L27:
+ 338 0038 00000000 		.word	.LC4
+ 339 003c 88130000 		.word	5000
+ 340 0040 18000000 		.word	.LC6
+ 341              		.cfi_endproc
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 9
+
+
+ 342              	.LFE37:
+ 343              		.size	connectToWiFi, .-connectToWiFi
+ 344              		.section	.text.connectToDevKit,"ax",%progbits
+ 345              		.align	2
+ 346              		.global	connectToDevKit
+ 347              		.code	16
+ 348              		.thumb_func
+ 349              		.type	connectToDevKit, %function
+ 350              	connectToDevKit:
+ 351              	.LFB38:
+ 106:.\wifi.c      **** 
+ 107:.\wifi.c      **** int connectToDevKit(char *DevKitIPAdress)
+ 108:.\wifi.c      **** {
+ 352              		.loc 1 108 0
+ 353              		.cfi_startproc
+ 354              	.LVL36:
+ 355 0000 00B5     		push	{lr}
+ 356              		.cfi_def_cfa_offset 4
+ 357              		.cfi_offset 14, -4
+ 358 0002 C1B0     		sub	sp, sp, #260
+ 359              		.cfi_def_cfa_offset 264
+ 360 0004 021C     		mov	r2, r0
+ 109:.\wifi.c      ****     char sendString[255];
+ 110:.\wifi.c      ****     sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAdress, DevKitPortNr); //tilslut
+ 361              		.loc 1 110 0
+ 362 0006 6846     		mov	r0, sp
+ 363              	.LVL37:
+ 364 0008 0D49     		ldr	r1, .L32
+ 365 000a 0E4B     		ldr	r3, .L32+4
+ 366 000c FFF7FEFF 		bl	sprintf
+ 367              	.LVL38:
+ 111:.\wifi.c      ****     CyDelay(500);
+ 368              		.loc 1 111 0
+ 369 0010 FA20     		mov	r0, #250
+ 370 0012 4000     		lsl	r0, r0, #1
+ 371 0014 FFF7FEFF 		bl	CyDelay
+ 372              	.LVL39:
+ 112:.\wifi.c      ****     UART_PutString(sendString);                                                     //sendString pr
+ 373              		.loc 1 112 0
+ 374 0018 6846     		mov	r0, sp
+ 375 001a FFF7FEFF 		bl	UART_PutString
+ 376              	.LVL40:
+ 113:.\wifi.c      ****     CyDelay(1000);
+ 377              		.loc 1 113 0
+ 378 001e FA20     		mov	r0, #250
+ 379 0020 8000     		lsl	r0, r0, #2
+ 380 0022 FFF7FEFF 		bl	CyDelay
+ 381              	.LVL41:
+ 114:.\wifi.c      ****     if(findResponse("OK"))
+ 382              		.loc 1 114 0
+ 383 0026 0848     		ldr	r0, .L32+8
+ 384 0028 FFF7FEFF 		bl	findResponse
+ 385              	.LVL42:
+ 386 002c 0028     		cmp	r0, #0
+ 387 002e 04D0     		beq	.L31
+ 115:.\wifi.c      ****     {
+ 116:.\wifi.c      ****         CyDelay(100);
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 10
+
+
+ 388              		.loc 1 116 0
+ 389 0030 6420     		mov	r0, #100
+ 390 0032 FFF7FEFF 		bl	CyDelay
+ 391              	.LVL43:
+ 117:.\wifi.c      ****         return 1;
+ 392              		.loc 1 117 0
+ 393 0036 0120     		mov	r0, #1
+ 394 0038 00E0     		b	.L30
+ 395              	.L31:
+ 118:.\wifi.c      ****     }
+ 119:.\wifi.c      ****     else
+ 120:.\wifi.c      ****         return 0;
+ 396              		.loc 1 120 0
+ 397 003a 0020     		mov	r0, #0
+ 398              	.L30:
+ 121:.\wifi.c      **** }
+ 399              		.loc 1 121 0
+ 400 003c 41B0     		add	sp, sp, #260
+ 401              		@ sp needed
+ 402 003e 00BD     		pop	{pc}
+ 403              	.L33:
+ 404              		.align	2
+ 405              	.L32:
+ 406 0040 1C000000 		.word	.LC8
+ 407 0044 B8220000 		.word	8888
+ 408 0048 18000000 		.word	.LC6
+ 409              		.cfi_endproc
+ 410              	.LFE38:
+ 411              		.size	connectToDevKit, .-connectToDevKit
+ 412              		.section	.text.sendDataDevkit,"ax",%progbits
+ 413              		.align	2
+ 414              		.global	sendDataDevkit
+ 415              		.code	16
+ 416              		.thumb_func
+ 417              		.type	sendDataDevkit, %function
+ 418              	sendDataDevkit:
+ 419              	.LFB39:
+ 122:.\wifi.c      **** 
+ 123:.\wifi.c      **** void sendDataDevkit(char *dataToSend)
+ 124:.\wifi.c      **** {
+ 420              		.loc 1 124 0
+ 421              		.cfi_startproc
+ 422              	.LVL44:
+ 423 0000 10B5     		push	{r4, lr}
+ 424              		.cfi_def_cfa_offset 8
+ 425              		.cfi_offset 4, -8
+ 426              		.cfi_offset 14, -4
+ 427 0002 C0B0     		sub	sp, sp, #256
+ 428              		.cfi_def_cfa_offset 264
+ 429 0004 041C     		mov	r4, r0
+ 430              	.LVL45:
+ 125:.\wifi.c      ****     char sendString[255];                               //char array på 254 chars, muligt at højs
+ 126:.\wifi.c      ****     uint16 length=0;
+ 127:.\wifi.c      ****     length=strlen(dataToSend);                          //længden af den mængde data man vil send
+ 431              		.loc 1 127 0
+ 432 0006 FFF7FEFF 		bl	strlen
+ 433              	.LVL46:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 11
+
+
+ 434 000a 0204     		lsl	r2, r0, #16
+ 435 000c 120C     		lsr	r2, r2, #16
+ 128:.\wifi.c      ****     sprintf(sendString,"AT+CIPSEND=%d\r\n",length);     //AT kommando for at sende, syntax er AT+CI
+ 436              		.loc 1 128 0
+ 437 000e 6846     		mov	r0, sp
+ 438              	.LVL47:
+ 439 0010 1649     		ldr	r1, .L38
+ 440 0012 FFF7FEFF 		bl	sprintf
+ 441              	.LVL48:
+ 129:.\wifi.c      ****     UART_PutString(sendString);                         //sendString printes på uarten
+ 442              		.loc 1 129 0
+ 443 0016 6846     		mov	r0, sp
+ 444 0018 FFF7FEFF 		bl	UART_PutString
+ 445              	.LVL49:
+ 130:.\wifi.c      ****     CyDelay(100);
+ 446              		.loc 1 130 0
+ 447 001c 6420     		mov	r0, #100
+ 448 001e FFF7FEFF 		bl	CyDelay
+ 449              	.LVL50:
+ 131:.\wifi.c      ****     if(findResponse("link"))                            //hvis den ikke er forbundet, forbinder den
+ 450              		.loc 1 131 0
+ 451 0022 1348     		ldr	r0, .L38+4
+ 452 0024 FFF7FEFF 		bl	findResponse
+ 453              	.LVL51:
+ 454 0028 0028     		cmp	r0, #0
+ 455 002a 17D0     		beq	.L35
+ 132:.\wifi.c      ****     {
+ 133:.\wifi.c      ****         CyDelay(300);
+ 456              		.loc 1 133 0
+ 457 002c 9620     		mov	r0, #150
+ 458 002e 4000     		lsl	r0, r0, #1
+ 459 0030 FFF7FEFF 		bl	CyDelay
+ 460              	.LVL52:
+ 134:.\wifi.c      ****         if(connectToDevKit(DevKitIP))                   //forbinder til net
+ 461              		.loc 1 134 0
+ 462 0034 0F48     		ldr	r0, .L38+8
+ 463 0036 FFF7FEFF 		bl	connectToDevKit
+ 464              	.LVL53:
+ 465 003a 0028     		cmp	r0, #0
+ 466 003c 14D0     		beq	.L34
+ 467              	.L37:
+ 135:.\wifi.c      ****         {
+ 136:.\wifi.c      ****             while(findResponse("OK"));                  //venter på OK svar
+ 468              		.loc 1 136 0 discriminator 1
+ 469 003e 0E48     		ldr	r0, .L38+12
+ 470 0040 FFF7FEFF 		bl	findResponse
+ 471              	.LVL54:
+ 472 0044 0028     		cmp	r0, #0
+ 473 0046 FAD1     		bne	.L37
+ 137:.\wifi.c      ****             UART_PutString(sendString);
+ 474              		.loc 1 137 0
+ 475 0048 6846     		mov	r0, sp
+ 476 004a FFF7FEFF 		bl	UART_PutString
+ 477              	.LVL55:
+ 138:.\wifi.c      ****             CyDelay(100);
+ 478              		.loc 1 138 0
+ 479 004e 6420     		mov	r0, #100
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 12
+
+
+ 480 0050 FFF7FEFF 		bl	CyDelay
+ 481              	.LVL56:
+ 139:.\wifi.c      ****             UART_PutString(dataToSend);
+ 482              		.loc 1 139 0
+ 483 0054 201C     		mov	r0, r4
+ 484 0056 FFF7FEFF 		bl	UART_PutString
+ 485              	.LVL57:
+ 486 005a 05E0     		b	.L34
+ 487              	.L35:
+ 140:.\wifi.c      ****         }
+ 141:.\wifi.c      ****     }
+ 142:.\wifi.c      ****     else
+ 143:.\wifi.c      ****     {
+ 144:.\wifi.c      ****         CyDelay(100);
+ 488              		.loc 1 144 0
+ 489 005c 6420     		mov	r0, #100
+ 490 005e FFF7FEFF 		bl	CyDelay
+ 491              	.LVL58:
+ 145:.\wifi.c      ****         UART_PutString(dataToSend);                     //printer hvis den er forbundet til servere
+ 492              		.loc 1 145 0
+ 493 0062 201C     		mov	r0, r4
+ 494 0064 FFF7FEFF 		bl	UART_PutString
+ 495              	.LVL59:
+ 496              	.L34:
+ 146:.\wifi.c      ****     }
+ 147:.\wifi.c      **** }
+ 497              		.loc 1 147 0
+ 498 0068 40B0     		add	sp, sp, #256
+ 499              		@ sp needed
+ 500              	.LVL60:
+ 501 006a 10BD     		pop	{r4, pc}
+ 502              	.L39:
+ 503              		.align	2
+ 504              	.L38:
+ 505 006c 38000000 		.word	.LC11
+ 506 0070 48000000 		.word	.LC13
+ 507 0074 50000000 		.word	.LC15
+ 508 0078 18000000 		.word	.LC6
+ 509              		.cfi_endproc
+ 510              	.LFE39:
+ 511              		.size	sendDataDevkit, .-sendDataDevkit
+ 512              		.section	.text.receiveDataDevKit,"ax",%progbits
+ 513              		.align	2
+ 514              		.global	receiveDataDevKit
+ 515              		.code	16
+ 516              		.thumb_func
+ 517              		.type	receiveDataDevKit, %function
+ 518              	receiveDataDevKit:
+ 519              	.LFB40:
+ 148:.\wifi.c      **** 
+ 149:.\wifi.c      **** uint8 receiveDataDevKit(char *inputString, char *data)
+ 150:.\wifi.c      **** {
+ 520              		.loc 1 150 0
+ 521              		.cfi_startproc
+ 522              	.LVL61:
+ 523 0000 70B5     		push	{r4, r5, r6, lr}
+ 524              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 13
+
+
+ 525              		.cfi_offset 4, -16
+ 526              		.cfi_offset 5, -12
+ 527              		.cfi_offset 6, -8
+ 528              		.cfi_offset 14, -4
+ 529 0002 84B0     		sub	sp, sp, #16
+ 530              		.cfi_def_cfa_offset 32
+ 531 0004 051C     		mov	r5, r0
+ 532 0006 0E1C     		mov	r6, r1
+ 151:.\wifi.c      ****     getStringFromUart(inputString);
+ 533              		.loc 1 151 0
+ 534 0008 FFF7FEFF 		bl	getStringFromUart
+ 535              	.LVL62:
+ 152:.\wifi.c      ****     //Tjekker om starten af den modtagende string starter med +IPD
+ 153:.\wifi.c      ****     char IPD[] = "+IPD";
+ 536              		.loc 1 153 0
+ 537 000c 1D4B     		ldr	r3, .L50
+ 538 000e 1A68     		ldr	r2, [r3]
+ 539 0010 0292     		str	r2, [sp, #8]
+ 540 0012 1A79     		ldrb	r2, [r3, #4]
+ 541 0014 02AB     		add	r3, sp, #8
+ 542 0016 1A71     		strb	r2, [r3, #4]
+ 543              	.LVL63:
+ 154:.\wifi.c      ****     uint8 i;
+ 155:.\wifi.c      ****     for(i= 0; i<4; i++)
+ 544              		.loc 1 155 0
+ 545 0018 0023     		mov	r3, #0
+ 546 001a 06E0     		b	.L41
+ 547              	.LVL64:
+ 548              	.L43:
+ 156:.\wifi.c      ****     {
+ 157:.\wifi.c      ****         if(IPD[i] != inputString[i])
+ 549              		.loc 1 157 0
+ 550 001c 02AA     		add	r2, sp, #8
+ 551 001e D15C     		ldrb	r1, [r2, r3]
+ 552 0020 EA5C     		ldrb	r2, [r5, r3]
+ 553 0022 9142     		cmp	r1, r2
+ 554 0024 28D1     		bne	.L48
+ 155:.\wifi.c      ****     {
+ 555              		.loc 1 155 0 discriminator 2
+ 556 0026 0133     		add	r3, r3, #1
+ 557              	.LVL65:
+ 558 0028 DBB2     		uxtb	r3, r3
+ 559              	.LVL66:
+ 560              	.L41:
+ 155:.\wifi.c      ****     {
+ 561              		.loc 1 155 0 is_stmt 0 discriminator 1
+ 562 002a 032B     		cmp	r3, #3
+ 563 002c F6D9     		bls	.L43
+ 564 002e 0024     		mov	r4, #0
+ 565 0030 03E0     		b	.L44
+ 566              	.LVL67:
+ 567              	.L45:
+ 158:.\wifi.c      ****             return 0;
+ 159:.\wifi.c      ****     }
+ 160:.\wifi.c      **** 
+ 161:.\wifi.c      ****     //Så længde man ikke mødder ":" i inputString læses dataene over i bytesLength_char så der
+ 162:.\wifi.c      ****     char bytesLength_char[4];
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 14
+
+
+ 163:.\wifi.c      ****     uint8 len = 0;
+ 164:.\wifi.c      ****     uint8 bytesPos = 0;
+ 165:.\wifi.c      ****     uint8 dataPos = 0;
+ 166:.\wifi.c      ****     while(inputString[(bytesPos + 5)]!=':')
+ 167:.\wifi.c      ****     {
+ 168:.\wifi.c      ****         bytesLength_char[bytesPos] = inputString[bytesPos+5];
+ 568              		.loc 1 168 0 is_stmt 1
+ 569 0032 01AA     		add	r2, sp, #4
+ 570 0034 1355     		strb	r3, [r2, r4]
+ 169:.\wifi.c      ****         bytesPos++;
+ 571              		.loc 1 169 0
+ 572 0036 0134     		add	r4, r4, #1
+ 573              	.LVL68:
+ 574 0038 E4B2     		uxtb	r4, r4
+ 575              	.LVL69:
+ 576              	.L44:
+ 166:.\wifi.c      ****     {
+ 577              		.loc 1 166 0
+ 578 003a 631D     		add	r3, r4, #5
+ 579 003c EB5C     		ldrb	r3, [r5, r3]
+ 580 003e 3A2B     		cmp	r3, #58
+ 581 0040 F7D1     		bne	.L45
+ 170:.\wifi.c      ****     }
+ 171:.\wifi.c      ****     bytesLength_char[bytesPos] = 0;
+ 582              		.loc 1 171 0
+ 583 0042 01A8     		add	r0, sp, #4
+ 584 0044 0023     		mov	r3, #0
+ 585 0046 0355     		strb	r3, [r0, r4]
+ 172:.\wifi.c      **** 
+ 173:.\wifi.c      ****     //mængde data aflæses og gemmes i len
+ 174:.\wifi.c      ****     len = atoi(bytesLength_char);
+ 586              		.loc 1 174 0
+ 587 0048 FFF7FEFF 		bl	atoi
+ 588              	.LVL70:
+ 589 004c C1B2     		uxtb	r1, r0
+ 590              	.LVL71:
+ 175:.\wifi.c      ****     if(len <= 0)
+ 591              		.loc 1 175 0
+ 592 004e 0029     		cmp	r1, #0
+ 593 0050 14D0     		beq	.L49
+ 594              	.LVL72:
+ 176:.\wifi.c      ****         return 0;
+ 177:.\wifi.c      ****     
+ 178:.\wifi.c      ****     //data overføres fra den modtagne string og over i 
+ 179:.\wifi.c      ****     bytesPos++;
+ 180:.\wifi.c      ****     dataPos = bytesPos + 5;
+ 595              		.loc 1 180 0
+ 596 0052 0634     		add	r4, r4, #6
+ 597              	.LVL73:
+ 598 0054 E4B2     		uxtb	r4, r4
+ 599              	.LVL74:
+ 181:.\wifi.c      ****     for(i=0; i<len; i++)        //f.eks. +IPD,8:Hello123   --> len = 8.                  
+ 600              		.loc 1 181 0
+ 601 0056 0023     		mov	r3, #0
+ 602 0058 04E0     		b	.L46
+ 603              	.LVL75:
+ 604              	.L47:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 15
+
+
+ 182:.\wifi.c      ****     {
+ 183:.\wifi.c      ****            data[i] = inputString[(i+dataPos)];
+ 605              		.loc 1 183 0 discriminator 3
+ 606 005a 1A19     		add	r2, r3, r4
+ 607 005c AA5C     		ldrb	r2, [r5, r2]
+ 608 005e F254     		strb	r2, [r6, r3]
+ 181:.\wifi.c      ****     for(i=0; i<len; i++)        //f.eks. +IPD,8:Hello123   --> len = 8.                  
+ 609              		.loc 1 181 0 discriminator 3
+ 610 0060 0133     		add	r3, r3, #1
+ 611              	.LVL76:
+ 612 0062 DBB2     		uxtb	r3, r3
+ 613              	.LVL77:
+ 614              	.L46:
+ 181:.\wifi.c      ****     for(i=0; i<len; i++)        //f.eks. +IPD,8:Hello123   --> len = 8.                  
+ 615              		.loc 1 181 0 is_stmt 0 discriminator 1
+ 616 0064 8B42     		cmp	r3, r1
+ 617 0066 F8D3     		bcc	.L47
+ 184:.\wifi.c      ****     }
+ 185:.\wifi.c      ****     
+ 186:.\wifi.c      ****     data[dataPos + len] = 0;        //afslutter arrayet ved pladsen efter det sidst modtagne data.
+ 618              		.loc 1 186 0 is_stmt 1
+ 619 0068 FF23     		mov	r3, #255
+ 620              	.LVL78:
+ 621 006a 1840     		and	r0, r3
+ 622 006c 2418     		add	r4, r4, r0
+ 623              	.LVL79:
+ 624 006e 3619     		add	r6, r6, r4
+ 625              	.LVL80:
+ 626 0070 0023     		mov	r3, #0
+ 627 0072 3370     		strb	r3, [r6]
+ 187:.\wifi.c      ****     
+ 188:.\wifi.c      ****     return len;
+ 628              		.loc 1 188 0
+ 629 0074 081C     		mov	r0, r1
+ 630 0076 02E0     		b	.L42
+ 631              	.LVL81:
+ 632              	.L48:
+ 158:.\wifi.c      ****     }
+ 633              		.loc 1 158 0
+ 634 0078 0020     		mov	r0, #0
+ 635 007a 00E0     		b	.L42
+ 636              	.LVL82:
+ 637              	.L49:
+ 176:.\wifi.c      ****     
+ 638              		.loc 1 176 0
+ 639 007c 0020     		mov	r0, #0
+ 640              	.LVL83:
+ 641              	.L42:
+ 189:.\wifi.c      **** }
+ 642              		.loc 1 189 0
+ 643 007e 04B0     		add	sp, sp, #16
+ 644              		@ sp needed
+ 645              	.LVL84:
+ 646 0080 70BD     		pop	{r4, r5, r6, pc}
+ 647              	.L51:
+ 648 0082 C046     		.align	2
+ 649              	.L50:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 16
+
+
+ 650 0084 60000000 		.word	.LC18
+ 651              		.cfi_endproc
+ 652              	.LFE40:
+ 653              		.size	receiveDataDevKit, .-receiveDataDevKit
+ 654              		.section	.text.setPlantData,"ax",%progbits
+ 655              		.align	2
+ 656              		.global	setPlantData
+ 657              		.code	16
+ 658              		.thumb_func
+ 659              		.type	setPlantData, %function
+ 660              	setPlantData:
+ 661              	.LFB42:
+ 190:.\wifi.c      **** 
+ 191:.\wifi.c      **** 
+ 192:.\wifi.c      **** void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der kan sættes, reste
+ 193:.\wifi.c      **** {
+ 194:.\wifi.c      ****     int i = 0;
+ 195:.\wifi.c      ****     char dataBuf[255];  ///string med data modtaget fra DevKittet
+ 196:.\wifi.c      **** //    char dataType[4];
+ 197:.\wifi.c      ****     char value_char[8];
+ 198:.\wifi.c      ****     uint8 plantIDLocal;
+ 199:.\wifi.c      **** 
+ 200:.\wifi.c      ****     while(receiveDataDevKit(inputString,dataBuf) == 0u);
+ 201:.\wifi.c      ****     //M1065R1099
+ 202:.\wifi.c      **** //    dataType[0] = dataBuf[0];       //Moist
+ 203:.\wifi.c      **** //    dataType[1] = dataBuf[5];       //Rotate
+ 204:.\wifi.c      ****     plantIDLocal = dataBuf[1];        //'1' i ascii er = 49 i decimal, derfor minus med decimal48 f
+ 205:.\wifi.c      ****     
+ 206:.\wifi.c      ****     for(i=0;i<3;i++)
+ 207:.\wifi.c      ****         value_char[i] = dataBuf[i+2];   //Tager moist value
+ 208:.\wifi.c      ****     for(i=0;i<3;i++)
+ 209:.\wifi.c      ****         value_char[i+3] = dataBuf[i+7]; //tager rotate value
+ 210:.\wifi.c      ****         
+ 211:.\wifi.c      ****     value_char[6] = 0;
+ 212:.\wifi.c      ****     
+ 213:.\wifi.c      ****     if (plantIDLocal >= 0)
+ 214:.\wifi.c      ****     {
+ 215:.\wifi.c      ****         plantID = plantIDLocal;
+ 216:.\wifi.c      ****         setPlantData(value_char);
+ 217:.\wifi.c      ****     }
+ 218:.\wifi.c      ****     else
+ 219:.\wifi.c      ****         return; 
+ 220:.\wifi.c      **** }
+ 221:.\wifi.c      **** 
+ 222:.\wifi.c      **** void setPlantData(char *plantValue)
+ 223:.\wifi.c      **** {
+ 662              		.loc 1 223 0
+ 663              		.cfi_startproc
+ 664              	.LVL85:
+ 665 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 666              		.cfi_def_cfa_offset 20
+ 667              		.cfi_offset 4, -20
+ 668              		.cfi_offset 5, -16
+ 669              		.cfi_offset 6, -12
+ 670              		.cfi_offset 7, -8
+ 671              		.cfi_offset 14, -4
+ 672 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 17
+
+
+ 673              		.cfi_def_cfa_offset 32
+ 674              	.LVL86:
+ 224:.\wifi.c      ****     int i;
+ 225:.\wifi.c      ****     uint8 valueMoist = 0;
+ 226:.\wifi.c      ****     uint8 valueRotate = 0;
+ 227:.\wifi.c      ****     char plantMoist[4];
+ 228:.\wifi.c      ****     char plantRotate[4];
+ 229:.\wifi.c      ****     
+ 230:.\wifi.c      ****     for(i=0;i<3;i++)
+ 675              		.loc 1 230 0
+ 676 0004 0023     		mov	r3, #0
+ 677 0006 03E0     		b	.L53
+ 678              	.LVL87:
+ 679              	.L54:
+ 231:.\wifi.c      ****         plantMoist[i] = plantValue[i];
+ 680              		.loc 1 231 0 discriminator 3
+ 681 0008 C15C     		ldrb	r1, [r0, r3]
+ 682 000a 01AA     		add	r2, sp, #4
+ 683 000c D154     		strb	r1, [r2, r3]
+ 230:.\wifi.c      ****         plantMoist[i] = plantValue[i];
+ 684              		.loc 1 230 0 discriminator 3
+ 685 000e 0133     		add	r3, r3, #1
+ 686              	.LVL88:
+ 687              	.L53:
+ 230:.\wifi.c      ****         plantMoist[i] = plantValue[i];
+ 688              		.loc 1 230 0 is_stmt 0 discriminator 1
+ 689 0010 022B     		cmp	r3, #2
+ 690 0012 F9DD     		ble	.L54
+ 691 0014 0023     		mov	r3, #0
+ 692              	.LVL89:
+ 693 0016 04E0     		b	.L55
+ 694              	.LVL90:
+ 695              	.L56:
+ 232:.\wifi.c      ****     
+ 233:.\wifi.c      ****     for(i=0;i<3;i++)
+ 234:.\wifi.c      ****         plantRotate[i] = plantValue[i+3];
+ 696              		.loc 1 234 0 is_stmt 1 discriminator 3
+ 697 0018 C218     		add	r2, r0, r3
+ 698 001a D278     		ldrb	r2, [r2, #3]
+ 699 001c 6946     		mov	r1, sp
+ 700 001e CA54     		strb	r2, [r1, r3]
+ 233:.\wifi.c      ****         plantRotate[i] = plantValue[i+3];
+ 701              		.loc 1 233 0 discriminator 3
+ 702 0020 0133     		add	r3, r3, #1
+ 703              	.LVL91:
+ 704              	.L55:
+ 233:.\wifi.c      ****         plantRotate[i] = plantValue[i+3];
+ 705              		.loc 1 233 0 is_stmt 0 discriminator 1
+ 706 0022 022B     		cmp	r3, #2
+ 707 0024 F8DD     		ble	.L56
+ 235:.\wifi.c      ****     
+ 236:.\wifi.c      ****     plantMoist[3] = 0;
+ 708              		.loc 1 236 0 is_stmt 1
+ 709 0026 01A8     		add	r0, sp, #4
+ 710              	.LVL92:
+ 711 0028 0023     		mov	r3, #0
+ 712              	.LVL93:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 18
+
+
+ 713 002a C370     		strb	r3, [r0, #3]
+ 237:.\wifi.c      ****     plantRotate[3] = 0;
+ 714              		.loc 1 237 0
+ 715 002c 6A46     		mov	r2, sp
+ 716 002e D370     		strb	r3, [r2, #3]
+ 238:.\wifi.c      **** 
+ 239:.\wifi.c      ****     valueMoist = atoi(plantMoist);       //data fra dataBuf læses fra pladserne [2-4] hvor der kan
+ 717              		.loc 1 239 0
+ 718 0030 FFF7FEFF 		bl	atoi
+ 719              	.LVL94:
+ 720 0034 051C     		mov	r5, r0
+ 721 0036 C4B2     		uxtb	r4, r0
+ 722              	.LVL95:
+ 240:.\wifi.c      ****     valueRotate = atoi(plantRotate);     //
+ 723              		.loc 1 240 0
+ 724 0038 6846     		mov	r0, sp
+ 725 003a FFF7FEFF 		bl	atoi
+ 726              	.LVL96:
+ 727 003e 061C     		mov	r6, r0
+ 728 0040 C7B2     		uxtb	r7, r0
+ 729              	.LVL97:
+ 241:.\wifi.c      ****     
+ 242:.\wifi.c      ****         if(valueMoist >=10 && valueMoist <=100)             //moisture samt rotate validering
+ 730              		.loc 1 242 0
+ 731 0042 0A3C     		sub	r4, r4, #10
+ 732              	.LVL98:
+ 733 0044 5A2C     		cmp	r4, #90
+ 734 0046 02D8     		bhi	.L57
+ 243:.\wifi.c      ****             wantedMoisture = valueMoist;
+ 735              		.loc 1 243 0
+ 736 0048 074B     		ldr	r3, .L61
+ 737 004a 1D70     		strb	r5, [r3]
+ 738 004c 02E0     		b	.L58
+ 739              	.L57:
+ 244:.\wifi.c      ****         else
+ 245:.\wifi.c      ****             UART_PutString("Value outside permitted plant set data for Moist\r\n");       //debuggi
+ 740              		.loc 1 245 0
+ 741 004e 0748     		ldr	r0, .L61+4
+ 742 0050 FFF7FEFF 		bl	UART_PutString
+ 743              	.LVL99:
+ 744              	.L58:
+ 246:.\wifi.c      **** 
+ 247:.\wifi.c      ****         if(valueRotate >=0 && valueRotate <= 100)
+ 745              		.loc 1 247 0
+ 746 0054 642F     		cmp	r7, #100
+ 747 0056 02D8     		bhi	.L59
+ 248:.\wifi.c      ****             wantedRotate = valueRotate;
+ 748              		.loc 1 248 0
+ 749 0058 054B     		ldr	r3, .L61+8
+ 750 005a 1E70     		strb	r6, [r3]
+ 751 005c 02E0     		b	.L52
+ 752              	.L59:
+ 249:.\wifi.c      ****         else
+ 250:.\wifi.c      ****             UART_PutString("Value outside permitted plant set data for Rotate\r\n");       //debugg
+ 753              		.loc 1 250 0
+ 754 005e 0548     		ldr	r0, .L61+12
+ 755 0060 FFF7FEFF 		bl	UART_PutString
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 19
+
+
+ 756              	.LVL100:
+ 757              	.L52:
+ 251:.\wifi.c      **** }
+ 758              		.loc 1 251 0
+ 759 0064 03B0     		add	sp, sp, #12
+ 760              		@ sp needed
+ 761              	.LVL101:
+ 762              	.LVL102:
+ 763 0066 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 764              	.L62:
+ 765              		.align	2
+ 766              	.L61:
+ 767 0068 00000000 		.word	wantedMoisture
+ 768 006c 68000000 		.word	.LC21
+ 769 0070 00000000 		.word	wantedRotate
+ 770 0074 9C000000 		.word	.LC24
+ 771              		.cfi_endproc
+ 772              	.LFE42:
+ 773              		.size	setPlantData, .-setPlantData
+ 774              		.section	.text.updatePlantData,"ax",%progbits
+ 775              		.align	2
+ 776              		.global	updatePlantData
+ 777              		.code	16
+ 778              		.thumb_func
+ 779              		.type	updatePlantData, %function
+ 780              	updatePlantData:
+ 781              	.LFB41:
+ 193:.\wifi.c      ****     int i = 0;
+ 782              		.loc 1 193 0
+ 783              		.cfi_startproc
+ 784              	.LVL103:
+ 785 0000 10B5     		push	{r4, lr}
+ 786              		.cfi_def_cfa_offset 8
+ 787              		.cfi_offset 4, -8
+ 788              		.cfi_offset 14, -4
+ 789 0002 C2B0     		sub	sp, sp, #264
+ 790              		.cfi_def_cfa_offset 272
+ 791 0004 041C     		mov	r4, r0
+ 792              	.LVL104:
+ 793              	.L64:
+ 200:.\wifi.c      ****     //M1065R1099
+ 794              		.loc 1 200 0 discriminator 1
+ 795 0006 201C     		mov	r0, r4
+ 796 0008 02A9     		add	r1, sp, #8
+ 797 000a FFF7FEFF 		bl	receiveDataDevKit
+ 798              	.LVL105:
+ 799 000e 0028     		cmp	r0, #0
+ 800 0010 F9D0     		beq	.L64
+ 204:.\wifi.c      ****     
+ 801              		.loc 1 204 0
+ 802 0012 02AB     		add	r3, sp, #8
+ 803 0014 5C78     		ldrb	r4, [r3, #1]
+ 804              	.LVL106:
+ 206:.\wifi.c      ****         value_char[i] = dataBuf[i+2];   //Tager moist value
+ 805              		.loc 1 206 0
+ 806 0016 0023     		mov	r3, #0
+ 807 0018 05E0     		b	.L65
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 20
+
+
+ 808              	.LVL107:
+ 809              	.L66:
+ 207:.\wifi.c      ****     for(i=0;i<3;i++)
+ 810              		.loc 1 207 0 discriminator 3
+ 811 001a 9A1C     		add	r2, r3, #2
+ 812 001c 02A9     		add	r1, sp, #8
+ 813 001e 8A5C     		ldrb	r2, [r1, r2]
+ 814 0020 6946     		mov	r1, sp
+ 815 0022 CA54     		strb	r2, [r1, r3]
+ 206:.\wifi.c      ****         value_char[i] = dataBuf[i+2];   //Tager moist value
+ 816              		.loc 1 206 0 discriminator 3
+ 817 0024 0133     		add	r3, r3, #1
+ 818              	.LVL108:
+ 819              	.L65:
+ 206:.\wifi.c      ****         value_char[i] = dataBuf[i+2];   //Tager moist value
+ 820              		.loc 1 206 0 is_stmt 0 discriminator 1
+ 821 0026 022B     		cmp	r3, #2
+ 822 0028 F7DD     		ble	.L66
+ 823 002a 0023     		mov	r3, #0
+ 824              	.LVL109:
+ 825 002c 06E0     		b	.L67
+ 826              	.LVL110:
+ 827              	.L68:
+ 209:.\wifi.c      ****         
+ 828              		.loc 1 209 0 is_stmt 1 discriminator 3
+ 829 002e DA1C     		add	r2, r3, #3
+ 830 0030 D91D     		add	r1, r3, #7
+ 831 0032 02A8     		add	r0, sp, #8
+ 832 0034 415C     		ldrb	r1, [r0, r1]
+ 833 0036 6846     		mov	r0, sp
+ 834 0038 8154     		strb	r1, [r0, r2]
+ 208:.\wifi.c      ****         value_char[i+3] = dataBuf[i+7]; //tager rotate value
+ 835              		.loc 1 208 0 discriminator 3
+ 836 003a 0133     		add	r3, r3, #1
+ 837              	.LVL111:
+ 838              	.L67:
+ 208:.\wifi.c      ****         value_char[i+3] = dataBuf[i+7]; //tager rotate value
+ 839              		.loc 1 208 0 is_stmt 0 discriminator 1
+ 840 003c 022B     		cmp	r3, #2
+ 841 003e F6DD     		ble	.L68
+ 211:.\wifi.c      ****     
+ 842              		.loc 1 211 0 is_stmt 1
+ 843 0040 0023     		mov	r3, #0
+ 844              	.LVL112:
+ 845 0042 6A46     		mov	r2, sp
+ 846 0044 9371     		strb	r3, [r2, #6]
+ 215:.\wifi.c      ****         setPlantData(value_char);
+ 847              		.loc 1 215 0
+ 848 0046 034B     		ldr	r3, .L69
+ 849 0048 1C70     		strb	r4, [r3]
+ 216:.\wifi.c      ****     }
+ 850              		.loc 1 216 0
+ 851 004a 6846     		mov	r0, sp
+ 852 004c FFF7FEFF 		bl	setPlantData
+ 853              	.LVL113:
+ 220:.\wifi.c      **** 
+ 854              		.loc 1 220 0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 21
+
+
+ 855 0050 42B0     		add	sp, sp, #264
+ 856              		@ sp needed
+ 857              	.LVL114:
+ 858 0052 10BD     		pop	{r4, pc}
+ 859              	.L70:
+ 860              		.align	2
+ 861              	.L69:
+ 862 0054 00000000 		.word	.LANCHOR1
+ 863              		.cfi_endproc
+ 864              	.LFE41:
+ 865              		.size	updatePlantData, .-updatePlantData
+ 866              		.section	.text.sendSensorData,"ax",%progbits
+ 867              		.align	2
+ 868              		.global	sendSensorData
+ 869              		.code	16
+ 870              		.thumb_func
+ 871              		.type	sendSensorData, %function
+ 872              	sendSensorData:
+ 873              	.LFB43:
+ 252:.\wifi.c      **** 
+ 253:.\wifi.c      **** void sendSensorData(int16 moisturePin, int16 waterPin, int16 lightPin, int16 batteryPin, int16 temp
+ 254:.\wifi.c      **** {
+ 874              		.loc 1 254 0
+ 875              		.cfi_startproc
+ 876              	.LVL115:
+ 877 0000 30B5     		push	{r4, r5, lr}
+ 878              		.cfi_def_cfa_offset 12
+ 879              		.cfi_offset 4, -12
+ 880              		.cfi_offset 5, -8
+ 881              		.cfi_offset 14, -4
+ 882 0002 A9B0     		sub	sp, sp, #164
+ 883              		.cfi_def_cfa_offset 176
+ 884 0004 041C     		mov	r4, r0
+ 885 0006 151C     		mov	r5, r2
+ 886 0008 2CAA     		add	r2, sp, #176
+ 887              	.LVL116:
+ 888 000a 0020     		mov	r0, #0
+ 889 000c 105E     		ldrsh	r0, [r2, r0]
+ 890              	.LVL117:
+ 255:.\wifi.c      ****     char sendString[128]; //lokal string til behandling af sprintf
+ 256:.\wifi.c      ****     //Sender alt i 1 lang string
+ 257:.\wifi.c      ****     
+ 258:.\wifi.c      ****     sprintf(sendString,"M%c0%dW%c0%dL%c0%dB%c00%dT%c0%d",plantID,moisturePin,plantID,waterPin,plant
+ 891              		.loc 1 258 0
+ 892 000e 0F4A     		ldr	r2, .L72
+ 893 0010 1278     		ldrb	r2, [r2]
+ 894 0012 0092     		str	r2, [sp]
+ 895 0014 0191     		str	r1, [sp, #4]
+ 896 0016 0292     		str	r2, [sp, #8]
+ 897 0018 0395     		str	r5, [sp, #12]
+ 898 001a 0492     		str	r2, [sp, #16]
+ 899 001c 0593     		str	r3, [sp, #20]
+ 900 001e 0692     		str	r2, [sp, #24]
+ 901 0020 0790     		str	r0, [sp, #28]
+ 902 0022 08A8     		add	r0, sp, #32
+ 903 0024 0A49     		ldr	r1, .L72+4
+ 904              	.LVL118:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 22
+
+
+ 905 0026 231C     		mov	r3, r4
+ 906              	.LVL119:
+ 907 0028 FFF7FEFF 		bl	sprintf
+ 908              	.LVL120:
+ 259:.\wifi.c      ****     sendDataDevkit(sendString);            
+ 909              		.loc 1 259 0
+ 910 002c 08A8     		add	r0, sp, #32
+ 911 002e FFF7FEFF 		bl	sendDataDevkit
+ 912              	.LVL121:
+ 260:.\wifi.c      ****     updatePlantData(uartString);
+ 913              		.loc 1 260 0
+ 914 0032 0848     		ldr	r0, .L72+8
+ 915 0034 0430     		add	r0, r0, #4
+ 916 0036 FFF7FEFF 		bl	updatePlantData
+ 917              	.LVL122:
+ 261:.\wifi.c      **** 
+ 262:.\wifi.c      ****     CyDelay(500);
+ 918              		.loc 1 262 0
+ 919 003a FA20     		mov	r0, #250
+ 920 003c 4000     		lsl	r0, r0, #1
+ 921 003e FFF7FEFF 		bl	CyDelay
+ 922              	.LVL123:
+ 263:.\wifi.c      ****     UART_PutString("AT+CIPCLOSE\r\n");
+ 923              		.loc 1 263 0
+ 924 0042 0548     		ldr	r0, .L72+12
+ 925 0044 FFF7FEFF 		bl	UART_PutString
+ 926              	.LVL124:
+ 264:.\wifi.c      ****     
+ 265:.\wifi.c      **** //    //temperature
+ 266:.\wifi.c      **** //    sprintf(sendString,"T%d0%d ",plantID,temperaturePin);
+ 267:.\wifi.c      **** //    sendDataDevkit(sendString);
+ 268:.\wifi.c      **** //    updatePlantData(uartString);
+ 269:.\wifi.c      **** //    CyDelay(100);
+ 270:.\wifi.c      **** 
+ 271:.\wifi.c      **** }
+ 927              		.loc 1 271 0
+ 928 0048 29B0     		add	sp, sp, #164
+ 929              		@ sp needed
+ 930 004a 30BD     		pop	{r4, r5, pc}
+ 931              	.L73:
+ 932              		.align	2
+ 933              	.L72:
+ 934 004c 00000000 		.word	.LANCHOR1
+ 935 0050 D0000000 		.word	.LC28
+ 936 0054 00010000 		.word	.LANCHOR2
+ 937 0058 F0000000 		.word	.LC31
+ 938              		.cfi_endproc
+ 939              	.LFE43:
+ 940              		.size	sendSensorData, .-sendSensorData
+ 941              		.section	.text.initPSoCWiFi,"ax",%progbits
+ 942              		.align	2
+ 943              		.global	initPSoCWiFi
+ 944              		.code	16
+ 945              		.thumb_func
+ 946              		.type	initPSoCWiFi, %function
+ 947              	initPSoCWiFi:
+ 948              	.LFB44:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 23
+
+
+ 272:.\wifi.c      **** 
+ 273:.\wifi.c      **** void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tag
+ 274:.\wifi.c      **** {
+ 949              		.loc 1 274 0
+ 950              		.cfi_startproc
+ 951              	.LVL125:
+ 952 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 953              		.cfi_def_cfa_offset 24
+ 954              		.cfi_offset 3, -24
+ 955              		.cfi_offset 4, -20
+ 956              		.cfi_offset 5, -16
+ 957              		.cfi_offset 6, -12
+ 958              		.cfi_offset 7, -8
+ 959              		.cfi_offset 14, -4
+ 960 0002 071C     		mov	r7, r0
+ 961 0004 0D1C     		mov	r5, r1
+ 962 0006 161C     		mov	r6, r2
+ 963              	.LVL126:
+ 275:.\wifi.c      ****     int i = 0;
+ 276:.\wifi.c      ****     
+ 277:.\wifi.c      ****     CyGlobalIntEnable;                          //enabler global interrupt
+ 964              		.loc 1 277 0
+ 965              	@ 277 ".\wifi.c" 1
+ 966 0008 62B6     		CPSIE   i
+ 967              	@ 0 "" 2
+ 278:.\wifi.c      ****     isr_UART_StartEx(UART_ISR);                 //initierer en bruger defineret interrupt service: 
+ 968              		.loc 1 278 0
+ 969              		.code	16
+ 970 000a 1B48     		ldr	r0, .L81
+ 971              	.LVL127:
+ 972 000c FFF7FEFF 		bl	isr_UART_StartEx
+ 973              	.LVL128:
+ 279:.\wifi.c      ****     UART_Start();                               //Initier UARTEN
+ 974              		.loc 1 279 0
+ 975 0010 FFF7FEFF 		bl	UART_Start
+ 976              	.LVL129:
+ 280:.\wifi.c      **** 
+ 281:.\wifi.c      ****     UART_PutString("AT+CIPCLOSE\r\n");
+ 977              		.loc 1 281 0
+ 978 0014 1948     		ldr	r0, .L81+4
+ 979 0016 FFF7FEFF 		bl	UART_PutString
+ 980              	.LVL130:
+ 282:.\wifi.c      ****     CyDelay(500);
+ 981              		.loc 1 282 0
+ 982 001a FA24     		mov	r4, #250
+ 983 001c 6400     		lsl	r4, r4, #1
+ 984 001e 201C     		mov	r0, r4
+ 985 0020 FFF7FEFF 		bl	CyDelay
+ 986              	.LVL131:
+ 283:.\wifi.c      ****     
+ 284:.\wifi.c      ****     UART_PutString("AT+RST\r\n");
+ 987              		.loc 1 284 0
+ 988 0024 1648     		ldr	r0, .L81+8
+ 989 0026 FFF7FEFF 		bl	UART_PutString
+ 990              	.LVL132:
+ 285:.\wifi.c      ****     CyDelay(3000);
+ 991              		.loc 1 285 0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 24
+
+
+ 992 002a 1648     		ldr	r0, .L81+12
+ 993 002c FFF7FEFF 		bl	CyDelay
+ 994              	.LVL133:
+ 286:.\wifi.c      ****     
+ 287:.\wifi.c      ****     UART_PutString("AT+CWMODE=3\r\n");          //WiFI mode sættes til AP+station mode
+ 995              		.loc 1 287 0
+ 996 0030 1548     		ldr	r0, .L81+16
+ 997 0032 FFF7FEFF 		bl	UART_PutString
+ 998              	.LVL134:
+ 288:.\wifi.c      ****     CyDelay(500);
+ 999              		.loc 1 288 0
+ 1000 0036 201C     		mov	r0, r4
+ 1001 0038 FFF7FEFF 		bl	CyDelay
+ 1002              	.LVL135:
+ 289:.\wifi.c      ****     
+ 290:.\wifi.c      ****     for(i=0;i<3;i++)
+ 1003              		.loc 1 290 0
+ 1004 003c 0024     		mov	r4, #0
+ 1005 003e 06E0     		b	.L75
+ 1006              	.LVL136:
+ 1007              	.L77:
+ 291:.\wifi.c      ****     {
+ 292:.\wifi.c      ****         if(connectToWiFi(wifiSSID,wifiPASS))    //forbinde til WiFi
+ 1008              		.loc 1 292 0
+ 1009 0040 381C     		mov	r0, r7
+ 1010 0042 291C     		mov	r1, r5
+ 1011 0044 FFF7FEFF 		bl	connectToWiFi
+ 1012              	.LVL137:
+ 1013 0048 0028     		cmp	r0, #0
+ 1014 004a 02D1     		bne	.L76
+ 290:.\wifi.c      ****     {
+ 1015              		.loc 1 290 0 discriminator 2
+ 1016 004c 0134     		add	r4, r4, #1
+ 1017              	.LVL138:
+ 1018              	.L75:
+ 290:.\wifi.c      ****     {
+ 1019              		.loc 1 290 0 is_stmt 0 discriminator 1
+ 1020 004e 022C     		cmp	r4, #2
+ 1021 0050 F6DD     		ble	.L77
+ 1022              	.L76:
+ 293:.\wifi.c      ****             break;
+ 294:.\wifi.c      ****     }
+ 295:.\wifi.c      ****    
+ 296:.\wifi.c      ****     CyDelay(100);
+ 1023              		.loc 1 296 0 is_stmt 1
+ 1024 0052 6420     		mov	r0, #100
+ 1025 0054 FFF7FEFF 		bl	CyDelay
+ 1026              	.LVL139:
+ 297:.\wifi.c      ****     for(i=0;i<2;i++)                            //forbinde til DevKit
+ 1027              		.loc 1 297 0
+ 1028 0058 0024     		mov	r4, #0
+ 1029 005a 05E0     		b	.L78
+ 1030              	.LVL140:
+ 1031              	.L80:
+ 298:.\wifi.c      ****     {
+ 299:.\wifi.c      ****         if(connectToDevKit(DevKitIPAdress))
+ 1032              		.loc 1 299 0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 25
+
+
+ 1033 005c 301C     		mov	r0, r6
+ 1034 005e FFF7FEFF 		bl	connectToDevKit
+ 1035              	.LVL141:
+ 1036 0062 0028     		cmp	r0, #0
+ 1037 0064 02D1     		bne	.L79
+ 297:.\wifi.c      ****     for(i=0;i<2;i++)                            //forbinde til DevKit
+ 1038              		.loc 1 297 0 discriminator 2
+ 1039 0066 0134     		add	r4, r4, #1
+ 1040              	.LVL142:
+ 1041              	.L78:
+ 297:.\wifi.c      ****     for(i=0;i<2;i++)                            //forbinde til DevKit
+ 1042              		.loc 1 297 0 is_stmt 0 discriminator 1
+ 1043 0068 012C     		cmp	r4, #1
+ 1044 006a F7DD     		ble	.L80
+ 1045              	.L79:
+ 300:.\wifi.c      ****             break;
+ 301:.\wifi.c      ****     }
+ 302:.\wifi.c      ****     CyDelay(1000);
+ 1046              		.loc 1 302 0 is_stmt 1
+ 1047 006c FA20     		mov	r0, #250
+ 1048 006e 8000     		lsl	r0, r0, #2
+ 1049 0070 FFF7FEFF 		bl	CyDelay
+ 1050              	.LVL143:
+ 303:.\wifi.c      ****     
+ 304:.\wifi.c      ****     //sendSensorData(36,27,35,50,60);
+ 305:.\wifi.c      **** }
+ 1051              		.loc 1 305 0
+ 1052              		@ sp needed
+ 1053              	.LVL144:
+ 1054              	.LVL145:
+ 1055              	.LVL146:
+ 1056              	.LVL147:
+ 1057 0074 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1058              	.L82:
+ 1059 0076 C046     		.align	2
+ 1060              	.L81:
+ 1061 0078 00000000 		.word	UART_ISR
+ 1062 007c F0000000 		.word	.LC31
+ 1063 0080 00010000 		.word	.LC35
+ 1064 0084 B80B0000 		.word	3000
+ 1065 0088 0C010000 		.word	.LC37
+ 1066              		.cfi_endproc
+ 1067              	.LFE44:
+ 1068              		.size	initPSoCWiFi, .-initPSoCWiFi
+ 1069              		.section	.text.tick,"ax",%progbits
+ 1070              		.align	2
+ 1071              		.global	tick
+ 1072              		.code	16
+ 1073              		.thumb_func
+ 1074              		.type	tick, %function
+ 1075              	tick:
+ 1076              	.LFB45:
+ 306:.\wifi.c      **** 
+ 307:.\wifi.c      **** void tick()   
+ 308:.\wifi.c      **** {
+ 1077              		.loc 1 308 0
+ 1078              		.cfi_startproc
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 26
+
+
+ 1079 0000 10B5     		push	{r4, lr}
+ 1080              		.cfi_def_cfa_offset 8
+ 1081              		.cfi_offset 4, -8
+ 1082              		.cfi_offset 14, -4
+ 1083 0002 A4B0     		sub	sp, sp, #144
+ 1084              		.cfi_def_cfa_offset 152
+ 309:.\wifi.c      **** 
+ 310:.\wifi.c      ****     char sendString[128];                        //temp string til at handle lidt printning -- fjer
+ 311:.\wifi.c      ****     if(getStringFromUart(uartString) != 0)
+ 1085              		.loc 1 311 0
+ 1086 0004 4548     		ldr	r0, .L91
+ 1087 0006 0430     		add	r0, r0, #4
+ 1088 0008 FFF7FEFF 		bl	getStringFromUart
+ 1089              	.LVL148:
+ 1090 000c 0028     		cmp	r0, #0
+ 1091 000e 00D1     		bne	.LCB1080
+ 1092 0010 81E0     		b	.L83	@long jump
+ 1093              	.LCB1080:
+ 312:.\wifi.c      ****     {
+ 313:.\wifi.c      ****         
+ 314:.\wifi.c      ****         if(strcmp(uartString,"GG") == 0)
+ 1094              		.loc 1 314 0
+ 1095 0012 4248     		ldr	r0, .L91
+ 1096 0014 0430     		add	r0, r0, #4
+ 1097 0016 4249     		ldr	r1, .L91+4
+ 1098 0018 FFF7FEFF 		bl	strcmp
+ 1099              	.LVL149:
+ 1100 001c 0028     		cmp	r0, #0
+ 1101 001e 03D1     		bne	.L85
+ 315:.\wifi.c      ****         {
+ 316:.\wifi.c      ****             UART_PutString("Works...");
+ 1102              		.loc 1 316 0
+ 1103 0020 4048     		ldr	r0, .L91+8
+ 1104 0022 FFF7FEFF 		bl	UART_PutString
+ 1105              	.LVL150:
+ 1106 0026 76E0     		b	.L83
+ 1107              	.L85:
+ 317:.\wifi.c      ****         }
+ 318:.\wifi.c      ****         else if(strcmp(uartString,"Print all") == 0)
+ 1108              		.loc 1 318 0
+ 1109 0028 3C48     		ldr	r0, .L91
+ 1110 002a 0430     		add	r0, r0, #4
+ 1111 002c 3E49     		ldr	r1, .L91+12
+ 1112 002e FFF7FEFF 		bl	strcmp
+ 1113              	.LVL151:
+ 1114 0032 0028     		cmp	r0, #0
+ 1115 0034 1DD1     		bne	.L86
+ 319:.\wifi.c      ****         {
+ 320:.\wifi.c      ****             sprintf(sendString,"Moist:%d Rotate:%d CurMoist:%d CurWater:%d CurBattery:%d CurTemp:%d
+ 1116              		.loc 1 320 0
+ 1117 0036 3D4B     		ldr	r3, .L91+16
+ 1118 0038 0022     		mov	r2, #0
+ 1119 003a 9A56     		ldrsb	r2, [r3, r2]
+ 1120 003c 3C4B     		ldr	r3, .L91+20
+ 1121 003e 1B78     		ldrb	r3, [r3]
+ 1122 0040 5BB2     		sxtb	r3, r3
+ 1123 0042 3C49     		ldr	r1, .L91+24
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 27
+
+
+ 1124 0044 0020     		mov	r0, #0
+ 1125 0046 095E     		ldrsh	r1, [r1, r0]
+ 1126 0048 0091     		str	r1, [sp]
+ 1127 004a 3B49     		ldr	r1, .L91+28
+ 1128 004c 0020     		mov	r0, #0
+ 1129 004e 095E     		ldrsh	r1, [r1, r0]
+ 1130 0050 0191     		str	r1, [sp, #4]
+ 1131 0052 3A49     		ldr	r1, .L91+32
+ 1132 0054 0020     		mov	r0, #0
+ 1133 0056 095E     		ldrsh	r1, [r1, r0]
+ 1134 0058 0291     		str	r1, [sp, #8]
+ 1135 005a 3949     		ldr	r1, .L91+36
+ 1136 005c 0020     		mov	r0, #0
+ 1137 005e 095E     		ldrsh	r1, [r1, r0]
+ 1138 0060 0391     		str	r1, [sp, #12]
+ 1139 0062 04A8     		add	r0, sp, #16
+ 1140 0064 3749     		ldr	r1, .L91+40
+ 1141 0066 FFF7FEFF 		bl	sprintf
+ 1142              	.LVL152:
+ 321:.\wifi.c      ****             UART_PutString(sendString);
+ 1143              		.loc 1 321 0
+ 1144 006a 04A8     		add	r0, sp, #16
+ 1145 006c FFF7FEFF 		bl	UART_PutString
+ 1146              	.LVL153:
+ 1147 0070 51E0     		b	.L83
+ 1148              	.L86:
+ 322:.\wifi.c      ****         }
+ 323:.\wifi.c      ****         else if(strcmp(uartString,"Print sensor1") == 0)
+ 1149              		.loc 1 323 0
+ 1150 0072 2A48     		ldr	r0, .L91
+ 1151 0074 0430     		add	r0, r0, #4
+ 1152 0076 3449     		ldr	r1, .L91+44
+ 1153 0078 FFF7FEFF 		bl	strcmp
+ 1154              	.LVL154:
+ 1155 007c 0028     		cmp	r0, #0
+ 1156 007e 15D1     		bne	.L87
+ 324:.\wifi.c      ****         {
+ 325:.\wifi.c      ****             updateSensors();
+ 1157              		.loc 1 325 0
+ 1158 0080 FFF7FEFF 		bl	updateSensors
+ 1159              	.LVL155:
+ 326:.\wifi.c      ****             CyDelay(200);
+ 1160              		.loc 1 326 0
+ 1161 0084 C820     		mov	r0, #200
+ 1162 0086 FFF7FEFF 		bl	CyDelay
+ 1163              	.LVL156:
+ 327:.\wifi.c      ****             
+ 328:.\wifi.c      ****             sendSensorData(currentMoisture,currentWater,50,currentBattery,currentTemperature);
+ 1164              		.loc 1 328 0
+ 1165 008a 2A4B     		ldr	r3, .L91+24
+ 1166 008c 0020     		mov	r0, #0
+ 1167 008e 185E     		ldrsh	r0, [r3, r0]
+ 1168 0090 294B     		ldr	r3, .L91+28
+ 1169 0092 0021     		mov	r1, #0
+ 1170 0094 595E     		ldrsh	r1, [r3, r1]
+ 1171 0096 294B     		ldr	r3, .L91+32
+ 1172 0098 0022     		mov	r2, #0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 28
+
+
+ 1173 009a 9B5E     		ldrsh	r3, [r3, r2]
+ 1174 009c 284A     		ldr	r2, .L91+36
+ 1175 009e 0024     		mov	r4, #0
+ 1176 00a0 125F     		ldrsh	r2, [r2, r4]
+ 1177 00a2 0092     		str	r2, [sp]
+ 1178 00a4 3222     		mov	r2, #50
+ 1179 00a6 FFF7FEFF 		bl	sendSensorData
+ 1180              	.LVL157:
+ 1181 00aa 34E0     		b	.L83
+ 1182              	.L87:
+ 329:.\wifi.c      ****         }
+ 330:.\wifi.c      ****         else if(strcmp(uartString,"Print sensor2") == 0)
+ 1183              		.loc 1 330 0
+ 1184 00ac 1B48     		ldr	r0, .L91
+ 1185 00ae 0430     		add	r0, r0, #4
+ 1186 00b0 2649     		ldr	r1, .L91+48
+ 1187 00b2 FFF7FEFF 		bl	strcmp
+ 1188              	.LVL158:
+ 1189 00b6 0028     		cmp	r0, #0
+ 1190 00b8 08D1     		bne	.L88
+ 331:.\wifi.c      ****         {
+ 332:.\wifi.c      ****             sendSensorData(15,30,70,9,60);
+ 1191              		.loc 1 332 0
+ 1192 00ba 3C23     		mov	r3, #60
+ 1193 00bc 0093     		str	r3, [sp]
+ 1194 00be 0F30     		add	r0, r0, #15
+ 1195 00c0 1E21     		mov	r1, #30
+ 1196 00c2 4622     		mov	r2, #70
+ 1197 00c4 333B     		sub	r3, r3, #51
+ 1198 00c6 FFF7FEFF 		bl	sendSensorData
+ 1199              	.LVL159:
+ 1200 00ca 24E0     		b	.L83
+ 1201              	.L88:
+ 333:.\wifi.c      ****         }
+ 334:.\wifi.c      ****         else if(strcmp(uartString,"Print sensor3") == 0)
+ 1202              		.loc 1 334 0
+ 1203 00cc 1348     		ldr	r0, .L91
+ 1204 00ce 0430     		add	r0, r0, #4
+ 1205 00d0 1F49     		ldr	r1, .L91+52
+ 1206 00d2 FFF7FEFF 		bl	strcmp
+ 1207              	.LVL160:
+ 1208 00d6 0028     		cmp	r0, #0
+ 1209 00d8 08D1     		bne	.L89
+ 335:.\wifi.c      ****         {
+ 336:.\wifi.c      ****             sendSensorData(65,20,50,9,30);
+ 1210              		.loc 1 336 0
+ 1211 00da 1E23     		mov	r3, #30
+ 1212 00dc 0093     		str	r3, [sp]
+ 1213 00de 4130     		add	r0, r0, #65
+ 1214 00e0 1421     		mov	r1, #20
+ 1215 00e2 3222     		mov	r2, #50
+ 1216 00e4 153B     		sub	r3, r3, #21
+ 1217 00e6 FFF7FEFF 		bl	sendSensorData
+ 1218              	.LVL161:
+ 1219 00ea 14E0     		b	.L83
+ 1220              	.L89:
+ 337:.\wifi.c      ****         }   
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 29
+
+
+ 338:.\wifi.c      ****         else if(strcmp(uartString,"Update sensor") == 0)
+ 1221              		.loc 1 338 0
+ 1222 00ec 0B48     		ldr	r0, .L91
+ 1223 00ee 0430     		add	r0, r0, #4
+ 1224 00f0 1849     		ldr	r1, .L91+56
+ 1225 00f2 FFF7FEFF 		bl	strcmp
+ 1226              	.LVL162:
+ 1227 00f6 0028     		cmp	r0, #0
+ 1228 00f8 02D1     		bne	.L90
+ 339:.\wifi.c      ****         {
+ 340:.\wifi.c      ****             updateSensors();
+ 1229              		.loc 1 340 0
+ 1230 00fa FFF7FEFF 		bl	updateSensors
+ 1231              	.LVL163:
+ 1232 00fe 0AE0     		b	.L83
+ 1233              	.L90:
+ 341:.\wifi.c      ****         }
+ 342:.\wifi.c      ****         else if(strcmp(uartString,"Receive data") == 0)
+ 1234              		.loc 1 342 0
+ 1235 0100 0648     		ldr	r0, .L91
+ 1236 0102 0430     		add	r0, r0, #4
+ 1237 0104 1449     		ldr	r1, .L91+60
+ 1238 0106 FFF7FEFF 		bl	strcmp
+ 1239              	.LVL164:
+ 1240 010a 0028     		cmp	r0, #0
+ 1241 010c 03D1     		bne	.L83
+ 343:.\wifi.c      ****         {
+ 344:.\wifi.c      ****             updatePlantData(uartString);
+ 1242              		.loc 1 344 0
+ 1243 010e 0348     		ldr	r0, .L91
+ 1244 0110 0430     		add	r0, r0, #4
+ 1245 0112 FFF7FEFF 		bl	updatePlantData
+ 1246              	.LVL165:
+ 1247              	.L83:
+ 345:.\wifi.c      ****         }
+ 346:.\wifi.c      ****     }
+ 347:.\wifi.c      **** }
+ 1248              		.loc 1 347 0
+ 1249 0116 24B0     		add	sp, sp, #144
+ 1250              		@ sp needed
+ 1251 0118 10BD     		pop	{r4, pc}
+ 1252              	.L92:
+ 1253 011a C046     		.align	2
+ 1254              	.L91:
+ 1255 011c 00010000 		.word	.LANCHOR2
+ 1256 0120 1C010000 		.word	.LC40
+ 1257 0124 20010000 		.word	.LC42
+ 1258 0128 2C010000 		.word	.LC44
+ 1259 012c 00000000 		.word	wantedMoisture
+ 1260 0130 00000000 		.word	wantedRotate
+ 1261 0134 00000000 		.word	currentMoisture
+ 1262 0138 00000000 		.word	currentWater
+ 1263 013c 00000000 		.word	currentBattery
+ 1264 0140 00000000 		.word	currentTemperature
+ 1265 0144 38010000 		.word	.LC46
+ 1266 0148 80010000 		.word	.LC54
+ 1267 014c 90010000 		.word	.LC56
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 30
+
+
+ 1268 0150 A0010000 		.word	.LC58
+ 1269 0154 B0010000 		.word	.LC60
+ 1270 0158 C0010000 		.word	.LC62
+ 1271              		.cfi_endproc
+ 1272              	.LFE45:
+ 1273              		.size	tick, .-tick
+ 1274              		.global	plantID
+ 1275              		.global	uartString
+ 1276              		.global	stringRX
+ 1277              		.global	stringRX_len
+ 1278              		.comm	RXnewData,1,1
+ 1279              		.comm	currentTemperature,2,2
+ 1280              		.comm	currentLight,2,2
+ 1281              		.comm	currentWater,2,2
+ 1282              		.comm	currentBattery,2,2
+ 1283              		.comm	currentMoisture,2,2
+ 1284              		.comm	wantedRotate,1,1
+ 1285              		.comm	water,1,1
+ 1286              		.comm	battery,1,1
+ 1287              		.comm	light,1,1
+ 1288              		.comm	maxTemperature,1,1
+ 1289              		.comm	wantedMoisture,1,1
+ 1290              		.comm	ID,1,1
+ 1291              		.comm	lightlevel,16,4
+ 1292              		.comm	batterylevel,16,4
+ 1293              		.comm	temperature,16,4
+ 1294              		.comm	waterlevel,100,4
+ 1295              		.comm	moisture,100,4
+ 1296              		.data
+ 1297              		.set	.LANCHOR1,. + 0
+ 1298              		.type	plantID, %object
+ 1299              		.size	plantID, 1
+ 1300              	plantID:
+ 1301 0000 2D       		.byte	45
+ 1302              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1303              		.align	2
+ 1304              	.LC4:
+ 1305 0000 41542B43 		.ascii	"AT+CWJAP=\"%s\",\"%s\"\015\012\000"
+ 1305      574A4150 
+ 1305      3D222573 
+ 1305      222C2225 
+ 1305      73220D0A 
+ 1306 0015 000000   		.space	3
+ 1307              	.LC6:
+ 1308 0018 4F4B00   		.ascii	"OK\000"
+ 1309 001b 00       		.space	1
+ 1310              	.LC8:
+ 1311 001c 41542B43 		.ascii	"AT+CIPSTART=\"TCP\",\"%s\",%d\015\012\000"
+ 1311      49505354 
+ 1311      4152543D 
+ 1311      22544350 
+ 1311      222C2225 
+ 1312              	.LC11:
+ 1313 0038 41542B43 		.ascii	"AT+CIPSEND=%d\015\012\000"
+ 1313      49505345 
+ 1313      4E443D25 
+ 1313      640D0A00 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 31
+
+
+ 1314              	.LC13:
+ 1315 0048 6C696E6B 		.ascii	"link\000"
+ 1315      00
+ 1316 004d 000000   		.space	3
+ 1317              	.LC15:
+ 1318 0050 3139322E 		.ascii	"192.168.43.125\000"
+ 1318      3136382E 
+ 1318      34332E31 
+ 1318      323500
+ 1319 005f 00       		.space	1
+ 1320              	.LC18:
+ 1321 0060 2B495044 		.ascii	"+IPD\000"
+ 1321      00
+ 1322 0065 000000   		.space	3
+ 1323              	.LC21:
+ 1324 0068 56616C75 		.ascii	"Value outside permitted plant set data for Moist\015"
+ 1324      65206F75 
+ 1324      74736964 
+ 1324      65207065 
+ 1324      726D6974 
+ 1325 0099 0A00     		.ascii	"\012\000"
+ 1326 009b 00       		.space	1
+ 1327              	.LC24:
+ 1328 009c 56616C75 		.ascii	"Value outside permitted plant set data for Rotate\015"
+ 1328      65206F75 
+ 1328      74736964 
+ 1328      65207065 
+ 1328      726D6974 
+ 1329 00ce 0A00     		.ascii	"\012\000"
+ 1330              	.LC28:
+ 1331 00d0 4D256330 		.ascii	"M%c0%dW%c0%dL%c0%dB%c00%dT%c0%d\000"
+ 1331      25645725 
+ 1331      63302564 
+ 1331      4C256330 
+ 1331      25644225 
+ 1332              	.LC31:
+ 1333 00f0 41542B43 		.ascii	"AT+CIPCLOSE\015\012\000"
+ 1333      4950434C 
+ 1333      4F53450D 
+ 1333      0A00
+ 1334 00fe 0000     		.space	2
+ 1335              	.LC35:
+ 1336 0100 41542B52 		.ascii	"AT+RST\015\012\000"
+ 1336      53540D0A 
+ 1336      00
+ 1337 0109 000000   		.space	3
+ 1338              	.LC37:
+ 1339 010c 41542B43 		.ascii	"AT+CWMODE=3\015\012\000"
+ 1339      574D4F44 
+ 1339      453D330D 
+ 1339      0A00
+ 1340 011a 0000     		.space	2
+ 1341              	.LC40:
+ 1342 011c 474700   		.ascii	"GG\000"
+ 1343 011f 00       		.space	1
+ 1344              	.LC42:
+ 1345 0120 576F726B 		.ascii	"Works...\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 32
+
+
+ 1345      732E2E2E 
+ 1345      00
+ 1346 0129 000000   		.space	3
+ 1347              	.LC44:
+ 1348 012c 5072696E 		.ascii	"Print all\000"
+ 1348      7420616C 
+ 1348      6C00
+ 1349 0136 0000     		.space	2
+ 1350              	.LC46:
+ 1351 0138 4D6F6973 		.ascii	"Moist:%d Rotate:%d CurMoist:%d CurWater:%d CurBatte"
+ 1351      743A2564 
+ 1351      20526F74 
+ 1351      6174653A 
+ 1351      25642043 
+ 1352 016b 72793A25 		.ascii	"ry:%d CurTemp:%d\015\012\000"
+ 1352      64204375 
+ 1352      7254656D 
+ 1352      703A2564 
+ 1352      0D0A00
+ 1353 017e 0000     		.space	2
+ 1354              	.LC54:
+ 1355 0180 5072696E 		.ascii	"Print sensor1\000"
+ 1355      74207365 
+ 1355      6E736F72 
+ 1355      3100
+ 1356 018e 0000     		.space	2
+ 1357              	.LC56:
+ 1358 0190 5072696E 		.ascii	"Print sensor2\000"
+ 1358      74207365 
+ 1358      6E736F72 
+ 1358      3200
+ 1359 019e 0000     		.space	2
+ 1360              	.LC58:
+ 1361 01a0 5072696E 		.ascii	"Print sensor3\000"
+ 1361      74207365 
+ 1361      6E736F72 
+ 1361      3300
+ 1362 01ae 0000     		.space	2
+ 1363              	.LC60:
+ 1364 01b0 55706461 		.ascii	"Update sensor\000"
+ 1364      74652073 
+ 1364      656E736F 
+ 1364      7200
+ 1365 01be 0000     		.space	2
+ 1366              	.LC62:
+ 1367 01c0 52656365 		.ascii	"Receive data\000"
+ 1367      69766520 
+ 1367      64617461 
+ 1367      00
+ 1368 01cd 000000   		.bss
+ 1369              		.align	2
+ 1370              		.set	.LANCHOR0,. + 0
+ 1371              		.set	.LANCHOR2,. + 256
+ 1372              		.type	stringRX_len, %object
+ 1373              		.size	stringRX_len, 1
+ 1374              	stringRX_len:
+ 1375 0000 00       		.space	1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 33
+
+
+ 1376 0001 000000   		.space	3
+ 1377              		.type	stringRX, %object
+ 1378              		.size	stringRX, 255
+ 1379              	stringRX:
+ 1380 0004 00000000 		.space	255
+ 1380      00000000 
+ 1380      00000000 
+ 1380      00000000 
+ 1380      00000000 
+ 1381 0103 00       		.space	1
+ 1382              		.type	uartString, %object
+ 1383              		.size	uartString, 255
+ 1384              	uartString:
+ 1385 0104 00000000 		.space	255
+ 1385      00000000 
+ 1385      00000000 
+ 1385      00000000 
+ 1385      00000000 
+ 1386 0203 00       		.text
+ 1387              	.Letext0:
+ 1388              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1389              		.file 3 "Generated_Source\\PSoC4/cytypes.h"
+ 1390              		.file 4 "./sensors.h"
+ 1391              		.file 5 "./Plantcontrol.h"
+ 1392              		.file 6 "Generated_Source\\PSoC4/UART.h"
+ 1393              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1394              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 1395              		.file 9 "Generated_Source\\PSoC4/CyLib.h"
+ 1396              		.file 10 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9
+ 1397              		.file 11 "Generated_Source\\PSoC4/isr_UART.h"
+ 1398              		.section	.debug_info,"",%progbits
+ 1399              	.Ldebug_info0:
+ 1400 0000 080E0000 		.4byte	0xe08
+ 1401 0004 0400     		.2byte	0x4
+ 1402 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1403 000a 04       		.byte	0x4
+ 1404 000b 01       		.uleb128 0x1
+ 1405 000c 04020000 		.4byte	.LASF95
+ 1406 0010 01       		.byte	0x1
+ 1407 0011 64040000 		.4byte	.LASF96
+ 1408 0015 B4040000 		.4byte	.LASF97
+ 1409 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1410 001d 00000000 		.4byte	0
+ 1411 0021 00000000 		.4byte	.Ldebug_line0
+ 1412 0025 02       		.uleb128 0x2
+ 1413 0026 01       		.byte	0x1
+ 1414 0027 06       		.byte	0x6
+ 1415 0028 45010000 		.4byte	.LASF0
+ 1416 002c 02       		.uleb128 0x2
+ 1417 002d 01       		.byte	0x1
+ 1418 002e 08       		.byte	0x8
+ 1419 002f EB010000 		.4byte	.LASF1
+ 1420 0033 02       		.uleb128 0x2
+ 1421 0034 02       		.byte	0x2
+ 1422 0035 05       		.byte	0x5
+ 1423 0036 4F000000 		.4byte	.LASF2
+ 1424 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 34
+
+
+ 1425 003b 02       		.byte	0x2
+ 1426 003c 07       		.byte	0x7
+ 1427 003d 85030000 		.4byte	.LASF3
+ 1428 0041 02       		.uleb128 0x2
+ 1429 0042 04       		.byte	0x4
+ 1430 0043 05       		.byte	0x5
+ 1431 0044 B0010000 		.4byte	.LASF4
+ 1432 0048 02       		.uleb128 0x2
+ 1433 0049 04       		.byte	0x4
+ 1434 004a 07       		.byte	0x7
+ 1435 004b 52030000 		.4byte	.LASF5
+ 1436 004f 02       		.uleb128 0x2
+ 1437 0050 08       		.byte	0x8
+ 1438 0051 05       		.byte	0x5
+ 1439 0052 72010000 		.4byte	.LASF6
+ 1440 0056 02       		.uleb128 0x2
+ 1441 0057 08       		.byte	0x8
+ 1442 0058 07       		.byte	0x7
+ 1443 0059 11030000 		.4byte	.LASF7
+ 1444 005d 03       		.uleb128 0x3
+ 1445 005e 04       		.byte	0x4
+ 1446 005f 05       		.byte	0x5
+ 1447 0060 696E7400 		.ascii	"int\000"
+ 1448 0064 02       		.uleb128 0x2
+ 1449 0065 04       		.byte	0x4
+ 1450 0066 07       		.byte	0x7
+ 1451 0067 38030000 		.4byte	.LASF8
+ 1452 006b 04       		.uleb128 0x4
+ 1453 006c 59000000 		.4byte	.LASF11
+ 1454 0070 02       		.byte	0x2
+ 1455 0071 D4       		.byte	0xd4
+ 1456 0072 64000000 		.4byte	0x64
+ 1457 0076 02       		.uleb128 0x2
+ 1458 0077 04       		.byte	0x4
+ 1459 0078 07       		.byte	0x7
+ 1460 0079 6B000000 		.4byte	.LASF9
+ 1461 007d 05       		.uleb128 0x5
+ 1462 007e 04       		.byte	0x4
+ 1463 007f 83000000 		.4byte	0x83
+ 1464 0083 06       		.uleb128 0x6
+ 1465 0084 05       		.uleb128 0x5
+ 1466 0085 04       		.byte	0x4
+ 1467 0086 8A000000 		.4byte	0x8a
+ 1468 008a 02       		.uleb128 0x2
+ 1469 008b 01       		.byte	0x1
+ 1470 008c 08       		.byte	0x8
+ 1471 008d 98030000 		.4byte	.LASF10
+ 1472 0091 05       		.uleb128 0x5
+ 1473 0092 04       		.byte	0x4
+ 1474 0093 97000000 		.4byte	0x97
+ 1475 0097 07       		.uleb128 0x7
+ 1476 0098 8A000000 		.4byte	0x8a
+ 1477 009c 08       		.uleb128 0x8
+ 1478 009d 8A000000 		.4byte	0x8a
+ 1479 00a1 AC000000 		.4byte	0xac
+ 1480 00a5 09       		.uleb128 0x9
+ 1481 00a6 76000000 		.4byte	0x76
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 35
+
+
+ 1482 00aa 07       		.byte	0x7
+ 1483 00ab 00       		.byte	0
+ 1484 00ac 04       		.uleb128 0x4
+ 1485 00ad AC030000 		.4byte	.LASF12
+ 1486 00b1 03       		.byte	0x3
+ 1487 00b2 C2       		.byte	0xc2
+ 1488 00b3 2C000000 		.4byte	0x2c
+ 1489 00b7 04       		.uleb128 0x4
+ 1490 00b8 F7000000 		.4byte	.LASF13
+ 1491 00bc 03       		.byte	0x3
+ 1492 00bd C3       		.byte	0xc3
+ 1493 00be 3A000000 		.4byte	0x3a
+ 1494 00c2 04       		.uleb128 0x4
+ 1495 00c3 CD030000 		.4byte	.LASF14
+ 1496 00c7 03       		.byte	0x3
+ 1497 00c8 C4       		.byte	0xc4
+ 1498 00c9 48000000 		.4byte	0x48
+ 1499 00cd 04       		.uleb128 0x4
+ 1500 00ce 88010000 		.4byte	.LASF15
+ 1501 00d2 03       		.byte	0x3
+ 1502 00d3 C5       		.byte	0xc5
+ 1503 00d4 25000000 		.4byte	0x25
+ 1504 00d8 04       		.uleb128 0x4
+ 1505 00d9 1A010000 		.4byte	.LASF16
+ 1506 00dd 03       		.byte	0x3
+ 1507 00de C6       		.byte	0xc6
+ 1508 00df 33000000 		.4byte	0x33
+ 1509 00e3 02       		.uleb128 0x2
+ 1510 00e4 04       		.byte	0x4
+ 1511 00e5 04       		.byte	0x4
+ 1512 00e6 63010000 		.4byte	.LASF17
+ 1513 00ea 02       		.uleb128 0x2
+ 1514 00eb 08       		.byte	0x8
+ 1515 00ec 04       		.byte	0x4
+ 1516 00ed 99040000 		.4byte	.LASF18
+ 1517 00f1 04       		.uleb128 0x4
+ 1518 00f2 82000000 		.4byte	.LASF19
+ 1519 00f6 03       		.byte	0x3
+ 1520 00f7 D3       		.byte	0xd3
+ 1521 00f8 8A000000 		.4byte	0x8a
+ 1522 00fc 0A       		.uleb128 0xa
+ 1523 00fd B1020000 		.4byte	.LASF20
+ 1524 0101 03       		.byte	0x3
+ 1525 0102 7E01     		.2byte	0x17e
+ 1526 0104 7D000000 		.4byte	0x7d
+ 1527 0108 0B       		.uleb128 0xb
+ 1528 0109 31010000 		.4byte	.LASF62
+ 1529 010d 01       		.byte	0x1
+ 1530 010e 1D       		.byte	0x1d
+ 1531 010f 00000000 		.4byte	.LFB34
+ 1532 0113 5C000000 		.4byte	.LFE34-.LFB34
+ 1533 0117 01       		.uleb128 0x1
+ 1534 0118 9C       		.byte	0x9c
+ 1535 0119 69010000 		.4byte	0x169
+ 1536 011d 0C       		.uleb128 0xc
+ 1537 011e 0B040000 		.4byte	.LASF21
+ 1538 0122 01       		.byte	0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 36
+
+
+ 1539 0123 21       		.byte	0x21
+ 1540 0124 AC000000 		.4byte	0xac
+ 1541 0128 00000000 		.4byte	.LLST0
+ 1542 012c 0D       		.uleb128 0xd
+ 1543 012d 6900     		.ascii	"i\000"
+ 1544 012f 01       		.byte	0x1
+ 1545 0130 22       		.byte	0x22
+ 1546 0131 5D000000 		.4byte	0x5d
+ 1547 0135 1E000000 		.4byte	.LLST1
+ 1548 0139 0E       		.uleb128 0xe
+ 1549 013a 14000000 		.4byte	.LBB2
+ 1550 013e 34000000 		.4byte	.LBE2-.LBB2
+ 1551 0142 5F010000 		.4byte	0x15f
+ 1552 0146 0C       		.uleb128 0xc
+ 1553 0147 94000000 		.4byte	.LASF22
+ 1554 014b 01       		.byte	0x1
+ 1555 014c 25       		.byte	0x25
+ 1556 014d 8A000000 		.4byte	0x8a
+ 1557 0151 3D000000 		.4byte	.LLST2
+ 1558 0155 0F       		.uleb128 0xf
+ 1559 0156 18000000 		.4byte	.LVL3
+ 1560 015a 3D0D0000 		.4byte	0xd3d
+ 1561 015e 00       		.byte	0
+ 1562 015f 0F       		.uleb128 0xf
+ 1563 0160 0E000000 		.4byte	.LVL0
+ 1564 0164 480D0000 		.4byte	0xd48
+ 1565 0168 00       		.byte	0
+ 1566 0169 10       		.uleb128 0x10
+ 1567 016a CD000000 		.4byte	.LASF36
+ 1568 016e 01       		.byte	0x1
+ 1569 016f 18       		.byte	0x18
+ 1570 0170 00000000 		.4byte	.LFB33
+ 1571 0174 08000000 		.4byte	.LFE33-.LFB33
+ 1572 0178 01       		.uleb128 0x1
+ 1573 0179 9C       		.byte	0x9c
+ 1574 017a 88010000 		.4byte	0x188
+ 1575 017e 0F       		.uleb128 0xf
+ 1576 017f 06000000 		.4byte	.LVL6
+ 1577 0183 08010000 		.4byte	0x108
+ 1578 0187 00       		.byte	0
+ 1579 0188 11       		.uleb128 0x11
+ 1580 0189 87040000 		.4byte	.LASF23
+ 1581 018d 01       		.byte	0x1
+ 1582 018e 33       		.byte	0x33
+ 1583 018f 8A000000 		.4byte	0x8a
+ 1584 0193 00000000 		.4byte	.LFB35
+ 1585 0197 50000000 		.4byte	.LFE35-.LFB35
+ 1586 019b 01       		.uleb128 0x1
+ 1587 019c 9C       		.byte	0x9c
+ 1588 019d D7010000 		.4byte	0x1d7
+ 1589 01a1 12       		.uleb128 0x12
+ 1590 01a2 C8030000 		.4byte	.LASF25
+ 1591 01a6 01       		.byte	0x1
+ 1592 01a7 33       		.byte	0x33
+ 1593 01a8 84000000 		.4byte	0x84
+ 1594 01ac 50000000 		.4byte	.LLST3
+ 1595 01b0 0D       		.uleb128 0xd
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 37
+
+
+ 1596 01b1 6900     		.ascii	"i\000"
+ 1597 01b3 01       		.byte	0x1
+ 1598 01b4 36       		.byte	0x36
+ 1599 01b5 AC000000 		.4byte	0xac
+ 1600 01b9 87000000 		.4byte	.LLST4
+ 1601 01bd 0F       		.uleb128 0xf
+ 1602 01be 10000000 		.4byte	.LVL8
+ 1603 01c2 08010000 		.4byte	0x108
+ 1604 01c6 13       		.uleb128 0x13
+ 1605 01c7 40000000 		.4byte	.LVL13
+ 1606 01cb 530D0000 		.4byte	0xd53
+ 1607 01cf 14       		.uleb128 0x14
+ 1608 01d0 01       		.uleb128 0x1
+ 1609 01d1 50       		.byte	0x50
+ 1610 01d2 02       		.uleb128 0x2
+ 1611 01d3 74       		.byte	0x74
+ 1612 01d4 00       		.sleb128 0
+ 1613 01d5 00       		.byte	0
+ 1614 01d6 00       		.byte	0
+ 1615 01d7 11       		.uleb128 0x11
+ 1616 01d8 E2020000 		.4byte	.LASF24
+ 1617 01dc 01       		.byte	0x1
+ 1618 01dd 49       		.byte	0x49
+ 1619 01de AC000000 		.4byte	0xac
+ 1620 01e2 00000000 		.4byte	.LFB36
+ 1621 01e6 2E000000 		.4byte	.LFE36-.LFB36
+ 1622 01ea 01       		.uleb128 0x1
+ 1623 01eb 9C       		.byte	0x9c
+ 1624 01ec 4A020000 		.4byte	0x24a
+ 1625 01f0 12       		.uleb128 0x12
+ 1626 01f1 60000000 		.4byte	.LASF26
+ 1627 01f5 01       		.byte	0x1
+ 1628 01f6 49       		.byte	0x49
+ 1629 01f7 84000000 		.4byte	0x84
+ 1630 01fb B1000000 		.4byte	.LLST5
+ 1631 01ff 0C       		.uleb128 0xc
+ 1632 0200 20010000 		.4byte	.LASF27
+ 1633 0204 01       		.byte	0x1
+ 1634 0205 4B       		.byte	0x4b
+ 1635 0206 AC000000 		.4byte	0xac
+ 1636 020a DD000000 		.4byte	.LLST6
+ 1637 020e 0C       		.uleb128 0xc
+ 1638 020f 09010000 		.4byte	.LASF28
+ 1639 0213 01       		.byte	0x1
+ 1640 0214 4C       		.byte	0x4c
+ 1641 0215 AC000000 		.4byte	0xac
+ 1642 0219 F0000000 		.4byte	.LLST7
+ 1643 021d 0C       		.uleb128 0xc
+ 1644 021e FB040000 		.4byte	.LASF29
+ 1645 0222 01       		.byte	0x1
+ 1646 0223 4D       		.byte	0x4d
+ 1647 0224 8A000000 		.4byte	0x8a
+ 1648 0228 1A010000 		.4byte	.LLST8
+ 1649 022c 15       		.uleb128 0x15
+ 1650 022d 08000000 		.4byte	.LVL17
+ 1651 0231 530D0000 		.4byte	0xd53
+ 1652 0235 40020000 		.4byte	0x240
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 38
+
+
+ 1653 0239 14       		.uleb128 0x14
+ 1654 023a 01       		.uleb128 0x1
+ 1655 023b 50       		.byte	0x50
+ 1656 023c 02       		.uleb128 0x2
+ 1657 023d 75       		.byte	0x75
+ 1658 023e 00       		.sleb128 0
+ 1659 023f 00       		.byte	0
+ 1660 0240 0F       		.uleb128 0xf
+ 1661 0241 24000000 		.4byte	.LVL23
+ 1662 0245 680D0000 		.4byte	0xd68
+ 1663 0249 00       		.byte	0
+ 1664 024a 11       		.uleb128 0x11
+ 1665 024b 8D010000 		.4byte	.LASF30
+ 1666 024f 01       		.byte	0x1
+ 1667 0250 5C       		.byte	0x5c
+ 1668 0251 5D000000 		.4byte	0x5d
+ 1669 0255 00000000 		.4byte	.LFB37
+ 1670 0259 44000000 		.4byte	.LFE37-.LFB37
+ 1671 025d 01       		.uleb128 0x1
+ 1672 025e 9C       		.byte	0x9c
+ 1673 025f 0C030000 		.4byte	0x30c
+ 1674 0263 12       		.uleb128 0x12
+ 1675 0264 69010000 		.4byte	.LASF31
+ 1676 0268 01       		.byte	0x1
+ 1677 0269 5C       		.byte	0x5c
+ 1678 026a 84000000 		.4byte	0x84
+ 1679 026e 38010000 		.4byte	.LLST9
+ 1680 0272 12       		.uleb128 0x12
+ 1681 0273 A7010000 		.4byte	.LASF32
+ 1682 0277 01       		.byte	0x1
+ 1683 0278 5C       		.byte	0x5c
+ 1684 0279 84000000 		.4byte	0x84
+ 1685 027d 64010000 		.4byte	.LLST10
+ 1686 0281 16       		.uleb128 0x16
+ 1687 0282 6D040000 		.4byte	.LASF33
+ 1688 0286 01       		.byte	0x1
+ 1689 0287 5E       		.byte	0x5e
+ 1690 0288 0C030000 		.4byte	0x30c
+ 1691 028c 03       		.uleb128 0x3
+ 1692 028d 91       		.byte	0x91
+ 1693 028e F87D     		.sleb128 -264
+ 1694 0290 15       		.uleb128 0x15
+ 1695 0291 10000000 		.4byte	.LVL31
+ 1696 0295 730D0000 		.4byte	0xd73
+ 1697 0299 BB020000 		.4byte	0x2bb
+ 1698 029d 14       		.uleb128 0x14
+ 1699 029e 01       		.uleb128 0x1
+ 1700 029f 53       		.byte	0x53
+ 1701 02a0 03       		.uleb128 0x3
+ 1702 02a1 F3       		.byte	0xf3
+ 1703 02a2 01       		.uleb128 0x1
+ 1704 02a3 51       		.byte	0x51
+ 1705 02a4 14       		.uleb128 0x14
+ 1706 02a5 01       		.uleb128 0x1
+ 1707 02a6 52       		.byte	0x52
+ 1708 02a7 03       		.uleb128 0x3
+ 1709 02a8 F3       		.byte	0xf3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 39
+
+
+ 1710 02a9 01       		.uleb128 0x1
+ 1711 02aa 50       		.byte	0x50
+ 1712 02ab 14       		.uleb128 0x14
+ 1713 02ac 01       		.uleb128 0x1
+ 1714 02ad 51       		.byte	0x51
+ 1715 02ae 05       		.uleb128 0x5
+ 1716 02af 03       		.byte	0x3
+ 1717 02b0 00000000 		.4byte	.LC4
+ 1718 02b4 14       		.uleb128 0x14
+ 1719 02b5 01       		.uleb128 0x1
+ 1720 02b6 50       		.byte	0x50
+ 1721 02b7 02       		.uleb128 0x2
+ 1722 02b8 7D       		.byte	0x7d
+ 1723 02b9 00       		.sleb128 0
+ 1724 02ba 00       		.byte	0
+ 1725 02bb 15       		.uleb128 0x15
+ 1726 02bc 16000000 		.4byte	.LVL32
+ 1727 02c0 8E0D0000 		.4byte	0xd8e
+ 1728 02c4 CF020000 		.4byte	0x2cf
+ 1729 02c8 14       		.uleb128 0x14
+ 1730 02c9 01       		.uleb128 0x1
+ 1731 02ca 50       		.byte	0x50
+ 1732 02cb 02       		.uleb128 0x2
+ 1733 02cc 7D       		.byte	0x7d
+ 1734 02cd 00       		.sleb128 0
+ 1735 02ce 00       		.byte	0
+ 1736 02cf 15       		.uleb128 0x15
+ 1737 02d0 1C000000 		.4byte	.LVL33
+ 1738 02d4 AA0D0000 		.4byte	0xdaa
+ 1739 02d8 E4020000 		.4byte	0x2e4
+ 1740 02dc 14       		.uleb128 0x14
+ 1741 02dd 01       		.uleb128 0x1
+ 1742 02de 50       		.byte	0x50
+ 1743 02df 03       		.uleb128 0x3
+ 1744 02e0 0A       		.byte	0xa
+ 1745 02e1 8813     		.2byte	0x1388
+ 1746 02e3 00       		.byte	0
+ 1747 02e4 15       		.uleb128 0x15
+ 1748 02e5 22000000 		.4byte	.LVL34
+ 1749 02e9 D7010000 		.4byte	0x1d7
+ 1750 02ed FB020000 		.4byte	0x2fb
+ 1751 02f1 14       		.uleb128 0x14
+ 1752 02f2 01       		.uleb128 0x1
+ 1753 02f3 50       		.byte	0x50
+ 1754 02f4 05       		.uleb128 0x5
+ 1755 02f5 03       		.byte	0x3
+ 1756 02f6 18000000 		.4byte	.LC6
+ 1757 02fa 00       		.byte	0
+ 1758 02fb 13       		.uleb128 0x13
+ 1759 02fc 2C000000 		.4byte	.LVL35
+ 1760 0300 AA0D0000 		.4byte	0xdaa
+ 1761 0304 14       		.uleb128 0x14
+ 1762 0305 01       		.uleb128 0x1
+ 1763 0306 50       		.byte	0x50
+ 1764 0307 02       		.uleb128 0x2
+ 1765 0308 08       		.byte	0x8
+ 1766 0309 64       		.byte	0x64
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 40
+
+
+ 1767 030a 00       		.byte	0
+ 1768 030b 00       		.byte	0
+ 1769 030c 08       		.uleb128 0x8
+ 1770 030d 8A000000 		.4byte	0x8a
+ 1771 0311 1C030000 		.4byte	0x31c
+ 1772 0315 09       		.uleb128 0x9
+ 1773 0316 76000000 		.4byte	0x76
+ 1774 031a FE       		.byte	0xfe
+ 1775 031b 00       		.byte	0
+ 1776 031c 11       		.uleb128 0x11
+ 1777 031d 34000000 		.4byte	.LASF34
+ 1778 0321 01       		.byte	0x1
+ 1779 0322 6B       		.byte	0x6b
+ 1780 0323 5D000000 		.4byte	0x5d
+ 1781 0327 00000000 		.4byte	.LFB38
+ 1782 032b 4C000000 		.4byte	.LFE38-.LFB38
+ 1783 032f 01       		.uleb128 0x1
+ 1784 0330 9C       		.byte	0x9c
+ 1785 0331 E4030000 		.4byte	0x3e4
+ 1786 0335 12       		.uleb128 0x12
+ 1787 0336 B9010000 		.4byte	.LASF35
+ 1788 033a 01       		.byte	0x1
+ 1789 033b 6B       		.byte	0x6b
+ 1790 033c 84000000 		.4byte	0x84
+ 1791 0340 90010000 		.4byte	.LLST11
+ 1792 0344 16       		.uleb128 0x16
+ 1793 0345 6D040000 		.4byte	.LASF33
+ 1794 0349 01       		.byte	0x1
+ 1795 034a 6D       		.byte	0x6d
+ 1796 034b 0C030000 		.4byte	0x30c
+ 1797 034f 03       		.uleb128 0x3
+ 1798 0350 91       		.byte	0x91
+ 1799 0351 F87D     		.sleb128 -264
+ 1800 0353 15       		.uleb128 0x15
+ 1801 0354 10000000 		.4byte	.LVL38
+ 1802 0358 730D0000 		.4byte	0xd73
+ 1803 035c 7E030000 		.4byte	0x37e
+ 1804 0360 14       		.uleb128 0x14
+ 1805 0361 01       		.uleb128 0x1
+ 1806 0362 53       		.byte	0x53
+ 1807 0363 03       		.uleb128 0x3
+ 1808 0364 0A       		.byte	0xa
+ 1809 0365 B822     		.2byte	0x22b8
+ 1810 0367 14       		.uleb128 0x14
+ 1811 0368 01       		.uleb128 0x1
+ 1812 0369 52       		.byte	0x52
+ 1813 036a 03       		.uleb128 0x3
+ 1814 036b F3       		.byte	0xf3
+ 1815 036c 01       		.uleb128 0x1
+ 1816 036d 50       		.byte	0x50
+ 1817 036e 14       		.uleb128 0x14
+ 1818 036f 01       		.uleb128 0x1
+ 1819 0370 51       		.byte	0x51
+ 1820 0371 05       		.uleb128 0x5
+ 1821 0372 03       		.byte	0x3
+ 1822 0373 1C000000 		.4byte	.LC8
+ 1823 0377 14       		.uleb128 0x14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 41
+
+
+ 1824 0378 01       		.uleb128 0x1
+ 1825 0379 50       		.byte	0x50
+ 1826 037a 02       		.uleb128 0x2
+ 1827 037b 7D       		.byte	0x7d
+ 1828 037c 00       		.sleb128 0
+ 1829 037d 00       		.byte	0
+ 1830 037e 15       		.uleb128 0x15
+ 1831 037f 18000000 		.4byte	.LVL39
+ 1832 0383 AA0D0000 		.4byte	0xdaa
+ 1833 0387 93030000 		.4byte	0x393
+ 1834 038b 14       		.uleb128 0x14
+ 1835 038c 01       		.uleb128 0x1
+ 1836 038d 50       		.byte	0x50
+ 1837 038e 03       		.uleb128 0x3
+ 1838 038f 0A       		.byte	0xa
+ 1839 0390 F401     		.2byte	0x1f4
+ 1840 0392 00       		.byte	0
+ 1841 0393 15       		.uleb128 0x15
+ 1842 0394 1E000000 		.4byte	.LVL40
+ 1843 0398 8E0D0000 		.4byte	0xd8e
+ 1844 039c A7030000 		.4byte	0x3a7
+ 1845 03a0 14       		.uleb128 0x14
+ 1846 03a1 01       		.uleb128 0x1
+ 1847 03a2 50       		.byte	0x50
+ 1848 03a3 02       		.uleb128 0x2
+ 1849 03a4 7D       		.byte	0x7d
+ 1850 03a5 00       		.sleb128 0
+ 1851 03a6 00       		.byte	0
+ 1852 03a7 15       		.uleb128 0x15
+ 1853 03a8 26000000 		.4byte	.LVL41
+ 1854 03ac AA0D0000 		.4byte	0xdaa
+ 1855 03b0 BC030000 		.4byte	0x3bc
+ 1856 03b4 14       		.uleb128 0x14
+ 1857 03b5 01       		.uleb128 0x1
+ 1858 03b6 50       		.byte	0x50
+ 1859 03b7 03       		.uleb128 0x3
+ 1860 03b8 0A       		.byte	0xa
+ 1861 03b9 E803     		.2byte	0x3e8
+ 1862 03bb 00       		.byte	0
+ 1863 03bc 15       		.uleb128 0x15
+ 1864 03bd 2C000000 		.4byte	.LVL42
+ 1865 03c1 D7010000 		.4byte	0x1d7
+ 1866 03c5 D3030000 		.4byte	0x3d3
+ 1867 03c9 14       		.uleb128 0x14
+ 1868 03ca 01       		.uleb128 0x1
+ 1869 03cb 50       		.byte	0x50
+ 1870 03cc 05       		.uleb128 0x5
+ 1871 03cd 03       		.byte	0x3
+ 1872 03ce 18000000 		.4byte	.LC6
+ 1873 03d2 00       		.byte	0
+ 1874 03d3 13       		.uleb128 0x13
+ 1875 03d4 36000000 		.4byte	.LVL43
+ 1876 03d8 AA0D0000 		.4byte	0xdaa
+ 1877 03dc 14       		.uleb128 0x14
+ 1878 03dd 01       		.uleb128 0x1
+ 1879 03de 50       		.byte	0x50
+ 1880 03df 02       		.uleb128 0x2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 42
+
+
+ 1881 03e0 08       		.byte	0x8
+ 1882 03e1 64       		.byte	0x64
+ 1883 03e2 00       		.byte	0
+ 1884 03e3 00       		.byte	0
+ 1885 03e4 10       		.uleb128 0x10
+ 1886 03e5 30040000 		.4byte	.LASF37
+ 1887 03e9 01       		.byte	0x1
+ 1888 03ea 7B       		.byte	0x7b
+ 1889 03eb 00000000 		.4byte	.LFB39
+ 1890 03ef 7C000000 		.4byte	.LFE39-.LFB39
+ 1891 03f3 01       		.uleb128 0x1
+ 1892 03f4 9C       		.byte	0x9c
+ 1893 03f5 3A050000 		.4byte	0x53a
+ 1894 03f9 12       		.uleb128 0x12
+ 1895 03fa 1C040000 		.4byte	.LASF38
+ 1896 03fe 01       		.byte	0x1
+ 1897 03ff 7B       		.byte	0x7b
+ 1898 0400 84000000 		.4byte	0x84
+ 1899 0404 BC010000 		.4byte	.LLST12
+ 1900 0408 16       		.uleb128 0x16
+ 1901 0409 6D040000 		.4byte	.LASF33
+ 1902 040d 01       		.byte	0x1
+ 1903 040e 7D       		.byte	0x7d
+ 1904 040f 0C030000 		.4byte	0x30c
+ 1905 0413 03       		.uleb128 0x3
+ 1906 0414 91       		.byte	0x91
+ 1907 0415 F87D     		.sleb128 -264
+ 1908 0417 0C       		.uleb128 0xc
+ 1909 0418 5C010000 		.4byte	.LASF39
+ 1910 041c 01       		.byte	0x1
+ 1911 041d 7E       		.byte	0x7e
+ 1912 041e B7000000 		.4byte	0xb7
+ 1913 0422 E8010000 		.4byte	.LLST13
+ 1914 0426 15       		.uleb128 0x15
+ 1915 0427 0A000000 		.4byte	.LVL46
+ 1916 042b 530D0000 		.4byte	0xd53
+ 1917 042f 3A040000 		.4byte	0x43a
+ 1918 0433 14       		.uleb128 0x14
+ 1919 0434 01       		.uleb128 0x1
+ 1920 0435 50       		.byte	0x50
+ 1921 0436 02       		.uleb128 0x2
+ 1922 0437 74       		.byte	0x74
+ 1923 0438 00       		.sleb128 0
+ 1924 0439 00       		.byte	0
+ 1925 043a 15       		.uleb128 0x15
+ 1926 043b 16000000 		.4byte	.LVL48
+ 1927 043f 730D0000 		.4byte	0xd73
+ 1928 0443 57040000 		.4byte	0x457
+ 1929 0447 14       		.uleb128 0x14
+ 1930 0448 01       		.uleb128 0x1
+ 1931 0449 51       		.byte	0x51
+ 1932 044a 05       		.uleb128 0x5
+ 1933 044b 03       		.byte	0x3
+ 1934 044c 38000000 		.4byte	.LC11
+ 1935 0450 14       		.uleb128 0x14
+ 1936 0451 01       		.uleb128 0x1
+ 1937 0452 50       		.byte	0x50
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 43
+
+
+ 1938 0453 02       		.uleb128 0x2
+ 1939 0454 7D       		.byte	0x7d
+ 1940 0455 00       		.sleb128 0
+ 1941 0456 00       		.byte	0
+ 1942 0457 15       		.uleb128 0x15
+ 1943 0458 1C000000 		.4byte	.LVL49
+ 1944 045c 8E0D0000 		.4byte	0xd8e
+ 1945 0460 6B040000 		.4byte	0x46b
+ 1946 0464 14       		.uleb128 0x14
+ 1947 0465 01       		.uleb128 0x1
+ 1948 0466 50       		.byte	0x50
+ 1949 0467 02       		.uleb128 0x2
+ 1950 0468 7D       		.byte	0x7d
+ 1951 0469 00       		.sleb128 0
+ 1952 046a 00       		.byte	0
+ 1953 046b 15       		.uleb128 0x15
+ 1954 046c 22000000 		.4byte	.LVL50
+ 1955 0470 AA0D0000 		.4byte	0xdaa
+ 1956 0474 7F040000 		.4byte	0x47f
+ 1957 0478 14       		.uleb128 0x14
+ 1958 0479 01       		.uleb128 0x1
+ 1959 047a 50       		.byte	0x50
+ 1960 047b 02       		.uleb128 0x2
+ 1961 047c 08       		.byte	0x8
+ 1962 047d 64       		.byte	0x64
+ 1963 047e 00       		.byte	0
+ 1964 047f 15       		.uleb128 0x15
+ 1965 0480 28000000 		.4byte	.LVL51
+ 1966 0484 D7010000 		.4byte	0x1d7
+ 1967 0488 96040000 		.4byte	0x496
+ 1968 048c 14       		.uleb128 0x14
+ 1969 048d 01       		.uleb128 0x1
+ 1970 048e 50       		.byte	0x50
+ 1971 048f 05       		.uleb128 0x5
+ 1972 0490 03       		.byte	0x3
+ 1973 0491 48000000 		.4byte	.LC13
+ 1974 0495 00       		.byte	0
+ 1975 0496 15       		.uleb128 0x15
+ 1976 0497 34000000 		.4byte	.LVL52
+ 1977 049b AA0D0000 		.4byte	0xdaa
+ 1978 049f AB040000 		.4byte	0x4ab
+ 1979 04a3 14       		.uleb128 0x14
+ 1980 04a4 01       		.uleb128 0x1
+ 1981 04a5 50       		.byte	0x50
+ 1982 04a6 03       		.uleb128 0x3
+ 1983 04a7 0A       		.byte	0xa
+ 1984 04a8 2C01     		.2byte	0x12c
+ 1985 04aa 00       		.byte	0
+ 1986 04ab 15       		.uleb128 0x15
+ 1987 04ac 3A000000 		.4byte	.LVL53
+ 1988 04b0 1C030000 		.4byte	0x31c
+ 1989 04b4 C2040000 		.4byte	0x4c2
+ 1990 04b8 14       		.uleb128 0x14
+ 1991 04b9 01       		.uleb128 0x1
+ 1992 04ba 50       		.byte	0x50
+ 1993 04bb 05       		.uleb128 0x5
+ 1994 04bc 03       		.byte	0x3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 44
+
+
+ 1995 04bd 50000000 		.4byte	.LC15
+ 1996 04c1 00       		.byte	0
+ 1997 04c2 15       		.uleb128 0x15
+ 1998 04c3 44000000 		.4byte	.LVL54
+ 1999 04c7 D7010000 		.4byte	0x1d7
+ 2000 04cb D9040000 		.4byte	0x4d9
+ 2001 04cf 14       		.uleb128 0x14
+ 2002 04d0 01       		.uleb128 0x1
+ 2003 04d1 50       		.byte	0x50
+ 2004 04d2 05       		.uleb128 0x5
+ 2005 04d3 03       		.byte	0x3
+ 2006 04d4 18000000 		.4byte	.LC6
+ 2007 04d8 00       		.byte	0
+ 2008 04d9 15       		.uleb128 0x15
+ 2009 04da 4E000000 		.4byte	.LVL55
+ 2010 04de 8E0D0000 		.4byte	0xd8e
+ 2011 04e2 ED040000 		.4byte	0x4ed
+ 2012 04e6 14       		.uleb128 0x14
+ 2013 04e7 01       		.uleb128 0x1
+ 2014 04e8 50       		.byte	0x50
+ 2015 04e9 02       		.uleb128 0x2
+ 2016 04ea 7D       		.byte	0x7d
+ 2017 04eb 00       		.sleb128 0
+ 2018 04ec 00       		.byte	0
+ 2019 04ed 15       		.uleb128 0x15
+ 2020 04ee 54000000 		.4byte	.LVL56
+ 2021 04f2 AA0D0000 		.4byte	0xdaa
+ 2022 04f6 01050000 		.4byte	0x501
+ 2023 04fa 14       		.uleb128 0x14
+ 2024 04fb 01       		.uleb128 0x1
+ 2025 04fc 50       		.byte	0x50
+ 2026 04fd 02       		.uleb128 0x2
+ 2027 04fe 08       		.byte	0x8
+ 2028 04ff 64       		.byte	0x64
+ 2029 0500 00       		.byte	0
+ 2030 0501 15       		.uleb128 0x15
+ 2031 0502 5A000000 		.4byte	.LVL57
+ 2032 0506 8E0D0000 		.4byte	0xd8e
+ 2033 050a 15050000 		.4byte	0x515
+ 2034 050e 14       		.uleb128 0x14
+ 2035 050f 01       		.uleb128 0x1
+ 2036 0510 50       		.byte	0x50
+ 2037 0511 02       		.uleb128 0x2
+ 2038 0512 74       		.byte	0x74
+ 2039 0513 00       		.sleb128 0
+ 2040 0514 00       		.byte	0
+ 2041 0515 15       		.uleb128 0x15
+ 2042 0516 62000000 		.4byte	.LVL58
+ 2043 051a AA0D0000 		.4byte	0xdaa
+ 2044 051e 29050000 		.4byte	0x529
+ 2045 0522 14       		.uleb128 0x14
+ 2046 0523 01       		.uleb128 0x1
+ 2047 0524 50       		.byte	0x50
+ 2048 0525 02       		.uleb128 0x2
+ 2049 0526 08       		.byte	0x8
+ 2050 0527 64       		.byte	0x64
+ 2051 0528 00       		.byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 45
+
+
+ 2052 0529 13       		.uleb128 0x13
+ 2053 052a 68000000 		.4byte	.LVL59
+ 2054 052e 8E0D0000 		.4byte	0xd8e
+ 2055 0532 14       		.uleb128 0x14
+ 2056 0533 01       		.uleb128 0x1
+ 2057 0534 50       		.byte	0x50
+ 2058 0535 02       		.uleb128 0x2
+ 2059 0536 74       		.byte	0x74
+ 2060 0537 00       		.sleb128 0
+ 2061 0538 00       		.byte	0
+ 2062 0539 00       		.byte	0
+ 2063 053a 11       		.uleb128 0x11
+ 2064 053b 9B000000 		.4byte	.LASF40
+ 2065 053f 01       		.byte	0x1
+ 2066 0540 95       		.byte	0x95
+ 2067 0541 AC000000 		.4byte	0xac
+ 2068 0545 00000000 		.4byte	.LFB40
+ 2069 0549 88000000 		.4byte	.LFE40-.LFB40
+ 2070 054d 01       		.uleb128 0x1
+ 2071 054e 9C       		.byte	0x9c
+ 2072 054f EC050000 		.4byte	0x5ec
+ 2073 0553 12       		.uleb128 0x12
+ 2074 0554 9B010000 		.4byte	.LASF41
+ 2075 0558 01       		.byte	0x1
+ 2076 0559 95       		.byte	0x95
+ 2077 055a 84000000 		.4byte	0x84
+ 2078 055e 07020000 		.4byte	.LLST14
+ 2079 0562 12       		.uleb128 0x12
+ 2080 0563 C8030000 		.4byte	.LASF25
+ 2081 0567 01       		.byte	0x1
+ 2082 0568 95       		.byte	0x95
+ 2083 0569 84000000 		.4byte	0x84
+ 2084 056d 33020000 		.4byte	.LLST15
+ 2085 0571 17       		.uleb128 0x17
+ 2086 0572 49504400 		.ascii	"IPD\000"
+ 2087 0576 01       		.byte	0x1
+ 2088 0577 99       		.byte	0x99
+ 2089 0578 EC050000 		.4byte	0x5ec
+ 2090 057c 02       		.uleb128 0x2
+ 2091 057d 91       		.byte	0x91
+ 2092 057e 68       		.sleb128 -24
+ 2093 057f 0D       		.uleb128 0xd
+ 2094 0580 6900     		.ascii	"i\000"
+ 2095 0582 01       		.byte	0x1
+ 2096 0583 9A       		.byte	0x9a
+ 2097 0584 AC000000 		.4byte	0xac
+ 2098 0588 78020000 		.4byte	.LLST16
+ 2099 058c 16       		.uleb128 0x16
+ 2100 058d 46040000 		.4byte	.LASF42
+ 2101 0591 01       		.byte	0x1
+ 2102 0592 A2       		.byte	0xa2
+ 2103 0593 FC050000 		.4byte	0x5fc
+ 2104 0597 02       		.uleb128 0x2
+ 2105 0598 91       		.byte	0x91
+ 2106 0599 64       		.sleb128 -28
+ 2107 059a 0D       		.uleb128 0xd
+ 2108 059b 6C656E00 		.ascii	"len\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 46
+
+
+ 2109 059f 01       		.byte	0x1
+ 2110 05a0 A3       		.byte	0xa3
+ 2111 05a1 AC000000 		.4byte	0xac
+ 2112 05a5 CF020000 		.4byte	.LLST17
+ 2113 05a9 0C       		.uleb128 0xc
+ 2114 05aa DF030000 		.4byte	.LASF43
+ 2115 05ae 01       		.byte	0x1
+ 2116 05af A4       		.byte	0xa4
+ 2117 05b0 AC000000 		.4byte	0xac
+ 2118 05b4 ED020000 		.4byte	.LLST18
+ 2119 05b8 0C       		.uleb128 0xc
+ 2120 05b9 A4030000 		.4byte	.LASF44
+ 2121 05bd 01       		.byte	0x1
+ 2122 05be A5       		.byte	0xa5
+ 2123 05bf AC000000 		.4byte	0xac
+ 2124 05c3 23030000 		.4byte	.LLST19
+ 2125 05c7 15       		.uleb128 0x15
+ 2126 05c8 0C000000 		.4byte	.LVL62
+ 2127 05cc 88010000 		.4byte	0x188
+ 2128 05d0 DB050000 		.4byte	0x5db
+ 2129 05d4 14       		.uleb128 0x14
+ 2130 05d5 01       		.uleb128 0x1
+ 2131 05d6 50       		.byte	0x50
+ 2132 05d7 02       		.uleb128 0x2
+ 2133 05d8 75       		.byte	0x75
+ 2134 05d9 00       		.sleb128 0
+ 2135 05da 00       		.byte	0
+ 2136 05db 13       		.uleb128 0x13
+ 2137 05dc 4C000000 		.4byte	.LVL70
+ 2138 05e0 BB0D0000 		.4byte	0xdbb
+ 2139 05e4 14       		.uleb128 0x14
+ 2140 05e5 01       		.uleb128 0x1
+ 2141 05e6 50       		.byte	0x50
+ 2142 05e7 02       		.uleb128 0x2
+ 2143 05e8 91       		.byte	0x91
+ 2144 05e9 64       		.sleb128 -28
+ 2145 05ea 00       		.byte	0
+ 2146 05eb 00       		.byte	0
+ 2147 05ec 08       		.uleb128 0x8
+ 2148 05ed 8A000000 		.4byte	0x8a
+ 2149 05f1 FC050000 		.4byte	0x5fc
+ 2150 05f5 09       		.uleb128 0x9
+ 2151 05f6 76000000 		.4byte	0x76
+ 2152 05fa 04       		.byte	0x4
+ 2153 05fb 00       		.byte	0
+ 2154 05fc 08       		.uleb128 0x8
+ 2155 05fd 8A000000 		.4byte	0x8a
+ 2156 0601 0C060000 		.4byte	0x60c
+ 2157 0605 09       		.uleb128 0x9
+ 2158 0606 76000000 		.4byte	0x76
+ 2159 060a 03       		.byte	0x3
+ 2160 060b 00       		.byte	0
+ 2161 060c 10       		.uleb128 0x10
+ 2162 060d 57040000 		.4byte	.LASF45
+ 2163 0611 01       		.byte	0x1
+ 2164 0612 DE       		.byte	0xde
+ 2165 0613 00000000 		.4byte	.LFB42
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 47
+
+
+ 2166 0617 78000000 		.4byte	.LFE42-.LFB42
+ 2167 061b 01       		.uleb128 0x1
+ 2168 061c 9C       		.byte	0x9c
+ 2169 061d CA060000 		.4byte	0x6ca
+ 2170 0621 12       		.uleb128 0x12
+ 2171 0622 D4030000 		.4byte	.LASF46
+ 2172 0626 01       		.byte	0x1
+ 2173 0627 DE       		.byte	0xde
+ 2174 0628 84000000 		.4byte	0x84
+ 2175 062c 36030000 		.4byte	.LLST20
+ 2176 0630 0D       		.uleb128 0xd
+ 2177 0631 6900     		.ascii	"i\000"
+ 2178 0633 01       		.byte	0x1
+ 2179 0634 E0       		.byte	0xe0
+ 2180 0635 5D000000 		.4byte	0x5d
+ 2181 0639 57030000 		.4byte	.LLST21
+ 2182 063d 0C       		.uleb128 0xc
+ 2183 063e 00040000 		.4byte	.LASF47
+ 2184 0642 01       		.byte	0x1
+ 2185 0643 E1       		.byte	0xe1
+ 2186 0644 AC000000 		.4byte	0xac
+ 2187 0648 81030000 		.4byte	.LLST22
+ 2188 064c 0C       		.uleb128 0xc
+ 2189 064d 88000000 		.4byte	.LASF48
+ 2190 0651 01       		.byte	0x1
+ 2191 0652 E2       		.byte	0xe2
+ 2192 0653 AC000000 		.4byte	0xac
+ 2193 0657 AD030000 		.4byte	.LLST23
+ 2194 065b 16       		.uleb128 0x16
+ 2195 065c 44000000 		.4byte	.LASF49
+ 2196 0660 01       		.byte	0x1
+ 2197 0661 E3       		.byte	0xe3
+ 2198 0662 FC050000 		.4byte	0x5fc
+ 2199 0666 02       		.uleb128 0x2
+ 2200 0667 91       		.byte	0x91
+ 2201 0668 64       		.sleb128 -28
+ 2202 0669 16       		.uleb128 0x16
+ 2203 066a CE020000 		.4byte	.LASF50
+ 2204 066e 01       		.byte	0x1
+ 2205 066f E4       		.byte	0xe4
+ 2206 0670 FC050000 		.4byte	0x5fc
+ 2207 0674 02       		.uleb128 0x2
+ 2208 0675 91       		.byte	0x91
+ 2209 0676 60       		.sleb128 -32
+ 2210 0677 15       		.uleb128 0x15
+ 2211 0678 34000000 		.4byte	.LVL94
+ 2212 067c BB0D0000 		.4byte	0xdbb
+ 2213 0680 8B060000 		.4byte	0x68b
+ 2214 0684 14       		.uleb128 0x14
+ 2215 0685 01       		.uleb128 0x1
+ 2216 0686 50       		.byte	0x50
+ 2217 0687 02       		.uleb128 0x2
+ 2218 0688 91       		.byte	0x91
+ 2219 0689 64       		.sleb128 -28
+ 2220 068a 00       		.byte	0
+ 2221 068b 15       		.uleb128 0x15
+ 2222 068c 3E000000 		.4byte	.LVL96
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 48
+
+
+ 2223 0690 BB0D0000 		.4byte	0xdbb
+ 2224 0694 9F060000 		.4byte	0x69f
+ 2225 0698 14       		.uleb128 0x14
+ 2226 0699 01       		.uleb128 0x1
+ 2227 069a 50       		.byte	0x50
+ 2228 069b 02       		.uleb128 0x2
+ 2229 069c 7D       		.byte	0x7d
+ 2230 069d 00       		.sleb128 0
+ 2231 069e 00       		.byte	0
+ 2232 069f 15       		.uleb128 0x15
+ 2233 06a0 54000000 		.4byte	.LVL99
+ 2234 06a4 8E0D0000 		.4byte	0xd8e
+ 2235 06a8 B6060000 		.4byte	0x6b6
+ 2236 06ac 14       		.uleb128 0x14
+ 2237 06ad 01       		.uleb128 0x1
+ 2238 06ae 50       		.byte	0x50
+ 2239 06af 05       		.uleb128 0x5
+ 2240 06b0 03       		.byte	0x3
+ 2241 06b1 68000000 		.4byte	.LC21
+ 2242 06b5 00       		.byte	0
+ 2243 06b6 13       		.uleb128 0x13
+ 2244 06b7 64000000 		.4byte	.LVL100
+ 2245 06bb 8E0D0000 		.4byte	0xd8e
+ 2246 06bf 14       		.uleb128 0x14
+ 2247 06c0 01       		.uleb128 0x1
+ 2248 06c1 50       		.byte	0x50
+ 2249 06c2 05       		.uleb128 0x5
+ 2250 06c3 03       		.byte	0x3
+ 2251 06c4 9C000000 		.4byte	.LC24
+ 2252 06c8 00       		.byte	0
+ 2253 06c9 00       		.byte	0
+ 2254 06ca 10       		.uleb128 0x10
+ 2255 06cb A1020000 		.4byte	.LASF51
+ 2256 06cf 01       		.byte	0x1
+ 2257 06d0 C0       		.byte	0xc0
+ 2258 06d1 00000000 		.4byte	.LFB41
+ 2259 06d5 58000000 		.4byte	.LFE41-.LFB41
+ 2260 06d9 01       		.uleb128 0x1
+ 2261 06da 9C       		.byte	0x9c
+ 2262 06db 54070000 		.4byte	0x754
+ 2263 06df 12       		.uleb128 0x12
+ 2264 06e0 9B010000 		.4byte	.LASF41
+ 2265 06e4 01       		.byte	0x1
+ 2266 06e5 C0       		.byte	0xc0
+ 2267 06e6 84000000 		.4byte	0x84
+ 2268 06ea CC030000 		.4byte	.LLST24
+ 2269 06ee 0D       		.uleb128 0xd
+ 2270 06ef 6900     		.ascii	"i\000"
+ 2271 06f1 01       		.byte	0x1
+ 2272 06f2 C2       		.byte	0xc2
+ 2273 06f3 5D000000 		.4byte	0x5d
+ 2274 06f7 F8030000 		.4byte	.LLST25
+ 2275 06fb 16       		.uleb128 0x16
+ 2276 06fc E3010000 		.4byte	.LASF52
+ 2277 0700 01       		.byte	0x1
+ 2278 0701 C3       		.byte	0xc3
+ 2279 0702 0C030000 		.4byte	0x30c
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 49
+
+
+ 2280 0706 03       		.uleb128 0x3
+ 2281 0707 91       		.byte	0x91
+ 2282 0708 F87D     		.sleb128 -264
+ 2283 070a 16       		.uleb128 0x16
+ 2284 070b 51010000 		.4byte	.LASF53
+ 2285 070f 01       		.byte	0x1
+ 2286 0710 C5       		.byte	0xc5
+ 2287 0711 9C000000 		.4byte	0x9c
+ 2288 0715 03       		.uleb128 0x3
+ 2289 0716 91       		.byte	0x91
+ 2290 0717 F07D     		.sleb128 -272
+ 2291 0719 0C       		.uleb128 0xc
+ 2292 071a C8010000 		.4byte	.LASF54
+ 2293 071e 01       		.byte	0x1
+ 2294 071f C6       		.byte	0xc6
+ 2295 0720 AC000000 		.4byte	0xac
+ 2296 0724 22040000 		.4byte	.LLST26
+ 2297 0728 15       		.uleb128 0x15
+ 2298 0729 0E000000 		.4byte	.LVL105
+ 2299 072d 3A050000 		.4byte	0x53a
+ 2300 0731 43070000 		.4byte	0x743
+ 2301 0735 14       		.uleb128 0x14
+ 2302 0736 01       		.uleb128 0x1
+ 2303 0737 51       		.byte	0x51
+ 2304 0738 03       		.uleb128 0x3
+ 2305 0739 91       		.byte	0x91
+ 2306 073a F87D     		.sleb128 -264
+ 2307 073c 14       		.uleb128 0x14
+ 2308 073d 01       		.uleb128 0x1
+ 2309 073e 50       		.byte	0x50
+ 2310 073f 02       		.uleb128 0x2
+ 2311 0740 74       		.byte	0x74
+ 2312 0741 00       		.sleb128 0
+ 2313 0742 00       		.byte	0
+ 2314 0743 13       		.uleb128 0x13
+ 2315 0744 50000000 		.4byte	.LVL113
+ 2316 0748 0C060000 		.4byte	0x60c
+ 2317 074c 14       		.uleb128 0x14
+ 2318 074d 01       		.uleb128 0x1
+ 2319 074e 50       		.byte	0x50
+ 2320 074f 02       		.uleb128 0x2
+ 2321 0750 7D       		.byte	0x7d
+ 2322 0751 00       		.sleb128 0
+ 2323 0752 00       		.byte	0
+ 2324 0753 00       		.byte	0
+ 2325 0754 10       		.uleb128 0x10
+ 2326 0755 18000000 		.4byte	.LASF55
+ 2327 0759 01       		.byte	0x1
+ 2328 075a FD       		.byte	0xfd
+ 2329 075b 00000000 		.4byte	.LFB43
+ 2330 075f 5C000000 		.4byte	.LFE43-.LFB43
+ 2331 0763 01       		.uleb128 0x1
+ 2332 0764 9C       		.byte	0x9c
+ 2333 0765 50080000 		.4byte	0x850
+ 2334 0769 12       		.uleb128 0x12
+ 2335 076a A0040000 		.4byte	.LASF56
+ 2336 076e 01       		.byte	0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 50
+
+
+ 2337 076f FD       		.byte	0xfd
+ 2338 0770 D8000000 		.4byte	0xd8
+ 2339 0774 35040000 		.4byte	.LLST27
+ 2340 0778 12       		.uleb128 0x12
+ 2341 0779 64030000 		.4byte	.LASF57
+ 2342 077d 01       		.byte	0x1
+ 2343 077e FD       		.byte	0xfd
+ 2344 077f D8000000 		.4byte	0xd8
+ 2345 0783 56040000 		.4byte	.LLST28
+ 2346 0787 12       		.uleb128 0x12
+ 2347 0788 F7030000 		.4byte	.LASF58
+ 2348 078c 01       		.byte	0x1
+ 2349 078d FD       		.byte	0xfd
+ 2350 078e D8000000 		.4byte	0xd8
+ 2351 0792 77040000 		.4byte	.LLST29
+ 2352 0796 12       		.uleb128 0x12
+ 2353 0797 FE000000 		.4byte	.LASF59
+ 2354 079b 01       		.byte	0x1
+ 2355 079c FD       		.byte	0xfd
+ 2356 079d D8000000 		.4byte	0xd8
+ 2357 07a1 98040000 		.4byte	.LLST30
+ 2358 07a5 12       		.uleb128 0x12
+ 2359 07a6 78040000 		.4byte	.LASF60
+ 2360 07aa 01       		.byte	0x1
+ 2361 07ab FD       		.byte	0xfd
+ 2362 07ac D8000000 		.4byte	0xd8
+ 2363 07b0 B9040000 		.4byte	.LLST31
+ 2364 07b4 16       		.uleb128 0x16
+ 2365 07b5 6D040000 		.4byte	.LASF33
+ 2366 07b9 01       		.byte	0x1
+ 2367 07ba FF       		.byte	0xff
+ 2368 07bb 50080000 		.4byte	0x850
+ 2369 07bf 03       		.uleb128 0x3
+ 2370 07c0 91       		.byte	0x91
+ 2371 07c1 F07E     		.sleb128 -144
+ 2372 07c3 15       		.uleb128 0x15
+ 2373 07c4 2C000000 		.4byte	.LVL120
+ 2374 07c8 730D0000 		.4byte	0xd73
+ 2375 07cc FB070000 		.4byte	0x7fb
+ 2376 07d0 14       		.uleb128 0x14
+ 2377 07d1 01       		.uleb128 0x1
+ 2378 07d2 53       		.byte	0x53
+ 2379 07d3 02       		.uleb128 0x2
+ 2380 07d4 74       		.byte	0x74
+ 2381 07d5 00       		.sleb128 0
+ 2382 07d6 14       		.uleb128 0x14
+ 2383 07d7 01       		.uleb128 0x1
+ 2384 07d8 51       		.byte	0x51
+ 2385 07d9 05       		.uleb128 0x5
+ 2386 07da 03       		.byte	0x3
+ 2387 07db D0000000 		.4byte	.LC28
+ 2388 07df 14       		.uleb128 0x14
+ 2389 07e0 01       		.uleb128 0x1
+ 2390 07e1 50       		.byte	0x50
+ 2391 07e2 03       		.uleb128 0x3
+ 2392 07e3 91       		.byte	0x91
+ 2393 07e4 F07E     		.sleb128 -144
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 51
+
+
+ 2394 07e6 14       		.uleb128 0x14
+ 2395 07e7 02       		.uleb128 0x2
+ 2396 07e8 7D       		.byte	0x7d
+ 2397 07e9 1C       		.sleb128 28
+ 2398 07ea 08       		.uleb128 0x8
+ 2399 07eb 91       		.byte	0x91
+ 2400 07ec 00       		.sleb128 0
+ 2401 07ed 94       		.byte	0x94
+ 2402 07ee 02       		.byte	0x2
+ 2403 07ef 40       		.byte	0x40
+ 2404 07f0 24       		.byte	0x24
+ 2405 07f1 40       		.byte	0x40
+ 2406 07f2 26       		.byte	0x26
+ 2407 07f3 14       		.uleb128 0x14
+ 2408 07f4 02       		.uleb128 0x2
+ 2409 07f5 7D       		.byte	0x7d
+ 2410 07f6 0C       		.sleb128 12
+ 2411 07f7 02       		.uleb128 0x2
+ 2412 07f8 75       		.byte	0x75
+ 2413 07f9 00       		.sleb128 0
+ 2414 07fa 00       		.byte	0
+ 2415 07fb 15       		.uleb128 0x15
+ 2416 07fc 32000000 		.4byte	.LVL121
+ 2417 0800 E4030000 		.4byte	0x3e4
+ 2418 0804 10080000 		.4byte	0x810
+ 2419 0808 14       		.uleb128 0x14
+ 2420 0809 01       		.uleb128 0x1
+ 2421 080a 50       		.byte	0x50
+ 2422 080b 03       		.uleb128 0x3
+ 2423 080c 91       		.byte	0x91
+ 2424 080d F07E     		.sleb128 -144
+ 2425 080f 00       		.byte	0
+ 2426 0810 15       		.uleb128 0x15
+ 2427 0811 3A000000 		.4byte	.LVL122
+ 2428 0815 CA060000 		.4byte	0x6ca
+ 2429 0819 27080000 		.4byte	0x827
+ 2430 081d 14       		.uleb128 0x14
+ 2431 081e 01       		.uleb128 0x1
+ 2432 081f 50       		.byte	0x50
+ 2433 0820 05       		.uleb128 0x5
+ 2434 0821 03       		.byte	0x3
+ 2435 0822 04010000 		.4byte	.LANCHOR2+4
+ 2436 0826 00       		.byte	0
+ 2437 0827 15       		.uleb128 0x15
+ 2438 0828 42000000 		.4byte	.LVL123
+ 2439 082c AA0D0000 		.4byte	0xdaa
+ 2440 0830 3C080000 		.4byte	0x83c
+ 2441 0834 14       		.uleb128 0x14
+ 2442 0835 01       		.uleb128 0x1
+ 2443 0836 50       		.byte	0x50
+ 2444 0837 03       		.uleb128 0x3
+ 2445 0838 0A       		.byte	0xa
+ 2446 0839 F401     		.2byte	0x1f4
+ 2447 083b 00       		.byte	0
+ 2448 083c 13       		.uleb128 0x13
+ 2449 083d 48000000 		.4byte	.LVL124
+ 2450 0841 8E0D0000 		.4byte	0xd8e
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 52
+
+
+ 2451 0845 14       		.uleb128 0x14
+ 2452 0846 01       		.uleb128 0x1
+ 2453 0847 50       		.byte	0x50
+ 2454 0848 05       		.uleb128 0x5
+ 2455 0849 03       		.byte	0x3
+ 2456 084a F0000000 		.4byte	.LC31
+ 2457 084e 00       		.byte	0
+ 2458 084f 00       		.byte	0
+ 2459 0850 08       		.uleb128 0x8
+ 2460 0851 8A000000 		.4byte	0x8a
+ 2461 0855 60080000 		.4byte	0x860
+ 2462 0859 09       		.uleb128 0x9
+ 2463 085a 76000000 		.4byte	0x76
+ 2464 085e 7F       		.byte	0x7f
+ 2465 085f 00       		.byte	0
+ 2466 0860 18       		.uleb128 0x18
+ 2467 0861 45030000 		.4byte	.LASF61
+ 2468 0865 01       		.byte	0x1
+ 2469 0866 1101     		.2byte	0x111
+ 2470 0868 00000000 		.4byte	.LFB44
+ 2471 086c 8C000000 		.4byte	.LFE44-.LFB44
+ 2472 0870 01       		.uleb128 0x1
+ 2473 0871 9C       		.byte	0x9c
+ 2474 0872 AA090000 		.4byte	0x9aa
+ 2475 0876 19       		.uleb128 0x19
+ 2476 0877 69010000 		.4byte	.LASF31
+ 2477 087b 01       		.byte	0x1
+ 2478 087c 1101     		.2byte	0x111
+ 2479 087e 84000000 		.4byte	0x84
+ 2480 0882 E5040000 		.4byte	.LLST32
+ 2481 0886 19       		.uleb128 0x19
+ 2482 0887 A7010000 		.4byte	.LASF32
+ 2483 088b 01       		.byte	0x1
+ 2484 088c 1101     		.2byte	0x111
+ 2485 088e 84000000 		.4byte	0x84
+ 2486 0892 11050000 		.4byte	.LLST33
+ 2487 0896 19       		.uleb128 0x19
+ 2488 0897 B9010000 		.4byte	.LASF35
+ 2489 089b 01       		.byte	0x1
+ 2490 089c 1101     		.2byte	0x111
+ 2491 089e 84000000 		.4byte	0x84
+ 2492 08a2 3D050000 		.4byte	.LLST34
+ 2493 08a6 1A       		.uleb128 0x1a
+ 2494 08a7 6900     		.ascii	"i\000"
+ 2495 08a9 01       		.byte	0x1
+ 2496 08aa 1301     		.2byte	0x113
+ 2497 08ac 5D000000 		.4byte	0x5d
+ 2498 08b0 69050000 		.4byte	.LLST35
+ 2499 08b4 15       		.uleb128 0x15
+ 2500 08b5 10000000 		.4byte	.LVL128
+ 2501 08b9 D00D0000 		.4byte	0xdd0
+ 2502 08bd CB080000 		.4byte	0x8cb
+ 2503 08c1 14       		.uleb128 0x14
+ 2504 08c2 01       		.uleb128 0x1
+ 2505 08c3 50       		.byte	0x50
+ 2506 08c4 05       		.uleb128 0x5
+ 2507 08c5 03       		.byte	0x3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 53
+
+
+ 2508 08c6 00000000 		.4byte	UART_ISR
+ 2509 08ca 00       		.byte	0
+ 2510 08cb 0F       		.uleb128 0xf
+ 2511 08cc 14000000 		.4byte	.LVL129
+ 2512 08d0 E10D0000 		.4byte	0xde1
+ 2513 08d4 15       		.uleb128 0x15
+ 2514 08d5 1A000000 		.4byte	.LVL130
+ 2515 08d9 8E0D0000 		.4byte	0xd8e
+ 2516 08dd EB080000 		.4byte	0x8eb
+ 2517 08e1 14       		.uleb128 0x14
+ 2518 08e2 01       		.uleb128 0x1
+ 2519 08e3 50       		.byte	0x50
+ 2520 08e4 05       		.uleb128 0x5
+ 2521 08e5 03       		.byte	0x3
+ 2522 08e6 F0000000 		.4byte	.LC31
+ 2523 08ea 00       		.byte	0
+ 2524 08eb 15       		.uleb128 0x15
+ 2525 08ec 24000000 		.4byte	.LVL131
+ 2526 08f0 AA0D0000 		.4byte	0xdaa
+ 2527 08f4 FF080000 		.4byte	0x8ff
+ 2528 08f8 14       		.uleb128 0x14
+ 2529 08f9 01       		.uleb128 0x1
+ 2530 08fa 50       		.byte	0x50
+ 2531 08fb 02       		.uleb128 0x2
+ 2532 08fc 74       		.byte	0x74
+ 2533 08fd 00       		.sleb128 0
+ 2534 08fe 00       		.byte	0
+ 2535 08ff 15       		.uleb128 0x15
+ 2536 0900 2A000000 		.4byte	.LVL132
+ 2537 0904 8E0D0000 		.4byte	0xd8e
+ 2538 0908 16090000 		.4byte	0x916
+ 2539 090c 14       		.uleb128 0x14
+ 2540 090d 01       		.uleb128 0x1
+ 2541 090e 50       		.byte	0x50
+ 2542 090f 05       		.uleb128 0x5
+ 2543 0910 03       		.byte	0x3
+ 2544 0911 00010000 		.4byte	.LC35
+ 2545 0915 00       		.byte	0
+ 2546 0916 15       		.uleb128 0x15
+ 2547 0917 30000000 		.4byte	.LVL133
+ 2548 091b AA0D0000 		.4byte	0xdaa
+ 2549 091f 2B090000 		.4byte	0x92b
+ 2550 0923 14       		.uleb128 0x14
+ 2551 0924 01       		.uleb128 0x1
+ 2552 0925 50       		.byte	0x50
+ 2553 0926 03       		.uleb128 0x3
+ 2554 0927 0A       		.byte	0xa
+ 2555 0928 B80B     		.2byte	0xbb8
+ 2556 092a 00       		.byte	0
+ 2557 092b 15       		.uleb128 0x15
+ 2558 092c 36000000 		.4byte	.LVL134
+ 2559 0930 8E0D0000 		.4byte	0xd8e
+ 2560 0934 42090000 		.4byte	0x942
+ 2561 0938 14       		.uleb128 0x14
+ 2562 0939 01       		.uleb128 0x1
+ 2563 093a 50       		.byte	0x50
+ 2564 093b 05       		.uleb128 0x5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 54
+
+
+ 2565 093c 03       		.byte	0x3
+ 2566 093d 0C010000 		.4byte	.LC37
+ 2567 0941 00       		.byte	0
+ 2568 0942 15       		.uleb128 0x15
+ 2569 0943 3C000000 		.4byte	.LVL135
+ 2570 0947 AA0D0000 		.4byte	0xdaa
+ 2571 094b 56090000 		.4byte	0x956
+ 2572 094f 14       		.uleb128 0x14
+ 2573 0950 01       		.uleb128 0x1
+ 2574 0951 50       		.byte	0x50
+ 2575 0952 02       		.uleb128 0x2
+ 2576 0953 74       		.byte	0x74
+ 2577 0954 00       		.sleb128 0
+ 2578 0955 00       		.byte	0
+ 2579 0956 15       		.uleb128 0x15
+ 2580 0957 48000000 		.4byte	.LVL137
+ 2581 095b 4A020000 		.4byte	0x24a
+ 2582 095f 70090000 		.4byte	0x970
+ 2583 0963 14       		.uleb128 0x14
+ 2584 0964 01       		.uleb128 0x1
+ 2585 0965 51       		.byte	0x51
+ 2586 0966 02       		.uleb128 0x2
+ 2587 0967 75       		.byte	0x75
+ 2588 0968 00       		.sleb128 0
+ 2589 0969 14       		.uleb128 0x14
+ 2590 096a 01       		.uleb128 0x1
+ 2591 096b 50       		.byte	0x50
+ 2592 096c 02       		.uleb128 0x2
+ 2593 096d 77       		.byte	0x77
+ 2594 096e 00       		.sleb128 0
+ 2595 096f 00       		.byte	0
+ 2596 0970 15       		.uleb128 0x15
+ 2597 0971 58000000 		.4byte	.LVL139
+ 2598 0975 AA0D0000 		.4byte	0xdaa
+ 2599 0979 84090000 		.4byte	0x984
+ 2600 097d 14       		.uleb128 0x14
+ 2601 097e 01       		.uleb128 0x1
+ 2602 097f 50       		.byte	0x50
+ 2603 0980 02       		.uleb128 0x2
+ 2604 0981 08       		.byte	0x8
+ 2605 0982 64       		.byte	0x64
+ 2606 0983 00       		.byte	0
+ 2607 0984 15       		.uleb128 0x15
+ 2608 0985 62000000 		.4byte	.LVL141
+ 2609 0989 1C030000 		.4byte	0x31c
+ 2610 098d 98090000 		.4byte	0x998
+ 2611 0991 14       		.uleb128 0x14
+ 2612 0992 01       		.uleb128 0x1
+ 2613 0993 50       		.byte	0x50
+ 2614 0994 02       		.uleb128 0x2
+ 2615 0995 76       		.byte	0x76
+ 2616 0996 00       		.sleb128 0
+ 2617 0997 00       		.byte	0
+ 2618 0998 13       		.uleb128 0x13
+ 2619 0999 74000000 		.4byte	.LVL143
+ 2620 099d AA0D0000 		.4byte	0xdaa
+ 2621 09a1 14       		.uleb128 0x14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 55
+
+
+ 2622 09a2 01       		.uleb128 0x1
+ 2623 09a3 50       		.byte	0x50
+ 2624 09a4 03       		.uleb128 0x3
+ 2625 09a5 0A       		.byte	0xa
+ 2626 09a6 E803     		.2byte	0x3e8
+ 2627 09a8 00       		.byte	0
+ 2628 09a9 00       		.byte	0
+ 2629 09aa 1B       		.uleb128 0x1b
+ 2630 09ab D6000000 		.4byte	.LASF63
+ 2631 09af 01       		.byte	0x1
+ 2632 09b0 3301     		.2byte	0x133
+ 2633 09b2 00000000 		.4byte	.LFB45
+ 2634 09b6 5C010000 		.4byte	.LFE45-.LFB45
+ 2635 09ba 01       		.uleb128 0x1
+ 2636 09bb 9C       		.byte	0x9c
+ 2637 09bc A80B0000 		.4byte	0xba8
+ 2638 09c0 1C       		.uleb128 0x1c
+ 2639 09c1 6D040000 		.4byte	.LASF33
+ 2640 09c5 01       		.byte	0x1
+ 2641 09c6 3601     		.2byte	0x136
+ 2642 09c8 50080000 		.4byte	0x850
+ 2643 09cc 03       		.uleb128 0x3
+ 2644 09cd 91       		.byte	0x91
+ 2645 09ce F87E     		.sleb128 -136
+ 2646 09d0 15       		.uleb128 0x15
+ 2647 09d1 0C000000 		.4byte	.LVL148
+ 2648 09d5 88010000 		.4byte	0x188
+ 2649 09d9 E7090000 		.4byte	0x9e7
+ 2650 09dd 14       		.uleb128 0x14
+ 2651 09de 01       		.uleb128 0x1
+ 2652 09df 50       		.byte	0x50
+ 2653 09e0 05       		.uleb128 0x5
+ 2654 09e1 03       		.byte	0x3
+ 2655 09e2 04010000 		.4byte	.LANCHOR2+4
+ 2656 09e6 00       		.byte	0
+ 2657 09e7 15       		.uleb128 0x15
+ 2658 09e8 1C000000 		.4byte	.LVL149
+ 2659 09ec E80D0000 		.4byte	0xde8
+ 2660 09f0 070A0000 		.4byte	0xa07
+ 2661 09f4 14       		.uleb128 0x14
+ 2662 09f5 01       		.uleb128 0x1
+ 2663 09f6 51       		.byte	0x51
+ 2664 09f7 05       		.uleb128 0x5
+ 2665 09f8 03       		.byte	0x3
+ 2666 09f9 1C010000 		.4byte	.LC40
+ 2667 09fd 14       		.uleb128 0x14
+ 2668 09fe 01       		.uleb128 0x1
+ 2669 09ff 50       		.byte	0x50
+ 2670 0a00 05       		.uleb128 0x5
+ 2671 0a01 03       		.byte	0x3
+ 2672 0a02 04010000 		.4byte	.LANCHOR2+4
+ 2673 0a06 00       		.byte	0
+ 2674 0a07 15       		.uleb128 0x15
+ 2675 0a08 26000000 		.4byte	.LVL150
+ 2676 0a0c 8E0D0000 		.4byte	0xd8e
+ 2677 0a10 1E0A0000 		.4byte	0xa1e
+ 2678 0a14 14       		.uleb128 0x14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 56
+
+
+ 2679 0a15 01       		.uleb128 0x1
+ 2680 0a16 50       		.byte	0x50
+ 2681 0a17 05       		.uleb128 0x5
+ 2682 0a18 03       		.byte	0x3
+ 2683 0a19 20010000 		.4byte	.LC42
+ 2684 0a1d 00       		.byte	0
+ 2685 0a1e 15       		.uleb128 0x15
+ 2686 0a1f 32000000 		.4byte	.LVL151
+ 2687 0a23 E80D0000 		.4byte	0xde8
+ 2688 0a27 3E0A0000 		.4byte	0xa3e
+ 2689 0a2b 14       		.uleb128 0x14
+ 2690 0a2c 01       		.uleb128 0x1
+ 2691 0a2d 51       		.byte	0x51
+ 2692 0a2e 05       		.uleb128 0x5
+ 2693 0a2f 03       		.byte	0x3
+ 2694 0a30 2C010000 		.4byte	.LC44
+ 2695 0a34 14       		.uleb128 0x14
+ 2696 0a35 01       		.uleb128 0x1
+ 2697 0a36 50       		.byte	0x50
+ 2698 0a37 05       		.uleb128 0x5
+ 2699 0a38 03       		.byte	0x3
+ 2700 0a39 04010000 		.4byte	.LANCHOR2+4
+ 2701 0a3d 00       		.byte	0
+ 2702 0a3e 15       		.uleb128 0x15
+ 2703 0a3f 6A000000 		.4byte	.LVL152
+ 2704 0a43 730D0000 		.4byte	0xd73
+ 2705 0a47 5C0A0000 		.4byte	0xa5c
+ 2706 0a4b 14       		.uleb128 0x14
+ 2707 0a4c 01       		.uleb128 0x1
+ 2708 0a4d 51       		.byte	0x51
+ 2709 0a4e 05       		.uleb128 0x5
+ 2710 0a4f 03       		.byte	0x3
+ 2711 0a50 38010000 		.4byte	.LC46
+ 2712 0a54 14       		.uleb128 0x14
+ 2713 0a55 01       		.uleb128 0x1
+ 2714 0a56 50       		.byte	0x50
+ 2715 0a57 03       		.uleb128 0x3
+ 2716 0a58 91       		.byte	0x91
+ 2717 0a59 F87E     		.sleb128 -136
+ 2718 0a5b 00       		.byte	0
+ 2719 0a5c 15       		.uleb128 0x15
+ 2720 0a5d 70000000 		.4byte	.LVL153
+ 2721 0a61 8E0D0000 		.4byte	0xd8e
+ 2722 0a65 710A0000 		.4byte	0xa71
+ 2723 0a69 14       		.uleb128 0x14
+ 2724 0a6a 01       		.uleb128 0x1
+ 2725 0a6b 50       		.byte	0x50
+ 2726 0a6c 03       		.uleb128 0x3
+ 2727 0a6d 91       		.byte	0x91
+ 2728 0a6e F87E     		.sleb128 -136
+ 2729 0a70 00       		.byte	0
+ 2730 0a71 15       		.uleb128 0x15
+ 2731 0a72 7C000000 		.4byte	.LVL154
+ 2732 0a76 E80D0000 		.4byte	0xde8
+ 2733 0a7a 910A0000 		.4byte	0xa91
+ 2734 0a7e 14       		.uleb128 0x14
+ 2735 0a7f 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 57
+
+
+ 2736 0a80 51       		.byte	0x51
+ 2737 0a81 05       		.uleb128 0x5
+ 2738 0a82 03       		.byte	0x3
+ 2739 0a83 80010000 		.4byte	.LC54
+ 2740 0a87 14       		.uleb128 0x14
+ 2741 0a88 01       		.uleb128 0x1
+ 2742 0a89 50       		.byte	0x50
+ 2743 0a8a 05       		.uleb128 0x5
+ 2744 0a8b 03       		.byte	0x3
+ 2745 0a8c 04010000 		.4byte	.LANCHOR2+4
+ 2746 0a90 00       		.byte	0
+ 2747 0a91 0F       		.uleb128 0xf
+ 2748 0a92 84000000 		.4byte	.LVL155
+ 2749 0a96 020E0000 		.4byte	0xe02
+ 2750 0a9a 15       		.uleb128 0x15
+ 2751 0a9b 8A000000 		.4byte	.LVL156
+ 2752 0a9f AA0D0000 		.4byte	0xdaa
+ 2753 0aa3 AE0A0000 		.4byte	0xaae
+ 2754 0aa7 14       		.uleb128 0x14
+ 2755 0aa8 01       		.uleb128 0x1
+ 2756 0aa9 50       		.byte	0x50
+ 2757 0aaa 02       		.uleb128 0x2
+ 2758 0aab 08       		.byte	0x8
+ 2759 0aac C8       		.byte	0xc8
+ 2760 0aad 00       		.byte	0
+ 2761 0aae 15       		.uleb128 0x15
+ 2762 0aaf AA000000 		.4byte	.LVL157
+ 2763 0ab3 54070000 		.4byte	0x754
+ 2764 0ab7 C20A0000 		.4byte	0xac2
+ 2765 0abb 14       		.uleb128 0x14
+ 2766 0abc 01       		.uleb128 0x1
+ 2767 0abd 52       		.byte	0x52
+ 2768 0abe 02       		.uleb128 0x2
+ 2769 0abf 08       		.byte	0x8
+ 2770 0ac0 32       		.byte	0x32
+ 2771 0ac1 00       		.byte	0
+ 2772 0ac2 15       		.uleb128 0x15
+ 2773 0ac3 B6000000 		.4byte	.LVL158
+ 2774 0ac7 E80D0000 		.4byte	0xde8
+ 2775 0acb E20A0000 		.4byte	0xae2
+ 2776 0acf 14       		.uleb128 0x14
+ 2777 0ad0 01       		.uleb128 0x1
+ 2778 0ad1 51       		.byte	0x51
+ 2779 0ad2 05       		.uleb128 0x5
+ 2780 0ad3 03       		.byte	0x3
+ 2781 0ad4 90010000 		.4byte	.LC56
+ 2782 0ad8 14       		.uleb128 0x14
+ 2783 0ad9 01       		.uleb128 0x1
+ 2784 0ada 50       		.byte	0x50
+ 2785 0adb 05       		.uleb128 0x5
+ 2786 0adc 03       		.byte	0x3
+ 2787 0add 04010000 		.4byte	.LANCHOR2+4
+ 2788 0ae1 00       		.byte	0
+ 2789 0ae2 15       		.uleb128 0x15
+ 2790 0ae3 CA000000 		.4byte	.LVL159
+ 2791 0ae7 54070000 		.4byte	0x754
+ 2792 0aeb 070B0000 		.4byte	0xb07
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 58
+
+
+ 2793 0aef 14       		.uleb128 0x14
+ 2794 0af0 01       		.uleb128 0x1
+ 2795 0af1 53       		.byte	0x53
+ 2796 0af2 01       		.uleb128 0x1
+ 2797 0af3 39       		.byte	0x39
+ 2798 0af4 14       		.uleb128 0x14
+ 2799 0af5 01       		.uleb128 0x1
+ 2800 0af6 52       		.byte	0x52
+ 2801 0af7 02       		.uleb128 0x2
+ 2802 0af8 08       		.byte	0x8
+ 2803 0af9 46       		.byte	0x46
+ 2804 0afa 14       		.uleb128 0x14
+ 2805 0afb 01       		.uleb128 0x1
+ 2806 0afc 51       		.byte	0x51
+ 2807 0afd 01       		.uleb128 0x1
+ 2808 0afe 4E       		.byte	0x4e
+ 2809 0aff 14       		.uleb128 0x14
+ 2810 0b00 02       		.uleb128 0x2
+ 2811 0b01 7D       		.byte	0x7d
+ 2812 0b02 00       		.sleb128 0
+ 2813 0b03 02       		.uleb128 0x2
+ 2814 0b04 08       		.byte	0x8
+ 2815 0b05 3C       		.byte	0x3c
+ 2816 0b06 00       		.byte	0
+ 2817 0b07 15       		.uleb128 0x15
+ 2818 0b08 D6000000 		.4byte	.LVL160
+ 2819 0b0c E80D0000 		.4byte	0xde8
+ 2820 0b10 270B0000 		.4byte	0xb27
+ 2821 0b14 14       		.uleb128 0x14
+ 2822 0b15 01       		.uleb128 0x1
+ 2823 0b16 51       		.byte	0x51
+ 2824 0b17 05       		.uleb128 0x5
+ 2825 0b18 03       		.byte	0x3
+ 2826 0b19 A0010000 		.4byte	.LC58
+ 2827 0b1d 14       		.uleb128 0x14
+ 2828 0b1e 01       		.uleb128 0x1
+ 2829 0b1f 50       		.byte	0x50
+ 2830 0b20 05       		.uleb128 0x5
+ 2831 0b21 03       		.byte	0x3
+ 2832 0b22 04010000 		.4byte	.LANCHOR2+4
+ 2833 0b26 00       		.byte	0
+ 2834 0b27 15       		.uleb128 0x15
+ 2835 0b28 EA000000 		.4byte	.LVL161
+ 2836 0b2c 54070000 		.4byte	0x754
+ 2837 0b30 4B0B0000 		.4byte	0xb4b
+ 2838 0b34 14       		.uleb128 0x14
+ 2839 0b35 01       		.uleb128 0x1
+ 2840 0b36 53       		.byte	0x53
+ 2841 0b37 01       		.uleb128 0x1
+ 2842 0b38 39       		.byte	0x39
+ 2843 0b39 14       		.uleb128 0x14
+ 2844 0b3a 01       		.uleb128 0x1
+ 2845 0b3b 52       		.byte	0x52
+ 2846 0b3c 02       		.uleb128 0x2
+ 2847 0b3d 08       		.byte	0x8
+ 2848 0b3e 32       		.byte	0x32
+ 2849 0b3f 14       		.uleb128 0x14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 59
+
+
+ 2850 0b40 01       		.uleb128 0x1
+ 2851 0b41 51       		.byte	0x51
+ 2852 0b42 01       		.uleb128 0x1
+ 2853 0b43 44       		.byte	0x44
+ 2854 0b44 14       		.uleb128 0x14
+ 2855 0b45 02       		.uleb128 0x2
+ 2856 0b46 7D       		.byte	0x7d
+ 2857 0b47 00       		.sleb128 0
+ 2858 0b48 01       		.uleb128 0x1
+ 2859 0b49 4E       		.byte	0x4e
+ 2860 0b4a 00       		.byte	0
+ 2861 0b4b 15       		.uleb128 0x15
+ 2862 0b4c F6000000 		.4byte	.LVL162
+ 2863 0b50 E80D0000 		.4byte	0xde8
+ 2864 0b54 6B0B0000 		.4byte	0xb6b
+ 2865 0b58 14       		.uleb128 0x14
+ 2866 0b59 01       		.uleb128 0x1
+ 2867 0b5a 51       		.byte	0x51
+ 2868 0b5b 05       		.uleb128 0x5
+ 2869 0b5c 03       		.byte	0x3
+ 2870 0b5d B0010000 		.4byte	.LC60
+ 2871 0b61 14       		.uleb128 0x14
+ 2872 0b62 01       		.uleb128 0x1
+ 2873 0b63 50       		.byte	0x50
+ 2874 0b64 05       		.uleb128 0x5
+ 2875 0b65 03       		.byte	0x3
+ 2876 0b66 04010000 		.4byte	.LANCHOR2+4
+ 2877 0b6a 00       		.byte	0
+ 2878 0b6b 0F       		.uleb128 0xf
+ 2879 0b6c FE000000 		.4byte	.LVL163
+ 2880 0b70 020E0000 		.4byte	0xe02
+ 2881 0b74 15       		.uleb128 0x15
+ 2882 0b75 0A010000 		.4byte	.LVL164
+ 2883 0b79 E80D0000 		.4byte	0xde8
+ 2884 0b7d 940B0000 		.4byte	0xb94
+ 2885 0b81 14       		.uleb128 0x14
+ 2886 0b82 01       		.uleb128 0x1
+ 2887 0b83 51       		.byte	0x51
+ 2888 0b84 05       		.uleb128 0x5
+ 2889 0b85 03       		.byte	0x3
+ 2890 0b86 C0010000 		.4byte	.LC62
+ 2891 0b8a 14       		.uleb128 0x14
+ 2892 0b8b 01       		.uleb128 0x1
+ 2893 0b8c 50       		.byte	0x50
+ 2894 0b8d 05       		.uleb128 0x5
+ 2895 0b8e 03       		.byte	0x3
+ 2896 0b8f 04010000 		.4byte	.LANCHOR2+4
+ 2897 0b93 00       		.byte	0
+ 2898 0b94 13       		.uleb128 0x13
+ 2899 0b95 16010000 		.4byte	.LVL165
+ 2900 0b99 CA060000 		.4byte	0x6ca
+ 2901 0b9d 14       		.uleb128 0x14
+ 2902 0b9e 01       		.uleb128 0x1
+ 2903 0b9f 50       		.byte	0x50
+ 2904 0ba0 05       		.uleb128 0x5
+ 2905 0ba1 03       		.byte	0x3
+ 2906 0ba2 04010000 		.4byte	.LANCHOR2+4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 60
+
+
+ 2907 0ba6 00       		.byte	0
+ 2908 0ba7 00       		.byte	0
+ 2909 0ba8 08       		.uleb128 0x8
+ 2910 0ba9 D8000000 		.4byte	0xd8
+ 2911 0bad B80B0000 		.4byte	0xbb8
+ 2912 0bb1 09       		.uleb128 0x9
+ 2913 0bb2 76000000 		.4byte	0x76
+ 2914 0bb6 31       		.byte	0x31
+ 2915 0bb7 00       		.byte	0
+ 2916 0bb8 1D       		.uleb128 0x1d
+ 2917 0bb9 27040000 		.4byte	.LASF64
+ 2918 0bbd 04       		.byte	0x4
+ 2919 0bbe 12       		.byte	0x12
+ 2920 0bbf A80B0000 		.4byte	0xba8
+ 2921 0bc3 05       		.uleb128 0x5
+ 2922 0bc4 03       		.byte	0x3
+ 2923 0bc5 00000000 		.4byte	moisture
+ 2924 0bc9 1D       		.uleb128 0x1d
+ 2925 0bca B2030000 		.4byte	.LASF65
+ 2926 0bce 04       		.byte	0x4
+ 2927 0bcf 13       		.byte	0x13
+ 2928 0bd0 A80B0000 		.4byte	0xba8
+ 2929 0bd4 05       		.uleb128 0x5
+ 2930 0bd5 03       		.byte	0x3
+ 2931 0bd6 00000000 		.4byte	waterlevel
+ 2932 0bda 08       		.uleb128 0x8
+ 2933 0bdb D8000000 		.4byte	0xd8
+ 2934 0bdf EA0B0000 		.4byte	0xbea
+ 2935 0be3 09       		.uleb128 0x9
+ 2936 0be4 76000000 		.4byte	0x76
+ 2937 0be8 07       		.byte	0x7
+ 2938 0be9 00       		.byte	0
+ 2939 0bea 1D       		.uleb128 0x1d
+ 2940 0beb 10040000 		.4byte	.LASF66
+ 2941 0bef 04       		.byte	0x4
+ 2942 0bf0 14       		.byte	0x14
+ 2943 0bf1 DA0B0000 		.4byte	0xbda
+ 2944 0bf5 05       		.uleb128 0x5
+ 2945 0bf6 03       		.byte	0x3
+ 2946 0bf7 00000000 		.4byte	temperature
+ 2947 0bfb 1D       		.uleb128 0x1d
+ 2948 0bfc 27000000 		.4byte	.LASF67
+ 2949 0c00 04       		.byte	0x4
+ 2950 0c01 15       		.byte	0x15
+ 2951 0c02 DA0B0000 		.4byte	0xbda
+ 2952 0c06 05       		.uleb128 0x5
+ 2953 0c07 03       		.byte	0x3
+ 2954 0c08 00000000 		.4byte	batterylevel
+ 2955 0c0c 1D       		.uleb128 0x1d
+ 2956 0c0d BD030000 		.4byte	.LASF68
+ 2957 0c11 04       		.byte	0x4
+ 2958 0c12 16       		.byte	0x16
+ 2959 0c13 DA0B0000 		.4byte	0xbda
+ 2960 0c17 05       		.uleb128 0x5
+ 2961 0c18 03       		.byte	0x3
+ 2962 0c19 00000000 		.4byte	lightlevel
+ 2963 0c1d 1E       		.uleb128 0x1e
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 61
+
+
+ 2964 0c1e 494400   		.ascii	"ID\000"
+ 2965 0c21 05       		.byte	0x5
+ 2966 0c22 13       		.byte	0x13
+ 2967 0c23 CD000000 		.4byte	0xcd
+ 2968 0c27 05       		.uleb128 0x5
+ 2969 0c28 03       		.byte	0x3
+ 2970 0c29 00000000 		.4byte	ID
+ 2971 0c2d 1D       		.uleb128 0x1d
+ 2972 0c2e 09000000 		.4byte	.LASF69
+ 2973 0c32 05       		.byte	0x5
+ 2974 0c33 14       		.byte	0x14
+ 2975 0c34 CD000000 		.4byte	0xcd
+ 2976 0c38 05       		.uleb128 0x5
+ 2977 0c39 03       		.byte	0x3
+ 2978 0c3a 00000000 		.4byte	wantedMoisture
+ 2979 0c3e 1D       		.uleb128 0x1d
+ 2980 0c3f 92020000 		.4byte	.LASF70
+ 2981 0c43 05       		.byte	0x5
+ 2982 0c44 15       		.byte	0x15
+ 2983 0c45 CD000000 		.4byte	0xcd
+ 2984 0c49 05       		.uleb128 0x5
+ 2985 0c4a 03       		.byte	0x3
+ 2986 0c4b 00000000 		.4byte	maxTemperature
+ 2987 0c4f 1D       		.uleb128 0x1d
+ 2988 0c50 F9010000 		.4byte	.LASF71
+ 2989 0c54 05       		.byte	0x5
+ 2990 0c55 16       		.byte	0x16
+ 2991 0c56 CD000000 		.4byte	0xcd
+ 2992 0c5a 05       		.uleb128 0x5
+ 2993 0c5b 03       		.byte	0x3
+ 2994 0c5c 00000000 		.4byte	light
+ 2995 0c60 1D       		.uleb128 0x1d
+ 2996 0c61 80010000 		.4byte	.LASF72
+ 2997 0c65 05       		.byte	0x5
+ 2998 0c66 17       		.byte	0x17
+ 2999 0c67 CD000000 		.4byte	0xcd
+ 3000 0c6b 05       		.uleb128 0x5
+ 3001 0c6c 03       		.byte	0x3
+ 3002 0c6d 00000000 		.4byte	battery
+ 3003 0c71 1D       		.uleb128 0x1d
+ 3004 0c72 DD010000 		.4byte	.LASF73
+ 3005 0c76 05       		.byte	0x5
+ 3006 0c77 18       		.byte	0x18
+ 3007 0c78 CD000000 		.4byte	0xcd
+ 3008 0c7c 05       		.uleb128 0x5
+ 3009 0c7d 03       		.byte	0x3
+ 3010 0c7e 00000000 		.4byte	water
+ 3011 0c82 1D       		.uleb128 0x1d
+ 3012 0c83 C0000000 		.4byte	.LASF74
+ 3013 0c87 05       		.byte	0x5
+ 3014 0c88 19       		.byte	0x19
+ 3015 0c89 CD000000 		.4byte	0xcd
+ 3016 0c8d 05       		.uleb128 0x5
+ 3017 0c8e 03       		.byte	0x3
+ 3018 0c8f 00000000 		.4byte	wantedRotate
+ 3019 0c93 1D       		.uleb128 0x1d
+ 3020 0c94 28030000 		.4byte	.LASF75
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 62
+
+
+ 3021 0c98 05       		.byte	0x5
+ 3022 0c99 1F       		.byte	0x1f
+ 3023 0c9a D8000000 		.4byte	0xd8
+ 3024 0c9e 05       		.uleb128 0x5
+ 3025 0c9f 03       		.byte	0x3
+ 3026 0ca0 00000000 		.4byte	currentMoisture
+ 3027 0ca4 1D       		.uleb128 0x1d
+ 3028 0ca5 E8030000 		.4byte	.LASF76
+ 3029 0ca9 05       		.byte	0x5
+ 3030 0caa 20       		.byte	0x20
+ 3031 0cab D8000000 		.4byte	0xd8
+ 3032 0caf 05       		.uleb128 0x5
+ 3033 0cb0 03       		.byte	0x3
+ 3034 0cb1 00000000 		.4byte	currentBattery
+ 3035 0cb5 1D       		.uleb128 0x1d
+ 3036 0cb6 07050000 		.4byte	.LASF77
+ 3037 0cba 05       		.byte	0x5
+ 3038 0cbb 21       		.byte	0x21
+ 3039 0cbc D8000000 		.4byte	0xd8
+ 3040 0cc0 05       		.uleb128 0x5
+ 3041 0cc1 03       		.byte	0x3
+ 3042 0cc2 00000000 		.4byte	currentWater
+ 3043 0cc6 1D       		.uleb128 0x1d
+ 3044 0cc7 04030000 		.4byte	.LASF78
+ 3045 0ccb 05       		.byte	0x5
+ 3046 0ccc 22       		.byte	0x22
+ 3047 0ccd D8000000 		.4byte	0xd8
+ 3048 0cd1 05       		.uleb128 0x5
+ 3049 0cd2 03       		.byte	0x3
+ 3050 0cd3 00000000 		.4byte	currentLight
+ 3051 0cd7 1D       		.uleb128 0x1d
+ 3052 0cd8 AD000000 		.4byte	.LASF79
+ 3053 0cdc 05       		.byte	0x5
+ 3054 0cdd 23       		.byte	0x23
+ 3055 0cde D8000000 		.4byte	0xd8
+ 3056 0ce2 05       		.uleb128 0x5
+ 3057 0ce3 03       		.byte	0x3
+ 3058 0ce4 00000000 		.4byte	currentTemperature
+ 3059 0ce8 1D       		.uleb128 0x1d
+ 3060 0ce9 3B010000 		.4byte	.LASF80
+ 3061 0ced 01       		.byte	0x1
+ 3062 0cee 12       		.byte	0x12
+ 3063 0cef AC000000 		.4byte	0xac
+ 3064 0cf3 05       		.uleb128 0x5
+ 3065 0cf4 03       		.byte	0x3
+ 3066 0cf5 00000000 		.4byte	RXnewData
+ 3067 0cf9 1D       		.uleb128 0x1d
+ 3068 0cfa 6D030000 		.4byte	.LASF81
+ 3069 0cfe 01       		.byte	0x1
+ 3070 0cff 13       		.byte	0x13
+ 3071 0d00 AC000000 		.4byte	0xac
+ 3072 0d04 05       		.uleb128 0x5
+ 3073 0d05 03       		.byte	0x3
+ 3074 0d06 00000000 		.4byte	stringRX_len
+ 3075 0d0a 1D       		.uleb128 0x1d
+ 3076 0d0b 00000000 		.4byte	.LASF82
+ 3077 0d0f 01       		.byte	0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 63
+
+
+ 3078 0d10 14       		.byte	0x14
+ 3079 0d11 0C030000 		.4byte	0x30c
+ 3080 0d15 05       		.uleb128 0x5
+ 3081 0d16 03       		.byte	0x3
+ 3082 0d17 00000000 		.4byte	stringRX
+ 3083 0d1b 1D       		.uleb128 0x1d
+ 3084 0d1c 7A030000 		.4byte	.LASF83
+ 3085 0d20 01       		.byte	0x1
+ 3086 0d21 15       		.byte	0x15
+ 3087 0d22 0C030000 		.4byte	0x30c
+ 3088 0d26 05       		.uleb128 0x5
+ 3089 0d27 03       		.byte	0x3
+ 3090 0d28 00000000 		.4byte	uartString
+ 3091 0d2c 1D       		.uleb128 0x1d
+ 3092 0d2d D5010000 		.4byte	.LASF84
+ 3093 0d31 01       		.byte	0x1
+ 3094 0d32 16       		.byte	0x16
+ 3095 0d33 AC000000 		.4byte	0xac
+ 3096 0d37 05       		.uleb128 0x5
+ 3097 0d38 03       		.byte	0x3
+ 3098 0d39 00000000 		.4byte	plantID
+ 3099 0d3d 1F       		.uleb128 0x1f
+ 3100 0d3e BE020000 		.4byte	.LASF85
+ 3101 0d42 06       		.byte	0x6
+ 3102 0d43 6F       		.byte	0x6f
+ 3103 0d44 AC000000 		.4byte	0xac
+ 3104 0d48 1F       		.uleb128 0x1f
+ 3105 0d49 EF020000 		.4byte	.LASF86
+ 3106 0d4d 06       		.byte	0x6
+ 3107 0d4e 73       		.byte	0x73
+ 3108 0d4f AC000000 		.4byte	0xac
+ 3109 0d53 20       		.uleb128 0x20
+ 3110 0d54 9D030000 		.4byte	.LASF88
+ 3111 0d58 07       		.byte	0x7
+ 3112 0d59 21       		.byte	0x21
+ 3113 0d5a 6B000000 		.4byte	0x6b
+ 3114 0d5e 680D0000 		.4byte	0xd68
+ 3115 0d62 21       		.uleb128 0x21
+ 3116 0d63 91000000 		.4byte	0x91
+ 3117 0d67 00       		.byte	0
+ 3118 0d68 1F       		.uleb128 0x1f
+ 3119 0d69 DB000000 		.4byte	.LASF87
+ 3120 0d6d 06       		.byte	0x6
+ 3121 0d6e 71       		.byte	0x71
+ 3122 0d6f AC000000 		.4byte	0xac
+ 3123 0d73 20       		.uleb128 0x20
+ 3124 0d74 DA020000 		.4byte	.LASF89
+ 3125 0d78 08       		.byte	0x8
+ 3126 0d79 DE       		.byte	0xde
+ 3127 0d7a 5D000000 		.4byte	0x5d
+ 3128 0d7e 8E0D0000 		.4byte	0xd8e
+ 3129 0d82 21       		.uleb128 0x21
+ 3130 0d83 84000000 		.4byte	0x84
+ 3131 0d87 21       		.uleb128 0x21
+ 3132 0d88 91000000 		.4byte	0x91
+ 3133 0d8c 22       		.uleb128 0x22
+ 3134 0d8d 00       		.byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 64
+
+
+ 3135 0d8e 23       		.uleb128 0x23
+ 3136 0d8f E8000000 		.4byte	.LASF90
+ 3137 0d93 06       		.byte	0x6
+ 3138 0d94 8B       		.byte	0x8b
+ 3139 0d95 9F0D0000 		.4byte	0xd9f
+ 3140 0d99 21       		.uleb128 0x21
+ 3141 0d9a 9F0D0000 		.4byte	0xd9f
+ 3142 0d9e 00       		.byte	0
+ 3143 0d9f 05       		.uleb128 0x5
+ 3144 0da0 04       		.byte	0x4
+ 3145 0da1 A50D0000 		.4byte	0xda5
+ 3146 0da5 07       		.uleb128 0x7
+ 3147 0da6 F1000000 		.4byte	0xf1
+ 3148 0daa 23       		.uleb128 0x23
+ 3149 0dab AC040000 		.4byte	.LASF91
+ 3150 0daf 09       		.byte	0x9
+ 3151 0db0 57       		.byte	0x57
+ 3152 0db1 BB0D0000 		.4byte	0xdbb
+ 3153 0db5 21       		.uleb128 0x21
+ 3154 0db6 C2000000 		.4byte	0xc2
+ 3155 0dba 00       		.byte	0
+ 3156 0dbb 20       		.uleb128 0x20
+ 3157 0dbc FF010000 		.4byte	.LASF92
+ 3158 0dc0 0A       		.byte	0xa
+ 3159 0dc1 4A       		.byte	0x4a
+ 3160 0dc2 5D000000 		.4byte	0x5d
+ 3161 0dc6 D00D0000 		.4byte	0xdd0
+ 3162 0dca 21       		.uleb128 0x21
+ 3163 0dcb 91000000 		.4byte	0x91
+ 3164 0dcf 00       		.byte	0
+ 3165 0dd0 23       		.uleb128 0x23
+ 3166 0dd1 EA040000 		.4byte	.LASF93
+ 3167 0dd5 0B       		.byte	0xb
+ 3168 0dd6 18       		.byte	0x18
+ 3169 0dd7 E10D0000 		.4byte	0xde1
+ 3170 0ddb 21       		.uleb128 0x21
+ 3171 0ddc FC000000 		.4byte	0xfc
+ 3172 0de0 00       		.byte	0
+ 3173 0de1 24       		.uleb128 0x24
+ 3174 0de2 0F010000 		.4byte	.LASF98
+ 3175 0de6 06       		.byte	0x6
+ 3176 0de7 54       		.byte	0x54
+ 3177 0de8 20       		.uleb128 0x20
+ 3178 0de9 3F040000 		.4byte	.LASF94
+ 3179 0ded 07       		.byte	0x7
+ 3180 0dee 1C       		.byte	0x1c
+ 3181 0def 5D000000 		.4byte	0x5d
+ 3182 0df3 020E0000 		.4byte	0xe02
+ 3183 0df7 21       		.uleb128 0x21
+ 3184 0df8 91000000 		.4byte	0x91
+ 3185 0dfc 21       		.uleb128 0x21
+ 3186 0dfd 91000000 		.4byte	0x91
+ 3187 0e01 00       		.byte	0
+ 3188 0e02 25       		.uleb128 0x25
+ 3189 0e03 74000000 		.4byte	.LASF99
+ 3190 0e07 05       		.byte	0x5
+ 3191 0e08 2B       		.byte	0x2b
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 65
+
+
+ 3192 0e09 22       		.uleb128 0x22
+ 3193 0e0a 00       		.byte	0
+ 3194 0e0b 00       		.byte	0
+ 3195              		.section	.debug_abbrev,"",%progbits
+ 3196              	.Ldebug_abbrev0:
+ 3197 0000 01       		.uleb128 0x1
+ 3198 0001 11       		.uleb128 0x11
+ 3199 0002 01       		.byte	0x1
+ 3200 0003 25       		.uleb128 0x25
+ 3201 0004 0E       		.uleb128 0xe
+ 3202 0005 13       		.uleb128 0x13
+ 3203 0006 0B       		.uleb128 0xb
+ 3204 0007 03       		.uleb128 0x3
+ 3205 0008 0E       		.uleb128 0xe
+ 3206 0009 1B       		.uleb128 0x1b
+ 3207 000a 0E       		.uleb128 0xe
+ 3208 000b 55       		.uleb128 0x55
+ 3209 000c 17       		.uleb128 0x17
+ 3210 000d 11       		.uleb128 0x11
+ 3211 000e 01       		.uleb128 0x1
+ 3212 000f 10       		.uleb128 0x10
+ 3213 0010 17       		.uleb128 0x17
+ 3214 0011 00       		.byte	0
+ 3215 0012 00       		.byte	0
+ 3216 0013 02       		.uleb128 0x2
+ 3217 0014 24       		.uleb128 0x24
+ 3218 0015 00       		.byte	0
+ 3219 0016 0B       		.uleb128 0xb
+ 3220 0017 0B       		.uleb128 0xb
+ 3221 0018 3E       		.uleb128 0x3e
+ 3222 0019 0B       		.uleb128 0xb
+ 3223 001a 03       		.uleb128 0x3
+ 3224 001b 0E       		.uleb128 0xe
+ 3225 001c 00       		.byte	0
+ 3226 001d 00       		.byte	0
+ 3227 001e 03       		.uleb128 0x3
+ 3228 001f 24       		.uleb128 0x24
+ 3229 0020 00       		.byte	0
+ 3230 0021 0B       		.uleb128 0xb
+ 3231 0022 0B       		.uleb128 0xb
+ 3232 0023 3E       		.uleb128 0x3e
+ 3233 0024 0B       		.uleb128 0xb
+ 3234 0025 03       		.uleb128 0x3
+ 3235 0026 08       		.uleb128 0x8
+ 3236 0027 00       		.byte	0
+ 3237 0028 00       		.byte	0
+ 3238 0029 04       		.uleb128 0x4
+ 3239 002a 16       		.uleb128 0x16
+ 3240 002b 00       		.byte	0
+ 3241 002c 03       		.uleb128 0x3
+ 3242 002d 0E       		.uleb128 0xe
+ 3243 002e 3A       		.uleb128 0x3a
+ 3244 002f 0B       		.uleb128 0xb
+ 3245 0030 3B       		.uleb128 0x3b
+ 3246 0031 0B       		.uleb128 0xb
+ 3247 0032 49       		.uleb128 0x49
+ 3248 0033 13       		.uleb128 0x13
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 66
+
+
+ 3249 0034 00       		.byte	0
+ 3250 0035 00       		.byte	0
+ 3251 0036 05       		.uleb128 0x5
+ 3252 0037 0F       		.uleb128 0xf
+ 3253 0038 00       		.byte	0
+ 3254 0039 0B       		.uleb128 0xb
+ 3255 003a 0B       		.uleb128 0xb
+ 3256 003b 49       		.uleb128 0x49
+ 3257 003c 13       		.uleb128 0x13
+ 3258 003d 00       		.byte	0
+ 3259 003e 00       		.byte	0
+ 3260 003f 06       		.uleb128 0x6
+ 3261 0040 15       		.uleb128 0x15
+ 3262 0041 00       		.byte	0
+ 3263 0042 27       		.uleb128 0x27
+ 3264 0043 19       		.uleb128 0x19
+ 3265 0044 00       		.byte	0
+ 3266 0045 00       		.byte	0
+ 3267 0046 07       		.uleb128 0x7
+ 3268 0047 26       		.uleb128 0x26
+ 3269 0048 00       		.byte	0
+ 3270 0049 49       		.uleb128 0x49
+ 3271 004a 13       		.uleb128 0x13
+ 3272 004b 00       		.byte	0
+ 3273 004c 00       		.byte	0
+ 3274 004d 08       		.uleb128 0x8
+ 3275 004e 01       		.uleb128 0x1
+ 3276 004f 01       		.byte	0x1
+ 3277 0050 49       		.uleb128 0x49
+ 3278 0051 13       		.uleb128 0x13
+ 3279 0052 01       		.uleb128 0x1
+ 3280 0053 13       		.uleb128 0x13
+ 3281 0054 00       		.byte	0
+ 3282 0055 00       		.byte	0
+ 3283 0056 09       		.uleb128 0x9
+ 3284 0057 21       		.uleb128 0x21
+ 3285 0058 00       		.byte	0
+ 3286 0059 49       		.uleb128 0x49
+ 3287 005a 13       		.uleb128 0x13
+ 3288 005b 2F       		.uleb128 0x2f
+ 3289 005c 0B       		.uleb128 0xb
+ 3290 005d 00       		.byte	0
+ 3291 005e 00       		.byte	0
+ 3292 005f 0A       		.uleb128 0xa
+ 3293 0060 16       		.uleb128 0x16
+ 3294 0061 00       		.byte	0
+ 3295 0062 03       		.uleb128 0x3
+ 3296 0063 0E       		.uleb128 0xe
+ 3297 0064 3A       		.uleb128 0x3a
+ 3298 0065 0B       		.uleb128 0xb
+ 3299 0066 3B       		.uleb128 0x3b
+ 3300 0067 05       		.uleb128 0x5
+ 3301 0068 49       		.uleb128 0x49
+ 3302 0069 13       		.uleb128 0x13
+ 3303 006a 00       		.byte	0
+ 3304 006b 00       		.byte	0
+ 3305 006c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 67
+
+
+ 3306 006d 2E       		.uleb128 0x2e
+ 3307 006e 01       		.byte	0x1
+ 3308 006f 3F       		.uleb128 0x3f
+ 3309 0070 19       		.uleb128 0x19
+ 3310 0071 03       		.uleb128 0x3
+ 3311 0072 0E       		.uleb128 0xe
+ 3312 0073 3A       		.uleb128 0x3a
+ 3313 0074 0B       		.uleb128 0xb
+ 3314 0075 3B       		.uleb128 0x3b
+ 3315 0076 0B       		.uleb128 0xb
+ 3316 0077 11       		.uleb128 0x11
+ 3317 0078 01       		.uleb128 0x1
+ 3318 0079 12       		.uleb128 0x12
+ 3319 007a 06       		.uleb128 0x6
+ 3320 007b 40       		.uleb128 0x40
+ 3321 007c 18       		.uleb128 0x18
+ 3322 007d 9742     		.uleb128 0x2117
+ 3323 007f 19       		.uleb128 0x19
+ 3324 0080 01       		.uleb128 0x1
+ 3325 0081 13       		.uleb128 0x13
+ 3326 0082 00       		.byte	0
+ 3327 0083 00       		.byte	0
+ 3328 0084 0C       		.uleb128 0xc
+ 3329 0085 34       		.uleb128 0x34
+ 3330 0086 00       		.byte	0
+ 3331 0087 03       		.uleb128 0x3
+ 3332 0088 0E       		.uleb128 0xe
+ 3333 0089 3A       		.uleb128 0x3a
+ 3334 008a 0B       		.uleb128 0xb
+ 3335 008b 3B       		.uleb128 0x3b
+ 3336 008c 0B       		.uleb128 0xb
+ 3337 008d 49       		.uleb128 0x49
+ 3338 008e 13       		.uleb128 0x13
+ 3339 008f 02       		.uleb128 0x2
+ 3340 0090 17       		.uleb128 0x17
+ 3341 0091 00       		.byte	0
+ 3342 0092 00       		.byte	0
+ 3343 0093 0D       		.uleb128 0xd
+ 3344 0094 34       		.uleb128 0x34
+ 3345 0095 00       		.byte	0
+ 3346 0096 03       		.uleb128 0x3
+ 3347 0097 08       		.uleb128 0x8
+ 3348 0098 3A       		.uleb128 0x3a
+ 3349 0099 0B       		.uleb128 0xb
+ 3350 009a 3B       		.uleb128 0x3b
+ 3351 009b 0B       		.uleb128 0xb
+ 3352 009c 49       		.uleb128 0x49
+ 3353 009d 13       		.uleb128 0x13
+ 3354 009e 02       		.uleb128 0x2
+ 3355 009f 17       		.uleb128 0x17
+ 3356 00a0 00       		.byte	0
+ 3357 00a1 00       		.byte	0
+ 3358 00a2 0E       		.uleb128 0xe
+ 3359 00a3 0B       		.uleb128 0xb
+ 3360 00a4 01       		.byte	0x1
+ 3361 00a5 11       		.uleb128 0x11
+ 3362 00a6 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 68
+
+
+ 3363 00a7 12       		.uleb128 0x12
+ 3364 00a8 06       		.uleb128 0x6
+ 3365 00a9 01       		.uleb128 0x1
+ 3366 00aa 13       		.uleb128 0x13
+ 3367 00ab 00       		.byte	0
+ 3368 00ac 00       		.byte	0
+ 3369 00ad 0F       		.uleb128 0xf
+ 3370 00ae 898201   		.uleb128 0x4109
+ 3371 00b1 00       		.byte	0
+ 3372 00b2 11       		.uleb128 0x11
+ 3373 00b3 01       		.uleb128 0x1
+ 3374 00b4 31       		.uleb128 0x31
+ 3375 00b5 13       		.uleb128 0x13
+ 3376 00b6 00       		.byte	0
+ 3377 00b7 00       		.byte	0
+ 3378 00b8 10       		.uleb128 0x10
+ 3379 00b9 2E       		.uleb128 0x2e
+ 3380 00ba 01       		.byte	0x1
+ 3381 00bb 3F       		.uleb128 0x3f
+ 3382 00bc 19       		.uleb128 0x19
+ 3383 00bd 03       		.uleb128 0x3
+ 3384 00be 0E       		.uleb128 0xe
+ 3385 00bf 3A       		.uleb128 0x3a
+ 3386 00c0 0B       		.uleb128 0xb
+ 3387 00c1 3B       		.uleb128 0x3b
+ 3388 00c2 0B       		.uleb128 0xb
+ 3389 00c3 27       		.uleb128 0x27
+ 3390 00c4 19       		.uleb128 0x19
+ 3391 00c5 11       		.uleb128 0x11
+ 3392 00c6 01       		.uleb128 0x1
+ 3393 00c7 12       		.uleb128 0x12
+ 3394 00c8 06       		.uleb128 0x6
+ 3395 00c9 40       		.uleb128 0x40
+ 3396 00ca 18       		.uleb128 0x18
+ 3397 00cb 9742     		.uleb128 0x2117
+ 3398 00cd 19       		.uleb128 0x19
+ 3399 00ce 01       		.uleb128 0x1
+ 3400 00cf 13       		.uleb128 0x13
+ 3401 00d0 00       		.byte	0
+ 3402 00d1 00       		.byte	0
+ 3403 00d2 11       		.uleb128 0x11
+ 3404 00d3 2E       		.uleb128 0x2e
+ 3405 00d4 01       		.byte	0x1
+ 3406 00d5 3F       		.uleb128 0x3f
+ 3407 00d6 19       		.uleb128 0x19
+ 3408 00d7 03       		.uleb128 0x3
+ 3409 00d8 0E       		.uleb128 0xe
+ 3410 00d9 3A       		.uleb128 0x3a
+ 3411 00da 0B       		.uleb128 0xb
+ 3412 00db 3B       		.uleb128 0x3b
+ 3413 00dc 0B       		.uleb128 0xb
+ 3414 00dd 27       		.uleb128 0x27
+ 3415 00de 19       		.uleb128 0x19
+ 3416 00df 49       		.uleb128 0x49
+ 3417 00e0 13       		.uleb128 0x13
+ 3418 00e1 11       		.uleb128 0x11
+ 3419 00e2 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 69
+
+
+ 3420 00e3 12       		.uleb128 0x12
+ 3421 00e4 06       		.uleb128 0x6
+ 3422 00e5 40       		.uleb128 0x40
+ 3423 00e6 18       		.uleb128 0x18
+ 3424 00e7 9742     		.uleb128 0x2117
+ 3425 00e9 19       		.uleb128 0x19
+ 3426 00ea 01       		.uleb128 0x1
+ 3427 00eb 13       		.uleb128 0x13
+ 3428 00ec 00       		.byte	0
+ 3429 00ed 00       		.byte	0
+ 3430 00ee 12       		.uleb128 0x12
+ 3431 00ef 05       		.uleb128 0x5
+ 3432 00f0 00       		.byte	0
+ 3433 00f1 03       		.uleb128 0x3
+ 3434 00f2 0E       		.uleb128 0xe
+ 3435 00f3 3A       		.uleb128 0x3a
+ 3436 00f4 0B       		.uleb128 0xb
+ 3437 00f5 3B       		.uleb128 0x3b
+ 3438 00f6 0B       		.uleb128 0xb
+ 3439 00f7 49       		.uleb128 0x49
+ 3440 00f8 13       		.uleb128 0x13
+ 3441 00f9 02       		.uleb128 0x2
+ 3442 00fa 17       		.uleb128 0x17
+ 3443 00fb 00       		.byte	0
+ 3444 00fc 00       		.byte	0
+ 3445 00fd 13       		.uleb128 0x13
+ 3446 00fe 898201   		.uleb128 0x4109
+ 3447 0101 01       		.byte	0x1
+ 3448 0102 11       		.uleb128 0x11
+ 3449 0103 01       		.uleb128 0x1
+ 3450 0104 31       		.uleb128 0x31
+ 3451 0105 13       		.uleb128 0x13
+ 3452 0106 00       		.byte	0
+ 3453 0107 00       		.byte	0
+ 3454 0108 14       		.uleb128 0x14
+ 3455 0109 8A8201   		.uleb128 0x410a
+ 3456 010c 00       		.byte	0
+ 3457 010d 02       		.uleb128 0x2
+ 3458 010e 18       		.uleb128 0x18
+ 3459 010f 9142     		.uleb128 0x2111
+ 3460 0111 18       		.uleb128 0x18
+ 3461 0112 00       		.byte	0
+ 3462 0113 00       		.byte	0
+ 3463 0114 15       		.uleb128 0x15
+ 3464 0115 898201   		.uleb128 0x4109
+ 3465 0118 01       		.byte	0x1
+ 3466 0119 11       		.uleb128 0x11
+ 3467 011a 01       		.uleb128 0x1
+ 3468 011b 31       		.uleb128 0x31
+ 3469 011c 13       		.uleb128 0x13
+ 3470 011d 01       		.uleb128 0x1
+ 3471 011e 13       		.uleb128 0x13
+ 3472 011f 00       		.byte	0
+ 3473 0120 00       		.byte	0
+ 3474 0121 16       		.uleb128 0x16
+ 3475 0122 34       		.uleb128 0x34
+ 3476 0123 00       		.byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 70
+
+
+ 3477 0124 03       		.uleb128 0x3
+ 3478 0125 0E       		.uleb128 0xe
+ 3479 0126 3A       		.uleb128 0x3a
+ 3480 0127 0B       		.uleb128 0xb
+ 3481 0128 3B       		.uleb128 0x3b
+ 3482 0129 0B       		.uleb128 0xb
+ 3483 012a 49       		.uleb128 0x49
+ 3484 012b 13       		.uleb128 0x13
+ 3485 012c 02       		.uleb128 0x2
+ 3486 012d 18       		.uleb128 0x18
+ 3487 012e 00       		.byte	0
+ 3488 012f 00       		.byte	0
+ 3489 0130 17       		.uleb128 0x17
+ 3490 0131 34       		.uleb128 0x34
+ 3491 0132 00       		.byte	0
+ 3492 0133 03       		.uleb128 0x3
+ 3493 0134 08       		.uleb128 0x8
+ 3494 0135 3A       		.uleb128 0x3a
+ 3495 0136 0B       		.uleb128 0xb
+ 3496 0137 3B       		.uleb128 0x3b
+ 3497 0138 0B       		.uleb128 0xb
+ 3498 0139 49       		.uleb128 0x49
+ 3499 013a 13       		.uleb128 0x13
+ 3500 013b 02       		.uleb128 0x2
+ 3501 013c 18       		.uleb128 0x18
+ 3502 013d 00       		.byte	0
+ 3503 013e 00       		.byte	0
+ 3504 013f 18       		.uleb128 0x18
+ 3505 0140 2E       		.uleb128 0x2e
+ 3506 0141 01       		.byte	0x1
+ 3507 0142 3F       		.uleb128 0x3f
+ 3508 0143 19       		.uleb128 0x19
+ 3509 0144 03       		.uleb128 0x3
+ 3510 0145 0E       		.uleb128 0xe
+ 3511 0146 3A       		.uleb128 0x3a
+ 3512 0147 0B       		.uleb128 0xb
+ 3513 0148 3B       		.uleb128 0x3b
+ 3514 0149 05       		.uleb128 0x5
+ 3515 014a 27       		.uleb128 0x27
+ 3516 014b 19       		.uleb128 0x19
+ 3517 014c 11       		.uleb128 0x11
+ 3518 014d 01       		.uleb128 0x1
+ 3519 014e 12       		.uleb128 0x12
+ 3520 014f 06       		.uleb128 0x6
+ 3521 0150 40       		.uleb128 0x40
+ 3522 0151 18       		.uleb128 0x18
+ 3523 0152 9742     		.uleb128 0x2117
+ 3524 0154 19       		.uleb128 0x19
+ 3525 0155 01       		.uleb128 0x1
+ 3526 0156 13       		.uleb128 0x13
+ 3527 0157 00       		.byte	0
+ 3528 0158 00       		.byte	0
+ 3529 0159 19       		.uleb128 0x19
+ 3530 015a 05       		.uleb128 0x5
+ 3531 015b 00       		.byte	0
+ 3532 015c 03       		.uleb128 0x3
+ 3533 015d 0E       		.uleb128 0xe
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 71
+
+
+ 3534 015e 3A       		.uleb128 0x3a
+ 3535 015f 0B       		.uleb128 0xb
+ 3536 0160 3B       		.uleb128 0x3b
+ 3537 0161 05       		.uleb128 0x5
+ 3538 0162 49       		.uleb128 0x49
+ 3539 0163 13       		.uleb128 0x13
+ 3540 0164 02       		.uleb128 0x2
+ 3541 0165 17       		.uleb128 0x17
+ 3542 0166 00       		.byte	0
+ 3543 0167 00       		.byte	0
+ 3544 0168 1A       		.uleb128 0x1a
+ 3545 0169 34       		.uleb128 0x34
+ 3546 016a 00       		.byte	0
+ 3547 016b 03       		.uleb128 0x3
+ 3548 016c 08       		.uleb128 0x8
+ 3549 016d 3A       		.uleb128 0x3a
+ 3550 016e 0B       		.uleb128 0xb
+ 3551 016f 3B       		.uleb128 0x3b
+ 3552 0170 05       		.uleb128 0x5
+ 3553 0171 49       		.uleb128 0x49
+ 3554 0172 13       		.uleb128 0x13
+ 3555 0173 02       		.uleb128 0x2
+ 3556 0174 17       		.uleb128 0x17
+ 3557 0175 00       		.byte	0
+ 3558 0176 00       		.byte	0
+ 3559 0177 1B       		.uleb128 0x1b
+ 3560 0178 2E       		.uleb128 0x2e
+ 3561 0179 01       		.byte	0x1
+ 3562 017a 3F       		.uleb128 0x3f
+ 3563 017b 19       		.uleb128 0x19
+ 3564 017c 03       		.uleb128 0x3
+ 3565 017d 0E       		.uleb128 0xe
+ 3566 017e 3A       		.uleb128 0x3a
+ 3567 017f 0B       		.uleb128 0xb
+ 3568 0180 3B       		.uleb128 0x3b
+ 3569 0181 05       		.uleb128 0x5
+ 3570 0182 11       		.uleb128 0x11
+ 3571 0183 01       		.uleb128 0x1
+ 3572 0184 12       		.uleb128 0x12
+ 3573 0185 06       		.uleb128 0x6
+ 3574 0186 40       		.uleb128 0x40
+ 3575 0187 18       		.uleb128 0x18
+ 3576 0188 9742     		.uleb128 0x2117
+ 3577 018a 19       		.uleb128 0x19
+ 3578 018b 01       		.uleb128 0x1
+ 3579 018c 13       		.uleb128 0x13
+ 3580 018d 00       		.byte	0
+ 3581 018e 00       		.byte	0
+ 3582 018f 1C       		.uleb128 0x1c
+ 3583 0190 34       		.uleb128 0x34
+ 3584 0191 00       		.byte	0
+ 3585 0192 03       		.uleb128 0x3
+ 3586 0193 0E       		.uleb128 0xe
+ 3587 0194 3A       		.uleb128 0x3a
+ 3588 0195 0B       		.uleb128 0xb
+ 3589 0196 3B       		.uleb128 0x3b
+ 3590 0197 05       		.uleb128 0x5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 72
+
+
+ 3591 0198 49       		.uleb128 0x49
+ 3592 0199 13       		.uleb128 0x13
+ 3593 019a 02       		.uleb128 0x2
+ 3594 019b 18       		.uleb128 0x18
+ 3595 019c 00       		.byte	0
+ 3596 019d 00       		.byte	0
+ 3597 019e 1D       		.uleb128 0x1d
+ 3598 019f 34       		.uleb128 0x34
+ 3599 01a0 00       		.byte	0
+ 3600 01a1 03       		.uleb128 0x3
+ 3601 01a2 0E       		.uleb128 0xe
+ 3602 01a3 3A       		.uleb128 0x3a
+ 3603 01a4 0B       		.uleb128 0xb
+ 3604 01a5 3B       		.uleb128 0x3b
+ 3605 01a6 0B       		.uleb128 0xb
+ 3606 01a7 49       		.uleb128 0x49
+ 3607 01a8 13       		.uleb128 0x13
+ 3608 01a9 3F       		.uleb128 0x3f
+ 3609 01aa 19       		.uleb128 0x19
+ 3610 01ab 02       		.uleb128 0x2
+ 3611 01ac 18       		.uleb128 0x18
+ 3612 01ad 00       		.byte	0
+ 3613 01ae 00       		.byte	0
+ 3614 01af 1E       		.uleb128 0x1e
+ 3615 01b0 34       		.uleb128 0x34
+ 3616 01b1 00       		.byte	0
+ 3617 01b2 03       		.uleb128 0x3
+ 3618 01b3 08       		.uleb128 0x8
+ 3619 01b4 3A       		.uleb128 0x3a
+ 3620 01b5 0B       		.uleb128 0xb
+ 3621 01b6 3B       		.uleb128 0x3b
+ 3622 01b7 0B       		.uleb128 0xb
+ 3623 01b8 49       		.uleb128 0x49
+ 3624 01b9 13       		.uleb128 0x13
+ 3625 01ba 3F       		.uleb128 0x3f
+ 3626 01bb 19       		.uleb128 0x19
+ 3627 01bc 02       		.uleb128 0x2
+ 3628 01bd 18       		.uleb128 0x18
+ 3629 01be 00       		.byte	0
+ 3630 01bf 00       		.byte	0
+ 3631 01c0 1F       		.uleb128 0x1f
+ 3632 01c1 2E       		.uleb128 0x2e
+ 3633 01c2 00       		.byte	0
+ 3634 01c3 3F       		.uleb128 0x3f
+ 3635 01c4 19       		.uleb128 0x19
+ 3636 01c5 03       		.uleb128 0x3
+ 3637 01c6 0E       		.uleb128 0xe
+ 3638 01c7 3A       		.uleb128 0x3a
+ 3639 01c8 0B       		.uleb128 0xb
+ 3640 01c9 3B       		.uleb128 0x3b
+ 3641 01ca 0B       		.uleb128 0xb
+ 3642 01cb 27       		.uleb128 0x27
+ 3643 01cc 19       		.uleb128 0x19
+ 3644 01cd 49       		.uleb128 0x49
+ 3645 01ce 13       		.uleb128 0x13
+ 3646 01cf 3C       		.uleb128 0x3c
+ 3647 01d0 19       		.uleb128 0x19
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 73
+
+
+ 3648 01d1 00       		.byte	0
+ 3649 01d2 00       		.byte	0
+ 3650 01d3 20       		.uleb128 0x20
+ 3651 01d4 2E       		.uleb128 0x2e
+ 3652 01d5 01       		.byte	0x1
+ 3653 01d6 3F       		.uleb128 0x3f
+ 3654 01d7 19       		.uleb128 0x19
+ 3655 01d8 03       		.uleb128 0x3
+ 3656 01d9 0E       		.uleb128 0xe
+ 3657 01da 3A       		.uleb128 0x3a
+ 3658 01db 0B       		.uleb128 0xb
+ 3659 01dc 3B       		.uleb128 0x3b
+ 3660 01dd 0B       		.uleb128 0xb
+ 3661 01de 27       		.uleb128 0x27
+ 3662 01df 19       		.uleb128 0x19
+ 3663 01e0 49       		.uleb128 0x49
+ 3664 01e1 13       		.uleb128 0x13
+ 3665 01e2 3C       		.uleb128 0x3c
+ 3666 01e3 19       		.uleb128 0x19
+ 3667 01e4 01       		.uleb128 0x1
+ 3668 01e5 13       		.uleb128 0x13
+ 3669 01e6 00       		.byte	0
+ 3670 01e7 00       		.byte	0
+ 3671 01e8 21       		.uleb128 0x21
+ 3672 01e9 05       		.uleb128 0x5
+ 3673 01ea 00       		.byte	0
+ 3674 01eb 49       		.uleb128 0x49
+ 3675 01ec 13       		.uleb128 0x13
+ 3676 01ed 00       		.byte	0
+ 3677 01ee 00       		.byte	0
+ 3678 01ef 22       		.uleb128 0x22
+ 3679 01f0 18       		.uleb128 0x18
+ 3680 01f1 00       		.byte	0
+ 3681 01f2 00       		.byte	0
+ 3682 01f3 00       		.byte	0
+ 3683 01f4 23       		.uleb128 0x23
+ 3684 01f5 2E       		.uleb128 0x2e
+ 3685 01f6 01       		.byte	0x1
+ 3686 01f7 3F       		.uleb128 0x3f
+ 3687 01f8 19       		.uleb128 0x19
+ 3688 01f9 03       		.uleb128 0x3
+ 3689 01fa 0E       		.uleb128 0xe
+ 3690 01fb 3A       		.uleb128 0x3a
+ 3691 01fc 0B       		.uleb128 0xb
+ 3692 01fd 3B       		.uleb128 0x3b
+ 3693 01fe 0B       		.uleb128 0xb
+ 3694 01ff 27       		.uleb128 0x27
+ 3695 0200 19       		.uleb128 0x19
+ 3696 0201 3C       		.uleb128 0x3c
+ 3697 0202 19       		.uleb128 0x19
+ 3698 0203 01       		.uleb128 0x1
+ 3699 0204 13       		.uleb128 0x13
+ 3700 0205 00       		.byte	0
+ 3701 0206 00       		.byte	0
+ 3702 0207 24       		.uleb128 0x24
+ 3703 0208 2E       		.uleb128 0x2e
+ 3704 0209 00       		.byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 74
+
+
+ 3705 020a 3F       		.uleb128 0x3f
+ 3706 020b 19       		.uleb128 0x19
+ 3707 020c 03       		.uleb128 0x3
+ 3708 020d 0E       		.uleb128 0xe
+ 3709 020e 3A       		.uleb128 0x3a
+ 3710 020f 0B       		.uleb128 0xb
+ 3711 0210 3B       		.uleb128 0x3b
+ 3712 0211 0B       		.uleb128 0xb
+ 3713 0212 27       		.uleb128 0x27
+ 3714 0213 19       		.uleb128 0x19
+ 3715 0214 3C       		.uleb128 0x3c
+ 3716 0215 19       		.uleb128 0x19
+ 3717 0216 00       		.byte	0
+ 3718 0217 00       		.byte	0
+ 3719 0218 25       		.uleb128 0x25
+ 3720 0219 2E       		.uleb128 0x2e
+ 3721 021a 01       		.byte	0x1
+ 3722 021b 3F       		.uleb128 0x3f
+ 3723 021c 19       		.uleb128 0x19
+ 3724 021d 03       		.uleb128 0x3
+ 3725 021e 0E       		.uleb128 0xe
+ 3726 021f 3A       		.uleb128 0x3a
+ 3727 0220 0B       		.uleb128 0xb
+ 3728 0221 3B       		.uleb128 0x3b
+ 3729 0222 0B       		.uleb128 0xb
+ 3730 0223 3C       		.uleb128 0x3c
+ 3731 0224 19       		.uleb128 0x19
+ 3732 0225 00       		.byte	0
+ 3733 0226 00       		.byte	0
+ 3734 0227 00       		.byte	0
+ 3735              		.section	.debug_loc,"",%progbits
+ 3736              	.Ldebug_loc0:
+ 3737              	.LLST0:
+ 3738 0000 10000000 		.4byte	.LVL1
+ 3739 0004 14000000 		.4byte	.LVL2
+ 3740 0008 0100     		.2byte	0x1
+ 3741 000a 50       		.byte	0x50
+ 3742 000b 14000000 		.4byte	.LVL2
+ 3743 000f 50000000 		.4byte	.LVL5
+ 3744 0013 0100     		.2byte	0x1
+ 3745 0015 55       		.byte	0x55
+ 3746 0016 00000000 		.4byte	0
+ 3747 001a 00000000 		.4byte	0
+ 3748              	.LLST1:
+ 3749 001e 10000000 		.4byte	.LVL1
+ 3750 0022 14000000 		.4byte	.LVL2
+ 3751 0026 0200     		.2byte	0x2
+ 3752 0028 30       		.byte	0x30
+ 3753 0029 9F       		.byte	0x9f
+ 3754 002a 14000000 		.4byte	.LVL2
+ 3755 002e 50000000 		.4byte	.LVL5
+ 3756 0032 0100     		.2byte	0x1
+ 3757 0034 54       		.byte	0x54
+ 3758 0035 00000000 		.4byte	0
+ 3759 0039 00000000 		.4byte	0
+ 3760              	.LLST2:
+ 3761 003d 18000000 		.4byte	.LVL3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 75
+
+
+ 3762 0041 4A000000 		.4byte	.LVL4
+ 3763 0045 0100     		.2byte	0x1
+ 3764 0047 50       		.byte	0x50
+ 3765 0048 00000000 		.4byte	0
+ 3766 004c 00000000 		.4byte	0
+ 3767              	.LLST3:
+ 3768 0050 00000000 		.4byte	.LVL7
+ 3769 0054 0F000000 		.4byte	.LVL8-1
+ 3770 0058 0100     		.2byte	0x1
+ 3771 005a 50       		.byte	0x50
+ 3772 005b 0F000000 		.4byte	.LVL8-1
+ 3773 005f 44000000 		.4byte	.LVL14
+ 3774 0063 0100     		.2byte	0x1
+ 3775 0065 54       		.byte	0x54
+ 3776 0066 44000000 		.4byte	.LVL14
+ 3777 006a 46000000 		.4byte	.LVL15
+ 3778 006e 0100     		.2byte	0x1
+ 3779 0070 50       		.byte	0x50
+ 3780 0071 46000000 		.4byte	.LVL15
+ 3781 0075 50000000 		.4byte	.LFE35
+ 3782 0079 0400     		.2byte	0x4
+ 3783 007b F3       		.byte	0xf3
+ 3784 007c 01       		.uleb128 0x1
+ 3785 007d 50       		.byte	0x50
+ 3786 007e 9F       		.byte	0x9f
+ 3787 007f 00000000 		.4byte	0
+ 3788 0083 00000000 		.4byte	0
+ 3789              	.LLST4:
+ 3790 0087 10000000 		.4byte	.LVL8
+ 3791 008b 14000000 		.4byte	.LVL9
+ 3792 008f 0200     		.2byte	0x2
+ 3793 0091 30       		.byte	0x30
+ 3794 0092 9F       		.byte	0x9f
+ 3795 0093 14000000 		.4byte	.LVL9
+ 3796 0097 22000000 		.4byte	.LVL10
+ 3797 009b 0100     		.2byte	0x1
+ 3798 009d 53       		.byte	0x53
+ 3799 009e 24000000 		.4byte	.LVL11
+ 3800 00a2 30000000 		.4byte	.LVL12
+ 3801 00a6 0100     		.2byte	0x1
+ 3802 00a8 53       		.byte	0x53
+ 3803 00a9 00000000 		.4byte	0
+ 3804 00ad 00000000 		.4byte	0
+ 3805              	.LLST5:
+ 3806 00b1 00000000 		.4byte	.LVL16
+ 3807 00b5 07000000 		.4byte	.LVL17-1
+ 3808 00b9 0100     		.2byte	0x1
+ 3809 00bb 50       		.byte	0x50
+ 3810 00bc 07000000 		.4byte	.LVL17-1
+ 3811 00c0 2C000000 		.4byte	.LVL26
+ 3812 00c4 0100     		.2byte	0x1
+ 3813 00c6 55       		.byte	0x55
+ 3814 00c7 2C000000 		.4byte	.LVL26
+ 3815 00cb 2E000000 		.4byte	.LFE36
+ 3816 00cf 0400     		.2byte	0x4
+ 3817 00d1 F3       		.byte	0xf3
+ 3818 00d2 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 76
+
+
+ 3819 00d3 50       		.byte	0x50
+ 3820 00d4 9F       		.byte	0x9f
+ 3821 00d5 00000000 		.4byte	0
+ 3822 00d9 00000000 		.4byte	0
+ 3823              	.LLST6:
+ 3824 00dd 0A000000 		.4byte	.LVL18
+ 3825 00e1 2C000000 		.4byte	.LVL27
+ 3826 00e5 0100     		.2byte	0x1
+ 3827 00e7 56       		.byte	0x56
+ 3828 00e8 00000000 		.4byte	0
+ 3829 00ec 00000000 		.4byte	0
+ 3830              	.LLST7:
+ 3831 00f0 0A000000 		.4byte	.LVL18
+ 3832 00f4 0E000000 		.4byte	.LVL19
+ 3833 00f8 0200     		.2byte	0x2
+ 3834 00fa 30       		.byte	0x30
+ 3835 00fb 9F       		.byte	0x9f
+ 3836 00fc 0E000000 		.4byte	.LVL19
+ 3837 0100 16000000 		.4byte	.LVL20
+ 3838 0104 0100     		.2byte	0x1
+ 3839 0106 54       		.byte	0x54
+ 3840 0107 18000000 		.4byte	.LVL21
+ 3841 010b 2C000000 		.4byte	.LVL25
+ 3842 010f 0100     		.2byte	0x1
+ 3843 0111 54       		.byte	0x54
+ 3844 0112 00000000 		.4byte	0
+ 3845 0116 00000000 		.4byte	0
+ 3846              	.LLST8:
+ 3847 011a 0E000000 		.4byte	.LVL19
+ 3848 011e 20000000 		.4byte	.LVL22
+ 3849 0122 0100     		.2byte	0x1
+ 3850 0124 50       		.byte	0x50
+ 3851 0125 24000000 		.4byte	.LVL23
+ 3852 0129 2C000000 		.4byte	.LVL24
+ 3853 012d 0100     		.2byte	0x1
+ 3854 012f 50       		.byte	0x50
+ 3855 0130 00000000 		.4byte	0
+ 3856 0134 00000000 		.4byte	0
+ 3857              	.LLST9:
+ 3858 0138 00000000 		.4byte	.LVL28
+ 3859 013c 0A000000 		.4byte	.LVL29
+ 3860 0140 0100     		.2byte	0x1
+ 3861 0142 50       		.byte	0x50
+ 3862 0143 0A000000 		.4byte	.LVL29
+ 3863 0147 0F000000 		.4byte	.LVL31-1
+ 3864 014b 0100     		.2byte	0x1
+ 3865 014d 52       		.byte	0x52
+ 3866 014e 0F000000 		.4byte	.LVL31-1
+ 3867 0152 44000000 		.4byte	.LFE37
+ 3868 0156 0400     		.2byte	0x4
+ 3869 0158 F3       		.byte	0xf3
+ 3870 0159 01       		.uleb128 0x1
+ 3871 015a 50       		.byte	0x50
+ 3872 015b 9F       		.byte	0x9f
+ 3873 015c 00000000 		.4byte	0
+ 3874 0160 00000000 		.4byte	0
+ 3875              	.LLST10:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 77
+
+
+ 3876 0164 00000000 		.4byte	.LVL28
+ 3877 0168 0C000000 		.4byte	.LVL30
+ 3878 016c 0100     		.2byte	0x1
+ 3879 016e 51       		.byte	0x51
+ 3880 016f 0C000000 		.4byte	.LVL30
+ 3881 0173 0F000000 		.4byte	.LVL31-1
+ 3882 0177 0100     		.2byte	0x1
+ 3883 0179 53       		.byte	0x53
+ 3884 017a 0F000000 		.4byte	.LVL31-1
+ 3885 017e 44000000 		.4byte	.LFE37
+ 3886 0182 0400     		.2byte	0x4
+ 3887 0184 F3       		.byte	0xf3
+ 3888 0185 01       		.uleb128 0x1
+ 3889 0186 51       		.byte	0x51
+ 3890 0187 9F       		.byte	0x9f
+ 3891 0188 00000000 		.4byte	0
+ 3892 018c 00000000 		.4byte	0
+ 3893              	.LLST11:
+ 3894 0190 00000000 		.4byte	.LVL36
+ 3895 0194 08000000 		.4byte	.LVL37
+ 3896 0198 0100     		.2byte	0x1
+ 3897 019a 50       		.byte	0x50
+ 3898 019b 08000000 		.4byte	.LVL37
+ 3899 019f 0F000000 		.4byte	.LVL38-1
+ 3900 01a3 0100     		.2byte	0x1
+ 3901 01a5 52       		.byte	0x52
+ 3902 01a6 0F000000 		.4byte	.LVL38-1
+ 3903 01aa 4C000000 		.4byte	.LFE38
+ 3904 01ae 0400     		.2byte	0x4
+ 3905 01b0 F3       		.byte	0xf3
+ 3906 01b1 01       		.uleb128 0x1
+ 3907 01b2 50       		.byte	0x50
+ 3908 01b3 9F       		.byte	0x9f
+ 3909 01b4 00000000 		.4byte	0
+ 3910 01b8 00000000 		.4byte	0
+ 3911              	.LLST12:
+ 3912 01bc 00000000 		.4byte	.LVL44
+ 3913 01c0 09000000 		.4byte	.LVL46-1
+ 3914 01c4 0100     		.2byte	0x1
+ 3915 01c6 50       		.byte	0x50
+ 3916 01c7 09000000 		.4byte	.LVL46-1
+ 3917 01cb 6A000000 		.4byte	.LVL60
+ 3918 01cf 0100     		.2byte	0x1
+ 3919 01d1 54       		.byte	0x54
+ 3920 01d2 6A000000 		.4byte	.LVL60
+ 3921 01d6 7C000000 		.4byte	.LFE39
+ 3922 01da 0400     		.2byte	0x4
+ 3923 01dc F3       		.byte	0xf3
+ 3924 01dd 01       		.uleb128 0x1
+ 3925 01de 50       		.byte	0x50
+ 3926 01df 9F       		.byte	0x9f
+ 3927 01e0 00000000 		.4byte	0
+ 3928 01e4 00000000 		.4byte	0
+ 3929              	.LLST13:
+ 3930 01e8 06000000 		.4byte	.LVL45
+ 3931 01ec 0A000000 		.4byte	.LVL46
+ 3932 01f0 0200     		.2byte	0x2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 78
+
+
+ 3933 01f2 30       		.byte	0x30
+ 3934 01f3 9F       		.byte	0x9f
+ 3935 01f4 0A000000 		.4byte	.LVL46
+ 3936 01f8 10000000 		.4byte	.LVL47
+ 3937 01fc 0100     		.2byte	0x1
+ 3938 01fe 50       		.byte	0x50
+ 3939 01ff 00000000 		.4byte	0
+ 3940 0203 00000000 		.4byte	0
+ 3941              	.LLST14:
+ 3942 0207 00000000 		.4byte	.LVL61
+ 3943 020b 0B000000 		.4byte	.LVL62-1
+ 3944 020f 0100     		.2byte	0x1
+ 3945 0211 50       		.byte	0x50
+ 3946 0212 0B000000 		.4byte	.LVL62-1
+ 3947 0216 80000000 		.4byte	.LVL84
+ 3948 021a 0100     		.2byte	0x1
+ 3949 021c 55       		.byte	0x55
+ 3950 021d 80000000 		.4byte	.LVL84
+ 3951 0221 88000000 		.4byte	.LFE40
+ 3952 0225 0400     		.2byte	0x4
+ 3953 0227 F3       		.byte	0xf3
+ 3954 0228 01       		.uleb128 0x1
+ 3955 0229 50       		.byte	0x50
+ 3956 022a 9F       		.byte	0x9f
+ 3957 022b 00000000 		.4byte	0
+ 3958 022f 00000000 		.4byte	0
+ 3959              	.LLST15:
+ 3960 0233 00000000 		.4byte	.LVL61
+ 3961 0237 0B000000 		.4byte	.LVL62-1
+ 3962 023b 0100     		.2byte	0x1
+ 3963 023d 51       		.byte	0x51
+ 3964 023e 0B000000 		.4byte	.LVL62-1
+ 3965 0242 70000000 		.4byte	.LVL80
+ 3966 0246 0100     		.2byte	0x1
+ 3967 0248 56       		.byte	0x56
+ 3968 0249 70000000 		.4byte	.LVL80
+ 3969 024d 78000000 		.4byte	.LVL81
+ 3970 0251 0400     		.2byte	0x4
+ 3971 0253 F3       		.byte	0xf3
+ 3972 0254 01       		.uleb128 0x1
+ 3973 0255 51       		.byte	0x51
+ 3974 0256 9F       		.byte	0x9f
+ 3975 0257 78000000 		.4byte	.LVL81
+ 3976 025b 7E000000 		.4byte	.LVL83
+ 3977 025f 0100     		.2byte	0x1
+ 3978 0261 56       		.byte	0x56
+ 3979 0262 7E000000 		.4byte	.LVL83
+ 3980 0266 88000000 		.4byte	.LFE40
+ 3981 026a 0400     		.2byte	0x4
+ 3982 026c F3       		.byte	0xf3
+ 3983 026d 01       		.uleb128 0x1
+ 3984 026e 51       		.byte	0x51
+ 3985 026f 9F       		.byte	0x9f
+ 3986 0270 00000000 		.4byte	0
+ 3987 0274 00000000 		.4byte	0
+ 3988              	.LLST16:
+ 3989 0278 18000000 		.4byte	.LVL63
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 79
+
+
+ 3990 027c 1C000000 		.4byte	.LVL64
+ 3991 0280 0200     		.2byte	0x2
+ 3992 0282 30       		.byte	0x30
+ 3993 0283 9F       		.byte	0x9f
+ 3994 0284 1C000000 		.4byte	.LVL64
+ 3995 0288 28000000 		.4byte	.LVL65
+ 3996 028c 0100     		.2byte	0x1
+ 3997 028e 53       		.byte	0x53
+ 3998 028f 2A000000 		.4byte	.LVL66
+ 3999 0293 32000000 		.4byte	.LVL67
+ 4000 0297 0100     		.2byte	0x1
+ 4001 0299 53       		.byte	0x53
+ 4002 029a 56000000 		.4byte	.LVL74
+ 4003 029e 5A000000 		.4byte	.LVL75
+ 4004 02a2 0200     		.2byte	0x2
+ 4005 02a4 30       		.byte	0x30
+ 4006 02a5 9F       		.byte	0x9f
+ 4007 02a6 5A000000 		.4byte	.LVL75
+ 4008 02aa 62000000 		.4byte	.LVL76
+ 4009 02ae 0100     		.2byte	0x1
+ 4010 02b0 53       		.byte	0x53
+ 4011 02b1 64000000 		.4byte	.LVL77
+ 4012 02b5 6A000000 		.4byte	.LVL78
+ 4013 02b9 0100     		.2byte	0x1
+ 4014 02bb 53       		.byte	0x53
+ 4015 02bc 78000000 		.4byte	.LVL81
+ 4016 02c0 7C000000 		.4byte	.LVL82
+ 4017 02c4 0100     		.2byte	0x1
+ 4018 02c6 53       		.byte	0x53
+ 4019 02c7 00000000 		.4byte	0
+ 4020 02cb 00000000 		.4byte	0
+ 4021              	.LLST17:
+ 4022 02cf 4E000000 		.4byte	.LVL71
+ 4023 02d3 78000000 		.4byte	.LVL81
+ 4024 02d7 0100     		.2byte	0x1
+ 4025 02d9 51       		.byte	0x51
+ 4026 02da 7C000000 		.4byte	.LVL82
+ 4027 02de 7E000000 		.4byte	.LVL83
+ 4028 02e2 0100     		.2byte	0x1
+ 4029 02e4 51       		.byte	0x51
+ 4030 02e5 00000000 		.4byte	0
+ 4031 02e9 00000000 		.4byte	0
+ 4032              	.LLST18:
+ 4033 02ed 32000000 		.4byte	.LVL67
+ 4034 02f1 38000000 		.4byte	.LVL68
+ 4035 02f5 0100     		.2byte	0x1
+ 4036 02f7 54       		.byte	0x54
+ 4037 02f8 3A000000 		.4byte	.LVL69
+ 4038 02fc 52000000 		.4byte	.LVL72
+ 4039 0300 0100     		.2byte	0x1
+ 4040 0302 54       		.byte	0x54
+ 4041 0303 52000000 		.4byte	.LVL72
+ 4042 0307 54000000 		.4byte	.LVL73
+ 4043 030b 0300     		.2byte	0x3
+ 4044 030d 74       		.byte	0x74
+ 4045 030e 01       		.sleb128 1
+ 4046 030f 9F       		.byte	0x9f
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 80
+
+
+ 4047 0310 7C000000 		.4byte	.LVL82
+ 4048 0314 7E000000 		.4byte	.LVL83
+ 4049 0318 0100     		.2byte	0x1
+ 4050 031a 54       		.byte	0x54
+ 4051 031b 00000000 		.4byte	0
+ 4052 031f 00000000 		.4byte	0
+ 4053              	.LLST19:
+ 4054 0323 56000000 		.4byte	.LVL74
+ 4055 0327 6E000000 		.4byte	.LVL79
+ 4056 032b 0100     		.2byte	0x1
+ 4057 032d 54       		.byte	0x54
+ 4058 032e 00000000 		.4byte	0
+ 4059 0332 00000000 		.4byte	0
+ 4060              	.LLST20:
+ 4061 0336 00000000 		.4byte	.LVL85
+ 4062 033a 28000000 		.4byte	.LVL92
+ 4063 033e 0100     		.2byte	0x1
+ 4064 0340 50       		.byte	0x50
+ 4065 0341 28000000 		.4byte	.LVL92
+ 4066 0345 78000000 		.4byte	.LFE42
+ 4067 0349 0400     		.2byte	0x4
+ 4068 034b F3       		.byte	0xf3
+ 4069 034c 01       		.uleb128 0x1
+ 4070 034d 50       		.byte	0x50
+ 4071 034e 9F       		.byte	0x9f
+ 4072 034f 00000000 		.4byte	0
+ 4073 0353 00000000 		.4byte	0
+ 4074              	.LLST21:
+ 4075 0357 04000000 		.4byte	.LVL86
+ 4076 035b 08000000 		.4byte	.LVL87
+ 4077 035f 0200     		.2byte	0x2
+ 4078 0361 30       		.byte	0x30
+ 4079 0362 9F       		.byte	0x9f
+ 4080 0363 08000000 		.4byte	.LVL87
+ 4081 0367 16000000 		.4byte	.LVL89
+ 4082 036b 0100     		.2byte	0x1
+ 4083 036d 53       		.byte	0x53
+ 4084 036e 18000000 		.4byte	.LVL90
+ 4085 0372 2A000000 		.4byte	.LVL93
+ 4086 0376 0100     		.2byte	0x1
+ 4087 0378 53       		.byte	0x53
+ 4088 0379 00000000 		.4byte	0
+ 4089 037d 00000000 		.4byte	0
+ 4090              	.LLST22:
+ 4091 0381 04000000 		.4byte	.LVL86
+ 4092 0385 38000000 		.4byte	.LVL95
+ 4093 0389 0200     		.2byte	0x2
+ 4094 038b 30       		.byte	0x30
+ 4095 038c 9F       		.byte	0x9f
+ 4096 038d 38000000 		.4byte	.LVL95
+ 4097 0391 44000000 		.4byte	.LVL98
+ 4098 0395 0100     		.2byte	0x1
+ 4099 0397 54       		.byte	0x54
+ 4100 0398 44000000 		.4byte	.LVL98
+ 4101 039c 66000000 		.4byte	.LVL101
+ 4102 03a0 0300     		.2byte	0x3
+ 4103 03a2 74       		.byte	0x74
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 81
+
+
+ 4104 03a3 0A       		.sleb128 10
+ 4105 03a4 9F       		.byte	0x9f
+ 4106 03a5 00000000 		.4byte	0
+ 4107 03a9 00000000 		.4byte	0
+ 4108              	.LLST23:
+ 4109 03ad 04000000 		.4byte	.LVL86
+ 4110 03b1 42000000 		.4byte	.LVL97
+ 4111 03b5 0200     		.2byte	0x2
+ 4112 03b7 30       		.byte	0x30
+ 4113 03b8 9F       		.byte	0x9f
+ 4114 03b9 42000000 		.4byte	.LVL97
+ 4115 03bd 66000000 		.4byte	.LVL102
+ 4116 03c1 0100     		.2byte	0x1
+ 4117 03c3 57       		.byte	0x57
+ 4118 03c4 00000000 		.4byte	0
+ 4119 03c8 00000000 		.4byte	0
+ 4120              	.LLST24:
+ 4121 03cc 00000000 		.4byte	.LVL103
+ 4122 03d0 06000000 		.4byte	.LVL104
+ 4123 03d4 0100     		.2byte	0x1
+ 4124 03d6 50       		.byte	0x50
+ 4125 03d7 06000000 		.4byte	.LVL104
+ 4126 03db 16000000 		.4byte	.LVL106
+ 4127 03df 0100     		.2byte	0x1
+ 4128 03e1 54       		.byte	0x54
+ 4129 03e2 16000000 		.4byte	.LVL106
+ 4130 03e6 58000000 		.4byte	.LFE41
+ 4131 03ea 0400     		.2byte	0x4
+ 4132 03ec F3       		.byte	0xf3
+ 4133 03ed 01       		.uleb128 0x1
+ 4134 03ee 50       		.byte	0x50
+ 4135 03ef 9F       		.byte	0x9f
+ 4136 03f0 00000000 		.4byte	0
+ 4137 03f4 00000000 		.4byte	0
+ 4138              	.LLST25:
+ 4139 03f8 06000000 		.4byte	.LVL104
+ 4140 03fc 1A000000 		.4byte	.LVL107
+ 4141 0400 0200     		.2byte	0x2
+ 4142 0402 30       		.byte	0x30
+ 4143 0403 9F       		.byte	0x9f
+ 4144 0404 1A000000 		.4byte	.LVL107
+ 4145 0408 2C000000 		.4byte	.LVL109
+ 4146 040c 0100     		.2byte	0x1
+ 4147 040e 53       		.byte	0x53
+ 4148 040f 2E000000 		.4byte	.LVL110
+ 4149 0413 42000000 		.4byte	.LVL112
+ 4150 0417 0100     		.2byte	0x1
+ 4151 0419 53       		.byte	0x53
+ 4152 041a 00000000 		.4byte	0
+ 4153 041e 00000000 		.4byte	0
+ 4154              	.LLST26:
+ 4155 0422 16000000 		.4byte	.LVL106
+ 4156 0426 52000000 		.4byte	.LVL114
+ 4157 042a 0100     		.2byte	0x1
+ 4158 042c 54       		.byte	0x54
+ 4159 042d 00000000 		.4byte	0
+ 4160 0431 00000000 		.4byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 82
+
+
+ 4161              	.LLST27:
+ 4162 0435 00000000 		.4byte	.LVL115
+ 4163 0439 0E000000 		.4byte	.LVL117
+ 4164 043d 0100     		.2byte	0x1
+ 4165 043f 50       		.byte	0x50
+ 4166 0440 0E000000 		.4byte	.LVL117
+ 4167 0444 5C000000 		.4byte	.LFE43
+ 4168 0448 0400     		.2byte	0x4
+ 4169 044a F3       		.byte	0xf3
+ 4170 044b 01       		.uleb128 0x1
+ 4171 044c 50       		.byte	0x50
+ 4172 044d 9F       		.byte	0x9f
+ 4173 044e 00000000 		.4byte	0
+ 4174 0452 00000000 		.4byte	0
+ 4175              	.LLST28:
+ 4176 0456 00000000 		.4byte	.LVL115
+ 4177 045a 26000000 		.4byte	.LVL118
+ 4178 045e 0100     		.2byte	0x1
+ 4179 0460 51       		.byte	0x51
+ 4180 0461 26000000 		.4byte	.LVL118
+ 4181 0465 5C000000 		.4byte	.LFE43
+ 4182 0469 0400     		.2byte	0x4
+ 4183 046b F3       		.byte	0xf3
+ 4184 046c 01       		.uleb128 0x1
+ 4185 046d 51       		.byte	0x51
+ 4186 046e 9F       		.byte	0x9f
+ 4187 046f 00000000 		.4byte	0
+ 4188 0473 00000000 		.4byte	0
+ 4189              	.LLST29:
+ 4190 0477 00000000 		.4byte	.LVL115
+ 4191 047b 0A000000 		.4byte	.LVL116
+ 4192 047f 0100     		.2byte	0x1
+ 4193 0481 52       		.byte	0x52
+ 4194 0482 0A000000 		.4byte	.LVL116
+ 4195 0486 5C000000 		.4byte	.LFE43
+ 4196 048a 0400     		.2byte	0x4
+ 4197 048c F3       		.byte	0xf3
+ 4198 048d 01       		.uleb128 0x1
+ 4199 048e 52       		.byte	0x52
+ 4200 048f 9F       		.byte	0x9f
+ 4201 0490 00000000 		.4byte	0
+ 4202 0494 00000000 		.4byte	0
+ 4203              	.LLST30:
+ 4204 0498 00000000 		.4byte	.LVL115
+ 4205 049c 28000000 		.4byte	.LVL119
+ 4206 04a0 0100     		.2byte	0x1
+ 4207 04a2 53       		.byte	0x53
+ 4208 04a3 28000000 		.4byte	.LVL119
+ 4209 04a7 5C000000 		.4byte	.LFE43
+ 4210 04ab 0400     		.2byte	0x4
+ 4211 04ad F3       		.byte	0xf3
+ 4212 04ae 01       		.uleb128 0x1
+ 4213 04af 53       		.byte	0x53
+ 4214 04b0 9F       		.byte	0x9f
+ 4215 04b1 00000000 		.4byte	0
+ 4216 04b5 00000000 		.4byte	0
+ 4217              	.LLST31:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 83
+
+
+ 4218 04b9 00000000 		.4byte	.LVL115
+ 4219 04bd 0A000000 		.4byte	.LVL116
+ 4220 04c1 0200     		.2byte	0x2
+ 4221 04c3 91       		.byte	0x91
+ 4222 04c4 00       		.sleb128 0
+ 4223 04c5 0A000000 		.4byte	.LVL116
+ 4224 04c9 0E000000 		.4byte	.LVL117
+ 4225 04cd 0200     		.2byte	0x2
+ 4226 04cf 72       		.byte	0x72
+ 4227 04d0 00       		.sleb128 0
+ 4228 04d1 0E000000 		.4byte	.LVL117
+ 4229 04d5 5C000000 		.4byte	.LFE43
+ 4230 04d9 0200     		.2byte	0x2
+ 4231 04db 91       		.byte	0x91
+ 4232 04dc 00       		.sleb128 0
+ 4233 04dd 00000000 		.4byte	0
+ 4234 04e1 00000000 		.4byte	0
+ 4235              	.LLST32:
+ 4236 04e5 00000000 		.4byte	.LVL125
+ 4237 04e9 0C000000 		.4byte	.LVL127
+ 4238 04ed 0100     		.2byte	0x1
+ 4239 04ef 50       		.byte	0x50
+ 4240 04f0 0C000000 		.4byte	.LVL127
+ 4241 04f4 74000000 		.4byte	.LVL147
+ 4242 04f8 0100     		.2byte	0x1
+ 4243 04fa 57       		.byte	0x57
+ 4244 04fb 74000000 		.4byte	.LVL147
+ 4245 04ff 8C000000 		.4byte	.LFE44
+ 4246 0503 0400     		.2byte	0x4
+ 4247 0505 F3       		.byte	0xf3
+ 4248 0506 01       		.uleb128 0x1
+ 4249 0507 50       		.byte	0x50
+ 4250 0508 9F       		.byte	0x9f
+ 4251 0509 00000000 		.4byte	0
+ 4252 050d 00000000 		.4byte	0
+ 4253              	.LLST33:
+ 4254 0511 00000000 		.4byte	.LVL125
+ 4255 0515 0F000000 		.4byte	.LVL128-1
+ 4256 0519 0100     		.2byte	0x1
+ 4257 051b 51       		.byte	0x51
+ 4258 051c 0F000000 		.4byte	.LVL128-1
+ 4259 0520 74000000 		.4byte	.LVL145
+ 4260 0524 0100     		.2byte	0x1
+ 4261 0526 55       		.byte	0x55
+ 4262 0527 74000000 		.4byte	.LVL145
+ 4263 052b 8C000000 		.4byte	.LFE44
+ 4264 052f 0400     		.2byte	0x4
+ 4265 0531 F3       		.byte	0xf3
+ 4266 0532 01       		.uleb128 0x1
+ 4267 0533 51       		.byte	0x51
+ 4268 0534 9F       		.byte	0x9f
+ 4269 0535 00000000 		.4byte	0
+ 4270 0539 00000000 		.4byte	0
+ 4271              	.LLST34:
+ 4272 053d 00000000 		.4byte	.LVL125
+ 4273 0541 0F000000 		.4byte	.LVL128-1
+ 4274 0545 0100     		.2byte	0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 84
+
+
+ 4275 0547 52       		.byte	0x52
+ 4276 0548 0F000000 		.4byte	.LVL128-1
+ 4277 054c 74000000 		.4byte	.LVL146
+ 4278 0550 0100     		.2byte	0x1
+ 4279 0552 56       		.byte	0x56
+ 4280 0553 74000000 		.4byte	.LVL146
+ 4281 0557 8C000000 		.4byte	.LFE44
+ 4282 055b 0400     		.2byte	0x4
+ 4283 055d F3       		.byte	0xf3
+ 4284 055e 01       		.uleb128 0x1
+ 4285 055f 52       		.byte	0x52
+ 4286 0560 9F       		.byte	0x9f
+ 4287 0561 00000000 		.4byte	0
+ 4288 0565 00000000 		.4byte	0
+ 4289              	.LLST35:
+ 4290 0569 08000000 		.4byte	.LVL126
+ 4291 056d 40000000 		.4byte	.LVL136
+ 4292 0571 0200     		.2byte	0x2
+ 4293 0573 30       		.byte	0x30
+ 4294 0574 9F       		.byte	0x9f
+ 4295 0575 40000000 		.4byte	.LVL136
+ 4296 0579 58000000 		.4byte	.LVL139
+ 4297 057d 0100     		.2byte	0x1
+ 4298 057f 54       		.byte	0x54
+ 4299 0580 58000000 		.4byte	.LVL139
+ 4300 0584 5C000000 		.4byte	.LVL140
+ 4301 0588 0200     		.2byte	0x2
+ 4302 058a 30       		.byte	0x30
+ 4303 058b 9F       		.byte	0x9f
+ 4304 058c 5C000000 		.4byte	.LVL140
+ 4305 0590 74000000 		.4byte	.LVL144
+ 4306 0594 0100     		.2byte	0x1
+ 4307 0596 54       		.byte	0x54
+ 4308 0597 00000000 		.4byte	0
+ 4309 059b 00000000 		.4byte	0
+ 4310              		.section	.debug_aranges,"",%progbits
+ 4311 0000 7C000000 		.4byte	0x7c
+ 4312 0004 0200     		.2byte	0x2
+ 4313 0006 00000000 		.4byte	.Ldebug_info0
+ 4314 000a 04       		.byte	0x4
+ 4315 000b 00       		.byte	0
+ 4316 000c 0000     		.2byte	0
+ 4317 000e 0000     		.2byte	0
+ 4318 0010 00000000 		.4byte	.LFB34
+ 4319 0014 5C000000 		.4byte	.LFE34-.LFB34
+ 4320 0018 00000000 		.4byte	.LFB33
+ 4321 001c 08000000 		.4byte	.LFE33-.LFB33
+ 4322 0020 00000000 		.4byte	.LFB35
+ 4323 0024 50000000 		.4byte	.LFE35-.LFB35
+ 4324 0028 00000000 		.4byte	.LFB36
+ 4325 002c 2E000000 		.4byte	.LFE36-.LFB36
+ 4326 0030 00000000 		.4byte	.LFB37
+ 4327 0034 44000000 		.4byte	.LFE37-.LFB37
+ 4328 0038 00000000 		.4byte	.LFB38
+ 4329 003c 4C000000 		.4byte	.LFE38-.LFB38
+ 4330 0040 00000000 		.4byte	.LFB39
+ 4331 0044 7C000000 		.4byte	.LFE39-.LFB39
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 85
+
+
+ 4332 0048 00000000 		.4byte	.LFB40
+ 4333 004c 88000000 		.4byte	.LFE40-.LFB40
+ 4334 0050 00000000 		.4byte	.LFB42
+ 4335 0054 78000000 		.4byte	.LFE42-.LFB42
+ 4336 0058 00000000 		.4byte	.LFB41
+ 4337 005c 58000000 		.4byte	.LFE41-.LFB41
+ 4338 0060 00000000 		.4byte	.LFB43
+ 4339 0064 5C000000 		.4byte	.LFE43-.LFB43
+ 4340 0068 00000000 		.4byte	.LFB44
+ 4341 006c 8C000000 		.4byte	.LFE44-.LFB44
+ 4342 0070 00000000 		.4byte	.LFB45
+ 4343 0074 5C010000 		.4byte	.LFE45-.LFB45
+ 4344 0078 00000000 		.4byte	0
+ 4345 007c 00000000 		.4byte	0
+ 4346              		.section	.debug_ranges,"",%progbits
+ 4347              	.Ldebug_ranges0:
+ 4348 0000 00000000 		.4byte	.LFB34
+ 4349 0004 5C000000 		.4byte	.LFE34
+ 4350 0008 00000000 		.4byte	.LFB33
+ 4351 000c 08000000 		.4byte	.LFE33
+ 4352 0010 00000000 		.4byte	.LFB35
+ 4353 0014 50000000 		.4byte	.LFE35
+ 4354 0018 00000000 		.4byte	.LFB36
+ 4355 001c 2E000000 		.4byte	.LFE36
+ 4356 0020 00000000 		.4byte	.LFB37
+ 4357 0024 44000000 		.4byte	.LFE37
+ 4358 0028 00000000 		.4byte	.LFB38
+ 4359 002c 4C000000 		.4byte	.LFE38
+ 4360 0030 00000000 		.4byte	.LFB39
+ 4361 0034 7C000000 		.4byte	.LFE39
+ 4362 0038 00000000 		.4byte	.LFB40
+ 4363 003c 88000000 		.4byte	.LFE40
+ 4364 0040 00000000 		.4byte	.LFB42
+ 4365 0044 78000000 		.4byte	.LFE42
+ 4366 0048 00000000 		.4byte	.LFB41
+ 4367 004c 58000000 		.4byte	.LFE41
+ 4368 0050 00000000 		.4byte	.LFB43
+ 4369 0054 5C000000 		.4byte	.LFE43
+ 4370 0058 00000000 		.4byte	.LFB44
+ 4371 005c 8C000000 		.4byte	.LFE44
+ 4372 0060 00000000 		.4byte	.LFB45
+ 4373 0064 5C010000 		.4byte	.LFE45
+ 4374 0068 00000000 		.4byte	0
+ 4375 006c 00000000 		.4byte	0
+ 4376              		.section	.debug_line,"",%progbits
+ 4377              	.Ldebug_line0:
+ 4378 0000 C4030000 		.section	.debug_str,"MS",%progbits,1
+ 4378      02009601 
+ 4378      00000201 
+ 4378      FB0E0D00 
+ 4378      01010101 
+ 4379              	.LASF82:
+ 4380 0000 73747269 		.ascii	"stringRX\000"
+ 4380      6E675258 
+ 4380      00
+ 4381              	.LASF69:
+ 4382 0009 77616E74 		.ascii	"wantedMoisture\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 86
+
+
+ 4382      65644D6F 
+ 4382      69737475 
+ 4382      726500
+ 4383              	.LASF55:
+ 4384 0018 73656E64 		.ascii	"sendSensorData\000"
+ 4384      53656E73 
+ 4384      6F724461 
+ 4384      746100
+ 4385              	.LASF67:
+ 4386 0027 62617474 		.ascii	"batterylevel\000"
+ 4386      6572796C 
+ 4386      6576656C 
+ 4386      00
+ 4387              	.LASF34:
+ 4388 0034 636F6E6E 		.ascii	"connectToDevKit\000"
+ 4388      65637454 
+ 4388      6F446576 
+ 4388      4B697400 
+ 4389              	.LASF49:
+ 4390 0044 706C616E 		.ascii	"plantMoist\000"
+ 4390      744D6F69 
+ 4390      737400
+ 4391              	.LASF2:
+ 4392 004f 73686F72 		.ascii	"short int\000"
+ 4392      7420696E 
+ 4392      7400
+ 4393              	.LASF11:
+ 4394 0059 73697A65 		.ascii	"size_t\000"
+ 4394      5F7400
+ 4395              	.LASF26:
+ 4396 0060 74657874 		.ascii	"textToFind\000"
+ 4396      546F4669 
+ 4396      6E6400
+ 4397              	.LASF9:
+ 4398 006b 73697A65 		.ascii	"sizetype\000"
+ 4398      74797065 
+ 4398      00
+ 4399              	.LASF99:
+ 4400 0074 75706461 		.ascii	"updateSensors\000"
+ 4400      74655365 
+ 4400      6E736F72 
+ 4400      7300
+ 4401              	.LASF19:
+ 4402 0082 63686172 		.ascii	"char8\000"
+ 4402      3800
+ 4403              	.LASF48:
+ 4404 0088 76616C75 		.ascii	"valueRotate\000"
+ 4404      65526F74 
+ 4404      61746500 
+ 4405              	.LASF22:
+ 4406 0094 72786461 		.ascii	"rxdata\000"
+ 4406      746100
+ 4407              	.LASF40:
+ 4408 009b 72656365 		.ascii	"receiveDataDevKit\000"
+ 4408      69766544 
+ 4408      61746144 
+ 4408      65764B69 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 87
+
+
+ 4408      7400
+ 4409              	.LASF79:
+ 4410 00ad 63757272 		.ascii	"currentTemperature\000"
+ 4410      656E7454 
+ 4410      656D7065 
+ 4410      72617475 
+ 4410      726500
+ 4411              	.LASF74:
+ 4412 00c0 77616E74 		.ascii	"wantedRotate\000"
+ 4412      6564526F 
+ 4412      74617465 
+ 4412      00
+ 4413              	.LASF36:
+ 4414 00cd 55415254 		.ascii	"UART_ISR\000"
+ 4414      5F495352 
+ 4414      00
+ 4415              	.LASF63:
+ 4416 00d6 7469636B 		.ascii	"tick\000"
+ 4416      00
+ 4417              	.LASF87:
+ 4418 00db 55415254 		.ascii	"UART_GetChar\000"
+ 4418      5F476574 
+ 4418      43686172 
+ 4418      00
+ 4419              	.LASF90:
+ 4420 00e8 55415254 		.ascii	"UART_PutString\000"
+ 4420      5F507574 
+ 4420      53747269 
+ 4420      6E6700
+ 4421              	.LASF13:
+ 4422 00f7 75696E74 		.ascii	"uint16\000"
+ 4422      313600
+ 4423              	.LASF59:
+ 4424 00fe 62617474 		.ascii	"batteryPin\000"
+ 4424      65727950 
+ 4424      696E00
+ 4425              	.LASF28:
+ 4426 0109 696E6465 		.ascii	"index\000"
+ 4426      7800
+ 4427              	.LASF98:
+ 4428 010f 55415254 		.ascii	"UART_Start\000"
+ 4428      5F537461 
+ 4428      727400
+ 4429              	.LASF16:
+ 4430 011a 696E7431 		.ascii	"int16\000"
+ 4430      3600
+ 4431              	.LASF27:
+ 4432 0120 74657874 		.ascii	"textToFindLength\000"
+ 4432      546F4669 
+ 4432      6E644C65 
+ 4432      6E677468 
+ 4432      00
+ 4433              	.LASF62:
+ 4434 0131 75706461 		.ascii	"updateBuf\000"
+ 4434      74654275 
+ 4434      6600
+ 4435              	.LASF80:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 88
+
+
+ 4436 013b 52586E65 		.ascii	"RXnewData\000"
+ 4436      77446174 
+ 4436      6100
+ 4437              	.LASF0:
+ 4438 0145 7369676E 		.ascii	"signed char\000"
+ 4438      65642063 
+ 4438      68617200 
+ 4439              	.LASF53:
+ 4440 0151 76616C75 		.ascii	"value_char\000"
+ 4440      655F6368 
+ 4440      617200
+ 4441              	.LASF39:
+ 4442 015c 6C656E67 		.ascii	"length\000"
+ 4442      746800
+ 4443              	.LASF17:
+ 4444 0163 666C6F61 		.ascii	"float\000"
+ 4444      7400
+ 4445              	.LASF31:
+ 4446 0169 77696669 		.ascii	"wifiSSID\000"
+ 4446      53534944 
+ 4446      00
+ 4447              	.LASF6:
+ 4448 0172 6C6F6E67 		.ascii	"long long int\000"
+ 4448      206C6F6E 
+ 4448      6720696E 
+ 4448      7400
+ 4449              	.LASF72:
+ 4450 0180 62617474 		.ascii	"battery\000"
+ 4450      65727900 
+ 4451              	.LASF15:
+ 4452 0188 696E7438 		.ascii	"int8\000"
+ 4452      00
+ 4453              	.LASF30:
+ 4454 018d 636F6E6E 		.ascii	"connectToWiFi\000"
+ 4454      65637454 
+ 4454      6F576946 
+ 4454      6900
+ 4455              	.LASF41:
+ 4456 019b 696E7075 		.ascii	"inputString\000"
+ 4456      74537472 
+ 4456      696E6700 
+ 4457              	.LASF32:
+ 4458 01a7 77696669 		.ascii	"wifiPASS\000"
+ 4458      50415353 
+ 4458      00
+ 4459              	.LASF4:
+ 4460 01b0 6C6F6E67 		.ascii	"long int\000"
+ 4460      20696E74 
+ 4460      00
+ 4461              	.LASF35:
+ 4462 01b9 4465764B 		.ascii	"DevKitIPAdress\000"
+ 4462      69744950 
+ 4462      41647265 
+ 4462      737300
+ 4463              	.LASF54:
+ 4464 01c8 706C616E 		.ascii	"plantIDLocal\000"
+ 4464      7449444C 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 89
+
+
+ 4464      6F63616C 
+ 4464      00
+ 4465              	.LASF84:
+ 4466 01d5 706C616E 		.ascii	"plantID\000"
+ 4466      74494400 
+ 4467              	.LASF73:
+ 4468 01dd 77617465 		.ascii	"water\000"
+ 4468      7200
+ 4469              	.LASF52:
+ 4470 01e3 64617461 		.ascii	"dataBuf\000"
+ 4470      42756600 
+ 4471              	.LASF1:
+ 4472 01eb 756E7369 		.ascii	"unsigned char\000"
+ 4472      676E6564 
+ 4472      20636861 
+ 4472      7200
+ 4473              	.LASF71:
+ 4474 01f9 6C696768 		.ascii	"light\000"
+ 4474      7400
+ 4475              	.LASF92:
+ 4476 01ff 61746F69 		.ascii	"atoi\000"
+ 4476      00
+ 4477              	.LASF95:
+ 4478 0204 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 4478      4320342E 
+ 4478      392E3320 
+ 4478      32303135 
+ 4478      30333033 
+ 4479 0237 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 4479      20726576 
+ 4479      6973696F 
+ 4479      6E203232 
+ 4479      31323230 
+ 4480 026a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 4480      66756E63 
+ 4480      74696F6E 
+ 4480      2D736563 
+ 4480      74696F6E 
+ 4481              	.LASF70:
+ 4482 0292 6D617854 		.ascii	"maxTemperature\000"
+ 4482      656D7065 
+ 4482      72617475 
+ 4482      726500
+ 4483              	.LASF51:
+ 4484 02a1 75706461 		.ascii	"updatePlantData\000"
+ 4484      7465506C 
+ 4484      616E7444 
+ 4484      61746100 
+ 4485              	.LASF20:
+ 4486 02b1 63796973 		.ascii	"cyisraddress\000"
+ 4486      72616464 
+ 4486      72657373 
+ 4486      00
+ 4487              	.LASF85:
+ 4488 02be 55415254 		.ascii	"UART_ReadRxData\000"
+ 4488      5F526561 
+ 4488      64527844 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 90
+
+
+ 4488      61746100 
+ 4489              	.LASF50:
+ 4490 02ce 706C616E 		.ascii	"plantRotate\000"
+ 4490      74526F74 
+ 4490      61746500 
+ 4491              	.LASF89:
+ 4492 02da 73707269 		.ascii	"sprintf\000"
+ 4492      6E746600 
+ 4493              	.LASF24:
+ 4494 02e2 66696E64 		.ascii	"findResponse\000"
+ 4494      52657370 
+ 4494      6F6E7365 
+ 4494      00
+ 4495              	.LASF86:
+ 4496 02ef 55415254 		.ascii	"UART_GetRxBufferSize\000"
+ 4496      5F476574 
+ 4496      52784275 
+ 4496      66666572 
+ 4496      53697A65 
+ 4497              	.LASF78:
+ 4498 0304 63757272 		.ascii	"currentLight\000"
+ 4498      656E744C 
+ 4498      69676874 
+ 4498      00
+ 4499              	.LASF7:
+ 4500 0311 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 4500      206C6F6E 
+ 4500      6720756E 
+ 4500      7369676E 
+ 4500      65642069 
+ 4501              	.LASF75:
+ 4502 0328 63757272 		.ascii	"currentMoisture\000"
+ 4502      656E744D 
+ 4502      6F697374 
+ 4502      75726500 
+ 4503              	.LASF8:
+ 4504 0338 756E7369 		.ascii	"unsigned int\000"
+ 4504      676E6564 
+ 4504      20696E74 
+ 4504      00
+ 4505              	.LASF61:
+ 4506 0345 696E6974 		.ascii	"initPSoCWiFi\000"
+ 4506      50536F43 
+ 4506      57694669 
+ 4506      00
+ 4507              	.LASF5:
+ 4508 0352 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4508      20756E73 
+ 4508      69676E65 
+ 4508      6420696E 
+ 4508      7400
+ 4509              	.LASF57:
+ 4510 0364 77617465 		.ascii	"waterPin\000"
+ 4510      7250696E 
+ 4510      00
+ 4511              	.LASF81:
+ 4512 036d 73747269 		.ascii	"stringRX_len\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 91
+
+
+ 4512      6E675258 
+ 4512      5F6C656E 
+ 4512      00
+ 4513              	.LASF83:
+ 4514 037a 75617274 		.ascii	"uartString\000"
+ 4514      53747269 
+ 4514      6E6700
+ 4515              	.LASF3:
+ 4516 0385 73686F72 		.ascii	"short unsigned int\000"
+ 4516      7420756E 
+ 4516      7369676E 
+ 4516      65642069 
+ 4516      6E7400
+ 4517              	.LASF10:
+ 4518 0398 63686172 		.ascii	"char\000"
+ 4518      00
+ 4519              	.LASF88:
+ 4520 039d 7374726C 		.ascii	"strlen\000"
+ 4520      656E00
+ 4521              	.LASF44:
+ 4522 03a4 64617461 		.ascii	"dataPos\000"
+ 4522      506F7300 
+ 4523              	.LASF12:
+ 4524 03ac 75696E74 		.ascii	"uint8\000"
+ 4524      3800
+ 4525              	.LASF65:
+ 4526 03b2 77617465 		.ascii	"waterlevel\000"
+ 4526      726C6576 
+ 4526      656C00
+ 4527              	.LASF68:
+ 4528 03bd 6C696768 		.ascii	"lightlevel\000"
+ 4528      746C6576 
+ 4528      656C00
+ 4529              	.LASF25:
+ 4530 03c8 64617461 		.ascii	"data\000"
+ 4530      00
+ 4531              	.LASF14:
+ 4532 03cd 75696E74 		.ascii	"uint32\000"
+ 4532      333200
+ 4533              	.LASF46:
+ 4534 03d4 706C616E 		.ascii	"plantValue\000"
+ 4534      7456616C 
+ 4534      756500
+ 4535              	.LASF43:
+ 4536 03df 62797465 		.ascii	"bytesPos\000"
+ 4536      73506F73 
+ 4536      00
+ 4537              	.LASF76:
+ 4538 03e8 63757272 		.ascii	"currentBattery\000"
+ 4538      656E7442 
+ 4538      61747465 
+ 4538      727900
+ 4539              	.LASF58:
+ 4540 03f7 6C696768 		.ascii	"lightPin\000"
+ 4540      7450696E 
+ 4540      00
+ 4541              	.LASF47:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 92
+
+
+ 4542 0400 76616C75 		.ascii	"valueMoist\000"
+ 4542      654D6F69 
+ 4542      737400
+ 4543              	.LASF21:
+ 4544 040b 73697A65 		.ascii	"size\000"
+ 4544      00
+ 4545              	.LASF66:
+ 4546 0410 74656D70 		.ascii	"temperature\000"
+ 4546      65726174 
+ 4546      75726500 
+ 4547              	.LASF38:
+ 4548 041c 64617461 		.ascii	"dataToSend\000"
+ 4548      546F5365 
+ 4548      6E6400
+ 4549              	.LASF64:
+ 4550 0427 6D6F6973 		.ascii	"moisture\000"
+ 4550      74757265 
+ 4550      00
+ 4551              	.LASF37:
+ 4552 0430 73656E64 		.ascii	"sendDataDevkit\000"
+ 4552      44617461 
+ 4552      4465766B 
+ 4552      697400
+ 4553              	.LASF94:
+ 4554 043f 73747263 		.ascii	"strcmp\000"
+ 4554      6D7000
+ 4555              	.LASF42:
+ 4556 0446 62797465 		.ascii	"bytesLength_char\000"
+ 4556      734C656E 
+ 4556      6774685F 
+ 4556      63686172 
+ 4556      00
+ 4557              	.LASF45:
+ 4558 0457 73657450 		.ascii	"setPlantData\000"
+ 4558      6C616E74 
+ 4558      44617461 
+ 4558      00
+ 4559              	.LASF96:
+ 4560 0464 2E5C7769 		.ascii	".\\wifi.c\000"
+ 4560      66692E63 
+ 4560      00
+ 4561              	.LASF33:
+ 4562 046d 73656E64 		.ascii	"sendString\000"
+ 4562      53747269 
+ 4562      6E6700
+ 4563              	.LASF60:
+ 4564 0478 74656D70 		.ascii	"temperaturePin\000"
+ 4564      65726174 
+ 4564      75726550 
+ 4564      696E00
+ 4565              	.LASF23:
+ 4566 0487 67657453 		.ascii	"getStringFromUart\000"
+ 4566      7472696E 
+ 4566      6746726F 
+ 4566      6D556172 
+ 4566      7400
+ 4567              	.LASF18:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccCGwVJL.s 			page 93
+
+
+ 4568 0499 646F7562 		.ascii	"double\000"
+ 4568      6C6500
+ 4569              	.LASF56:
+ 4570 04a0 6D6F6973 		.ascii	"moisturePin\000"
+ 4570      74757265 
+ 4570      50696E00 
+ 4571              	.LASF91:
+ 4572 04ac 43794465 		.ascii	"CyDelay\000"
+ 4572      6C617900 
+ 4573              	.LASF97:
+ 4574 04b4 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 4574      73657273 
+ 4574      5C4C6169 
+ 4574      6D6F6E61 
+ 4574      7349676E 
+ 4575 04e3 2E637964 		.ascii	".cydsn\000"
+ 4575      736E00
+ 4576              	.LASF93:
+ 4577 04ea 6973725F 		.ascii	"isr_UART_StartEx\000"
+ 4577      55415254 
+ 4577      5F537461 
+ 4577      72744578 
+ 4577      00
+ 4578              	.LASF29:
+ 4579 04fb 63757272 		.ascii	"currentChar\000"
+ 4579      656E7443 
+ 4579      68617200 
+ 4580              	.LASF77:
+ 4581 0507 63757272 		.ascii	"currentWater\000"
+ 4581      656E7457 
+ 4581      61746572 
+ 4581      00
+ 4582              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

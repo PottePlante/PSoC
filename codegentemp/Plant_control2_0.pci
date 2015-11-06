@@ -1,0 +1,18 @@
+# Plant_control2_0
+# 2015-11-06 10:55:04Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\ADC_SAR_Seq_1:Bypass(0)\" iocell 1 7
+set_io "Fugt(0)" iocell 2 0
+set_io "stromstyring_plus(0)" iocell 2 7
+set_io "temperatur(0)" iocell 2 4
+set_io "Niveau_vandtank(0)" iocell 2 6
+set_io "Lysfoler(0)" iocell 2 3
+set_io "temperatur_ref(0)" iocell 2 5
+set_io "Rx_1(0)" iocell 0 4
+set_io "Tx_1(0)" iocell 0 5
+set_location "\ADC_SAR_Seq_1:cy_psoc4_sar\" p4sarcell -1 -1 0

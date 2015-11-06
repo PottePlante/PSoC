@@ -1,0 +1,59 @@
+# Plant_control2_0
+# 2015-11-06 10:55:05Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "\UART:BUART:pollcount_1_split\" 1 1 0 0
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_io "\ADC_SAR_Seq_1:Bypass(0)\" iocell 1 7
+set_io "Fugt(0)" iocell 2 0
+set_io "stromstyring_plus(0)" iocell 2 7
+set_io "temperatur(0)" iocell 2 4
+set_io "Niveau_vandtank(0)" iocell 2 6
+set_io "Pumpe(0)" iocell 0 1
+set_io "Rotor_motor(0)" iocell 0 2
+set_io "Lysfoler(0)" iocell 2 3
+set_io "temperatur_ref(0)" iocell 2 5
+set_io "Clock_out_capasitiv_sensors(0)" iocell 0 0
+set_io "Rx_1(0)" iocell 0 4
+set_io "Tx_1(0)" iocell 0 5
+set_location "Net_705" 1 1 1 2
+set_location "\UART:BUART:counter_load_not\" 1 0 1 2
+set_location "\UART:BUART:tx_status_0\" 1 0 1 3
+set_location "\UART:BUART:tx_status_2\" 1 1 1 1
+set_location "\UART:BUART:rx_counter_load\" 0 0 1 1
+set_location "\UART:BUART:rx_postpoll\" 0 1 0 2
+set_location "\UART:BUART:rx_status_4\" 0 1 1 0
+set_location "\UART:BUART:rx_status_5\" 0 1 1 1
+set_location "\ADC_SAR_Seq_1:IRQ\" interrupt -1 -1 14
+set_location "\ADC_SAR_Seq_1:cy_psoc4_sar\" p4sarcell -1 -1 0
+set_location "isr_EOC" interrupt -1 -1 3
+set_location "\UART:TXInternalInterrupt\" interrupt -1 -1 2
+set_location "\UART:RXInternalInterrupt\" interrupt -1 -1 0
+set_location "\UART:BUART:sTX:TxShifter:u0\" 1 1 2
+set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" 1 0 2
+set_location "\UART:BUART:sTX:TxSts\" 1 1 4
+set_location "\UART:BUART:sRX:RxShifter:u0\" 0 1 2
+set_location "\UART:BUART:sRX:RxBitCounter\" 0 0 7
+set_location "\UART:BUART:sRX:RxSts\" 0 1 4
+set_location "isr_UART" interrupt -1 -1 1
+set_location "\UART:BUART:txn\" 1 1 1 0
+set_location "\UART:BUART:tx_state_1\" 1 0 1 1
+set_location "\UART:BUART:tx_state_0\" 0 1 0 0
+set_location "\UART:BUART:tx_state_2\" 1 0 1 0
+set_location "\UART:BUART:tx_bitclk\" 0 1 0 1
+set_location "\UART:BUART:tx_ctrl_mark_last\" 1 0 0 2
+set_location "\UART:BUART:rx_state_0\" 0 0 0 0
+set_location "\UART:BUART:rx_load_fifo\" 0 0 0 1
+set_location "\UART:BUART:rx_state_3\" 0 0 0 2
+set_location "\UART:BUART:rx_state_2\" 0 0 1 0
+set_location "\UART:BUART:rx_count7_bit8_wire\" 0 0 1 2
+set_location "\UART:BUART:rx_bitclk_enable\" 0 1 1 2
+set_location "\UART:BUART:rx_state_stop1_reg\" 0 0 1 3
+set_location "\UART:BUART:pollcount_1\" 1 0 0 0
+set_location "\UART:BUART:pollcount_0\" 1 0 0 1
+set_location "\UART:BUART:rx_status_3\" 0 0 0 3
+set_location "\UART:BUART:rx_last\" 0 1 1 3
