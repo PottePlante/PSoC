@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
+ARM GAS  C:\temp\ccHMgOW5.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
   24:.\main.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
   32              		.loc 1 24 0
   33              	@ 24 ".\main.c" 1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 2
+ARM GAS  C:\temp\ccHMgOW5.s 			page 2
 
 
   34 0002 62B6     		CPSIE   i
@@ -105,8 +105,8 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
   61              	.L3:
   62 0024 00000000 		.word	isr_EOC_vec
   63 0028 00000000 		.word	.LC1
-  64 002c 0C000000 		.word	.LC3
-  65 0030 18000000 		.word	.LC5
+  64 002c 14000000 		.word	.LC3
+  65 0030 2C000000 		.word	.LC5
   66              		.cfi_endproc
   67              	.LFE33:
   68              		.size	main, .-main
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
   74              		.comm	maxTemperature,1,1
   75              		.comm	wantedMoisture,1,1
   76              		.comm	ID,1,1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 3
+ARM GAS  C:\temp\ccHMgOW5.s 			page 3
 
 
   77              		.comm	lightlevel,16,4
@@ -129,21 +129,25 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
   82              		.section	.rodata.str1.4,"aMS",%progbits,1
   83              		.align	2
   84              	.LC1:
-  85 0000 4C656D6F 		.ascii	"Lemonade\000"
-  85      6E616465 
+  85 0000 4D6F6D20 		.ascii	"Mom Use This One\000"
+  85      55736520 
+  85      54686973 
+  85      204F6E65 
   85      00
-  86 0009 000000   		.space	3
+  86 0011 000000   		.space	3
   87              	.LC3:
-  88 000c 45535069 		.ascii	"ESPisBEST\000"
-  88      73424553 
-  88      5400
-  89 0016 0000     		.space	2
+  88 0014 4C61696D 		.ascii	"Laimonasisthebest12345\000"
+  88      6F6E6173 
+  88      69737468 
+  88      65626573 
+  88      74313233 
+  89 002b 00       		.space	1
   90              	.LC5:
-  91 0018 3139322E 		.ascii	"192.168.43.125\000"
+  91 002c 3139322E 		.ascii	"192.168.1.117\000"
   91      3136382E 
-  91      34332E31 
-  91      323500
-  92 0027 00       		.text
+  91      312E3131 
+  91      3700
+  92 003a 0000     		.text
   93              	.Letext0:
   94              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
   95              		.file 3 "./Plantcontrol.h"
@@ -174,13 +178,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  120 002e 08       		.byte	0x8
  121 002f 65000000 		.4byte	.LASF1
  122 0033 02       		.uleb128 0x2
+ARM GAS  C:\temp\ccHMgOW5.s 			page 4
+
+
  123 0034 02       		.byte	0x2
  124 0035 05       		.byte	0x5
  125 0036 3E020000 		.4byte	.LASF2
  126 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 4
-
-
  127 003b 02       		.byte	0x2
  128 003c 07       		.byte	0x7
  129 003d 9B000000 		.4byte	.LASF3
@@ -234,13 +238,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  177 0097 61010000 		.4byte	.LASF14
  178 009b 02       		.byte	0x2
  179 009c 7E01     		.2byte	0x17e
+ARM GAS  C:\temp\ccHMgOW5.s 			page 5
+
+
  180 009e A2000000 		.4byte	0xa2
  181 00a2 06       		.uleb128 0x6
  182 00a3 04       		.byte	0x4
  183 00a4 A8000000 		.4byte	0xa8
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 5
-
-
  184 00a8 07       		.uleb128 0x7
  185 00a9 02       		.uleb128 0x2
  186 00aa 04       		.byte	0x4
@@ -294,13 +298,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  234 010a 00000000 		.4byte	.LFB33
  235 010e 34000000 		.4byte	.LFE33-.LFB33
  236 0112 01       		.uleb128 0x1
+ARM GAS  C:\temp\ccHMgOW5.s 			page 6
+
+
  237 0113 9C       		.byte	0x9c
  238 0114 66010000 		.4byte	0x166
  239 0118 0B       		.uleb128 0xb
  240 0119 0A000000 		.4byte	.LVL0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 6
-
-
  241 011d 62020000 		.4byte	0x262
  242 0121 0B       		.uleb128 0xb
  243 0122 0E000000 		.4byte	.LVL1
@@ -317,13 +321,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  254 0142 52       		.byte	0x52
  255 0143 05       		.uleb128 0x5
  256 0144 03       		.byte	0x3
- 257 0145 18000000 		.4byte	.LC5
+ 257 0145 2C000000 		.4byte	.LC5
  258 0149 0D       		.uleb128 0xd
  259 014a 01       		.uleb128 0x1
  260 014b 51       		.byte	0x51
  261 014c 05       		.uleb128 0x5
  262 014d 03       		.byte	0x3
- 263 014e 0C000000 		.4byte	.LC3
+ 263 014e 14000000 		.4byte	.LC3
  264 0152 0D       		.uleb128 0xd
  265 0153 01       		.uleb128 0x1
  266 0154 50       		.byte	0x50
@@ -354,13 +358,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  291 0188 7E000000 		.4byte	.LASF22
  292 018c 04       		.byte	0x4
  293 018d 13       		.byte	0x13
+ARM GAS  C:\temp\ccHMgOW5.s 			page 7
+
+
  294 018e 66010000 		.4byte	0x166
  295 0192 05       		.uleb128 0x5
  296 0193 03       		.byte	0x3
  297 0194 00000000 		.4byte	waterlevel
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 7
-
-
  298 0198 0E       		.uleb128 0xe
  299 0199 76000000 		.4byte	0x76
  300 019d A8010000 		.4byte	0x1a8
@@ -414,13 +418,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  348 0202 15       		.byte	0x15
  349 0203 6B000000 		.4byte	0x6b
  350 0207 05       		.uleb128 0x5
+ARM GAS  C:\temp\ccHMgOW5.s 			page 8
+
+
  351 0208 03       		.byte	0x3
  352 0209 00000000 		.4byte	maxTemperature
  353 020d 10       		.uleb128 0x10
  354 020e 00000000 		.4byte	.LASF28
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 8
-
-
  355 0212 03       		.byte	0x3
  356 0213 16       		.byte	0x16
  357 0214 6B000000 		.4byte	0x6b
@@ -474,14 +478,14 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  405 027a 14       		.uleb128 0x14
  406 027b 15010000 		.4byte	.LASF34
  407 027f 05       		.byte	0x5
+ARM GAS  C:\temp\ccHMgOW5.s 			page 9
+
+
  408 0280 9C       		.byte	0x9c
  409 0281 12       		.uleb128 0x12
  410 0282 3C000000 		.4byte	.LASF36
  411 0286 07       		.byte	0x7
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 9
-
-
- 412 0287 26       		.byte	0x26
+ 412 0287 28       		.byte	0x28
  413 0288 9C020000 		.4byte	0x29c
  414 028c 13       		.uleb128 0x13
  415 028d B0000000 		.4byte	0xb0
@@ -493,7 +497,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  421 029c 15       		.uleb128 0x15
  422 029d C2000000 		.4byte	.LASF42
  423 02a1 07       		.byte	0x7
- 424 02a2 31       		.byte	0x31
+ 424 02a2 34       		.byte	0x34
  425 02a3 16       		.uleb128 0x16
  426 02a4 00       		.byte	0
  427 02a5 00       		.byte	0
@@ -534,13 +538,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  462 0020 00       		.byte	0
  463 0021 0B       		.uleb128 0xb
  464 0022 0B       		.uleb128 0xb
+ARM GAS  C:\temp\ccHMgOW5.s 			page 10
+
+
  465 0023 3E       		.uleb128 0x3e
  466 0024 0B       		.uleb128 0xb
  467 0025 03       		.uleb128 0x3
  468 0026 08       		.uleb128 0x8
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 10
-
-
  469 0027 00       		.byte	0
  470 0028 00       		.byte	0
  471 0029 04       		.uleb128 0x4
@@ -594,13 +598,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  519 0059 0B       		.uleb128 0xb
  520 005a 3A       		.uleb128 0x3a
  521 005b 0B       		.uleb128 0xb
+ARM GAS  C:\temp\ccHMgOW5.s 			page 11
+
+
  522 005c 3B       		.uleb128 0x3b
  523 005d 0B       		.uleb128 0xb
  524 005e 01       		.uleb128 0x1
  525 005f 13       		.uleb128 0x13
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 11
-
-
  526 0060 00       		.byte	0
  527 0061 00       		.byte	0
  528 0062 09       		.uleb128 0x9
@@ -654,13 +658,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  576 0095 00       		.byte	0
  577 0096 0C       		.uleb128 0xc
  578 0097 898201   		.uleb128 0x4109
+ARM GAS  C:\temp\ccHMgOW5.s 			page 12
+
+
  579 009a 01       		.byte	0x1
  580 009b 11       		.uleb128 0x11
  581 009c 01       		.uleb128 0x1
  582 009d 31       		.uleb128 0x31
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 12
-
-
  583 009e 13       		.uleb128 0x13
  584 009f 01       		.uleb128 0x1
  585 00a0 13       		.uleb128 0x13
@@ -714,13 +718,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  633 00d3 34       		.uleb128 0x34
  634 00d4 00       		.byte	0
  635 00d5 03       		.uleb128 0x3
+ARM GAS  C:\temp\ccHMgOW5.s 			page 13
+
+
  636 00d6 08       		.uleb128 0x8
  637 00d7 3A       		.uleb128 0x3a
  638 00d8 0B       		.uleb128 0xb
  639 00d9 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 13
-
-
  640 00da 0B       		.uleb128 0xb
  641 00db 49       		.uleb128 0x49
  642 00dc 13       		.uleb128 0x13
@@ -774,13 +778,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  690 010c 00       		.byte	0
  691 010d 00       		.byte	0
  692 010e 15       		.uleb128 0x15
+ARM GAS  C:\temp\ccHMgOW5.s 			page 14
+
+
  693 010f 2E       		.uleb128 0x2e
  694 0110 01       		.byte	0x1
  695 0111 3F       		.uleb128 0x3f
  696 0112 19       		.uleb128 0x19
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 14
-
-
  697 0113 03       		.uleb128 0x3
  698 0114 0E       		.uleb128 0xe
  699 0115 3A       		.uleb128 0x3a
@@ -834,13 +838,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  739      656E7442 
  739      61747465 
  739      727900
+ARM GAS  C:\temp\ccHMgOW5.s 			page 15
+
+
  740              	.LASF11:
  741 001e 666C6F61 		.ascii	"float\000"
  741      7400
  742              	.LASF21:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 15
-
-
  743 0024 6D6F6973 		.ascii	"moisture\000"
  743      74757265 
  743      00
@@ -894,13 +898,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  763      5365715F 
  763      315F5374 
  763      61727400 
+ARM GAS  C:\temp\ccHMgOW5.s 			page 16
+
+
  764              	.LASF42:
  765 00c2 7469636B 		.ascii	"tick\000"
  765      00
  766              	.LASF12:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 16
-
-
  767 00c7 646F7562 		.ascii	"double\000"
  767      6C6500
  768              	.LASF26:
@@ -954,13 +958,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  789      74617465 
  789      00
  790              	.LASF14:
+ARM GAS  C:\temp\ccHMgOW5.s 			page 17
+
+
  791 0161 63796973 		.ascii	"cyisraddress\000"
  791      72616464 
  791      72657373 
  791      00
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 17
-
-
  792              	.LASF15:
  793 016e 73697A65 		.ascii	"sizetype\000"
  793      74797065 
@@ -1014,13 +1018,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  811      74657273 
  811      00
  812              	.LASF4:
+ARM GAS  C:\temp\ccHMgOW5.s 			page 18
+
+
  813 0259 6C6F6E67 		.ascii	"long int\000"
  813      20696E74 
  813      00
  814              	.LASF19:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 18
-
-
  815 0262 63757272 		.ascii	"currentLight\000"
  815      656E744C 
  815      69676874 
@@ -1033,14 +1037,14 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccBwuRZA.s 			page 1
  819      65642063 
  819      68617200 
  820              	.LASF39:
- 821 0281 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 821 0281 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
  821      73657273 
- 821      5C4C6169 
- 821      6D6F6E61 
- 821      7349676E 
- 822 02b0 2E637964 		.ascii	".cydsn\\PSoC\\Plant_control2_0.cydsn\000"
- 822      736E5C50 
- 822      536F435C 
- 822      506C616E 
- 822      745F636F 
+ 821      5C424541 
+ 821      53545C44 
+ 821      65736B74 
+ 822 02af 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
+ 822      6E745F63 
+ 822      6F6E7472 
+ 822      6F6C325F 
+ 822      302E6379 
  823              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

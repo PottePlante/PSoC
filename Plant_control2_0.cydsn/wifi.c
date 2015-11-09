@@ -201,7 +201,7 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
     //M1065R1099
 //    dataType[0] = dataBuf[0];       //Moist
 //    dataType[1] = dataBuf[5];       //Rotate
-    plantIDLocal = dataBuf[1];        //'1' i ascii er = 49 i decimal, derfor minus med decimal48 for at få 1.
+    plantIDLocal = dataBuf[1];        //'1' i ascii er = 49 i decimal, derfor minus med decimal48 for at få 1. NEVERMIND.
     
     for(i=0;i<3;i++)
         value_char[i] = dataBuf[i+2];   //Tager moist value
@@ -250,12 +250,115 @@ void setPlantData(char *plantValue)
             UART_PutString("Value outside permitted plant set data for Rotate\r\n");       //debugging
 }
 
+void testSendSensorData(uint8 moist,uint8 water,uint8 light,uint8 battery,uint8 tempe)
+{
+    char sendString[128]; //lokal string til behandling af sprintf
+    //Sender alt i 1 lang string
+    char moistureString[16];
+    char waterString[16];
+    char lightString[16];
+    char batteryString[16];
+    char temperatureString[16];
+    
+    //Moisture fejlhåndtering
+    if(moist > 99)
+        sprintf(moistureString,"M%c%d",plantID,moist);
+    else if(moist <= 99 && moist >= 10)
+        sprintf(moistureString,"M%c0%d",plantID,moist);
+    else if(moist < 10 && moist >=0)
+        sprintf(moistureString,"M%c00%d",plantID,moist);
+        
+    //Water fejlhåndtering    
+    if(water > 99)
+        sprintf(waterString,"W%c%d",plantID,water);
+    else if(water <= 99 && water >= 10)
+        sprintf(waterString,"W%c0%d",plantID,water);
+    else if(water < 10 && water >=0)
+        sprintf(waterString,"W%c00%d",plantID,water);
+    
+    //Light fejlhåndtering    
+    if(light > 99)
+        sprintf(lightString,"L%c%d",plantID,light);
+    else if(light <= 99 && light >= 10)
+        sprintf(lightString,"L%c0%d",plantID,light);
+    else if(light < 10 && light >=0)
+        sprintf(lightString,"L%c00%d",plantID,light);
+        
+    //Battery fejlhåndtering    
+    if(battery > 99)
+        sprintf(batteryString,"B%c%d",plantID,battery);
+    else if(battery <= 99 && battery >= 10)
+        sprintf(batteryString,"B%c0%d",plantID,battery);
+    else if(battery < 10 && battery >=0)
+        sprintf(batteryString,"B%c00%d",plantID,battery);
+         
+    //Temperature fejlhåndtering    
+    if(tempe > 99)
+        sprintf(temperatureString,"T%c%d",plantID,tempe);
+    else if(tempe <= 99 && tempe >= 10)
+        sprintf(temperatureString,"T%c0%d",plantID,tempe);
+    else if(tempe < 10 && tempe >=0)
+        sprintf(temperatureString,"T%c00%d",plantID,tempe);
+        
+    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,batteryString,temperatureString);
+    sendDataDevkit(sendString);            
+    updatePlantData(uartString);
+
+    CyDelay(500);
+    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)
+}
+
 void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
 {
     char sendString[128]; //lokal string til behandling af sprintf
     //Sender alt i 1 lang string
+    char moistureString[16];
+    char waterString[16];
+    char lightString[16];
+    char batteryString[16];
+    char temperatureString[16];
     
-    sprintf(sendString,"M%c0%dW%c0%dL%c0%dB%c00%dT%c0%d",plantID,sensors.currentMoisture,plantID,sensors.currentWater,plantID,sensors.currentLight,plantID,sensors.currentBattery,plantID,sensors.currentTemperature);
+    //Moisture fejlhåndtering
+    if(sensors.currentMoisture > 99)
+        sprintf(moistureString,"M%c%d",plantID,sensors.currentMoisture);
+    else if(sensors.currentMoisture <= 99 && sensors.currentMoisture >= 10)
+        sprintf(moistureString,"M%c0%d",plantID,sensors.currentMoisture);
+    else if(sensors.currentMoisture < 10 && sensors.currentMoisture >=0)
+        sprintf(moistureString,"M%c00%d",plantID,sensors.currentMoisture);
+        
+    //Water fejlhåndtering    
+    if(sensors.currentWater > 99)
+        sprintf(waterString,"W%c%d",plantID,sensors.currentWater);
+    else if(sensors.currentWater <= 99 && sensors.currentWater >= 10)
+        sprintf(waterString,"W%c0%d",plantID,sensors.currentWater);
+    else if(sensors.currentWater < 10 && sensors.currentWater >=0)
+        sprintf(waterString,"W%c00%d",plantID,sensors.currentWater);
+    
+    //Light fejlhåndtering    
+    if(sensors.currentLight > 99)
+        sprintf(lightString,"L%c%d",plantID,sensors.currentLight);
+    else if(sensors.currentLight <= 99 && sensors.currentLight >= 10)
+        sprintf(lightString,"L%c0%d",plantID,sensors.currentLight);
+    else if(sensors.currentLight < 10 && sensors.currentLight >=0)
+        sprintf(lightString,"L%c00%d",plantID,sensors.currentLight);
+        
+    //Battery fejlhåndtering    
+    if(sensors.currentBattery > 99)
+        sprintf(batteryString,"B%c%d",plantID,sensors.currentBattery);
+    else if(sensors.currentBattery <= 99 && sensors.currentBattery >= 10)
+        sprintf(batteryString,"B%c0%d",plantID,sensors.currentBattery);
+    else if(sensors.currentBattery < 10 && sensors.currentBattery >=0)
+        sprintf(batteryString,"B%c00%d",plantID,sensors.currentBattery);
+         
+    //Temperature fejlhåndtering    
+    if(sensors.currentTemperature > 99)
+        sprintf(temperatureString,"T%c%d",plantID,sensors.currentTemperature);
+    else if(sensors.currentTemperature <= 99 && sensors.currentTemperature >= 10)
+        sprintf(temperatureString,"T%c0%d",plantID,sensors.currentTemperature);
+    else if(sensors.currentTemperature < 10 && sensors.currentTemperature >=0)
+        sprintf(temperatureString,"T%c00%d",plantID,sensors.currentTemperature);
+        
+    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,batteryString,temperatureString);
     sendDataDevkit(sendString);            
     updatePlantData(uartString);
 
@@ -322,11 +425,11 @@ void tick()
         }
         else if(strcmp(uartString,"Print sensor2") == 0)
         {
-            //sendSensorData(15,30,70,9,60);
+            testSendSensorData(5,3,70,90,255);
         }
         else if(strcmp(uartString,"Print sensor3") == 0)
         {
-           //sendSensorData(65,20,50,9,30);
+           testSendSensorData(65,20,50,120,30);
         }   
         else if(strcmp(uartString,"Update sensor") == 0)
         {

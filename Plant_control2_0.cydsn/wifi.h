@@ -14,12 +14,13 @@
 #include <Plantcontrol.h>
     
 /*******************************************MAKROER***********************************************************/
-#define SSID "Lemonade"                    //Router SSID
-#define PASS "ESPisBEST"                   //Router PASSWORD
-#define DevKitIP "192.168.43.125"            //DevKit IP Adresse
+#define SSID2 "Lemonade"                    //Router SSID
+#define PASS2 "ESPisBEST"                   //Router PASSWORD
+//#define DevKitIP "192.168.43.125"            //DevKit IP Adresse
+#define DevKitIP "192.168.1.117"
 #define DevKitPortNr 8888                   //Port nr. på DevKit
-#define SSID2 "Mom Use This One"             //brugt til test
-#define PASS2 "Laimonasisthebest12345"       //brugt til test
+#define SSID "Mom Use This One"             //brugt til test
+#define PASS "Laimonasisthebest12345"       //brugt til test
 #define DevKitIP2 "192.168.1.117"           //brugt til test
     
 
@@ -32,14 +33,16 @@
 //uint8 temp = 0;
 //uint8 battery = 0;
 struct updateParameters;
+    
 /*******************************************FUNKTIONS PROTOTYPER***********************************************/ 
 CY_ISR_PROTO(UART_ISR);                                     //interrupt når der er data i RX bufferen (se design).
 void updateBuf();                                           //funktion for at updatere receive bufferen og gemme dataet fra bufferen
 void initPSoCWiFi(char *, char *, char *);                  //initierer ESP8266 modulet, så PSoCen er klar til at modtage/sende data
 void sendDataDevkit(char *);                                //sender data til devkit
-void setPlantData(char *);                          //funktion til at opdatere set punkter for plante data
+void setPlantData(char *);                                  //funktion til at opdatere set punkter for plante data
 void updatePlantData(char *);                               //opdaterer setpunktet for en pottes dataType f.eks. [M]oisture
-void sendSensorData(struct updateParameters sensors);     //sender sensor data for planter til DevKit -- Her indtastes de referencen som fås fra sensorenes struct
+void sendSensorData(struct updateParameters sensors);       //sender sensor data for planter til DevKit -- Her indtastes de referencen som fås fra sensorenes struct
+void testSendSensorData(uint8, uint8, uint8, uint8, uint8); //DEBUGGING
 void requestDevKitData();                                   //sender en anmodnig til DevKit for at få opdateret plante parametre
 char getStringFromUart(char *);                             //finder strings på UARTen
 int connectToWiFi(char *, char *);                          //forbinder til WiFi
