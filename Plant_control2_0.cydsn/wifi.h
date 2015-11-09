@@ -23,15 +23,6 @@
 #define PASS "Laimonasisthebest12345"       //brugt til test
 #define DevKitIP2 "192.168.1.117"           //brugt til test
     
-
-
-//PLANT DATA TEST
-//uint8 wantedMoisture = 0;
-//uint8 wantedRotate = 0;
-//uint8 water = 0;
-//uint8 light = 0;
-//uint8 temp = 0;
-//uint8 battery = 0;
 struct updateParameters;
     
 /*******************************************FUNKTIONS PROTOTYPER***********************************************/ 

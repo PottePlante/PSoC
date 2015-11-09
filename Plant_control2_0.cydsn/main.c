@@ -14,13 +14,13 @@
 
 
 
-
 CY_ISR_PROTO(isr_EOC_vec);
 
 
 
 int main()
 {
+    
     CyGlobalIntEnable; /* Enable global interrupts. */
     isr_EOC_StartEx(isr_EOC_vec);
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */

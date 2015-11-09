@@ -1,4 +1,4 @@
-ARM GAS  C:\temp\ccpXChyf.s 			page 1
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
   37              		@ sp needed
   38 0008 08BD     		pop	{r3, pc}
   39              		.cfi_endproc
-ARM GAS  C:\temp\ccpXChyf.s 			page 2
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 2
 
 
   40              	.LFE33:
@@ -118,7 +118,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
   89 002d 01       		.byte	0x1
   90 002e 08       		.byte	0x8
   91 002f AB000000 		.4byte	.LASF1
-ARM GAS  C:\temp\ccpXChyf.s 			page 3
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 3
 
 
   92 0033 02       		.uleb128 0x2
@@ -178,7 +178,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
  146 0093 BE000000 		.4byte	.LASF13
  147 0097 01       		.byte	0x1
  148 0098 0E       		.byte	0xe
-ARM GAS  C:\temp\ccpXChyf.s 			page 4
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 4
 
 
  149 0099 00000000 		.4byte	.LFB33
@@ -238,7 +238,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
  203 000a 0E       		.uleb128 0xe
  204 000b 55       		.uleb128 0x55
  205 000c 17       		.uleb128 0x17
-ARM GAS  C:\temp\ccpXChyf.s 			page 5
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 5
 
 
  206 000d 11       		.uleb128 0x11
@@ -298,7 +298,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
  260 0043 12       		.uleb128 0x12
  261 0044 06       		.uleb128 0x6
  262 0045 40       		.uleb128 0x40
-ARM GAS  C:\temp\ccpXChyf.s 			page 6
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 6
 
 
  263 0046 18       		.uleb128 0x18
@@ -358,7 +358,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
  317 000a 04       		.byte	0x4
  318 000b 00       		.byte	0
  319 000c 0000     		.2byte	0
-ARM GAS  C:\temp\ccpXChyf.s 			page 7
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 7
 
 
  320 000e 0000     		.2byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
  350      6420696E 
  350      7400
  351              	.LASF7:
-ARM GAS  C:\temp\ccpXChyf.s 			page 8
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 8
 
 
  352 0085 6C6F6E67 		.ascii	"long long unsigned int\000"
@@ -478,7 +478,7 @@ ARM GAS  C:\temp\ccpXChyf.s 			page 1
  376 015e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  376      66756E63 
  376      74696F6E 
-ARM GAS  C:\temp\ccpXChyf.s 			page 9
+ARM GAS  C:\temp\ccl4Hhy6.s 			page 9
 
 
  376      2D736563 

@@ -7902,9 +7902,9 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  994              	.set CYDEV_CHIP_REV_EXPECT, CYDEV_CHIP_REVISION_USED
  995              	.set CYDEV_CONFIG_READ_ACCELERATOR, 1
  996              	.set CYDEV_CONFIG_UNUSED_IO_AllowButWarn, 0
- 997              	.set CYDEV_CONFIG_UNUSED_IO, CYDEV_CONFIG_UNUSED_IO_AllowButWarn
- 998              	.set CYDEV_CONFIG_UNUSED_IO_AllowWithInfo, 1
- 999              	.set CYDEV_CONFIG_UNUSED_IO_Disallowed, 2
+ 997              	.set CYDEV_CONFIG_UNUSED_IO_AllowWithInfo, 1
+ 998              	.set CYDEV_CONFIG_UNUSED_IO_Disallowed, 2
+ 999              	.set CYDEV_CONFIG_UNUSED_IO, CYDEV_CONFIG_UNUSED_IO_Disallowed
  1000              	.set CYDEV_CONFIGURATION_COMPRESSED, 1
  1001              	.set CYDEV_CONFIGURATION_MODE_COMPRESSED, 0
  1002              	.set CYDEV_CONFIGURATION_MODE, CYDEV_CONFIGURATION_MODE_COMPRESSED

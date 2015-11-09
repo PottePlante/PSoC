@@ -192,6 +192,7 @@ uint8 receiveDataDevKit(char *inputString, char *data)
 void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der kan sættes, resten valideres bare
 {
     int i = 0;
+    
     char dataBuf[255];  ///string med data modtaget fra DevKittet
 //    char dataType[4];
     char value_char[8];
@@ -369,7 +370,7 @@ void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et 
 void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
 {
     int i = 0;
-    
+   
     CyGlobalIntEnable;                          //enabler global interrupt
     isr_UART_StartEx(UART_ISR);                 //initierer en bruger defineret interrupt service: UART_ISR, på intern pin: isr_UART
     UART_Start();                               //Initier UARTEN
@@ -396,8 +397,6 @@ void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstar
             break;
     }
     CyDelay(1000);
-    
-    //sendSensorData(36,27,35,50,60);
 }
 
 void tick()   
@@ -425,7 +424,7 @@ void tick()
         }
         else if(strcmp(uartString,"Print sensor2") == 0)
         {
-            testSendSensorData(5,3,70,90,255);
+            testSendSensorData(50,50,70,90,50);
         }
         else if(strcmp(uartString,"Print sensor3") == 0)
         {
