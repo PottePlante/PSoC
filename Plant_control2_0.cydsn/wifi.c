@@ -250,24 +250,17 @@ void setPlantData(char *plantValue)
             UART_PutString("Value outside permitted plant set data for Rotate\r\n");       //debugging
 }
 
-void sendSensorData(int16 moisturePin, int16 waterPin, int16 lightPin, int16 batteryPin, int16 temperaturePin) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
+void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
 {
     char sendString[128]; //lokal string til behandling af sprintf
     //Sender alt i 1 lang string
     
-    sprintf(sendString,"M%c0%dW%c0%dL%c0%dB%c00%dT%c0%d",plantID,moisturePin,plantID,waterPin,plantID,lightPin,plantID,batteryPin,plantID,temperaturePin);
+    sprintf(sendString,"M%c0%dW%c0%dL%c0%dB%c00%dT%c0%d",plantID,sensors.currentMoisture,plantID,sensors.currentWater,plantID,sensors.currentLight,plantID,sensors.currentBattery,plantID,sensors.currentTemperature);
     sendDataDevkit(sendString);            
     updatePlantData(uartString);
 
     CyDelay(500);
-    UART_PutString("AT+CIPCLOSE\r\n");
-    
-//    //temperature
-//    sprintf(sendString,"T%d0%d ",plantID,temperaturePin);
-//    sendDataDevkit(sendString);
-//    updatePlantData(uartString);
-//    CyDelay(100);
-
+    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)
 }
 
 void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
@@ -317,7 +310,7 @@ void tick()
         }
         else if(strcmp(uartString,"Print all") == 0)
         {
-            sprintf(sendString,"Moist:%d Rotate:%d CurMoist:%d CurWater:%d CurBattery:%d CurTemp:%d\r\n",wantedMoisture,wantedRotate,currentMoisture,currentWater,currentBattery,currentTemperature);
+            sprintf(sendString,"Moist:%d Rotate:%d CurMoist:%d CurWater:%d CurBattery:%d CurTemp:%d\r\n",wantedMoisture,wantedRotate,sensors_.currentMoisture,sensors_.currentWater,sensors_.currentBattery,sensors_.currentTemperature);
             UART_PutString(sendString);
         }
         else if(strcmp(uartString,"Print sensor1") == 0)
@@ -325,15 +318,15 @@ void tick()
             updateSensors();
             CyDelay(200);
             
-            sendSensorData(currentMoisture,currentWater,50,currentBattery,currentTemperature);
+            sendSensorData(sensors_);
         }
         else if(strcmp(uartString,"Print sensor2") == 0)
         {
-            sendSensorData(15,30,70,9,60);
+            //sendSensorData(15,30,70,9,60);
         }
         else if(strcmp(uartString,"Print sensor3") == 0)
         {
-            sendSensorData(65,20,50,9,30);
+           //sendSensorData(65,20,50,9,30);
         }   
         else if(strcmp(uartString,"Update sensor") == 0)
         {

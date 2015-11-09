@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
   30:.\Generated_Source\PSoC4/temperatur_ref.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/temperatur_ref.c **** *
   32:.\Generated_Source\PSoC4/temperatur_ref.c **** * Summary:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/temperatur_ref.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
   51:.\Generated_Source\PSoC4/temperatur_ref.c **** * Function Name: temperatur_ref_SetDriveMode
   52:.\Generated_Source\PSoC4/temperatur_ref.c **** ********************************************************************************
   53:.\Generated_Source\PSoC4/temperatur_ref.c **** *
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 3
 
 
   54:.\Generated_Source\PSoC4/temperatur_ref.c **** * Summary:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
   77:.\Generated_Source\PSoC4/temperatur_ref.c **** 
   78:.\Generated_Source\PSoC4/temperatur_ref.c **** 
   79:.\Generated_Source\PSoC4/temperatur_ref.c **** /*******************************************************************************
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 4
 
 
   80:.\Generated_Source\PSoC4/temperatur_ref.c **** * Function Name: temperatur_ref_Read
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  109:.\Generated_Source\PSoC4/temperatur_ref.c **** *
  110:.\Generated_Source\PSoC4/temperatur_ref.c **** * Parameters:  
  111:.\Generated_Source\PSoC4/temperatur_ref.c **** *  None 
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 5
 
 
  112:.\Generated_Source\PSoC4/temperatur_ref.c **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  141:.\Generated_Source\PSoC4/temperatur_ref.c ****     uint8 temperatur_ref_ClearInterrupt(void) 
  142:.\Generated_Source\PSoC4/temperatur_ref.c ****     {
  143              		.loc 1 142 0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 6
 
 
  144              		.cfi_startproc
@@ -338,17 +338,17 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  174 0006 00000000 		.4byte	.Ldebug_abbrev0
  175 000a 04       		.byte	0x4
  176 000b 01       		.uleb128 0x1
- 177 000c 0A010000 		.4byte	.LASF24
+ 177 000c D4000000 		.4byte	.LASF24
  178 0010 01       		.byte	0x1
- 179 0011 A2010000 		.4byte	.LASF25
- 180 0015 B4000000 		.4byte	.LASF26
+ 179 0011 6C010000 		.4byte	.LASF25
+ 180 0015 FD010000 		.4byte	.LASF26
  181 0019 00000000 		.4byte	.Ldebug_ranges0+0
  182 001d 00000000 		.4byte	0
  183 0021 00000000 		.4byte	.Ldebug_line0
  184 0025 02       		.uleb128 0x2
  185 0026 01       		.byte	0x1
  186 0027 06       		.byte	0x6
- 187 0028 F0010000 		.4byte	.LASF0
+ 187 0028 BA010000 		.4byte	.LASF0
  188 002c 02       		.uleb128 0x2
  189 002d 01       		.byte	0x1
  190 002e 08       		.byte	0x8
@@ -356,9 +356,9 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  192 0033 02       		.uleb128 0x2
  193 0034 02       		.byte	0x2
  194 0035 05       		.byte	0x5
- 195 0036 98010000 		.4byte	.LASF2
+ 195 0036 62010000 		.4byte	.LASF2
  196 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 7
 
 
  197 003b 02       		.byte	0x2
@@ -367,7 +367,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  200 0041 02       		.uleb128 0x2
  201 0042 04       		.byte	0x4
  202 0043 05       		.byte	0x5
- 203 0044 E7010000 		.4byte	.LASF4
+ 203 0044 B1010000 		.4byte	.LASF4
  204 0048 02       		.uleb128 0x2
  205 0049 04       		.byte	0x4
  206 004a 07       		.byte	0x7
@@ -375,7 +375,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  208 004f 02       		.uleb128 0x2
  209 0050 08       		.byte	0x8
  210 0051 05       		.byte	0x5
- 211 0052 EA000000 		.4byte	.LASF6
+ 211 0052 B4000000 		.4byte	.LASF6
  212 0056 02       		.uleb128 0x2
  213 0057 08       		.byte	0x8
  214 0058 07       		.byte	0x7
@@ -389,7 +389,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  222 0066 07       		.byte	0x7
  223 0067 8B000000 		.4byte	.LASF8
  224 006b 04       		.uleb128 0x4
- 225 006c CC010000 		.4byte	.LASF9
+ 225 006c 96010000 		.4byte	.LASF9
  226 0070 02       		.byte	0x2
  227 0071 C2       		.byte	0xc2
  228 0072 2C000000 		.4byte	0x2c
@@ -409,7 +409,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  242 008f 02       		.uleb128 0x2
  243 0090 01       		.byte	0x1
  244 0091 08       		.byte	0x8
- 245 0092 05010000 		.4byte	.LASF13
+ 245 0092 CF000000 		.4byte	.LASF13
  246 0096 05       		.uleb128 0x5
  247 0097 00000000 		.4byte	.LASF14
  248 009b 02       		.byte	0x2
@@ -418,10 +418,10 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  251 00a2 06       		.uleb128 0x6
  252 00a3 76000000 		.4byte	0x76
  253 00a7 07       		.uleb128 0x7
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 8
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 8
 
 
- 254 00a8 D2010000 		.4byte	.LASF15
+ 254 00a8 9C010000 		.4byte	.LASF15
  255 00ac 01       		.byte	0x1
  256 00ad 2A       		.byte	0x2a
  257 00ae 00000000 		.4byte	.LFB0
@@ -443,7 +443,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  273 00d6 21000000 		.4byte	.LLST1
  274 00da 00       		.byte	0
  275 00db 07       		.uleb128 0x7
- 276 00dc FC010000 		.4byte	.LASF16
+ 276 00dc C6010000 		.4byte	.LASF16
  277 00e0 01       		.byte	0x1
  278 00e1 49       		.byte	0x49
  279 00e2 00000000 		.4byte	.LFB1
@@ -468,7 +468,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  298 0113 01       		.uleb128 0x1
  299 0114 9C       		.byte	0x9c
  300 0115 0A       		.uleb128 0xa
- 301 0116 18020000 		.4byte	.LASF20
+ 301 0116 E2010000 		.4byte	.LASF20
  302 011a 01       		.byte	0x1
  303 011b 75       		.byte	0x75
  304 011c 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  308 0129 9C       		.byte	0x9c
  309 012a 0B       		.uleb128 0xb
  310 012b 0C000000 		.4byte	.LASF21
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 9
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 9
 
 
  311 012f 01       		.byte	0x1
@@ -489,7 +489,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  316 013d 01       		.uleb128 0x1
  317 013e 9C       		.byte	0x9c
  318 013f 09       		.uleb128 0x9
- 319 0140 F8000000 		.4byte	.LASF23
+ 319 0140 C2000000 		.4byte	.LASF23
  320 0144 01       		.byte	0x1
  321 0145 8F       		.byte	0x8f
  322 0146 6B000000 		.4byte	0x6b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  365 0025 03       		.uleb128 0x3
  366 0026 08       		.uleb128 0x8
  367 0027 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 10
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 10
 
 
  368 0028 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  422 005f 19       		.uleb128 0x19
  423 0060 01       		.uleb128 0x1
  424 0061 13       		.uleb128 0x13
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 11
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 11
 
 
  425 0062 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  479 0099 19       		.uleb128 0x19
  480 009a 00       		.byte	0
  481 009b 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 12
 
 
  482 009c 0B       		.uleb128 0xb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  536 003f 00000000 		.4byte	.LVL4
  537 0043 0A000000 		.4byte	.LVL5
  538 0047 0100     		.2byte	0x1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 13
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 13
 
 
  539 0049 50       		.byte	0x50
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  593 0020 00000000 		.4byte	.LFB4
  594 0024 14000000 		.4byte	.LFE4
  595 0028 00000000 		.4byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 14
 
 
  596 002c 00000000 		.4byte	0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  621      333200
  622              	.LASF8:
  623 008b 756E7369 		.ascii	"unsigned int\000"
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 15
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 15
 
 
  623      676E6564 
@@ -853,83 +853,86 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 1
  626              	.LASF18:
  627 00af 6D6F6465 		.ascii	"mode\000"
  627      00
- 628              	.LASF26:
- 629 00b4 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
- 629      73657273 
- 629      5C4C6169 
- 629      6D6F6E61 
- 629      7349676E 
- 630 00e3 2E637964 		.ascii	".cydsn\000"
- 630      736E00
- 631              	.LASF6:
- 632 00ea 6C6F6E67 		.ascii	"long long int\000"
- 632      206C6F6E 
- 632      6720696E 
- 632      7400
- 633              	.LASF23:
- 634 00f8 6D61736B 		.ascii	"maskedStatus\000"
- 634      65645374 
- 634      61747573 
- 634      00
- 635              	.LASF13:
- 636 0105 63686172 		.ascii	"char\000"
- 636      00
- 637              	.LASF24:
- 638 010a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 638      4320342E 
- 638      392E3320 
- 638      32303135 
- 638      30333033 
- 639 013d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 639      20726576 
- 639      6973696F 
- 639      6E203232 
- 639      31323230 
- 640 0170 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 640      66756E63 
- 640      74696F6E 
- 640      2D736563 
- 640      74696F6E 
- 641              	.LASF2:
- 642 0198 73686F72 		.ascii	"short int\000"
- 642      7420696E 
- 642      7400
- 643              	.LASF25:
- 644 01a2 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\temperatur_ref.c\000"
- 644      6E657261 
- 644      7465645F 
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc42WbX2.s 			page 16
+ 628              	.LASF6:
+ 629 00b4 6C6F6E67 		.ascii	"long long int\000"
+ 629      206C6F6E 
+ 629      6720696E 
+ 629      7400
+ 630              	.LASF23:
+ 631 00c2 6D61736B 		.ascii	"maskedStatus\000"
+ 631      65645374 
+ 631      61747573 
+ 631      00
+ 632              	.LASF13:
+ 633 00cf 63686172 		.ascii	"char\000"
+ 633      00
+ 634              	.LASF24:
+ 635 00d4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 635      4320342E 
+ 635      392E3320 
+ 635      32303135 
+ 635      30333033 
+ 636 0107 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 636      20726576 
+ 636      6973696F 
+ 636      6E203232 
+ 636      31323230 
+ 637 013a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 637      66756E63 
+ 637      74696F6E 
+ 637      2D736563 
+ 637      74696F6E 
+ 638              	.LASF2:
+ 639 0162 73686F72 		.ascii	"short int\000"
+ 639      7420696E 
+ 639      7400
+ 640              	.LASF25:
+ 641 016c 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\temperatur_ref.c\000"
+ 641      6E657261 
+ 641      7465645F 
+ 641      536F7572 
+ 641      63655C50 
+ 642              	.LASF9:
+ 643 0196 75696E74 		.ascii	"uint8\000"
+ 643      3800
+ 644              	.LASF15:
+ 645 019c 74656D70 		.ascii	"temperatur_ref_Write\000"
+ 645      65726174 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccHuwDDp.s 			page 16
 
 
- 644      536F7572 
- 644      63655C50 
- 645              	.LASF9:
- 646 01cc 75696E74 		.ascii	"uint8\000"
- 646      3800
- 647              	.LASF15:
- 648 01d2 74656D70 		.ascii	"temperatur_ref_Write\000"
- 648      65726174 
- 648      75725F72 
- 648      65665F57 
- 648      72697465 
- 649              	.LASF4:
- 650 01e7 6C6F6E67 		.ascii	"long int\000"
- 650      20696E74 
- 650      00
- 651              	.LASF0:
- 652 01f0 7369676E 		.ascii	"signed char\000"
- 652      65642063 
- 652      68617200 
- 653              	.LASF16:
- 654 01fc 74656D70 		.ascii	"temperatur_ref_SetDriveMode\000"
- 654      65726174 
- 654      75725F72 
- 654      65665F53 
- 654      65744472 
- 655              	.LASF20:
- 656 0218 74656D70 		.ascii	"temperatur_ref_ReadDataReg\000"
- 656      65726174 
- 656      75725F72 
- 656      65665F52 
- 656      65616444 
+ 645      75725F72 
+ 645      65665F57 
+ 645      72697465 
+ 646              	.LASF4:
+ 647 01b1 6C6F6E67 		.ascii	"long int\000"
+ 647      20696E74 
+ 647      00
+ 648              	.LASF0:
+ 649 01ba 7369676E 		.ascii	"signed char\000"
+ 649      65642063 
+ 649      68617200 
+ 650              	.LASF16:
+ 651 01c6 74656D70 		.ascii	"temperatur_ref_SetDriveMode\000"
+ 651      65726174 
+ 651      75725F72 
+ 651      65665F53 
+ 651      65744472 
+ 652              	.LASF20:
+ 653 01e2 74656D70 		.ascii	"temperatur_ref_ReadDataReg\000"
+ 653      65726174 
+ 653      75725F72 
+ 653      65665F52 
+ 653      65616444 
+ 654              	.LASF26:
+ 655 01fd 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 655      73657273 
+ 655      5C4C6169 
+ 655      6D6F6E61 
+ 655      7349676E 
+ 656 022c 2E637964 		.ascii	".cydsn\\PSoC\\Plant_control2_0.cydsn\000"
+ 656      736E5C50 
+ 656      536F435C 
+ 656      506C616E 
+ 656      745F636F 
  657              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

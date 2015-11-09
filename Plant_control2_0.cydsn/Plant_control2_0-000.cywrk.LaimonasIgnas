@@ -293,6 +293,16 @@
 <v>Plant_control2_0-000\Plant_control2_0\PSoC 4 Architecture TRM</v>
 <v>Plant_control2_0-000\Plant_control2_0\PSoC 4200 Family Datasheet</v>
 <v>Plant_control2_0-000\Plant_control2_0\System Reference Guides</v>
+<v>Plant_control2_0-000\Plant_control2_0\System Reference Guides\cy_boot_v5_20</v>
+<v>Plant_control2_0-000\Plant_control2_0\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Plant_control2_0-000\Plant_control2_0\ADC_SAR_SEQ_P4_v2_20.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_clock_v2_20.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_constant_v1_0.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_isr_v1_70</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_pins_v2_10</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Plant_control2_0-000</v>
@@ -300,6 +310,16 @@
 <v>Plant_control2_0-000\Plant_control2_0\PSoC 4 Architecture TRM</v>
 <v>Plant_control2_0-000\Plant_control2_0\PSoC 4200 Family Datasheet</v>
 <v>Plant_control2_0-000\Plant_control2_0\System Reference Guides</v>
+<v>Plant_control2_0-000\Plant_control2_0\System Reference Guides\cy_boot_v5_20</v>
+<v>Plant_control2_0-000\Plant_control2_0\System Reference Guides\cy_lfclk_v1_0</v>
+<v>Plant_control2_0-000\Plant_control2_0\ADC_SAR_SEQ_P4_v2_20.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_clock_v2_20.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_constant_v1_0.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_isr_v1_70</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_pins_v2_10</v>
+<v>Plant_control2_0-000\Plant_control2_0\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Plant_control2_0-000\Plant_control2_0\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -310,18 +330,8 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\Plantcontrol.h" />
-<name v=".\main.c" />
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\Plant_control2_0.cydwr" />
 <name v=".\Plantcontrol.c" />
-<name v=".\Generated_Source\PSoC4\project.h" />
 <name v=".\wifi.c" />
-<name v=".\wifi.h" />
-<name v=".\pump.c" />
-<name v=".\pump.h" />
-<name v=".\sensors.c" />
-<name v=".\sensors.h" />
-<name v=".\cyapicallbacks.h" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

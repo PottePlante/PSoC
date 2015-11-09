@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
   30:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** ********************************************************************************
   31:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *
   32:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** * Summary:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *  Assign a new value to the digital port's data output register.  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
   51:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** * Function Name: Clock_out_capasitiv_sensors_SetDriveMode
   52:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** ********************************************************************************
   53:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 3
 
 
   54:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** * Summary:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
   79:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** /*******************************************************************************
   80:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** * Function Name: Clock_out_capasitiv_sensors_Read
   81:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** ********************************************************************************
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 4
 
 
   82:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  111:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *  None 
  112:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *
  113:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** * Return: 
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 5
 
 
  114:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** *  Returns the current value assigned to the Digital Port's data output register
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  141              		.loc 1 142 0
  142              		.cfi_startproc
  143:.\Generated_Source\PSoC4/Clock_out_capasitiv_sensors.c **** 		uint8 maskedStatus = (uint8)(Clock_out_capasitiv_sensors_INTSTAT & Clock_out_capasitiv_sensors_MA
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 6
 
 
  143              		.loc 1 143 0
@@ -332,17 +332,17 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  168 0006 00000000 		.4byte	.Ldebug_abbrev0
  169 000a 04       		.byte	0x4
  170 000b 01       		.uleb128 0x1
- 171 000c 83010000 		.4byte	.LASF24
+ 171 000c 4D010000 		.4byte	.LASF24
  172 0010 01       		.byte	0x1
  173 0011 9E000000 		.4byte	.LASF25
- 174 0015 05010000 		.4byte	.LASF26
+ 174 0015 29020000 		.4byte	.LASF26
  175 0019 00000000 		.4byte	.Ldebug_ranges0+0
  176 001d 00000000 		.4byte	0
  177 0021 00000000 		.4byte	.Ldebug_line0
  178 0025 02       		.uleb128 0x2
  179 0026 01       		.byte	0x1
  180 0027 06       		.byte	0x6
- 181 0028 53020000 		.4byte	.LASF0
+ 181 0028 1D020000 		.4byte	.LASF0
  182 002c 02       		.uleb128 0x2
  183 002d 01       		.byte	0x1
  184 002e 08       		.byte	0x8
@@ -350,7 +350,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  186 0033 02       		.uleb128 0x2
  187 0034 02       		.byte	0x2
  188 0035 05       		.byte	0x5
- 189 0036 11020000 		.4byte	.LASF2
+ 189 0036 DB010000 		.4byte	.LASF2
  190 003a 02       		.uleb128 0x2
  191 003b 02       		.byte	0x2
  192 003c 07       		.byte	0x7
@@ -358,10 +358,10 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  194 0041 02       		.uleb128 0x2
  195 0042 04       		.byte	0x4
  196 0043 05       		.byte	0x5
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 7
 
 
- 197 0044 4A020000 		.4byte	.LASF4
+ 197 0044 14020000 		.4byte	.LASF4
  198 0048 02       		.uleb128 0x2
  199 0049 04       		.byte	0x4
  200 004a 07       		.byte	0x7
@@ -369,7 +369,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  202 004f 02       		.uleb128 0x2
  203 0050 08       		.byte	0x8
  204 0051 05       		.byte	0x5
- 205 0052 63010000 		.4byte	.LASF6
+ 205 0052 2D010000 		.4byte	.LASF6
  206 0056 02       		.uleb128 0x2
  207 0057 08       		.byte	0x8
  208 0058 07       		.byte	0x7
@@ -383,7 +383,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  216 0066 07       		.byte	0x7
  217 0067 DC000000 		.4byte	.LASF8
  218 006b 04       		.uleb128 0x4
- 219 006c 1B020000 		.4byte	.LASF9
+ 219 006c E5010000 		.4byte	.LASF9
  220 0070 02       		.byte	0x2
  221 0071 C2       		.byte	0xc2
  222 0072 2C000000 		.4byte	0x2c
@@ -403,7 +403,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  236 008f 02       		.uleb128 0x2
  237 0090 01       		.byte	0x1
  238 0091 08       		.byte	0x8
- 239 0092 7E010000 		.4byte	.LASF13
+ 239 0092 48010000 		.4byte	.LASF13
  240 0096 05       		.uleb128 0x5
  241 0097 00000000 		.4byte	.LASF14
  242 009b 02       		.byte	0x2
@@ -412,13 +412,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  245 00a2 06       		.uleb128 0x6
  246 00a3 76000000 		.4byte	0x76
  247 00a7 07       		.uleb128 0x7
- 248 00a8 5F020000 		.4byte	.LASF15
+ 248 00a8 7B020000 		.4byte	.LASF15
  249 00ac 01       		.byte	0x1
  250 00ad 2A       		.byte	0x2a
  251 00ae 00000000 		.4byte	.LFB0
  252 00b2 18000000 		.4byte	.LFE0-.LFB0
  253 00b6 01       		.uleb128 0x1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 8
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 8
 
 
  254 00b7 9C       		.byte	0x9c
@@ -437,7 +437,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  267 00d6 21000000 		.4byte	.LLST1
  268 00da 00       		.byte	0
  269 00db 07       		.uleb128 0x7
- 270 00dc 21020000 		.4byte	.LASF16
+ 270 00dc EB010000 		.4byte	.LASF16
  271 00e0 01       		.byte	0x1
  272 00e1 49       		.byte	0x49
  273 00e2 00000000 		.4byte	.LFB1
@@ -462,7 +462,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  292 0113 01       		.uleb128 0x1
  293 0114 9C       		.byte	0x9c
  294 0115 0A       		.uleb128 0xa
- 295 0116 3B010000 		.4byte	.LASF20
+ 295 0116 05010000 		.4byte	.LASF20
  296 011a 01       		.byte	0x1
  297 011b 75       		.byte	0x75
  298 011c 6B000000 		.4byte	0x6b
@@ -478,12 +478,12 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  308 0135 00000000 		.4byte	.LFB4
  309 0139 10000000 		.4byte	.LFE4-.LFB4
  310 013d 01       		.uleb128 0x1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 9
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 9
 
 
  311 013e 9C       		.byte	0x9c
  312 013f 0C       		.uleb128 0xc
- 313 0140 71010000 		.4byte	.LASF23
+ 313 0140 3B010000 		.4byte	.LASF23
  314 0144 01       		.byte	0x1
  315 0145 8F       		.byte	0x8f
  316 0146 6B000000 		.4byte	0x6b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  365 002a 16       		.uleb128 0x16
  366 002b 00       		.byte	0
  367 002c 03       		.uleb128 0x3
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 10
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 10
 
 
  368 002d 0E       		.uleb128 0xe
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  422 0064 08       		.uleb128 0x8
  423 0065 05       		.uleb128 0x5
  424 0066 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 11
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 11
 
 
  425 0067 03       		.uleb128 0x3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  479 009e 01       		.byte	0x1
  480 009f 3F       		.uleb128 0x3f
  481 00a0 19       		.uleb128 0x19
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 12
 
 
  482 00a1 03       		.uleb128 0x3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  536 0025 10000000 		.4byte	.LVL3
  537 0029 0100     		.2byte	0x1
  538 002b 52       		.byte	0x52
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 13
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 13
 
 
  539 002c 10000000 		.4byte	.LVL3
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  593              		.section	.debug_line,"",%progbits
  594              	.Ldebug_line0:
  595 0000 BC000000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 14
 
 
  595      02005A00 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  618 00ce 736F7273 		.ascii	"sors.c\000"
  618      2E6300
  619              	.LASF10:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 15
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 15
 
 
  620 00d5 75696E74 		.ascii	"uint32\000"
@@ -857,75 +857,78 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 1
  625              	.LASF18:
  626 0100 6D6F6465 		.ascii	"mode\000"
  626      00
- 627              	.LASF26:
- 628 0105 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
- 628      73657273 
- 628      5C4C6169 
- 628      6D6F6E61 
- 628      7349676E 
- 629 0134 2E637964 		.ascii	".cydsn\000"
- 629      736E00
- 630              	.LASF20:
- 631 013b 436C6F63 		.ascii	"Clock_out_capasitiv_sensors_ReadDataReg\000"
- 631      6B5F6F75 
- 631      745F6361 
- 631      70617369 
- 631      7469765F 
- 632              	.LASF6:
- 633 0163 6C6F6E67 		.ascii	"long long int\000"
- 633      206C6F6E 
- 633      6720696E 
- 633      7400
- 634              	.LASF23:
- 635 0171 6D61736B 		.ascii	"maskedStatus\000"
- 635      65645374 
- 635      61747573 
- 635      00
- 636              	.LASF13:
- 637 017e 63686172 		.ascii	"char\000"
- 637      00
- 638              	.LASF24:
- 639 0183 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 639      4320342E 
- 639      392E3320 
- 639      32303135 
- 639      30333033 
- 640 01b6 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 640      20726576 
- 640      6973696F 
- 640      6E203232 
- 640      31323230 
- 641 01e9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 641      66756E63 
- 641      74696F6E 
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccFBiBEl.s 			page 16
+ 627              	.LASF20:
+ 628 0105 436C6F63 		.ascii	"Clock_out_capasitiv_sensors_ReadDataReg\000"
+ 628      6B5F6F75 
+ 628      745F6361 
+ 628      70617369 
+ 628      7469765F 
+ 629              	.LASF6:
+ 630 012d 6C6F6E67 		.ascii	"long long int\000"
+ 630      206C6F6E 
+ 630      6720696E 
+ 630      7400
+ 631              	.LASF23:
+ 632 013b 6D61736B 		.ascii	"maskedStatus\000"
+ 632      65645374 
+ 632      61747573 
+ 632      00
+ 633              	.LASF13:
+ 634 0148 63686172 		.ascii	"char\000"
+ 634      00
+ 635              	.LASF24:
+ 636 014d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 636      4320342E 
+ 636      392E3320 
+ 636      32303135 
+ 636      30333033 
+ 637 0180 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 637      20726576 
+ 637      6973696F 
+ 637      6E203232 
+ 637      31323230 
+ 638 01b3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 638      66756E63 
+ 638      74696F6E 
+ 638      2D736563 
+ 638      74696F6E 
+ 639              	.LASF2:
+ 640 01db 73686F72 		.ascii	"short int\000"
+ 640      7420696E 
+ 640      7400
+ 641              	.LASF9:
+ 642 01e5 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc1qo75S.s 			page 16
 
 
- 641      2D736563 
- 641      74696F6E 
- 642              	.LASF2:
- 643 0211 73686F72 		.ascii	"short int\000"
- 643      7420696E 
- 643      7400
- 644              	.LASF9:
- 645 021b 75696E74 		.ascii	"uint8\000"
- 645      3800
- 646              	.LASF16:
- 647 0221 436C6F63 		.ascii	"Clock_out_capasitiv_sensors_SetDriveMode\000"
- 647      6B5F6F75 
- 647      745F6361 
- 647      70617369 
- 647      7469765F 
- 648              	.LASF4:
- 649 024a 6C6F6E67 		.ascii	"long int\000"
- 649      20696E74 
- 649      00
- 650              	.LASF0:
- 651 0253 7369676E 		.ascii	"signed char\000"
- 651      65642063 
- 651      68617200 
+ 642      3800
+ 643              	.LASF16:
+ 644 01eb 436C6F63 		.ascii	"Clock_out_capasitiv_sensors_SetDriveMode\000"
+ 644      6B5F6F75 
+ 644      745F6361 
+ 644      70617369 
+ 644      7469765F 
+ 645              	.LASF4:
+ 646 0214 6C6F6E67 		.ascii	"long int\000"
+ 646      20696E74 
+ 646      00
+ 647              	.LASF0:
+ 648 021d 7369676E 		.ascii	"signed char\000"
+ 648      65642063 
+ 648      68617200 
+ 649              	.LASF26:
+ 650 0229 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 650      73657273 
+ 650      5C4C6169 
+ 650      6D6F6E61 
+ 650      7349676E 
+ 651 0258 2E637964 		.ascii	".cydsn\\PSoC\\Plant_control2_0.cydsn\000"
+ 651      736E5C50 
+ 651      536F435C 
+ 651      506C616E 
+ 651      745F636F 
  652              	.LASF15:
- 653 025f 436C6F63 		.ascii	"Clock_out_capasitiv_sensors_Write\000"
+ 653 027b 436C6F63 		.ascii	"Clock_out_capasitiv_sensors_Write\000"
  653      6B5F6F75 
  653      745F6361 
  653      70617369 

@@ -24,18 +24,22 @@ void updateSensors()
     get_temp();
     get_waterlevel();
     // Data hentes
-    currentBattery=get_batterylevel();
-    //int8 lightlevel=get_lightlevel();
-    currentMoisture=get_moisture();
-    currentTemperature=get_temp();
-    currentWater=get_waterlevel();
+//    currentBattery=get_batterylevel();
+//    //int8 lightlevel=get_lightlevel();
+//    currentMoisture=get_moisture();
+//    currentTemperature=get_temp();
+//    currentWater=get_waterlevel();
+//  
+
+    sensors_.currentMoisture=get_batterylevel();
+    sensors_.currentBattery=get_batterylevel();
+    sensors_.currentLight=get_lightlevel();
+    sensors_.currentTemperature=get_temp();
+    sensors_.currentWater=get_waterlevel();
+ 
     
-//    sensor.currentMoisture=get_batterylevel();
-//    sensor.currentBattery=get_batterylevel();
-//    sensor.currentLight=get_lightlevel();
-//    sensor.currentTemperature=get_temp();
-//    sensor.currentWater=get_waterlevel();
-//    
+
+    
 }
 
 /* [] END OF FILE */

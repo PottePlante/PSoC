@@ -28,19 +28,26 @@ struct datas
 {
     int8 water;
 };
- int16 currentMoisture;
+// int16 currentMoisture;
+//    int16 currentBattery;
+//    int16 currentWater;
+//    int16 currentLight;
+//    int16 currentTemperature;
+
+struct updateParameters
+{
+    int16 currentMoisture;
     int16 currentBattery;
     int16 currentWater;
     int16 currentLight;
     int16 currentTemperature;
-
-struct updateParameters
-{
-   
 };
+
+struct updateParameters sensors_;
 
 uint8 calcValues();
 void updateSensors();
+
 
 #endif
 
