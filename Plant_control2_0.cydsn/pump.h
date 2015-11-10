@@ -13,8 +13,7 @@
 #define PUMP_H
 #include <project.h>
 
-void start();
-void stop();
+void startPumpingWater();
 
 #endif
 /* [] END OF FILE */

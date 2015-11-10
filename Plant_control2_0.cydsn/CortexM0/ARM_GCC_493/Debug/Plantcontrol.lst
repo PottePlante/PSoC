@@ -1,4 +1,4 @@
-ARM GAS  C:\temp\cc9IszeE.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
   34              	.LVL0:
   22:.\Plantcontrol.c ****     get_lightlevel();
   35              		.loc 1 22 0
-ARM GAS  C:\temp\cc9IszeE.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 2
 
 
   36 0006 FFF7FEFF 		bl	get_lightlevel
@@ -76,51 +76,39 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
   45 0012 FFF7FEFF 		bl	get_waterlevel
   46              	.LVL4:
   26:.\Plantcontrol.c ****     // Data hentes
-  27:.\Plantcontrol.c **** //    currentBattery=get_batterylevel();
-  28:.\Plantcontrol.c **** //    //int8 lightlevel=get_lightlevel();
-  29:.\Plantcontrol.c **** //    currentMoisture=get_moisture();
-  30:.\Plantcontrol.c **** //    currentTemperature=get_temp();
-  31:.\Plantcontrol.c **** //    currentWater=get_waterlevel();
-  32:.\Plantcontrol.c **** //  
-  33:.\Plantcontrol.c **** 
-  34:.\Plantcontrol.c ****     sensors_.currentMoisture=get_batterylevel();
-  47              		.loc 1 34 0
-  48 0016 FFF7FEFF 		bl	get_batterylevel
+  27:.\Plantcontrol.c **** 
+  28:.\Plantcontrol.c ****     sensors_.currentMoisture=get_moisture();
+  47              		.loc 1 28 0
+  48 0016 FFF7FEFF 		bl	get_moisture
   49              	.LVL5:
   50 001a 074C     		ldr	r4, .L2
   51 001c 2080     		strh	r0, [r4]
-  35:.\Plantcontrol.c ****     sensors_.currentBattery=get_batterylevel();
-  52              		.loc 1 35 0
+  29:.\Plantcontrol.c ****     sensors_.currentBattery=get_batterylevel();
+  52              		.loc 1 29 0
   53 001e FFF7FEFF 		bl	get_batterylevel
   54              	.LVL6:
   55 0022 6080     		strh	r0, [r4, #2]
-  36:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
-  56              		.loc 1 36 0
+  30:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
+  56              		.loc 1 30 0
   57 0024 FFF7FEFF 		bl	get_lightlevel
   58              	.LVL7:
   59 0028 E080     		strh	r0, [r4, #6]
-  37:.\Plantcontrol.c ****     sensors_.currentTemperature=get_temp();
-  60              		.loc 1 37 0
+  31:.\Plantcontrol.c ****     sensors_.currentTemperature=get_temp();
+  60              		.loc 1 31 0
   61 002a FFF7FEFF 		bl	get_temp
   62              	.LVL8:
   63 002e 2081     		strh	r0, [r4, #8]
-  38:.\Plantcontrol.c ****     sensors_.currentWater=get_waterlevel();
-  64              		.loc 1 38 0
+  32:.\Plantcontrol.c ****     sensors_.currentWater=get_waterlevel();
+  64              		.loc 1 32 0
   65 0030 FFF7FEFF 		bl	get_waterlevel
   66              	.LVL9:
   67 0034 A080     		strh	r0, [r4, #4]
-  39:.\Plantcontrol.c ****  
-  40:.\Plantcontrol.c ****     
-  41:.\Plantcontrol.c **** 
-  42:.\Plantcontrol.c ****     
-  43:.\Plantcontrol.c **** }
-  68              		.loc 1 43 0
+  33:.\Plantcontrol.c **** 
+  34:.\Plantcontrol.c **** }
+  68              		.loc 1 34 0
   69              		@ sp needed
   70 0036 10BD     		pop	{r4, pc}
   71              	.L3:
-ARM GAS  C:\temp\cc9IszeE.s 			page 3
-
-
   72              		.align	2
   73              	.L2:
   74 0038 00000000 		.word	sensors_
@@ -130,6 +118,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
   78              		.comm	sensors_,10,4
   79              		.comm	wantedRotate,1,1
   80              		.comm	water,1,1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 3
+
+
   81              		.comm	battery,1,1
   82              		.comm	light,1,1
   83              		.comm	maxTemperature,1,1
@@ -178,9 +169,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  126 0041 02       		.uleb128 0x2
  127 0042 04       		.byte	0x4
  128 0043 05       		.byte	0x5
-ARM GAS  C:\temp\cc9IszeE.s 			page 4
-
-
  129 0044 32000000 		.4byte	.LASF4
  130 0048 02       		.uleb128 0x2
  131 0049 04       		.byte	0x4
@@ -190,6 +178,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  135 0050 08       		.byte	0x8
  136 0051 05       		.byte	0x5
  137 0052 DA010000 		.4byte	.LASF6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 4
+
+
  138 0056 02       		.uleb128 0x2
  139 0057 08       		.byte	0x8
  140 0058 07       		.byte	0x7
@@ -238,9 +229,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  183 00aa D7000000 		.4byte	.LASF15
  184 00ae 03       		.byte	0x3
  185 00af 27       		.byte	0x27
-ARM GAS  C:\temp\cc9IszeE.s 			page 5
-
-
  186 00b0 76000000 		.4byte	0x76
  187 00b4 00       		.byte	0
  188 00b5 06       		.uleb128 0x6
@@ -250,6 +238,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  192 00bc 76000000 		.4byte	0x76
  193 00c0 02       		.byte	0x2
  194 00c1 06       		.uleb128 0x6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 5
+
+
  195 00c2 0A020000 		.4byte	.LASF17
  196 00c6 03       		.byte	0x3
  197 00c7 29       		.byte	0x29
@@ -294,13 +285,10 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  236 0124 7E020000 		.4byte	0x27e
  237 0128 08       		.uleb128 0x8
  238 0129 1A000000 		.4byte	.LVL5
- 239 012d 52020000 		.4byte	0x252
+ 239 012d 68020000 		.4byte	0x268
  240 0131 08       		.uleb128 0x8
  241 0132 22000000 		.4byte	.LVL6
  242 0136 52020000 		.4byte	0x252
-ARM GAS  C:\temp\cc9IszeE.s 			page 6
-
-
  243 013a 08       		.uleb128 0x8
  244 013b 28000000 		.4byte	.LVL7
  245 013f 5D020000 		.4byte	0x25d
@@ -310,6 +298,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  249 014c 08       		.uleb128 0x8
  250 014d 34000000 		.4byte	.LVL9
  251 0151 7E020000 		.4byte	0x27e
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 6
+
+
  252 0155 00       		.byte	0
  253 0156 09       		.uleb128 0x9
  254 0157 76000000 		.4byte	0x76
@@ -358,9 +349,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  297 01b5 03       		.byte	0x3
  298 01b6 00000000 		.4byte	batterylevel
  299 01ba 0B       		.uleb128 0xb
-ARM GAS  C:\temp\cc9IszeE.s 			page 7
-
-
  300 01bb 70000000 		.4byte	.LASF24
  301 01bf 04       		.byte	0x4
  302 01c0 16       		.byte	0x16
@@ -370,6 +358,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  306 01c7 00000000 		.4byte	lightlevel
  307 01cb 0C       		.uleb128 0xc
  308 01cc 494400   		.ascii	"ID\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 7
+
+
  309 01cf 03       		.byte	0x3
  310 01d0 13       		.byte	0x13
  311 01d1 6B000000 		.4byte	0x6b
@@ -418,9 +409,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  354 022c 00000000 		.4byte	water
  355 0230 0B       		.uleb128 0xb
  356 0231 36010000 		.4byte	.LASF30
-ARM GAS  C:\temp\cc9IszeE.s 			page 8
-
-
  357 0235 03       		.byte	0x3
  358 0236 19       		.byte	0x19
  359 0237 6B000000 		.4byte	0x6b
@@ -430,6 +418,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  363 0241 0B       		.uleb128 0xb
  364 0242 0B000000 		.4byte	.LASF31
  365 0246 03       		.byte	0x3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 8
+
+
  366 0247 2E       		.byte	0x2e
  367 0248 9D000000 		.4byte	0x9d
  368 024c 05       		.uleb128 0x5
@@ -478,9 +469,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  411 000c 17       		.uleb128 0x17
  412 000d 11       		.uleb128 0x11
  413 000e 01       		.uleb128 0x1
-ARM GAS  C:\temp\cc9IszeE.s 			page 9
-
-
  414 000f 10       		.uleb128 0x10
  415 0010 17       		.uleb128 0x17
  416 0011 00       		.byte	0
@@ -490,6 +478,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  420 0015 00       		.byte	0
  421 0016 0B       		.uleb128 0xb
  422 0017 0B       		.uleb128 0xb
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 9
+
+
  423 0018 3E       		.uleb128 0x3e
  424 0019 0B       		.uleb128 0xb
  425 001a 03       		.uleb128 0x3
@@ -538,9 +529,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  468 0045 06       		.uleb128 0x6
  469 0046 0D       		.uleb128 0xd
  470 0047 00       		.byte	0
-ARM GAS  C:\temp\cc9IszeE.s 			page 10
-
-
  471 0048 03       		.uleb128 0x3
  472 0049 0E       		.uleb128 0xe
  473 004a 3A       		.uleb128 0x3a
@@ -550,6 +538,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  477 004e 49       		.uleb128 0x49
  478 004f 13       		.uleb128 0x13
  479 0050 38       		.uleb128 0x38
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 10
+
+
  480 0051 0B       		.uleb128 0xb
  481 0052 00       		.byte	0
  482 0053 00       		.byte	0
@@ -598,9 +589,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  525 0081 21       		.uleb128 0x21
  526 0082 00       		.byte	0
  527 0083 49       		.uleb128 0x49
-ARM GAS  C:\temp\cc9IszeE.s 			page 11
-
-
  528 0084 13       		.uleb128 0x13
  529 0085 2F       		.uleb128 0x2f
  530 0086 0B       		.uleb128 0xb
@@ -610,6 +598,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  534 008a 34       		.uleb128 0x34
  535 008b 00       		.byte	0
  536 008c 03       		.uleb128 0x3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 11
+
+
  537 008d 0E       		.uleb128 0xe
  538 008e 3A       		.uleb128 0x3a
  539 008f 0B       		.uleb128 0xb
@@ -658,9 +649,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  582 00ba 3C       		.uleb128 0x3c
  583 00bb 19       		.uleb128 0x19
  584 00bc 00       		.byte	0
-ARM GAS  C:\temp\cc9IszeE.s 			page 12
-
-
  585 00bd 00       		.byte	0
  586 00be 00       		.byte	0
  587              		.section	.debug_aranges,"",%progbits
@@ -670,6 +658,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  591 000a 04       		.byte	0x4
  592 000b 00       		.byte	0
  593 000c 0000     		.2byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 12
+
+
  594 000e 0000     		.2byte	0
  595 0010 00000000 		.4byte	.LFB33
  596 0014 3C000000 		.4byte	.LFE33-.LFB33
@@ -683,7 +674,7 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  604 000c 00000000 		.4byte	0
  605              		.section	.debug_line,"",%progbits
  606              	.Ldebug_line0:
- 607 0000 90000000 		.section	.debug_str,"MS",%progbits,1
+ 607 0000 8E000000 		.section	.debug_str,"MS",%progbits,1
  607      02006E00 
  607      00000201 
  607      FB0E0D00 
@@ -718,9 +709,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  623 003b 75706461 		.ascii	"updateSensors\000"
  623      74655365 
  623      6E736F72 
-ARM GAS  C:\temp\cc9IszeE.s 			page 13
-
-
  623      7300
  624              	.LASF34:
  625 0049 6765745F 		.ascii	"get_moisture\000"
@@ -730,6 +718,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  626              	.LASF22:
  627 0056 74656D70 		.ascii	"temperature\000"
  627      65726174 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 13
+
+
  627      75726500 
  628              	.LASF1:
  629 0062 756E7369 		.ascii	"unsigned char\000"
@@ -778,9 +769,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  649 00d7 63757272 		.ascii	"currentMoisture\000"
  649      656E744D 
  649      6F697374 
-ARM GAS  C:\temp\cc9IszeE.s 			page 14
-
-
  649      75726500 
  650              	.LASF26:
  651 00e7 6D617854 		.ascii	"maxTemperature\000"
@@ -790,6 +778,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  652              	.LASF8:
  653 00f6 756E7369 		.ascii	"unsigned int\000"
  653      676E6564 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 14
+
+
  653      20696E74 
  653      00
  654              	.LASF23:
@@ -838,9 +829,6 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  669      206C6F6E 
  669      6720696E 
  669      7400
-ARM GAS  C:\temp\cc9IszeE.s 			page 15
-
-
  670              	.LASF36:
  671 01e8 6765745F 		.ascii	"get_waterlevel\000"
  671      77617465 
@@ -850,6 +838,9 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  673 01f7 63757272 		.ascii	"currentTemperature\000"
  673      656E7454 
  673      656D7065 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccAqMlaV.s 			page 15
+
+
  673      72617475 
  673      726500
  674              	.LASF17:
@@ -895,17 +886,14 @@ ARM GAS  C:\temp\cc9IszeE.s 			page 1
  691      65642063 
  691      68617200 
  692              	.LASF39:
- 693 0279 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
+ 693 0279 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
  693      73657273 
- 693      5C424541 
-ARM GAS  C:\temp\cc9IszeE.s 			page 16
-
-
- 693      53545C44 
- 693      65736B74 
- 694 02a7 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
- 694      6E745F63 
- 694      6F6E7472 
- 694      6F6C325F 
- 694      302E6379 
+ 693      5C4C6169 
+ 693      6D6F6E61 
+ 693      7349676E 
+ 694 02a8 2E637964 		.ascii	".cydsn\\PSoC\\Plant_control2_0.cydsn\000"
+ 694      736E5C50 
+ 694      536F435C 
+ 694      506C616E 
+ 694      745F636F 
  695              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

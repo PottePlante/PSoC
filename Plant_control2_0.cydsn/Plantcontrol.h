@@ -45,9 +45,7 @@ struct updateParameters
 
 struct updateParameters sensors_;
 
-uint8 calcValues();
 void updateSensors();
-
 
 #endif
 

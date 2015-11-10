@@ -19,7 +19,7 @@ uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = '-';                         //Pottens ID / PSoC ID
+uint8 plantID = 2;                         //Pottens ID / PSoC ID
 
 CY_ISR(UART_ISR)
 {
@@ -364,7 +364,7 @@ void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et 
     updatePlantData(uartString);
 
     CyDelay(500);
-    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)
+    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)  
 }
 
 void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
@@ -438,7 +438,49 @@ void tick()
         {
             updatePlantData(uartString);
         }
+        else if(strcmp(uartString,"Test Pump") == 0)
+        {
+//            updateSensors();
+//            CyDelay(200);
+//            
+//            sendSensorData(sensors_);
+//            while(wantedMoisture < sensors_.currentMoisture)
+//                startPumpingWater();
+            UART_PutString("Pump is starting\r\n");
+            //startPumpingWater();
+            Pumpe_Write(1);
+            CyDelay(1000);
+            updateSensors();
+            char fastPrint[16];
+            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
+            UART_PutString(fastPrint);
+            CyDelay(1000);
+            updateSensors();
+            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
+            UART_PutString(fastPrint);
+            CyDelay(1000);
+            updateSensors();
+            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
+            UART_PutString(fastPrint);
+            CyDelay(1000);
+            updateSensors();
+            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
+            UART_PutString(fastPrint);
+            CyDelay(1000);
+            updateSensors();
+            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
+            UART_PutString(fastPrint);
+            Pumpe_Write(0);
+            
+            UART_PutString("Pump is done pumping\r\n");
+            
+        }
+        
+            
     }
 }
+
+    
+
 
 /* [] END OF FILE */

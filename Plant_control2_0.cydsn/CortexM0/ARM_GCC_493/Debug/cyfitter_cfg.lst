@@ -1,4 +1,4 @@
-ARM GAS  C:\temp\ccIfBigj.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
   31:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CY_CFG_UNUSED __attribute__ ((unused))
   32:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CY_CFG_SECTION __attribute__ ((section(".psocinit")))
   33:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     
-ARM GAS  C:\temp\ccIfBigj.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 2
 
 
   34:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #if defined(__ARMCC_VERSION)
@@ -118,7 +118,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
   88:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: CyClockStartupError
   89:.\Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
   90:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
-ARM GAS  C:\temp\ccIfBigj.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 3
 
 
   91:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *  If an error is encountered during clock configuration (crystal startup error,
@@ -178,7 +178,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  145:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *
  146:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
  147:.\Generated_Source\PSoC4/cyfitter_cfg.c **** static void cfg_write_bytes32(const uint32 addr_table[], const cy_cfg_addrvalue_t data_table[]);
-ARM GAS  C:\temp\ccIfBigj.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 4
 
 
  148:.\Generated_Source\PSoC4/cyfitter_cfg.c **** static void cfg_write_bytes32(const uint32 addr_table[], const cy_cfg_addrvalue_t data_table[])
@@ -238,7 +238,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
   66 0020 0135     		add	r5, r5, #1
   67              	.LVL6:
  161:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			count--;
-ARM GAS  C:\temp\ccIfBigj.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 5
 
 
   68              		.loc 1 161 0
@@ -298,7 +298,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  113              		.loc 1 62 0
  114              		@ sp needed
  115 000a 08BD     		pop	{r3, pc}
-ARM GAS  C:\temp\ccIfBigj.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 6
 
 
  116              		.cfi_endproc
@@ -358,7 +358,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  183:.\Generated_Source\PSoC4/cyfitter_cfg.c **** static void ClockSetup(void);
  184:.\Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_SECTION
  185:.\Generated_Source\PSoC4/cyfitter_cfg.c **** static void ClockSetup(void)
-ARM GAS  C:\temp\ccIfBigj.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 7
 
 
  186:.\Generated_Source\PSoC4/cyfitter_cfg.c **** {
@@ -418,7 +418,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  186 002e 1206     		lsl	r2, r2, #24
  187 0030 114B     		ldr	r3, .L9+24
  188 0032 1A60     		str	r2, [r3]
-ARM GAS  C:\temp\ccIfBigj.s 			page 8
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 8
 
 
  203:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -435,7 +435,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  194 003a 1A60     		str	r2, [r3]
  209:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
  210:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* CYDEV_CLK_DIVIDER_B00 Starting address: CYDEV_CLK_DIVIDER_B00 */
- 211:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_DIVIDER_B00), 0x80000138u);
+ 211:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_DIVIDER_B00), 0x80000019u);
  195              		.loc 1 211 0
  196 003c 114A     		ldr	r2, .L9+36
  197 003e 124B     		ldr	r3, .L9+40
@@ -478,12 +478,12 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  226 0070 34020240 		.word	1073873460
  227 0074 3C020240 		.word	1073873468
  228 0078 08010B40 		.word	1074462984
-ARM GAS  C:\temp\ccIfBigj.s 			page 9
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 9
 
 
  229 007c 02000080 		.word	-2147483646
  230 0080 00000240 		.word	1073872896
- 231 0084 38010080 		.word	-2147483336
+ 231 0084 19000080 		.word	-2147483623
  232 0088 40000240 		.word	1073872960
  233 008c DF2E0080 		.word	-2147471649
  234 0090 80000240 		.word	1073873024
@@ -538,7 +538,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  255:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Intended to be called at startup, based on the Vdda system configuration;
  256:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * may be called during operation when the user informs us that the Vdda voltage crossed the pump th
  257:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *
-ARM GAS  C:\temp\ccIfBigj.s 			page 10
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 10
 
 
  258:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
@@ -598,7 +598,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  282              	.LFE6:
  283              		.size	SetAnalogRoutingPumps, .-SetAnalogRoutingPumps
  284              		.section	.text.AnalogSetDefault,"ax",%progbits
-ARM GAS  C:\temp\ccIfBigj.s 			page 11
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 11
 
 
  285              		.align	2
@@ -658,7 +658,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  283:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: cyfitter_cfg
  284:.\Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
  285:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
-ARM GAS  C:\temp\ccIfBigj.s 			page 12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 12
 
 
  286:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is called by the start-up code for the selected device. It
@@ -706,9 +706,9 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  309:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F303Bu, /* Base address: 0x400F3000 Count: 59 */
  310:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F314Au, /* Base address: 0x400F3100 Count: 74 */
  311:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F3269u, /* Base address: 0x400F3200 Count: 105 */
- 312:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F3350u, /* Base address: 0x400F3300 Count: 80 */
- 313:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F400Bu, /* Base address: 0x400F4000 Count: 11 */
- 314:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F4105u, /* Base address: 0x400F4100 Count: 5 */
+ 312:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F3351u, /* Base address: 0x400F3300 Count: 81 */
+ 313:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F400Cu, /* Base address: 0x400F4000 Count: 12 */
+ 314:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F4103u, /* Base address: 0x400F4100 Count: 3 */
  315:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x400F6002u, /* Base address: 0x400F6000 Count: 2 */
  316:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		};
  317:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -716,38 +716,38 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  319:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x80u, 0x38u},
  320:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x81u, 0x0Fu},
  321:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x83u, 0x76u},
- 322:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x81u, 0x10u},
- 323:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x84u, 0x92u},
-ARM GAS  C:\temp\ccIfBigj.s 			page 13
+ 322:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x85u, 0x14u},
+ 323:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x88u, 0x48u},
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 13
 
 
- 324:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x85u, 0x14u},
- 325:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x86u, 0x25u},
- 326:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x88u, 0x48u},
- 327:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x89u, 0x09u},
- 328:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Au, 0x25u},
- 329:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Bu, 0x10u},
- 330:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x91u, 0x1Cu},
- 331:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x93u, 0x02u},
- 332:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x94u, 0x03u},
- 333:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x95u, 0x40u},
- 334:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x96u, 0xFCu},
- 335:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x97u, 0x03u},
- 336:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x98u, 0xE3u},
- 337:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x99u, 0x0Cu},
- 338:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Au, 0x1Cu},
- 339:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Bu, 0x11u},
- 340:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Cu, 0x25u},
- 341:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Eu, 0xDAu},
- 342:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA0u, 0x1Fu},
- 343:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA2u, 0xE0u},
- 344:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA4u, 0xE3u},
- 345:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA5u, 0x20u},
- 346:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA6u, 0x1Cu},
- 347:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0x10u},
- 348:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xABu, 0x0Cu},
- 349:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xACu, 0xE0u},
- 350:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAEu, 0x1Cu},
+ 324:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x89u, 0x0Cu},
+ 325:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Au, 0x25u},
+ 326:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Bu, 0x11u},
+ 327:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x91u, 0x1Cu},
+ 328:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x93u, 0x02u},
+ 329:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x94u, 0xE3u},
+ 330:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x95u, 0x40u},
+ 331:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x96u, 0x1Cu},
+ 332:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x97u, 0x03u},
+ 333:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x98u, 0xE3u},
+ 334:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x99u, 0x10u},
+ 335:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Au, 0x1Cu},
+ 336:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Bu, 0x0Cu},
+ 337:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Cu, 0xE0u},
+ 338:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Eu, 0x1Cu},
+ 339:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA0u, 0x1Fu},
+ 340:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA2u, 0xE0u},
+ 341:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA4u, 0x03u},
+ 342:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA5u, 0x10u},
+ 343:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA6u, 0xFCu},
+ 344:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA8u, 0x92u},
+ 345:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0x20u},
+ 346:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAAu, 0x25u},
+ 347:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xACu, 0x25u},
+ 348:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xADu, 0x09u},
+ 349:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAEu, 0xDAu},
+ 350:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAFu, 0x10u},
  351:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB2u, 0xFFu},
  352:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB3u, 0x1Fu},
  353:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB5u, 0x20u},
@@ -757,9 +757,9 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  357:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC0u, 0x63u},
  358:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC1u, 0x02u},
  359:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC5u, 0x0Bu},
- 360:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC6u, 0xE0u},
- 361:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC7u, 0xC0u},
- 362:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC8u, 0x29u},
+ 360:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC6u, 0xC0u},
+ 361:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC7u, 0x0Eu},
+ 362:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC8u, 0x19u},
  363:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC9u, 0xFFu},
  364:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0xFFu},
  365:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCBu, 0xFFu},
@@ -778,127 +778,127 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  378:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xE6u, 0xC0u},
  379:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xEAu, 0x40u},
  380:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xEBu, 0x02u},
-ARM GAS  C:\temp\ccIfBigj.s 			page 14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 14
 
 
- 381:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x00u, 0x08u},
- 382:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x01u, 0x88u},
+ 381:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x01u, 0xA0u},
+ 382:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x02u, 0x10u},
  383:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x04u, 0x20u},
- 384:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x05u, 0x08u},
- 385:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x08u, 0x40u},
- 386:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x09u, 0x01u},
- 387:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x18u},
+ 384:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x06u, 0x10u},
+ 385:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x07u, 0x20u},
+ 386:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x08u, 0x01u},
+ 387:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x40u},
  388:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Bu, 0x0Au},
- 389:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Cu, 0x44u},
- 390:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Du, 0x08u},
- 391:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Eu, 0x04u},
- 392:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Fu, 0x04u},
- 393:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x11u, 0x28u},
- 394:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x12u, 0x02u},
- 395:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x14u, 0x80u},
- 396:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x15u, 0x81u},
- 397:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x17u, 0x04u},
- 398:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x18u, 0x01u},
- 399:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Au, 0x18u},
- 400:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Bu, 0x10u},
- 401:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Eu, 0x20u},
- 402:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x21u, 0xA1u},
- 403:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x22u, 0x08u},
- 404:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x25u, 0x40u},
- 405:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x26u, 0x04u},
- 406:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x27u, 0x08u},
- 407:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x28u, 0x84u},
- 408:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x29u, 0x04u},
- 409:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Cu, 0x20u},
- 410:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Eu, 0x08u},
- 411:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x04u},
- 412:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x31u, 0x40u},
- 413:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x32u, 0x20u},
- 414:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x33u, 0x84u},
- 415:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x36u, 0x06u},
- 416:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x37u, 0x21u},
- 417:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x38u, 0x20u},
- 418:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x39u, 0x80u},
- 419:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Bu, 0x05u},
- 420:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Eu, 0x10u},
- 421:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Fu, 0x0Au},
- 422:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x40u, 0x01u},
- 423:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x43u, 0x28u},
- 424:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x45u, 0x14u},
- 425:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x47u, 0x20u},
- 426:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x49u, 0x44u},
- 427:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Au, 0x08u},
- 428:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Fu, 0x28u},
- 429:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x52u, 0x20u},
- 430:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x54u, 0x20u},
- 431:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x55u, 0x01u},
- 432:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x57u, 0x02u},
- 433:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x59u, 0x01u},
- 434:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Cu, 0x40u},
- 435:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Du, 0x20u},
- 436:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Fu, 0x0Au},
- 437:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x60u, 0x02u},
-ARM GAS  C:\temp\ccIfBigj.s 			page 15
+ 389:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Cu, 0x14u},
+ 390:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Du, 0x40u},
+ 391:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Eu, 0x14u},
+ 392:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x11u, 0x28u},
+ 393:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x12u, 0x02u},
+ 394:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x14u, 0x49u},
+ 395:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x15u, 0x0Au},
+ 396:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x17u, 0x04u},
+ 397:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x18u, 0x01u},
+ 398:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x19u, 0x20u},
+ 399:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Bu, 0x02u},
+ 400:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Eu, 0x20u},
+ 401:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x21u, 0x2Au},
+ 402:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x22u, 0x88u},
+ 403:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x25u, 0x40u},
+ 404:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x26u, 0x04u},
+ 405:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x27u, 0x08u},
+ 406:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x28u, 0x54u},
+ 407:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Eu, 0x08u},
+ 408:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x0Bu},
+ 409:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x31u, 0x40u},
+ 410:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x32u, 0x20u},
+ 411:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x33u, 0x84u},
+ 412:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x35u, 0x20u},
+ 413:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x36u, 0x06u},
+ 414:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x37u, 0x01u},
+ 415:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x38u, 0x28u},
+ 416:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x39u, 0x80u},
+ 417:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Bu, 0x01u},
+ 418:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Du, 0x20u},
+ 419:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Fu, 0x04u},
+ 420:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x40u, 0x01u},
+ 421:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x41u, 0x08u},
+ 422:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x43u, 0x20u},
+ 423:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x45u, 0x16u},
+ 424:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x46u, 0x40u},
+ 425:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x49u, 0x50u},
+ 426:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Au, 0x20u},
+ 427:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Du, 0x20u},
+ 428:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Fu, 0x04u},
+ 429:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x50u, 0x04u},
+ 430:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x56u, 0x30u},
+ 431:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x57u, 0x08u},
+ 432:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x59u, 0x01u},
+ 433:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Cu, 0x42u},
+ 434:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Fu, 0x28u},
+ 435:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x60u, 0x80u},
+ 436:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x61u, 0x20u},
+ 437:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x62u, 0x40u},
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 15
 
 
- 438:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x61u, 0x20u},
- 439:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x62u, 0x01u},
- 440:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x66u, 0x02u},
- 441:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x78u, 0x02u},
- 442:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x79u, 0x02u},
- 443:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Eu, 0x01u},
- 444:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC0u, 0x65u},
- 445:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC2u, 0xEFu},
- 446:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC4u, 0xB7u},
- 447:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0x67u},
- 448:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCCu, 0xEEu},
- 449:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCEu, 0xEFu},
- 450:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD0u, 0x6Eu},
- 451:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD2u, 0x2Cu},
- 452:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0xF1u},
- 453:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD8u, 0x8Du},
+ 438:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x64u, 0x08u},
+ 439:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x66u, 0x01u},
+ 440:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x67u, 0x08u},
+ 441:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Cu, 0x80u},
+ 442:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Eu, 0x01u},
+ 443:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC0u, 0x47u},
+ 444:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC2u, 0xEBu},
+ 445:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC4u, 0xF7u},
+ 446:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0x77u},
+ 447:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCCu, 0xEEu},
+ 448:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCEu, 0x6Fu},
+ 449:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD0u, 0x6Eu},
+ 450:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD2u, 0x2Cu},
+ 451:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0xF1u},
+ 452:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD8u, 0x8Du},
+ 453:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xE2u, 0x10u},
  454:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xE6u, 0x40u},
  455:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x00u, 0x3Du},
  456:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x02u, 0xC0u},
- 457:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x03u, 0x08u},
- 458:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x04u, 0x0Du},
- 459:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x06u, 0xF0u},
- 460:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x07u, 0xA3u},
- 461:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x08u, 0xCDu},
- 462:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x09u, 0xE1u},
- 463:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x30u},
- 464:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Bu, 0x16u},
- 465:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Cu, 0x55u},
- 466:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Eu, 0xA8u},
- 467:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x11u, 0x5Cu},
- 468:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x12u, 0x01u},
- 469:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x13u, 0x83u},
- 470:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x15u, 0xE1u},
- 471:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x16u, 0x02u},
- 472:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x17u, 0x0Eu},
- 473:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x18u, 0xA8u},
- 474:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Au, 0x54u},
- 475:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Cu, 0xC0u},
- 476:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Eu, 0x30u},
- 477:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x24u, 0xCDu},
- 478:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x26u, 0x30u},
- 479:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Bu, 0x1Cu},
- 480:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x80u},
+ 457:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x04u, 0xA8u},
+ 458:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x06u, 0x54u},
+ 459:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x07u, 0xA3u},
+ 460:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x08u, 0xCDu},
+ 461:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x30u},
+ 462:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Bu, 0x80u},
+ 463:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Cu, 0x55u},
+ 464:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Eu, 0xA8u},
+ 465:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x11u, 0x5Cu},
+ 466:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x12u, 0x01u},
+ 467:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x13u, 0x83u},
+ 468:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x15u, 0xE1u},
+ 469:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x16u, 0x02u},
+ 470:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x17u, 0x0Eu},
+ 471:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x18u, 0xCDu},
+ 472:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Au, 0x30u},
+ 473:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Cu, 0xC0u},
+ 474:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Eu, 0x30u},
+ 475:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x24u, 0x0Du},
+ 476:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x26u, 0xF0u},
+ 477:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x27u, 0x08u},
+ 478:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x29u, 0xE1u},
+ 479:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Bu, 0x16u},
+ 480:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x1Cu},
  481:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x30u, 0x03u},
  482:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x31u, 0x80u},
- 483:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x33u, 0x60u},
- 484:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x34u, 0xFCu},
+ 483:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x32u, 0xFCu},
+ 484:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x33u, 0x60u},
  485:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x35u, 0x1Au},
  486:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x37u, 0x0Fu},
  487:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x39u, 0x08u},
- 488:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Au, 0x08u},
+ 488:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Au, 0x20u},
  489:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Bu, 0xA0u},
  490:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Fu, 0x05u},
  491:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x40u, 0x02u},
- 492:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x45u, 0x40u},
+ 492:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x47u, 0x04u},
  493:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x49u, 0xFFu},
  494:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Au, 0x0Fu},
-ARM GAS  C:\temp\ccIfBigj.s 			page 16
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 16
 
 
  495:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Bu, 0xFFu},
@@ -917,34 +917,34 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  508:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x61u, 0xA8u},
  509:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x62u, 0x40u},
  510:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x63u, 0x20u},
- 511:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x82u, 0xF3u},
- 512:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x84u, 0x1Cu},
- 513:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x85u, 0x10u},
- 514:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x86u, 0xE3u},
- 515:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x88u, 0x0Fu},
- 516:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x89u, 0x08u},
- 517:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Au, 0xF0u},
- 518:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Cu, 0x41u},
- 519:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Du, 0x40u},
- 520:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x90u, 0xC3u},
- 521:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x91u, 0x40u},
- 522:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x93u, 0x18u},
- 523:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x95u, 0xA7u},
- 524:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x96u, 0x0Cu},
- 525:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x97u, 0x18u},
- 526:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x98u, 0x82u},
- 527:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x99u, 0x3Cu},
- 528:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Bu, 0x82u},
- 529:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Fu, 0x04u},
- 530:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA0u, 0xF3u},
- 531:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA2u, 0x0Cu},
- 532:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA3u, 0x03u},
- 533:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA4u, 0x08u},
- 534:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA5u, 0x3Cu},
- 535:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA7u, 0x81u},
- 536:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA8u, 0x04u},
- 537:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0xBFu},
- 538:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xACu, 0xFFu},
+ 511:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x82u, 0x0Cu},
+ 512:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x84u, 0xF3u},
+ 513:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x85u, 0x40u},
+ 514:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x86u, 0x0Cu},
+ 515:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x87u, 0x18u},
+ 516:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x88u, 0x0Fu},
+ 517:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x89u, 0x08u},
+ 518:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Au, 0xF0u},
+ 519:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Cu, 0x41u},
+ 520:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Du, 0x10u},
+ 521:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x90u, 0xC3u},
+ 522:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x91u, 0x40u},
+ 523:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x94u, 0x1Cu},
+ 524:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x95u, 0xA7u},
+ 525:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x96u, 0xE3u},
+ 526:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x97u, 0x18u},
+ 527:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x98u, 0x82u},
+ 528:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x99u, 0x3Cu},
+ 529:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Bu, 0x82u},
+ 530:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Cu, 0xFFu},
+ 531:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Fu, 0x04u},
+ 532:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA2u, 0xF3u},
+ 533:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA3u, 0x03u},
+ 534:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA4u, 0x08u},
+ 535:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA5u, 0x3Cu},
+ 536:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA7u, 0x81u},
+ 537:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA8u, 0x04u},
+ 538:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0xBFu},
  539:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xADu, 0x04u},
  540:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB0u, 0xC0u},
  541:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB1u, 0x20u},
@@ -958,7 +958,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  549:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xBAu, 0x28u},
  550:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xBBu, 0x20u},
  551:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xBFu, 0x01u},
-ARM GAS  C:\temp\ccIfBigj.s 			page 17
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 17
 
 
  552:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0x02u},
@@ -969,105 +969,105 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  557:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDCu, 0x11u},
  558:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDDu, 0x10u},
  559:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDFu, 0x01u},
- 560:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x01u, 0x82u},
- 561:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x02u, 0x64u},
- 562:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x05u, 0x80u},
- 563:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x07u, 0x64u},
- 564:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x09u, 0x28u},
- 565:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x40u},
- 566:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Du, 0x60u},
- 567:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Eu, 0x60u},
- 568:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x12u, 0x80u},
- 569:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x13u, 0x54u},
- 570:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x15u, 0x08u},
- 571:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x19u, 0x05u},
- 572:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Au, 0x08u},
- 573:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Bu, 0xA0u},
- 574:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Cu, 0x08u},
- 575:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Du, 0x20u},
- 576:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Eu, 0x40u},
- 577:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Fu, 0x09u},
- 578:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x21u, 0x08u},
- 579:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x22u, 0x31u},
- 580:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x23u, 0x21u},
- 581:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x24u, 0x40u},
- 582:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x25u, 0x10u},
- 583:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x27u, 0x19u},
- 584:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x29u, 0x86u},
- 585:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Au, 0x04u},
- 586:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Bu, 0x08u},
- 587:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Eu, 0x10u},
- 588:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x02u},
- 589:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x31u, 0x80u},
- 590:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x32u, 0x16u},
- 591:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x37u, 0x09u},
- 592:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Au, 0x80u},
- 593:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Bu, 0x14u},
- 594:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Fu, 0x2Au},
- 595:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x47u, 0x10u},
- 596:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Fu, 0x02u},
- 597:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x55u, 0x04u},
- 598:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x57u, 0x04u},
- 599:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Au, 0x02u},
- 600:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x69u, 0x89u},
- 601:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x6Au, 0x04u},
- 602:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x6Bu, 0x44u},
- 603:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x72u, 0x80u},
- 604:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x73u, 0x14u},
- 605:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Au, 0x80u},
- 606:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Bu, 0x68u},
- 607:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Du, 0x08u},
- 608:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Eu, 0x02u},
-ARM GAS  C:\temp\ccIfBigj.s 			page 18
+ 560:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x01u, 0x80u},
+ 561:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x02u, 0x40u},
+ 562:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x03u, 0x28u},
+ 563:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x05u, 0x84u},
+ 564:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x07u, 0x44u},
+ 565:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x60u},
+ 566:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Bu, 0x0Au},
+ 567:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Du, 0x40u},
+ 568:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Eu, 0x64u},
+ 569:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x10u, 0x60u},
+ 570:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x11u, 0x01u},
+ 571:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x12u, 0x20u},
+ 572:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x13u, 0x10u},
+ 573:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x15u, 0x08u},
+ 574:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x19u, 0x09u},
+ 575:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Au, 0x08u},
+ 576:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Bu, 0xA8u},
+ 577:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Du, 0x14u},
+ 578:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Eu, 0x40u},
+ 579:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x1Fu, 0x04u},
+ 580:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x21u, 0x04u},
+ 581:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x22u, 0x19u},
+ 582:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x23u, 0x01u},
+ 583:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x24u, 0x40u},
+ 584:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x25u, 0x10u},
+ 585:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x27u, 0x19u},
+ 586:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x28u, 0x40u},
+ 587:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x29u, 0x98u},
+ 588:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Du, 0x20u},
+ 589:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Eu, 0x08u},
+ 590:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x02u},
+ 591:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x30u, 0x02u},
+ 592:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x32u, 0x94u},
+ 593:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x37u, 0x09u},
+ 594:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x39u, 0x08u},
+ 595:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Bu, 0x50u},
+ 596:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Du, 0x08u},
+ 597:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Eu, 0x20u},
+ 598:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x3Fu, 0x04u},
+ 599:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x47u, 0x10u},
+ 600:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x4Fu, 0x04u},
+ 601:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x56u, 0x08u},
+ 602:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x5Au, 0x02u},
+ 603:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x69u, 0x82u},
+ 604:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x6Au, 0x14u},
+ 605:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x6Bu, 0x44u},
+ 606:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x70u, 0x22u},
+ 607:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x73u, 0x10u},
+ 608:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Au, 0x68u},
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 18
 
 
- 609:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x92u, 0x10u},
- 610:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x94u, 0x40u},
- 611:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x95u, 0x81u},
- 612:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x96u, 0x04u},
- 613:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x97u, 0x03u},
- 614:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x99u, 0x80u},
- 615:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Au, 0x40u},
- 616:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Du, 0x01u},
- 617:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Fu, 0x05u},
- 618:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA1u, 0x80u},
- 619:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA2u, 0x10u},
- 620:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA3u, 0x12u},
- 621:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA4u, 0x04u},
- 622:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA5u, 0x1Cu},
- 623:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA7u, 0xA9u},
- 624:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA8u, 0x10u},
- 625:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0xA1u},
- 626:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAAu, 0x02u},
- 627:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAEu, 0x08u},
- 628:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAFu, 0x02u},
- 629:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB1u, 0x40u},
- 630:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB2u, 0x48u},
- 631:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC0u, 0xFFu},
- 632:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC2u, 0xFEu},
- 633:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC4u, 0x2Fu},
- 634:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0x3Fu},
- 635:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCCu, 0xCFu},
- 636:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCEu, 0xEEu},
- 637:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD0u, 0x20u},
- 638:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0x01u},
- 639:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xEEu, 0x20u},
- 640:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x40u},
- 641:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x80u},
- 642:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x66u, 0x80u},
- 643:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x6Fu, 0x90u},
- 644:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x71u, 0x10u},
- 645:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Fu, 0x10u},
- 646:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC2u, 0x10u},
- 647:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0x80u},
- 648:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0x80u},
- 649:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDAu, 0x80u},
- 650:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDCu, 0x60u},
- 651:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0x10u},
- 652:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAAu, 0x40u},
- 653:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB2u, 0x80u},
- 654:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xE8u, 0x20u},
- 655:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xEEu, 0x20u},
+ 609:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Bu, 0x40u},
+ 610:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Du, 0x10u},
+ 611:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Fu, 0x01u},
+ 612:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x91u, 0x01u},
+ 613:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x94u, 0x40u},
+ 614:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x95u, 0x8Au},
+ 615:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x96u, 0x54u},
+ 616:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x97u, 0x09u},
+ 617:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x99u, 0xA0u},
+ 618:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Au, 0x20u},
+ 619:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Du, 0x11u},
+ 620:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Eu, 0x08u},
+ 621:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x9Fu, 0x01u},
+ 622:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA2u, 0x90u},
+ 623:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA3u, 0x02u},
+ 624:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA5u, 0x14u},
+ 625:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA7u, 0xA0u},
+ 626:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA8u, 0x10u},
+ 627:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xA9u, 0x80u},
+ 628:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB0u, 0x02u},
+ 629:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB1u, 0x41u},
+ 630:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB2u, 0x08u},
+ 631:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB3u, 0x08u},
+ 632:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC0u, 0xFFu},
+ 633:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC2u, 0xFFu},
+ 634:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC4u, 0x2Eu},
+ 635:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0x7Fu},
+ 636:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCCu, 0xCFu},
+ 637:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCEu, 0x6Eu},
+ 638:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD0u, 0x20u},
+ 639:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0x01u},
+ 640:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xEEu, 0x20u},
+ 641:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x0Au, 0x40u},
+ 642:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x2Fu, 0x80u},
+ 643:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x66u, 0x80u},
+ 644:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x68u, 0x80u},
+ 645:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x6Fu, 0x88u},
+ 646:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Cu, 0x80u},
+ 647:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x8Fu, 0x08u},
+ 648:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xC2u, 0x10u},
+ 649:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xCAu, 0x80u},
+ 650:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xD6u, 0x80u},
+ 651:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDAu, 0x80u},
+ 652:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xDCu, 0x60u},
+ 653:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xAAu, 0x40u},
+ 654:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xB2u, 0x80u},
+ 655:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0xE8u, 0x20u},
  656:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x10u, 0x0Au},
  657:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			{0x11u, 0x01u},
  658:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		};
@@ -1078,7 +1078,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  663:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			void CYFAR *address;
  664:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			uint16 size;
  665:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		} CYPACKED_ATTR cfg_memset_t;
-ARM GAS  C:\temp\ccIfBigj.s 			page 19
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 19
 
 
  666:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -1097,11 +1097,11 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  679:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
  680:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* UDB_0_1_0_CONFIG Address: CYDEV_UDB_P0_U0_BASE Size (bytes): 128 */
  681:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		static const uint8 CYCODE BS_UDB_0_1_0_CONFIG_VAL[] = {
- 682:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x00u, 0x00u, 0x02u, 0x00u, 0x04u, 0x80u, 0x08u, 0x00u, 0x00u, 0x00u, 0x10u, 0x00u, 0x04u
- 683:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x03u, 0x00u, 0x04u, 0x00u, 0x00u, 0x04u, 0x08u, 0x08u, 0x13u, 0x00u, 0x0Cu, 0x02u, 0x00u, 0x00u
- 684:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x0Cu, 0x00u, 0x00u, 0x20u, 0x00u, 0x05u, 0x01u, 0x13u, 0x04u, 0x04u, 0x08u, 0x0Au, 0x00u
- 685:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x01u, 0x30u, 0x0Cu, 0x0Fu, 0x02u, 0xC0u, 0x10u, 0x08u, 0x00u, 0x20u, 0x00u, 0x00u, 0x00u
- 686:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x26u, 0x03u, 0x05u, 0x00u, 0x01u, 0x0Cu, 0xE0u, 0x00u, 0x09u, 0xFFu, 0xFFu, 0xFFu, 0x62u, 0xA0u
+ 682:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x00u, 0x00u, 0x02u, 0x03u, 0x00u, 0x04u, 0x01u, 0x13u, 0x00u, 0x0Cu, 0x10u, 0x00u, 0x04u
+ 683:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x00u, 0x40u, 0x00u, 0x00u, 0x04u, 0x00u, 0x08u, 0x00u, 0x00u, 0x80u, 0x02u, 0x00u, 0x00u
+ 684:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x0Cu, 0x00u, 0x00u, 0x20u, 0x04u, 0x05u, 0x08u, 0x13u, 0x04u, 0x04u, 0x08u, 0x0Au, 0x00u
+ 685:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x30u, 0x01u, 0x00u, 0x0Cu, 0x0Fu, 0x02u, 0xC0u, 0x10u, 0x02u, 0x00u, 0x20u, 0x00u, 0x00u, 0x00u
+ 686:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x23u, 0x06u, 0x05u, 0x00u, 0x01u, 0x0Eu, 0x00u, 0x0Cu, 0x11u, 0xFFu, 0xFFu, 0xFFu, 0x62u, 0xA0u
  687:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x0Cu, 0x00u, 0x00u, 0x00u, 0x18u, 0x00u, 0x04u, 0x00u, 0x04u, 0x04u, 0x04u, 0x04u, 0x11u, 0x11u
  688:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x40u, 0x02u, 0x00u, 0x10u, 0x30u, 0x10u, 0x00u, 0x10u
  689:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 			0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u
@@ -1138,7 +1138,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  365 00be 5888     		ldrh	r0, [r3, #2]
  366 00c0 0004     		lsl	r0, r0, #16
  367 00c2 1043     		orr	r0, r2
-ARM GAS  C:\temp\ccIfBigj.s 			page 20
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 20
 
 
  368 00c4 FFF7FEFF 		bl	CYMEMZERO
@@ -1198,7 +1198,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  409              		.loc 1 706 0 discriminator 3
  410 00f6 0134     		add	r4, r4, #1
  411              	.LVL36:
-ARM GAS  C:\temp\ccIfBigj.s 			page 21
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 21
 
 
  412 00f8 E4B2     		uxtb	r4, r4
@@ -1258,7 +1258,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  450 0130 254B     		ldr	r3, .L24+36
  451 0132 1A60     		str	r2, [r3]
  728:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA0_CFG8), 0x04000002u);
-ARM GAS  C:\temp\ccIfBigj.s 			page 22
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 22
 
 
  452              		.loc 1 728 0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  485 0166 8A43     		bic	r2, r1
  486 0168 2839     		sub	r1, r1, #40
  487 016a 0A43     		orr	r2, r1
-ARM GAS  C:\temp\ccIfBigj.s 			page 23
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 23
 
 
  488 016c 0270     		strb	r2, [r0]
@@ -1378,7 +1378,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  770:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
  771:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Perform basic analog initialization to defaults */
  772:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	AnalogSetDefault();
-ARM GAS  C:\temp\ccIfBigj.s 			page 24
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 24
 
 
  522              		.loc 1 772 0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  574 000c 00300F40 		.word	1074737152
  575 0010 E0020000 		.word	BS_UDB_0_1_0_CONFIG_VAL.4749
  576 0014 8000     		.short	128
-ARM GAS  C:\temp\ccIfBigj.s 			page 25
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 25
 
 
  577 0016 0000     		.space	2
@@ -1449,9 +1449,9 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  582 001c 3B300F40 		.word	1074737211
  583 0020 4A310F40 		.word	1074737482
  584 0024 69320F40 		.word	1074737769
- 585 0028 50330F40 		.word	1074738000
- 586 002c 0B400F40 		.word	1074741259
- 587 0030 05410F40 		.word	1074741509
+ 585 0028 51330F40 		.word	1074738001
+ 586 002c 0C400F40 		.word	1074741260
+ 587 0030 03410F40 		.word	1074741507
  588 0034 02600F40 		.word	1074749442
  589              		.type	cy_cfg_data_table.4738, %object
  590              		.size	cy_cfg_data_table.4738, 678
@@ -1462,67 +1462,67 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  595 003b 0F       		.byte	15
  596 003c 83       		.byte	-125
  597 003d 76       		.byte	118
- 598 003e 81       		.byte	-127
- 599 003f 10       		.byte	16
- 600 0040 84       		.byte	-124
- 601 0041 92       		.byte	-110
- 602 0042 85       		.byte	-123
- 603 0043 14       		.byte	20
- 604 0044 86       		.byte	-122
+ 598 003e 85       		.byte	-123
+ 599 003f 14       		.byte	20
+ 600 0040 88       		.byte	-120
+ 601 0041 48       		.byte	72
+ 602 0042 89       		.byte	-119
+ 603 0043 0C       		.byte	12
+ 604 0044 8A       		.byte	-118
  605 0045 25       		.byte	37
- 606 0046 88       		.byte	-120
- 607 0047 48       		.byte	72
- 608 0048 89       		.byte	-119
- 609 0049 09       		.byte	9
- 610 004a 8A       		.byte	-118
- 611 004b 25       		.byte	37
- 612 004c 8B       		.byte	-117
- 613 004d 10       		.byte	16
- 614 004e 91       		.byte	-111
- 615 004f 1C       		.byte	28
- 616 0050 93       		.byte	-109
- 617 0051 02       		.byte	2
- 618 0052 94       		.byte	-108
+ 606 0046 8B       		.byte	-117
+ 607 0047 11       		.byte	17
+ 608 0048 91       		.byte	-111
+ 609 0049 1C       		.byte	28
+ 610 004a 93       		.byte	-109
+ 611 004b 02       		.byte	2
+ 612 004c 94       		.byte	-108
+ 613 004d E3       		.byte	-29
+ 614 004e 95       		.byte	-107
+ 615 004f 40       		.byte	64
+ 616 0050 96       		.byte	-106
+ 617 0051 1C       		.byte	28
+ 618 0052 97       		.byte	-105
  619 0053 03       		.byte	3
- 620 0054 95       		.byte	-107
- 621 0055 40       		.byte	64
- 622 0056 96       		.byte	-106
- 623 0057 FC       		.byte	-4
- 624 0058 97       		.byte	-105
- 625 0059 03       		.byte	3
- 626 005a 98       		.byte	-104
- 627 005b E3       		.byte	-29
- 628 005c 99       		.byte	-103
- 629 005d 0C       		.byte	12
- 630 005e 9A       		.byte	-102
+ 620 0054 98       		.byte	-104
+ 621 0055 E3       		.byte	-29
+ 622 0056 99       		.byte	-103
+ 623 0057 10       		.byte	16
+ 624 0058 9A       		.byte	-102
+ 625 0059 1C       		.byte	28
+ 626 005a 9B       		.byte	-101
+ 627 005b 0C       		.byte	12
+ 628 005c 9C       		.byte	-100
+ 629 005d E0       		.byte	-32
+ 630 005e 9E       		.byte	-98
  631 005f 1C       		.byte	28
- 632 0060 9B       		.byte	-101
- 633 0061 11       		.byte	17
-ARM GAS  C:\temp\ccIfBigj.s 			page 26
+ 632 0060 A0       		.byte	-96
+ 633 0061 1F       		.byte	31
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 26
 
 
- 634 0062 9C       		.byte	-100
- 635 0063 25       		.byte	37
- 636 0064 9E       		.byte	-98
- 637 0065 DA       		.byte	-38
- 638 0066 A0       		.byte	-96
- 639 0067 1F       		.byte	31
- 640 0068 A2       		.byte	-94
- 641 0069 E0       		.byte	-32
- 642 006a A4       		.byte	-92
- 643 006b E3       		.byte	-29
- 644 006c A5       		.byte	-91
+ 634 0062 A2       		.byte	-94
+ 635 0063 E0       		.byte	-32
+ 636 0064 A4       		.byte	-92
+ 637 0065 03       		.byte	3
+ 638 0066 A5       		.byte	-91
+ 639 0067 10       		.byte	16
+ 640 0068 A6       		.byte	-90
+ 641 0069 FC       		.byte	-4
+ 642 006a A8       		.byte	-88
+ 643 006b 92       		.byte	-110
+ 644 006c A9       		.byte	-87
  645 006d 20       		.byte	32
- 646 006e A6       		.byte	-90
- 647 006f 1C       		.byte	28
- 648 0070 A9       		.byte	-87
- 649 0071 10       		.byte	16
- 650 0072 AB       		.byte	-85
- 651 0073 0C       		.byte	12
- 652 0074 AC       		.byte	-84
- 653 0075 E0       		.byte	-32
- 654 0076 AE       		.byte	-82
- 655 0077 1C       		.byte	28
+ 646 006e AA       		.byte	-86
+ 647 006f 25       		.byte	37
+ 648 0070 AC       		.byte	-84
+ 649 0071 25       		.byte	37
+ 650 0072 AD       		.byte	-83
+ 651 0073 09       		.byte	9
+ 652 0074 AE       		.byte	-82
+ 653 0075 DA       		.byte	-38
+ 654 0076 AF       		.byte	-81
+ 655 0077 10       		.byte	16
  656 0078 B2       		.byte	-78
  657 0079 FF       		.byte	-1
  658 007a B3       		.byte	-77
@@ -1542,11 +1542,11 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  672 0088 C5       		.byte	-59
  673 0089 0B       		.byte	11
  674 008a C6       		.byte	-58
- 675 008b E0       		.byte	-32
+ 675 008b C0       		.byte	-64
  676 008c C7       		.byte	-57
- 677 008d C0       		.byte	-64
+ 677 008d 0E       		.byte	14
  678 008e C8       		.byte	-56
- 679 008f 29       		.byte	41
+ 679 008f 19       		.byte	25
  680 0090 C9       		.byte	-55
  681 0091 FF       		.byte	-1
  682 0092 CA       		.byte	-54
@@ -1558,7 +1558,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  688 0098 CF       		.byte	-49
  689 0099 44       		.byte	68
  690 009a D0       		.byte	-48
-ARM GAS  C:\temp\ccIfBigj.s 			page 27
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 27
 
 
  691 009b 0C       		.byte	12
@@ -1586,159 +1586,159 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  713 00b1 40       		.byte	64
  714 00b2 EB       		.byte	-21
  715 00b3 02       		.byte	2
- 716 00b4 00       		.byte	0
- 717 00b5 08       		.byte	8
- 718 00b6 01       		.byte	1
- 719 00b7 88       		.byte	-120
+ 716 00b4 01       		.byte	1
+ 717 00b5 A0       		.byte	-96
+ 718 00b6 02       		.byte	2
+ 719 00b7 10       		.byte	16
  720 00b8 04       		.byte	4
  721 00b9 20       		.byte	32
- 722 00ba 05       		.byte	5
- 723 00bb 08       		.byte	8
- 724 00bc 08       		.byte	8
- 725 00bd 40       		.byte	64
- 726 00be 09       		.byte	9
+ 722 00ba 06       		.byte	6
+ 723 00bb 10       		.byte	16
+ 724 00bc 07       		.byte	7
+ 725 00bd 20       		.byte	32
+ 726 00be 08       		.byte	8
  727 00bf 01       		.byte	1
  728 00c0 0A       		.byte	10
- 729 00c1 18       		.byte	24
+ 729 00c1 40       		.byte	64
  730 00c2 0B       		.byte	11
  731 00c3 0A       		.byte	10
  732 00c4 0C       		.byte	12
- 733 00c5 44       		.byte	68
+ 733 00c5 14       		.byte	20
  734 00c6 0D       		.byte	13
- 735 00c7 08       		.byte	8
+ 735 00c7 40       		.byte	64
  736 00c8 0E       		.byte	14
- 737 00c9 04       		.byte	4
- 738 00ca 0F       		.byte	15
- 739 00cb 04       		.byte	4
- 740 00cc 11       		.byte	17
- 741 00cd 28       		.byte	40
- 742 00ce 12       		.byte	18
- 743 00cf 02       		.byte	2
- 744 00d0 14       		.byte	20
- 745 00d1 80       		.byte	-128
- 746 00d2 15       		.byte	21
- 747 00d3 81       		.byte	-127
-ARM GAS  C:\temp\ccIfBigj.s 			page 28
+ 737 00c9 14       		.byte	20
+ 738 00ca 11       		.byte	17
+ 739 00cb 28       		.byte	40
+ 740 00cc 12       		.byte	18
+ 741 00cd 02       		.byte	2
+ 742 00ce 14       		.byte	20
+ 743 00cf 49       		.byte	73
+ 744 00d0 15       		.byte	21
+ 745 00d1 0A       		.byte	10
+ 746 00d2 17       		.byte	23
+ 747 00d3 04       		.byte	4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 28
 
 
- 748 00d4 17       		.byte	23
- 749 00d5 04       		.byte	4
- 750 00d6 18       		.byte	24
- 751 00d7 01       		.byte	1
- 752 00d8 1A       		.byte	26
- 753 00d9 18       		.byte	24
- 754 00da 1B       		.byte	27
- 755 00db 10       		.byte	16
- 756 00dc 1E       		.byte	30
- 757 00dd 20       		.byte	32
- 758 00de 21       		.byte	33
- 759 00df A1       		.byte	-95
- 760 00e0 22       		.byte	34
- 761 00e1 08       		.byte	8
- 762 00e2 25       		.byte	37
- 763 00e3 40       		.byte	64
- 764 00e4 26       		.byte	38
- 765 00e5 04       		.byte	4
- 766 00e6 27       		.byte	39
- 767 00e7 08       		.byte	8
- 768 00e8 28       		.byte	40
- 769 00e9 84       		.byte	-124
- 770 00ea 29       		.byte	41
- 771 00eb 04       		.byte	4
- 772 00ec 2C       		.byte	44
- 773 00ed 20       		.byte	32
- 774 00ee 2E       		.byte	46
- 775 00ef 08       		.byte	8
- 776 00f0 2F       		.byte	47
- 777 00f1 04       		.byte	4
- 778 00f2 31       		.byte	49
- 779 00f3 40       		.byte	64
- 780 00f4 32       		.byte	50
- 781 00f5 20       		.byte	32
- 782 00f6 33       		.byte	51
- 783 00f7 84       		.byte	-124
- 784 00f8 36       		.byte	54
- 785 00f9 06       		.byte	6
- 786 00fa 37       		.byte	55
- 787 00fb 21       		.byte	33
- 788 00fc 38       		.byte	56
- 789 00fd 20       		.byte	32
- 790 00fe 39       		.byte	57
- 791 00ff 80       		.byte	-128
- 792 0100 3B       		.byte	59
- 793 0101 05       		.byte	5
- 794 0102 3E       		.byte	62
- 795 0103 10       		.byte	16
- 796 0104 3F       		.byte	63
- 797 0105 0A       		.byte	10
- 798 0106 40       		.byte	64
- 799 0107 01       		.byte	1
- 800 0108 43       		.byte	67
- 801 0109 28       		.byte	40
- 802 010a 45       		.byte	69
- 803 010b 14       		.byte	20
- 804 010c 47       		.byte	71
-ARM GAS  C:\temp\ccIfBigj.s 			page 29
+ 748 00d4 18       		.byte	24
+ 749 00d5 01       		.byte	1
+ 750 00d6 19       		.byte	25
+ 751 00d7 20       		.byte	32
+ 752 00d8 1B       		.byte	27
+ 753 00d9 02       		.byte	2
+ 754 00da 1E       		.byte	30
+ 755 00db 20       		.byte	32
+ 756 00dc 21       		.byte	33
+ 757 00dd 2A       		.byte	42
+ 758 00de 22       		.byte	34
+ 759 00df 88       		.byte	-120
+ 760 00e0 25       		.byte	37
+ 761 00e1 40       		.byte	64
+ 762 00e2 26       		.byte	38
+ 763 00e3 04       		.byte	4
+ 764 00e4 27       		.byte	39
+ 765 00e5 08       		.byte	8
+ 766 00e6 28       		.byte	40
+ 767 00e7 54       		.byte	84
+ 768 00e8 2E       		.byte	46
+ 769 00e9 08       		.byte	8
+ 770 00ea 2F       		.byte	47
+ 771 00eb 0B       		.byte	11
+ 772 00ec 31       		.byte	49
+ 773 00ed 40       		.byte	64
+ 774 00ee 32       		.byte	50
+ 775 00ef 20       		.byte	32
+ 776 00f0 33       		.byte	51
+ 777 00f1 84       		.byte	-124
+ 778 00f2 35       		.byte	53
+ 779 00f3 20       		.byte	32
+ 780 00f4 36       		.byte	54
+ 781 00f5 06       		.byte	6
+ 782 00f6 37       		.byte	55
+ 783 00f7 01       		.byte	1
+ 784 00f8 38       		.byte	56
+ 785 00f9 28       		.byte	40
+ 786 00fa 39       		.byte	57
+ 787 00fb 80       		.byte	-128
+ 788 00fc 3B       		.byte	59
+ 789 00fd 01       		.byte	1
+ 790 00fe 3D       		.byte	61
+ 791 00ff 20       		.byte	32
+ 792 0100 3F       		.byte	63
+ 793 0101 04       		.byte	4
+ 794 0102 40       		.byte	64
+ 795 0103 01       		.byte	1
+ 796 0104 41       		.byte	65
+ 797 0105 08       		.byte	8
+ 798 0106 43       		.byte	67
+ 799 0107 20       		.byte	32
+ 800 0108 45       		.byte	69
+ 801 0109 16       		.byte	22
+ 802 010a 46       		.byte	70
+ 803 010b 40       		.byte	64
+ 804 010c 49       		.byte	73
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 29
 
 
- 805 010d 20       		.byte	32
- 806 010e 49       		.byte	73
- 807 010f 44       		.byte	68
- 808 0110 4A       		.byte	74
- 809 0111 08       		.byte	8
+ 805 010d 50       		.byte	80
+ 806 010e 4A       		.byte	74
+ 807 010f 20       		.byte	32
+ 808 0110 4D       		.byte	77
+ 809 0111 20       		.byte	32
  810 0112 4F       		.byte	79
- 811 0113 28       		.byte	40
- 812 0114 52       		.byte	82
- 813 0115 20       		.byte	32
- 814 0116 54       		.byte	84
- 815 0117 20       		.byte	32
- 816 0118 55       		.byte	85
- 817 0119 01       		.byte	1
- 818 011a 57       		.byte	87
- 819 011b 02       		.byte	2
- 820 011c 59       		.byte	89
- 821 011d 01       		.byte	1
- 822 011e 5C       		.byte	92
- 823 011f 40       		.byte	64
- 824 0120 5D       		.byte	93
- 825 0121 20       		.byte	32
- 826 0122 5F       		.byte	95
- 827 0123 0A       		.byte	10
- 828 0124 60       		.byte	96
- 829 0125 02       		.byte	2
- 830 0126 61       		.byte	97
- 831 0127 20       		.byte	32
- 832 0128 62       		.byte	98
+ 811 0113 04       		.byte	4
+ 812 0114 50       		.byte	80
+ 813 0115 04       		.byte	4
+ 814 0116 56       		.byte	86
+ 815 0117 30       		.byte	48
+ 816 0118 57       		.byte	87
+ 817 0119 08       		.byte	8
+ 818 011a 59       		.byte	89
+ 819 011b 01       		.byte	1
+ 820 011c 5C       		.byte	92
+ 821 011d 42       		.byte	66
+ 822 011e 5F       		.byte	95
+ 823 011f 28       		.byte	40
+ 824 0120 60       		.byte	96
+ 825 0121 80       		.byte	-128
+ 826 0122 61       		.byte	97
+ 827 0123 20       		.byte	32
+ 828 0124 62       		.byte	98
+ 829 0125 40       		.byte	64
+ 830 0126 64       		.byte	100
+ 831 0127 08       		.byte	8
+ 832 0128 66       		.byte	102
  833 0129 01       		.byte	1
- 834 012a 66       		.byte	102
- 835 012b 02       		.byte	2
- 836 012c 78       		.byte	120
- 837 012d 02       		.byte	2
- 838 012e 79       		.byte	121
- 839 012f 02       		.byte	2
- 840 0130 8E       		.byte	-114
- 841 0131 01       		.byte	1
- 842 0132 C0       		.byte	-64
- 843 0133 65       		.byte	101
- 844 0134 C2       		.byte	-62
- 845 0135 EF       		.byte	-17
- 846 0136 C4       		.byte	-60
- 847 0137 B7       		.byte	-73
- 848 0138 CA       		.byte	-54
- 849 0139 67       		.byte	103
- 850 013a CC       		.byte	-52
- 851 013b EE       		.byte	-18
- 852 013c CE       		.byte	-50
- 853 013d EF       		.byte	-17
- 854 013e D0       		.byte	-48
- 855 013f 6E       		.byte	110
- 856 0140 D2       		.byte	-46
- 857 0141 2C       		.byte	44
- 858 0142 D6       		.byte	-42
- 859 0143 F1       		.byte	-15
- 860 0144 D8       		.byte	-40
- 861 0145 8D       		.byte	-115
-ARM GAS  C:\temp\ccIfBigj.s 			page 30
+ 834 012a 67       		.byte	103
+ 835 012b 08       		.byte	8
+ 836 012c 8C       		.byte	-116
+ 837 012d 80       		.byte	-128
+ 838 012e 8E       		.byte	-114
+ 839 012f 01       		.byte	1
+ 840 0130 C0       		.byte	-64
+ 841 0131 47       		.byte	71
+ 842 0132 C2       		.byte	-62
+ 843 0133 EB       		.byte	-21
+ 844 0134 C4       		.byte	-60
+ 845 0135 F7       		.byte	-9
+ 846 0136 CA       		.byte	-54
+ 847 0137 77       		.byte	119
+ 848 0138 CC       		.byte	-52
+ 849 0139 EE       		.byte	-18
+ 850 013a CE       		.byte	-50
+ 851 013b 6F       		.byte	111
+ 852 013c D0       		.byte	-48
+ 853 013d 6E       		.byte	110
+ 854 013e D2       		.byte	-46
+ 855 013f 2C       		.byte	44
+ 856 0140 D6       		.byte	-42
+ 857 0141 F1       		.byte	-15
+ 858 0142 D8       		.byte	-40
+ 859 0143 8D       		.byte	-115
+ 860 0144 E2       		.byte	-30
+ 861 0145 10       		.byte	16
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 30
 
 
  862 0146 E6       		.byte	-26
@@ -1747,65 +1747,65 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  865 0149 3D       		.byte	61
  866 014a 02       		.byte	2
  867 014b C0       		.byte	-64
- 868 014c 03       		.byte	3
- 869 014d 08       		.byte	8
- 870 014e 04       		.byte	4
- 871 014f 0D       		.byte	13
- 872 0150 06       		.byte	6
- 873 0151 F0       		.byte	-16
- 874 0152 07       		.byte	7
- 875 0153 A3       		.byte	-93
- 876 0154 08       		.byte	8
- 877 0155 CD       		.byte	-51
- 878 0156 09       		.byte	9
- 879 0157 E1       		.byte	-31
- 880 0158 0A       		.byte	10
- 881 0159 30       		.byte	48
- 882 015a 0B       		.byte	11
- 883 015b 16       		.byte	22
- 884 015c 0C       		.byte	12
- 885 015d 55       		.byte	85
- 886 015e 0E       		.byte	14
- 887 015f A8       		.byte	-88
- 888 0160 11       		.byte	17
- 889 0161 5C       		.byte	92
- 890 0162 12       		.byte	18
- 891 0163 01       		.byte	1
- 892 0164 13       		.byte	19
- 893 0165 83       		.byte	-125
- 894 0166 15       		.byte	21
- 895 0167 E1       		.byte	-31
- 896 0168 16       		.byte	22
- 897 0169 02       		.byte	2
- 898 016a 17       		.byte	23
- 899 016b 0E       		.byte	14
- 900 016c 18       		.byte	24
- 901 016d A8       		.byte	-88
- 902 016e 1A       		.byte	26
- 903 016f 54       		.byte	84
- 904 0170 1C       		.byte	28
- 905 0171 C0       		.byte	-64
- 906 0172 1E       		.byte	30
- 907 0173 30       		.byte	48
- 908 0174 24       		.byte	36
- 909 0175 CD       		.byte	-51
- 910 0176 26       		.byte	38
- 911 0177 30       		.byte	48
+ 868 014c 04       		.byte	4
+ 869 014d A8       		.byte	-88
+ 870 014e 06       		.byte	6
+ 871 014f 54       		.byte	84
+ 872 0150 07       		.byte	7
+ 873 0151 A3       		.byte	-93
+ 874 0152 08       		.byte	8
+ 875 0153 CD       		.byte	-51
+ 876 0154 0A       		.byte	10
+ 877 0155 30       		.byte	48
+ 878 0156 0B       		.byte	11
+ 879 0157 80       		.byte	-128
+ 880 0158 0C       		.byte	12
+ 881 0159 55       		.byte	85
+ 882 015a 0E       		.byte	14
+ 883 015b A8       		.byte	-88
+ 884 015c 11       		.byte	17
+ 885 015d 5C       		.byte	92
+ 886 015e 12       		.byte	18
+ 887 015f 01       		.byte	1
+ 888 0160 13       		.byte	19
+ 889 0161 83       		.byte	-125
+ 890 0162 15       		.byte	21
+ 891 0163 E1       		.byte	-31
+ 892 0164 16       		.byte	22
+ 893 0165 02       		.byte	2
+ 894 0166 17       		.byte	23
+ 895 0167 0E       		.byte	14
+ 896 0168 18       		.byte	24
+ 897 0169 CD       		.byte	-51
+ 898 016a 1A       		.byte	26
+ 899 016b 30       		.byte	48
+ 900 016c 1C       		.byte	28
+ 901 016d C0       		.byte	-64
+ 902 016e 1E       		.byte	30
+ 903 016f 30       		.byte	48
+ 904 0170 24       		.byte	36
+ 905 0171 0D       		.byte	13
+ 906 0172 26       		.byte	38
+ 907 0173 F0       		.byte	-16
+ 908 0174 27       		.byte	39
+ 909 0175 08       		.byte	8
+ 910 0176 29       		.byte	41
+ 911 0177 E1       		.byte	-31
  912 0178 2B       		.byte	43
- 913 0179 1C       		.byte	28
+ 913 0179 16       		.byte	22
  914 017a 2F       		.byte	47
- 915 017b 80       		.byte	-128
+ 915 017b 1C       		.byte	28
  916 017c 30       		.byte	48
  917 017d 03       		.byte	3
  918 017e 31       		.byte	49
-ARM GAS  C:\temp\ccIfBigj.s 			page 31
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 31
 
 
  919 017f 80       		.byte	-128
- 920 0180 33       		.byte	51
- 921 0181 60       		.byte	96
- 922 0182 34       		.byte	52
- 923 0183 FC       		.byte	-4
+ 920 0180 32       		.byte	50
+ 921 0181 FC       		.byte	-4
+ 922 0182 33       		.byte	51
+ 923 0183 60       		.byte	96
  924 0184 35       		.byte	53
  925 0185 1A       		.byte	26
  926 0186 37       		.byte	55
@@ -1813,15 +1813,15 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  928 0188 39       		.byte	57
  929 0189 08       		.byte	8
  930 018a 3A       		.byte	58
- 931 018b 08       		.byte	8
+ 931 018b 20       		.byte	32
  932 018c 3B       		.byte	59
  933 018d A0       		.byte	-96
  934 018e 3F       		.byte	63
  935 018f 05       		.byte	5
  936 0190 40       		.byte	64
  937 0191 02       		.byte	2
- 938 0192 45       		.byte	69
- 939 0193 40       		.byte	64
+ 938 0192 47       		.byte	71
+ 939 0193 04       		.byte	4
  940 0194 49       		.byte	73
  941 0195 FF       		.byte	-1
  942 0196 4A       		.byte	74
@@ -1858,67 +1858,67 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  973 01b5 40       		.byte	64
  974 01b6 63       		.byte	99
  975 01b7 20       		.byte	32
-ARM GAS  C:\temp\ccIfBigj.s 			page 32
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 32
 
 
  976 01b8 82       		.byte	-126
- 977 01b9 F3       		.byte	-13
+ 977 01b9 0C       		.byte	12
  978 01ba 84       		.byte	-124
- 979 01bb 1C       		.byte	28
+ 979 01bb F3       		.byte	-13
  980 01bc 85       		.byte	-123
- 981 01bd 10       		.byte	16
+ 981 01bd 40       		.byte	64
  982 01be 86       		.byte	-122
- 983 01bf E3       		.byte	-29
- 984 01c0 88       		.byte	-120
- 985 01c1 0F       		.byte	15
- 986 01c2 89       		.byte	-119
- 987 01c3 08       		.byte	8
- 988 01c4 8A       		.byte	-118
- 989 01c5 F0       		.byte	-16
- 990 01c6 8C       		.byte	-116
- 991 01c7 41       		.byte	65
- 992 01c8 8D       		.byte	-115
- 993 01c9 40       		.byte	64
- 994 01ca 90       		.byte	-112
- 995 01cb C3       		.byte	-61
- 996 01cc 91       		.byte	-111
- 997 01cd 40       		.byte	64
- 998 01ce 93       		.byte	-109
- 999 01cf 18       		.byte	24
- 1000 01d0 95       		.byte	-107
- 1001 01d1 A7       		.byte	-89
- 1002 01d2 96       		.byte	-106
- 1003 01d3 0C       		.byte	12
- 1004 01d4 97       		.byte	-105
- 1005 01d5 18       		.byte	24
- 1006 01d6 98       		.byte	-104
- 1007 01d7 82       		.byte	-126
- 1008 01d8 99       		.byte	-103
- 1009 01d9 3C       		.byte	60
- 1010 01da 9B       		.byte	-101
- 1011 01db 82       		.byte	-126
- 1012 01dc 9F       		.byte	-97
- 1013 01dd 04       		.byte	4
- 1014 01de A0       		.byte	-96
- 1015 01df F3       		.byte	-13
- 1016 01e0 A2       		.byte	-94
- 1017 01e1 0C       		.byte	12
- 1018 01e2 A3       		.byte	-93
- 1019 01e3 03       		.byte	3
- 1020 01e4 A4       		.byte	-92
- 1021 01e5 08       		.byte	8
- 1022 01e6 A5       		.byte	-91
- 1023 01e7 3C       		.byte	60
- 1024 01e8 A7       		.byte	-89
- 1025 01e9 81       		.byte	-127
- 1026 01ea A8       		.byte	-88
- 1027 01eb 04       		.byte	4
- 1028 01ec A9       		.byte	-87
- 1029 01ed BF       		.byte	-65
- 1030 01ee AC       		.byte	-84
- 1031 01ef FF       		.byte	-1
+ 983 01bf 0C       		.byte	12
+ 984 01c0 87       		.byte	-121
+ 985 01c1 18       		.byte	24
+ 986 01c2 88       		.byte	-120
+ 987 01c3 0F       		.byte	15
+ 988 01c4 89       		.byte	-119
+ 989 01c5 08       		.byte	8
+ 990 01c6 8A       		.byte	-118
+ 991 01c7 F0       		.byte	-16
+ 992 01c8 8C       		.byte	-116
+ 993 01c9 41       		.byte	65
+ 994 01ca 8D       		.byte	-115
+ 995 01cb 10       		.byte	16
+ 996 01cc 90       		.byte	-112
+ 997 01cd C3       		.byte	-61
+ 998 01ce 91       		.byte	-111
+ 999 01cf 40       		.byte	64
+ 1000 01d0 94       		.byte	-108
+ 1001 01d1 1C       		.byte	28
+ 1002 01d2 95       		.byte	-107
+ 1003 01d3 A7       		.byte	-89
+ 1004 01d4 96       		.byte	-106
+ 1005 01d5 E3       		.byte	-29
+ 1006 01d6 97       		.byte	-105
+ 1007 01d7 18       		.byte	24
+ 1008 01d8 98       		.byte	-104
+ 1009 01d9 82       		.byte	-126
+ 1010 01da 99       		.byte	-103
+ 1011 01db 3C       		.byte	60
+ 1012 01dc 9B       		.byte	-101
+ 1013 01dd 82       		.byte	-126
+ 1014 01de 9C       		.byte	-100
+ 1015 01df FF       		.byte	-1
+ 1016 01e0 9F       		.byte	-97
+ 1017 01e1 04       		.byte	4
+ 1018 01e2 A2       		.byte	-94
+ 1019 01e3 F3       		.byte	-13
+ 1020 01e4 A3       		.byte	-93
+ 1021 01e5 03       		.byte	3
+ 1022 01e6 A4       		.byte	-92
+ 1023 01e7 08       		.byte	8
+ 1024 01e8 A5       		.byte	-91
+ 1025 01e9 3C       		.byte	60
+ 1026 01ea A7       		.byte	-89
+ 1027 01eb 81       		.byte	-127
+ 1028 01ec A8       		.byte	-88
+ 1029 01ed 04       		.byte	4
+ 1030 01ee A9       		.byte	-87
+ 1031 01ef BF       		.byte	-65
  1032 01f0 AD       		.byte	-83
-ARM GAS  C:\temp\ccIfBigj.s 			page 33
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 33
 
 
  1033 01f1 04       		.byte	4
@@ -1963,208 +1963,208 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1072 0218 DF       		.byte	-33
  1073 0219 01       		.byte	1
  1074 021a 01       		.byte	1
- 1075 021b 82       		.byte	-126
+ 1075 021b 80       		.byte	-128
  1076 021c 02       		.byte	2
- 1077 021d 64       		.byte	100
- 1078 021e 05       		.byte	5
- 1079 021f 80       		.byte	-128
- 1080 0220 07       		.byte	7
- 1081 0221 64       		.byte	100
- 1082 0222 09       		.byte	9
- 1083 0223 28       		.byte	40
+ 1077 021d 40       		.byte	64
+ 1078 021e 03       		.byte	3
+ 1079 021f 28       		.byte	40
+ 1080 0220 05       		.byte	5
+ 1081 0221 84       		.byte	-124
+ 1082 0222 07       		.byte	7
+ 1083 0223 44       		.byte	68
  1084 0224 0A       		.byte	10
- 1085 0225 40       		.byte	64
- 1086 0226 0D       		.byte	13
- 1087 0227 60       		.byte	96
- 1088 0228 0E       		.byte	14
- 1089 0229 60       		.byte	96
-ARM GAS  C:\temp\ccIfBigj.s 			page 34
+ 1085 0225 60       		.byte	96
+ 1086 0226 0B       		.byte	11
+ 1087 0227 0A       		.byte	10
+ 1088 0228 0D       		.byte	13
+ 1089 0229 40       		.byte	64
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 34
 
 
- 1090 022a 12       		.byte	18
- 1091 022b 80       		.byte	-128
- 1092 022c 13       		.byte	19
- 1093 022d 54       		.byte	84
- 1094 022e 15       		.byte	21
- 1095 022f 08       		.byte	8
- 1096 0230 19       		.byte	25
- 1097 0231 05       		.byte	5
- 1098 0232 1A       		.byte	26
- 1099 0233 08       		.byte	8
- 1100 0234 1B       		.byte	27
- 1101 0235 A0       		.byte	-96
- 1102 0236 1C       		.byte	28
- 1103 0237 08       		.byte	8
- 1104 0238 1D       		.byte	29
- 1105 0239 20       		.byte	32
- 1106 023a 1E       		.byte	30
- 1107 023b 40       		.byte	64
- 1108 023c 1F       		.byte	31
- 1109 023d 09       		.byte	9
- 1110 023e 21       		.byte	33
- 1111 023f 08       		.byte	8
- 1112 0240 22       		.byte	34
- 1113 0241 31       		.byte	49
- 1114 0242 23       		.byte	35
- 1115 0243 21       		.byte	33
- 1116 0244 24       		.byte	36
- 1117 0245 40       		.byte	64
- 1118 0246 25       		.byte	37
- 1119 0247 10       		.byte	16
- 1120 0248 27       		.byte	39
- 1121 0249 19       		.byte	25
- 1122 024a 29       		.byte	41
- 1123 024b 86       		.byte	-122
- 1124 024c 2A       		.byte	42
- 1125 024d 04       		.byte	4
- 1126 024e 2B       		.byte	43
- 1127 024f 08       		.byte	8
- 1128 0250 2E       		.byte	46
- 1129 0251 10       		.byte	16
- 1130 0252 2F       		.byte	47
- 1131 0253 02       		.byte	2
- 1132 0254 31       		.byte	49
- 1133 0255 80       		.byte	-128
- 1134 0256 32       		.byte	50
- 1135 0257 16       		.byte	22
- 1136 0258 37       		.byte	55
- 1137 0259 09       		.byte	9
- 1138 025a 3A       		.byte	58
- 1139 025b 80       		.byte	-128
- 1140 025c 3B       		.byte	59
- 1141 025d 14       		.byte	20
- 1142 025e 3F       		.byte	63
- 1143 025f 2A       		.byte	42
- 1144 0260 47       		.byte	71
- 1145 0261 10       		.byte	16
- 1146 0262 4F       		.byte	79
-ARM GAS  C:\temp\ccIfBigj.s 			page 35
+ 1090 022a 0E       		.byte	14
+ 1091 022b 64       		.byte	100
+ 1092 022c 10       		.byte	16
+ 1093 022d 60       		.byte	96
+ 1094 022e 11       		.byte	17
+ 1095 022f 01       		.byte	1
+ 1096 0230 12       		.byte	18
+ 1097 0231 20       		.byte	32
+ 1098 0232 13       		.byte	19
+ 1099 0233 10       		.byte	16
+ 1100 0234 15       		.byte	21
+ 1101 0235 08       		.byte	8
+ 1102 0236 19       		.byte	25
+ 1103 0237 09       		.byte	9
+ 1104 0238 1A       		.byte	26
+ 1105 0239 08       		.byte	8
+ 1106 023a 1B       		.byte	27
+ 1107 023b A8       		.byte	-88
+ 1108 023c 1D       		.byte	29
+ 1109 023d 14       		.byte	20
+ 1110 023e 1E       		.byte	30
+ 1111 023f 40       		.byte	64
+ 1112 0240 1F       		.byte	31
+ 1113 0241 04       		.byte	4
+ 1114 0242 21       		.byte	33
+ 1115 0243 04       		.byte	4
+ 1116 0244 22       		.byte	34
+ 1117 0245 19       		.byte	25
+ 1118 0246 23       		.byte	35
+ 1119 0247 01       		.byte	1
+ 1120 0248 24       		.byte	36
+ 1121 0249 40       		.byte	64
+ 1122 024a 25       		.byte	37
+ 1123 024b 10       		.byte	16
+ 1124 024c 27       		.byte	39
+ 1125 024d 19       		.byte	25
+ 1126 024e 28       		.byte	40
+ 1127 024f 40       		.byte	64
+ 1128 0250 29       		.byte	41
+ 1129 0251 98       		.byte	-104
+ 1130 0252 2D       		.byte	45
+ 1131 0253 20       		.byte	32
+ 1132 0254 2E       		.byte	46
+ 1133 0255 08       		.byte	8
+ 1134 0256 2F       		.byte	47
+ 1135 0257 02       		.byte	2
+ 1136 0258 30       		.byte	48
+ 1137 0259 02       		.byte	2
+ 1138 025a 32       		.byte	50
+ 1139 025b 94       		.byte	-108
+ 1140 025c 37       		.byte	55
+ 1141 025d 09       		.byte	9
+ 1142 025e 39       		.byte	57
+ 1143 025f 08       		.byte	8
+ 1144 0260 3B       		.byte	59
+ 1145 0261 50       		.byte	80
+ 1146 0262 3D       		.byte	61
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 35
 
 
- 1147 0263 02       		.byte	2
- 1148 0264 55       		.byte	85
- 1149 0265 04       		.byte	4
- 1150 0266 57       		.byte	87
+ 1147 0263 08       		.byte	8
+ 1148 0264 3E       		.byte	62
+ 1149 0265 20       		.byte	32
+ 1150 0266 3F       		.byte	63
  1151 0267 04       		.byte	4
- 1152 0268 5A       		.byte	90
- 1153 0269 02       		.byte	2
- 1154 026a 69       		.byte	105
- 1155 026b 89       		.byte	-119
- 1156 026c 6A       		.byte	106
- 1157 026d 04       		.byte	4
- 1158 026e 6B       		.byte	107
- 1159 026f 44       		.byte	68
- 1160 0270 72       		.byte	114
- 1161 0271 80       		.byte	-128
- 1162 0272 73       		.byte	115
+ 1152 0268 47       		.byte	71
+ 1153 0269 10       		.byte	16
+ 1154 026a 4F       		.byte	79
+ 1155 026b 04       		.byte	4
+ 1156 026c 56       		.byte	86
+ 1157 026d 08       		.byte	8
+ 1158 026e 5A       		.byte	90
+ 1159 026f 02       		.byte	2
+ 1160 0270 69       		.byte	105
+ 1161 0271 82       		.byte	-126
+ 1162 0272 6A       		.byte	106
  1163 0273 14       		.byte	20
- 1164 0274 8A       		.byte	-118
- 1165 0275 80       		.byte	-128
- 1166 0276 8B       		.byte	-117
- 1167 0277 68       		.byte	104
- 1168 0278 8D       		.byte	-115
- 1169 0279 08       		.byte	8
- 1170 027a 8E       		.byte	-114
- 1171 027b 02       		.byte	2
- 1172 027c 92       		.byte	-110
- 1173 027d 10       		.byte	16
- 1174 027e 94       		.byte	-108
- 1175 027f 40       		.byte	64
- 1176 0280 95       		.byte	-107
- 1177 0281 81       		.byte	-127
- 1178 0282 96       		.byte	-106
- 1179 0283 04       		.byte	4
- 1180 0284 97       		.byte	-105
- 1181 0285 03       		.byte	3
- 1182 0286 99       		.byte	-103
- 1183 0287 80       		.byte	-128
- 1184 0288 9A       		.byte	-102
- 1185 0289 40       		.byte	64
- 1186 028a 9D       		.byte	-99
- 1187 028b 01       		.byte	1
- 1188 028c 9F       		.byte	-97
- 1189 028d 05       		.byte	5
- 1190 028e A1       		.byte	-95
- 1191 028f 80       		.byte	-128
- 1192 0290 A2       		.byte	-94
- 1193 0291 10       		.byte	16
- 1194 0292 A3       		.byte	-93
- 1195 0293 12       		.byte	18
- 1196 0294 A4       		.byte	-92
- 1197 0295 04       		.byte	4
- 1198 0296 A5       		.byte	-91
- 1199 0297 1C       		.byte	28
- 1200 0298 A7       		.byte	-89
- 1201 0299 A9       		.byte	-87
- 1202 029a A8       		.byte	-88
- 1203 029b 10       		.byte	16
-ARM GAS  C:\temp\ccIfBigj.s 			page 36
+ 1164 0274 6B       		.byte	107
+ 1165 0275 44       		.byte	68
+ 1166 0276 70       		.byte	112
+ 1167 0277 22       		.byte	34
+ 1168 0278 73       		.byte	115
+ 1169 0279 10       		.byte	16
+ 1170 027a 8A       		.byte	-118
+ 1171 027b 68       		.byte	104
+ 1172 027c 8B       		.byte	-117
+ 1173 027d 40       		.byte	64
+ 1174 027e 8D       		.byte	-115
+ 1175 027f 10       		.byte	16
+ 1176 0280 8F       		.byte	-113
+ 1177 0281 01       		.byte	1
+ 1178 0282 91       		.byte	-111
+ 1179 0283 01       		.byte	1
+ 1180 0284 94       		.byte	-108
+ 1181 0285 40       		.byte	64
+ 1182 0286 95       		.byte	-107
+ 1183 0287 8A       		.byte	-118
+ 1184 0288 96       		.byte	-106
+ 1185 0289 54       		.byte	84
+ 1186 028a 97       		.byte	-105
+ 1187 028b 09       		.byte	9
+ 1188 028c 99       		.byte	-103
+ 1189 028d A0       		.byte	-96
+ 1190 028e 9A       		.byte	-102
+ 1191 028f 20       		.byte	32
+ 1192 0290 9D       		.byte	-99
+ 1193 0291 11       		.byte	17
+ 1194 0292 9E       		.byte	-98
+ 1195 0293 08       		.byte	8
+ 1196 0294 9F       		.byte	-97
+ 1197 0295 01       		.byte	1
+ 1198 0296 A2       		.byte	-94
+ 1199 0297 90       		.byte	-112
+ 1200 0298 A3       		.byte	-93
+ 1201 0299 02       		.byte	2
+ 1202 029a A5       		.byte	-91
+ 1203 029b 14       		.byte	20
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 36
 
 
- 1204 029c A9       		.byte	-87
- 1205 029d A1       		.byte	-95
- 1206 029e AA       		.byte	-86
- 1207 029f 02       		.byte	2
- 1208 02a0 AE       		.byte	-82
- 1209 02a1 08       		.byte	8
- 1210 02a2 AF       		.byte	-81
+ 1204 029c A7       		.byte	-89
+ 1205 029d A0       		.byte	-96
+ 1206 029e A8       		.byte	-88
+ 1207 029f 10       		.byte	16
+ 1208 02a0 A9       		.byte	-87
+ 1209 02a1 80       		.byte	-128
+ 1210 02a2 B0       		.byte	-80
  1211 02a3 02       		.byte	2
  1212 02a4 B1       		.byte	-79
- 1213 02a5 40       		.byte	64
+ 1213 02a5 41       		.byte	65
  1214 02a6 B2       		.byte	-78
- 1215 02a7 48       		.byte	72
- 1216 02a8 C0       		.byte	-64
- 1217 02a9 FF       		.byte	-1
- 1218 02aa C2       		.byte	-62
- 1219 02ab FE       		.byte	-2
- 1220 02ac C4       		.byte	-60
- 1221 02ad 2F       		.byte	47
- 1222 02ae CA       		.byte	-54
- 1223 02af 3F       		.byte	63
- 1224 02b0 CC       		.byte	-52
- 1225 02b1 CF       		.byte	-49
- 1226 02b2 CE       		.byte	-50
- 1227 02b3 EE       		.byte	-18
- 1228 02b4 D0       		.byte	-48
- 1229 02b5 20       		.byte	32
- 1230 02b6 D6       		.byte	-42
- 1231 02b7 01       		.byte	1
- 1232 02b8 EE       		.byte	-18
- 1233 02b9 20       		.byte	32
- 1234 02ba 0A       		.byte	10
- 1235 02bb 40       		.byte	64
- 1236 02bc 2F       		.byte	47
- 1237 02bd 80       		.byte	-128
- 1238 02be 66       		.byte	102
+ 1215 02a7 08       		.byte	8
+ 1216 02a8 B3       		.byte	-77
+ 1217 02a9 08       		.byte	8
+ 1218 02aa C0       		.byte	-64
+ 1219 02ab FF       		.byte	-1
+ 1220 02ac C2       		.byte	-62
+ 1221 02ad FF       		.byte	-1
+ 1222 02ae C4       		.byte	-60
+ 1223 02af 2E       		.byte	46
+ 1224 02b0 CA       		.byte	-54
+ 1225 02b1 7F       		.byte	127
+ 1226 02b2 CC       		.byte	-52
+ 1227 02b3 CF       		.byte	-49
+ 1228 02b4 CE       		.byte	-50
+ 1229 02b5 6E       		.byte	110
+ 1230 02b6 D0       		.byte	-48
+ 1231 02b7 20       		.byte	32
+ 1232 02b8 D6       		.byte	-42
+ 1233 02b9 01       		.byte	1
+ 1234 02ba EE       		.byte	-18
+ 1235 02bb 20       		.byte	32
+ 1236 02bc 0A       		.byte	10
+ 1237 02bd 40       		.byte	64
+ 1238 02be 2F       		.byte	47
  1239 02bf 80       		.byte	-128
- 1240 02c0 6F       		.byte	111
- 1241 02c1 90       		.byte	-112
- 1242 02c2 71       		.byte	113
- 1243 02c3 10       		.byte	16
- 1244 02c4 8F       		.byte	-113
- 1245 02c5 10       		.byte	16
- 1246 02c6 C2       		.byte	-62
- 1247 02c7 10       		.byte	16
- 1248 02c8 CA       		.byte	-54
- 1249 02c9 80       		.byte	-128
- 1250 02ca D6       		.byte	-42
- 1251 02cb 80       		.byte	-128
- 1252 02cc DA       		.byte	-38
+ 1240 02c0 66       		.byte	102
+ 1241 02c1 80       		.byte	-128
+ 1242 02c2 68       		.byte	104
+ 1243 02c3 80       		.byte	-128
+ 1244 02c4 6F       		.byte	111
+ 1245 02c5 88       		.byte	-120
+ 1246 02c6 8C       		.byte	-116
+ 1247 02c7 80       		.byte	-128
+ 1248 02c8 8F       		.byte	-113
+ 1249 02c9 08       		.byte	8
+ 1250 02ca C2       		.byte	-62
+ 1251 02cb 10       		.byte	16
+ 1252 02cc CA       		.byte	-54
  1253 02cd 80       		.byte	-128
- 1254 02ce DC       		.byte	-36
- 1255 02cf 60       		.byte	96
- 1256 02d0 A9       		.byte	-87
- 1257 02d1 10       		.byte	16
- 1258 02d2 AA       		.byte	-86
- 1259 02d3 40       		.byte	64
- 1260 02d4 B2       		.byte	-78
-ARM GAS  C:\temp\ccIfBigj.s 			page 37
+ 1254 02ce D6       		.byte	-42
+ 1255 02cf 80       		.byte	-128
+ 1256 02d0 DA       		.byte	-38
+ 1257 02d1 80       		.byte	-128
+ 1258 02d2 DC       		.byte	-36
+ 1259 02d3 60       		.byte	96
+ 1260 02d4 AA       		.byte	-86
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 37
 
 
- 1261 02d5 80       		.byte	-128
- 1262 02d6 E8       		.byte	-24
- 1263 02d7 20       		.byte	32
- 1264 02d8 EE       		.byte	-18
+ 1261 02d5 40       		.byte	64
+ 1262 02d6 B2       		.byte	-78
+ 1263 02d7 80       		.byte	-128
+ 1264 02d8 E8       		.byte	-24
  1265 02d9 20       		.byte	32
  1266 02da 10       		.byte	16
  1267 02db 0A       		.byte	10
@@ -2178,62 +2178,62 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1275 02e1 00       		.byte	0
  1276 02e2 00       		.byte	0
  1277 02e3 02       		.byte	2
- 1278 02e4 00       		.byte	0
- 1279 02e5 04       		.byte	4
- 1280 02e6 80       		.byte	-128
- 1281 02e7 08       		.byte	8
- 1282 02e8 00       		.byte	0
+ 1278 02e4 03       		.byte	3
+ 1279 02e5 00       		.byte	0
+ 1280 02e6 04       		.byte	4
+ 1281 02e7 01       		.byte	1
+ 1282 02e8 13       		.byte	19
  1283 02e9 00       		.byte	0
- 1284 02ea 00       		.byte	0
+ 1284 02ea 0C       		.byte	12
  1285 02eb 10       		.byte	16
  1286 02ec 00       		.byte	0
  1287 02ed 04       		.byte	4
  1288 02ee 80       		.byte	-128
  1289 02ef 08       		.byte	8
- 1290 02f0 03       		.byte	3
+ 1290 02f0 00       		.byte	0
  1291 02f1 00       		.byte	0
- 1292 02f2 04       		.byte	4
+ 1292 02f2 40       		.byte	64
  1293 02f3 00       		.byte	0
  1294 02f4 00       		.byte	0
  1295 02f5 04       		.byte	4
- 1296 02f6 08       		.byte	8
+ 1296 02f6 00       		.byte	0
  1297 02f7 08       		.byte	8
- 1298 02f8 13       		.byte	19
+ 1298 02f8 00       		.byte	0
  1299 02f9 00       		.byte	0
- 1300 02fa 0C       		.byte	12
+ 1300 02fa 80       		.byte	-128
  1301 02fb 02       		.byte	2
  1302 02fc 00       		.byte	0
  1303 02fd 00       		.byte	0
- 1304 02fe 40       		.byte	64
+ 1304 02fe 08       		.byte	8
  1305 02ff 01       		.byte	1
  1306 0300 00       		.byte	0
  1307 0301 0C       		.byte	12
  1308 0302 00       		.byte	0
  1309 0303 00       		.byte	0
  1310 0304 20       		.byte	32
- 1311 0305 00       		.byte	0
+ 1311 0305 04       		.byte	4
  1312 0306 05       		.byte	5
- 1313 0307 01       		.byte	1
+ 1313 0307 08       		.byte	8
  1314 0308 13       		.byte	19
  1315 0309 04       		.byte	4
  1316 030a 04       		.byte	4
  1317 030b 08       		.byte	8
-ARM GAS  C:\temp\ccIfBigj.s 			page 38
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 38
 
 
  1318 030c 0A       		.byte	10
  1319 030d 00       		.byte	0
  1320 030e 14       		.byte	20
  1321 030f 00       		.byte	0
- 1322 0310 00       		.byte	0
+ 1322 0310 30       		.byte	48
  1323 0311 01       		.byte	1
- 1324 0312 30       		.byte	48
+ 1324 0312 00       		.byte	0
  1325 0313 0C       		.byte	12
  1326 0314 0F       		.byte	15
  1327 0315 02       		.byte	2
  1328 0316 C0       		.byte	-64
  1329 0317 10       		.byte	16
- 1330 0318 08       		.byte	8
+ 1330 0318 02       		.byte	2
  1331 0319 00       		.byte	0
  1332 031a 20       		.byte	32
  1333 031b 00       		.byte	0
@@ -2241,15 +2241,15 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1335 031d 00       		.byte	0
  1336 031e 40       		.byte	64
  1337 031f 11       		.byte	17
- 1338 0320 26       		.byte	38
- 1339 0321 03       		.byte	3
+ 1338 0320 23       		.byte	35
+ 1339 0321 06       		.byte	6
  1340 0322 05       		.byte	5
  1341 0323 00       		.byte	0
  1342 0324 01       		.byte	1
- 1343 0325 0C       		.byte	12
- 1344 0326 E0       		.byte	-32
- 1345 0327 00       		.byte	0
- 1346 0328 09       		.byte	9
+ 1343 0325 0E       		.byte	14
+ 1344 0326 00       		.byte	0
+ 1345 0327 0C       		.byte	12
+ 1346 0328 11       		.byte	17
  1347 0329 FF       		.byte	-1
  1348 032a FF       		.byte	-1
  1349 032b FF       		.byte	-1
@@ -2278,7 +2278,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1372 0342 00       		.byte	0
  1373 0343 00       		.byte	0
  1374 0344 00       		.byte	0
-ARM GAS  C:\temp\ccIfBigj.s 			page 39
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 39
 
 
  1375 0345 00       		.byte	0
@@ -2320,10 +2320,10 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1411 0006 00000000 		.4byte	.Ldebug_abbrev0
  1412 000a 04       		.byte	0x4
  1413 000b 01       		.uleb128 0x1
- 1414 000c F4010000 		.4byte	.LASF53
+ 1414 000c AE010000 		.4byte	.LASF53
  1415 0010 01       		.byte	0x1
- 1416 0011 87020000 		.4byte	.LASF54
- 1417 0015 BF000000 		.4byte	.LASF55
+ 1416 0011 41020000 		.4byte	.LASF54
+ 1417 0015 10030000 		.4byte	.LASF55
  1418 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1419 001d 00000000 		.4byte	0
  1420 0021 00000000 		.4byte	.Ldebug_line0
@@ -2338,11 +2338,11 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1429 0033 37000000 		.4byte	0x37
  1430 0037 04       		.uleb128 0x4
  1431 0038 04       		.byte	0x4
-ARM GAS  C:\temp\ccIfBigj.s 			page 40
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 40
 
 
  1432 0039 07       		.byte	0x7
- 1433 003a 3F010000 		.4byte	.LASF0
+ 1433 003a F9000000 		.4byte	.LASF0
  1434 003e 04       		.uleb128 0x4
  1435 003f 01       		.byte	0x1
  1436 0040 06       		.byte	0x6
@@ -2350,15 +2350,15 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1438 0045 04       		.uleb128 0x4
  1439 0046 01       		.byte	0x1
  1440 0047 08       		.byte	0x8
- 1441 0048 DA020000 		.4byte	.LASF2
+ 1441 0048 94020000 		.4byte	.LASF2
  1442 004c 04       		.uleb128 0x4
  1443 004d 02       		.byte	0x2
  1444 004e 05       		.byte	0x5
- 1445 004f E8020000 		.4byte	.LASF3
+ 1445 004f A2020000 		.4byte	.LASF3
  1446 0053 04       		.uleb128 0x4
  1447 0054 02       		.byte	0x2
  1448 0055 07       		.byte	0x7
- 1449 0056 79010000 		.4byte	.LASF4
+ 1449 0056 33010000 		.4byte	.LASF4
  1450 005a 04       		.uleb128 0x4
  1451 005b 04       		.byte	0x4
  1452 005c 05       		.byte	0x5
@@ -2366,7 +2366,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1454 0061 04       		.uleb128 0x4
  1455 0062 04       		.byte	0x4
  1456 0063 07       		.byte	0x7
- 1457 0064 55010000 		.4byte	.LASF6
+ 1457 0064 0F010000 		.4byte	.LASF6
  1458 0068 04       		.uleb128 0x4
  1459 0069 08       		.byte	0x8
  1460 006a 05       		.byte	0x5
@@ -2378,7 +2378,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1466 0076 04       		.uleb128 0x4
  1467 0077 04       		.byte	0x4
  1468 0078 07       		.byte	0x7
- 1469 0079 C6010000 		.4byte	.LASF9
+ 1469 0079 80010000 		.4byte	.LASF9
  1470 007d 05       		.uleb128 0x5
  1471 007e 04       		.byte	0x4
  1472 007f 06       		.uleb128 0x6
@@ -2388,9 +2388,9 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1476 0086 04       		.uleb128 0x4
  1477 0087 01       		.byte	0x1
  1478 0088 08       		.byte	0x8
- 1479 0089 11030000 		.4byte	.LASF10
+ 1479 0089 CB020000 		.4byte	.LASF10
  1480 008d 03       		.uleb128 0x3
- 1481 008e 12010000 		.4byte	.LASF12
+ 1481 008e CC000000 		.4byte	.LASF12
  1482 0092 03       		.byte	0x3
  1483 0093 C2       		.byte	0xc2
  1484 0094 45000000 		.4byte	0x45
@@ -2398,46 +2398,46 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1486 0099 06000000 		.4byte	.LASF13
  1487 009d 03       		.byte	0x3
  1488 009e C3       		.byte	0xc3
-ARM GAS  C:\temp\ccIfBigj.s 			page 41
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 41
 
 
  1489 009f 53000000 		.4byte	0x53
  1490 00a3 03       		.uleb128 0x3
- 1491 00a4 29010000 		.4byte	.LASF14
+ 1491 00a4 E3000000 		.4byte	.LASF14
  1492 00a8 03       		.byte	0x3
  1493 00a9 C4       		.byte	0xc4
  1494 00aa 61000000 		.4byte	0x61
  1495 00ae 04       		.uleb128 0x4
  1496 00af 04       		.byte	0x4
  1497 00b0 04       		.byte	0x4
- 1498 00b1 AF020000 		.4byte	.LASF15
+ 1498 00b1 69020000 		.4byte	.LASF15
  1499 00b5 04       		.uleb128 0x4
  1500 00b6 08       		.byte	0x8
  1501 00b7 04       		.byte	0x4
- 1502 00b8 18010000 		.4byte	.LASF16
+ 1502 00b8 D2000000 		.4byte	.LASF16
  1503 00bc 08       		.uleb128 0x8
- 1504 00bd D5020000 		.4byte	.LASF17
+ 1504 00bd 8F020000 		.4byte	.LASF17
  1505 00c1 03       		.byte	0x3
  1506 00c2 6C01     		.2byte	0x16c
  1507 00c4 C8000000 		.4byte	0xc8
  1508 00c8 09       		.uleb128 0x9
  1509 00c9 8D000000 		.4byte	0x8d
  1510 00cd 08       		.uleb128 0x8
- 1511 00ce 05010000 		.4byte	.LASF18
+ 1511 00ce BF000000 		.4byte	.LASF18
  1512 00d2 03       		.byte	0x3
  1513 00d3 6D01     		.2byte	0x16d
  1514 00d5 D9000000 		.4byte	0xd9
  1515 00d9 09       		.uleb128 0x9
  1516 00da 98000000 		.4byte	0x98
  1517 00de 08       		.uleb128 0x8
- 1518 00df B0010000 		.4byte	.LASF19
+ 1518 00df 6A010000 		.4byte	.LASF19
  1519 00e3 03       		.byte	0x3
  1520 00e4 6E01     		.2byte	0x16e
  1521 00e6 EA000000 		.4byte	0xea
  1522 00ea 09       		.uleb128 0x9
  1523 00eb A3000000 		.4byte	0xa3
  1524 00ef 08       		.uleb128 0x8
- 1525 00f0 16030000 		.4byte	.LASF20
+ 1525 00f0 D0020000 		.4byte	.LASF20
  1526 00f4 03       		.byte	0x3
  1527 00f5 7E01     		.2byte	0x17e
  1528 00f7 7F000000 		.4byte	0x7f
@@ -2447,23 +2447,23 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1532 00fe 7D       		.byte	0x7d
  1533 00ff 1C010000 		.4byte	0x11c
  1534 0103 0B       		.uleb128 0xb
- 1535 0104 40030000 		.4byte	.LASF21
+ 1535 0104 FA020000 		.4byte	.LASF21
  1536 0108 01       		.byte	0x1
  1537 0109 7F       		.byte	0x7f
  1538 010a 8D000000 		.4byte	0x8d
  1539 010e 00       		.byte	0
  1540 010f 0B       		.uleb128 0xb
- 1541 0110 39010000 		.4byte	.LASF22
+ 1541 0110 F3000000 		.4byte	.LASF22
  1542 0114 01       		.byte	0x1
  1543 0115 80       		.byte	0x80
  1544 0116 8D000000 		.4byte	0x8d
  1545 011a 01       		.byte	0x1
-ARM GAS  C:\temp\ccIfBigj.s 			page 42
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 42
 
 
  1546 011b 00       		.byte	0
  1547 011c 03       		.uleb128 0x3
- 1548 011d FE020000 		.4byte	.LASF23
+ 1548 011d B8020000 		.4byte	.LASF23
  1549 0121 01       		.byte	0x1
  1550 0122 81       		.byte	0x81
  1551 0123 FB000000 		.4byte	0xfb
@@ -2518,7 +2518,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1600 018f 8D000000 		.4byte	0x8d
  1601 0193 51000000 		.4byte	.LLST3
  1602 0197 00       		.byte	0
-ARM GAS  C:\temp\ccIfBigj.s 			page 43
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 43
 
 
  1603 0198 00       		.byte	0
@@ -2533,7 +2533,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1612 01aa 11       		.uleb128 0x11
  1613 01ab 1C010000 		.4byte	0x11c
  1614 01af 0C       		.uleb128 0xc
- 1615 01b0 1F010000 		.4byte	.LASF29
+ 1615 01b0 D9000000 		.4byte	.LASF29
  1616 01b4 01       		.byte	0x1
  1617 01b5 3B       		.byte	0x3b
  1618 01b6 00000000 		.4byte	.LFB0
@@ -2578,10 +2578,10 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1657 01fa 00       		.byte	0
  1658 01fb 00       		.byte	0
  1659 01fc 0C       		.uleb128 0xc
-ARM GAS  C:\temp\ccIfBigj.s 			page 44
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 44
 
 
- 1660 01fd B6010000 		.4byte	.LASF30
+ 1660 01fd 70010000 		.4byte	.LASF30
  1661 0201 01       		.byte	0x1
  1662 0202 49       		.byte	0x49
  1663 0203 00000000 		.4byte	.LFB2
@@ -2590,7 +2590,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1666 020c 9C       		.byte	0x9c
  1667 020d 5C020000 		.4byte	0x25c
  1668 0211 15       		.uleb128 0x15
- 1669 0212 82020000 		.4byte	.LASF31
+ 1669 0212 3C020000 		.4byte	.LASF31
  1670 0216 01       		.byte	0x1
  1671 0217 49       		.byte	0x49
  1672 0218 7D000000 		.4byte	0x7d
@@ -2638,7 +2638,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1714 025e 62020000 		.4byte	0x262
  1715 0262 16       		.uleb128 0x16
  1716 0263 0C       		.uleb128 0xc
-ARM GAS  C:\temp\ccIfBigj.s 			page 45
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 45
 
 
  1717 0264 AB000000 		.4byte	.LASF32
@@ -2681,7 +2681,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1754 02ad 00       		.byte	0
  1755 02ae 00       		.byte	0
  1756 02af 18       		.uleb128 0x18
- 1757 02b0 2A030000 		.4byte	.LASF36
+ 1757 02b0 E4020000 		.4byte	.LASF36
  1758 02b4 01       		.byte	0x1
  1759 02b5 0901     		.2byte	0x109
  1760 02b7 00000000 		.4byte	.LFB6
@@ -2690,15 +2690,15 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1763 02c0 9C       		.byte	0x9c
  1764 02c1 E4020000 		.4byte	0x2e4
  1765 02c5 19       		.uleb128 0x19
- 1766 02c6 47030000 		.4byte	.LASF33
+ 1766 02c6 01030000 		.4byte	.LASF33
  1767 02ca 01       		.byte	0x1
  1768 02cb 0901     		.2byte	0x109
  1769 02cd 8D000000 		.4byte	0x8d
  1770 02d1 01       		.uleb128 0x1
  1771 02d2 50       		.byte	0x50
  1772 02d3 1A       		.uleb128 0x1a
- 1773 02d4 30010000 		.4byte	.LASF34
-ARM GAS  C:\temp\ccIfBigj.s 			page 46
+ 1773 02d4 EA000000 		.4byte	.LASF34
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 46
 
 
  1774 02d8 01       		.byte	0x1
@@ -2726,7 +2726,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1796 0307 00       		.byte	0
  1797 0308 00       		.byte	0
  1798 0309 18       		.uleb128 0x18
- 1799 030a 66030000 		.4byte	.LASF37
+ 1799 030a 72030000 		.4byte	.LASF37
  1800 030e 01       		.byte	0x1
  1801 030f 2B01     		.2byte	0x12b
  1802 0311 9C000000 		.4byte	.LFB7
@@ -2758,25 +2758,25 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1828 0351 06       		.byte	0x6
  1829 0352 01       		.byte	0x1
  1830 0353 9602     		.2byte	0x296
-ARM GAS  C:\temp\ccIfBigj.s 			page 47
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 47
 
 
  1831 0355 74030000 		.4byte	0x374
  1832 0359 1E       		.uleb128 0x1e
- 1833 035a CF010000 		.4byte	.LASF40
+ 1833 035a 89010000 		.4byte	.LASF40
  1834 035e 01       		.byte	0x1
  1835 035f 9702     		.2byte	0x297
  1836 0361 7D000000 		.4byte	0x7d
  1837 0365 00       		.byte	0
  1838 0366 1E       		.uleb128 0x1e
- 1839 0367 74010000 		.4byte	.LASF41
+ 1839 0367 2E010000 		.4byte	.LASF41
  1840 036b 01       		.byte	0x1
  1841 036c 9802     		.2byte	0x298
  1842 036e 98000000 		.4byte	0x98
  1843 0372 04       		.byte	0x4
  1844 0373 00       		.byte	0
  1845 0374 08       		.uleb128 0x8
- 1846 0375 D7010000 		.4byte	.LASF42
+ 1846 0375 91010000 		.4byte	.LASF42
  1847 0379 01       		.byte	0x1
  1848 037a 9902     		.2byte	0x299
  1849 037c 50030000 		.4byte	0x350
@@ -2786,7 +2786,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1853 0383 9C02     		.2byte	0x29c
  1854 0385 B1030000 		.4byte	0x3b1
  1855 0389 1E       		.uleb128 0x1e
- 1856 038a 82020000 		.4byte	.LASF31
+ 1856 038a 3C020000 		.4byte	.LASF31
  1857 038e 01       		.byte	0x1
  1858 038f 9D02     		.2byte	0x29d
  1859 0391 7D000000 		.4byte	0x7d
@@ -2798,14 +2798,14 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1865 039e 5C020000 		.4byte	0x25c
  1866 03a2 04       		.byte	0x4
  1867 03a3 1E       		.uleb128 0x1e
- 1868 03a4 74010000 		.4byte	.LASF41
+ 1868 03a4 2E010000 		.4byte	.LASF41
  1869 03a8 01       		.byte	0x1
  1870 03a9 9F02     		.2byte	0x29f
  1871 03ab 98000000 		.4byte	0x98
  1872 03af 08       		.byte	0x8
  1873 03b0 00       		.byte	0
  1874 03b1 08       		.uleb128 0x8
- 1875 03b2 67010000 		.4byte	.LASF43
+ 1875 03b2 21010000 		.4byte	.LASF43
  1876 03b6 01       		.byte	0x1
  1877 03b7 A002     		.2byte	0x2a0
  1878 03b9 80030000 		.4byte	0x380
@@ -2817,8 +2817,8 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1884 03cb 01       		.byte	0x1
  1885 03cc 00       		.byte	0
  1886 03cd 1C       		.uleb128 0x1c
- 1887 03ce E4010000 		.4byte	.LASF44
-ARM GAS  C:\temp\ccIfBigj.s 			page 48
+ 1887 03ce 9E010000 		.4byte	.LASF44
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 48
 
 
  1888 03d2 01       		.byte	0x1
@@ -2830,7 +2830,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1894 03df 11       		.uleb128 0x11
  1895 03e0 BD030000 		.4byte	0x3bd
  1896 03e4 1C       		.uleb128 0x1c
- 1897 03e5 B5020000 		.4byte	.LASF45
+ 1897 03e5 6F020000 		.4byte	.LASF45
  1898 03e9 01       		.byte	0x1
  1899 03ea A902     		.2byte	0x2a9
  1900 03ec 2F050000 		.4byte	0x52f
@@ -2845,7 +2845,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1909 0404 00       		.byte	0
  1910 0405 00       		.byte	0
  1911 0406 1C       		.uleb128 0x1c
- 1912 0407 56030000 		.4byte	.LASF46
+ 1912 0407 62030000 		.4byte	.LASF46
  1913 040b 01       		.byte	0x1
  1914 040c B302     		.2byte	0x2b3
  1915 040e 18040000 		.4byte	0x418
@@ -2878,7 +2878,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1942 0452 23       		.uleb128 0x23
  1943 0453 C8000000 		.4byte	.LVL28
  1944 0457 AF010000 		.4byte	0x1af
-ARM GAS  C:\temp\ccIfBigj.s 			page 49
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 49
 
 
  1945 045b 00       		.byte	0
@@ -2898,19 +2898,19 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1959 047e 11       		.uleb128 0x11
  1960 047f B1030000 		.4byte	0x3b1
  1961 0483 1A       		.uleb128 0x1a
- 1962 0484 CD020000 		.4byte	.LASF47
+ 1962 0484 87020000 		.4byte	.LASF47
  1963 0488 01       		.byte	0x1
  1964 0489 C502     		.2byte	0x2c5
  1965 048b 7D000000 		.4byte	0x7d
  1966 048f E1010000 		.4byte	.LLST13
  1967 0493 1A       		.uleb128 0x1a
- 1968 0494 23030000 		.4byte	.LASF48
+ 1968 0494 DD020000 		.4byte	.LASF48
  1969 0498 01       		.byte	0x1
  1970 0499 C602     		.2byte	0x2c6
  1971 049b 5C020000 		.4byte	0x25c
  1972 049f F4010000 		.4byte	.LLST14
  1973 04a3 1A       		.uleb128 0x1a
- 1974 04a4 4C010000 		.4byte	.LASF49
+ 1974 04a4 06010000 		.4byte	.LASF49
  1975 04a8 01       		.byte	0x1
  1976 04a9 C702     		.2byte	0x2c7
  1977 04ab 98000000 		.4byte	0x98
@@ -2938,7 +2938,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  1999 04d6 14       		.uleb128 0x14
  2000 04d7 01       		.uleb128 0x1
  2001 04d8 50       		.byte	0x50
-ARM GAS  C:\temp\ccIfBigj.s 			page 50
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 50
 
 
  2002 04d9 05       		.uleb128 0x5
@@ -2981,7 +2981,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2039 052f 11       		.uleb128 0x11
  2040 0530 1F050000 		.4byte	0x51f
  2041 0534 25       		.uleb128 0x25
- 2042 0535 4F030000 		.4byte	.LASF50
+ 2042 0535 09030000 		.4byte	.LASF50
  2043 0539 7D000000 		.4byte	0x7d
  2044 053d 51050000 		.4byte	0x551
  2045 0541 26       		.uleb128 0x26
@@ -2992,13 +2992,13 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2050 054c 76000000 		.4byte	0x76
  2051 0550 00       		.byte	0
  2052 0551 25       		.uleb128 0x25
- 2053 0552 0B010000 		.4byte	.LASF51
+ 2053 0552 C5000000 		.4byte	.LASF51
  2054 0556 7D000000 		.4byte	0x7d
  2055 055a 6E050000 		.4byte	0x56e
  2056 055e 26       		.uleb128 0x26
  2057 055f 7D000000 		.4byte	0x7d
  2058 0563 26       		.uleb128 0x26
-ARM GAS  C:\temp\ccIfBigj.s 			page 51
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 51
 
 
  2059 0564 5C020000 		.4byte	0x25c
@@ -3006,7 +3006,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2061 0569 76000000 		.4byte	0x76
  2062 056d 00       		.byte	0
  2063 056e 27       		.uleb128 0x27
- 2064 056f 9B010000 		.4byte	.LASF52
+ 2064 056f 55010000 		.4byte	.LASF52
  2065 0573 04       		.byte	0x4
  2066 0574 31       		.byte	0x31
  2067 0575 7F050000 		.4byte	0x57f
@@ -3014,7 +3014,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2069 057a A3000000 		.4byte	0xa3
  2070 057e 00       		.byte	0
  2071 057f 28       		.uleb128 0x28
- 2072 0580 8C010000 		.4byte	.LASF56
+ 2072 0580 46010000 		.4byte	.LASF56
  2073 0584 04       		.byte	0x4
  2074 0585 46       		.byte	0x46
  2075 0586 EF000000 		.4byte	0xef
@@ -3025,7 +3025,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2080 0594 EF000000 		.4byte	0xef
  2081 0598 00       		.byte	0
  2082 0599 29       		.uleb128 0x29
- 2083 059a F2020000 		.4byte	.LASF57
+ 2083 059a AC020000 		.4byte	.LASF57
  2084 059e 04       		.byte	0x4
  2085 059f 4C       		.byte	0x4c
  2086 05a0 26       		.uleb128 0x26
@@ -3058,7 +3058,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2113 0015 00       		.byte	0
  2114 0016 0B       		.uleb128 0xb
  2115 0017 0B       		.uleb128 0xb
-ARM GAS  C:\temp\ccIfBigj.s 			page 52
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 52
 
 
  2116 0018 3E       		.uleb128 0x3e
@@ -3118,7 +3118,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2170 004e 16       		.uleb128 0x16
  2171 004f 00       		.byte	0
  2172 0050 03       		.uleb128 0x3
-ARM GAS  C:\temp\ccIfBigj.s 			page 53
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 53
 
 
  2173 0051 0E       		.uleb128 0xe
@@ -3178,7 +3178,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2227 0087 19       		.uleb128 0x19
  2228 0088 11       		.uleb128 0x11
  2229 0089 01       		.uleb128 0x1
-ARM GAS  C:\temp\ccIfBigj.s 			page 54
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 54
 
 
  2230 008a 12       		.uleb128 0x12
@@ -3238,7 +3238,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2284 00c1 3A       		.uleb128 0x3a
  2285 00c2 0B       		.uleb128 0xb
  2286 00c3 3B       		.uleb128 0x3b
-ARM GAS  C:\temp\ccIfBigj.s 			page 55
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 55
 
 
  2287 00c4 0B       		.uleb128 0xb
@@ -3298,7 +3298,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2341 00ff 3B       		.uleb128 0x3b
  2342 0100 0B       		.uleb128 0xb
  2343 0101 49       		.uleb128 0x49
-ARM GAS  C:\temp\ccIfBigj.s 			page 56
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 56
 
 
  2344 0102 13       		.uleb128 0x13
@@ -3358,7 +3358,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2398 013b 05       		.uleb128 0x5
  2399 013c 49       		.uleb128 0x49
  2400 013d 13       		.uleb128 0x13
-ARM GAS  C:\temp\ccIfBigj.s 			page 57
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 57
 
 
  2401 013e 02       		.uleb128 0x2
@@ -3418,7 +3418,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2455 0174 01       		.uleb128 0x1
  2456 0175 13       		.uleb128 0x13
  2457 0176 00       		.byte	0
-ARM GAS  C:\temp\ccIfBigj.s 			page 58
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 58
 
 
  2458 0177 00       		.byte	0
@@ -3478,7 +3478,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2512 01ad 3A       		.uleb128 0x3a
  2513 01ae 0B       		.uleb128 0xb
  2514 01af 3B       		.uleb128 0x3b
-ARM GAS  C:\temp\ccIfBigj.s 			page 59
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 59
 
 
  2515 01b0 05       		.uleb128 0x5
@@ -3538,7 +3538,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2569 01e8 3F       		.uleb128 0x3f
  2570 01e9 19       		.uleb128 0x19
  2571 01ea 03       		.uleb128 0x3
-ARM GAS  C:\temp\ccIfBigj.s 			page 60
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 60
 
 
  2572 01eb 0E       		.uleb128 0xe
@@ -3598,7 +3598,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2626              	.LLST0:
  2627 0000 02000000 		.4byte	.LVL1
  2628 0004 08000000 		.4byte	.LVL2
-ARM GAS  C:\temp\ccIfBigj.s 			page 61
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 61
 
 
  2629 0008 0200     		.2byte	0x2
@@ -3658,7 +3658,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2683 0090 00000000 		.4byte	.LVL12
  2684 0094 06000000 		.4byte	.LVL13
  2685 0098 0100     		.2byte	0x1
-ARM GAS  C:\temp\ccIfBigj.s 			page 62
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 62
 
 
  2686 009a 51       		.byte	0x51
@@ -3718,7 +3718,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2740 0117 00000000 		.4byte	0
  2741 011b 00000000 		.4byte	0
  2742              	.LLST9:
-ARM GAS  C:\temp\ccIfBigj.s 			page 63
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 63
 
 
  2743 011f 04000000 		.4byte	.LVL21
@@ -3778,7 +3778,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2797 01a1 00000000 		.4byte	cfg_memset_list.4748
  2798 01a5 22       		.byte	0x22
  2799 01a6 9F       		.byte	0x9f
-ARM GAS  C:\temp\ccIfBigj.s 			page 64
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 64
 
 
  2800 01a7 00000000 		.4byte	0
@@ -3838,7 +3838,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2854 000a 04       		.byte	0x4
  2855 000b 00       		.byte	0
  2856 000c 0000     		.2byte	0
-ARM GAS  C:\temp\ccIfBigj.s 			page 65
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 65
 
 
  2857 000e 0000     		.2byte	0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2902      5F7400
  2903              	.LASF25:
  2904 001d 64617461 		.ascii	"data_table\000"
-ARM GAS  C:\temp\ccIfBigj.s 			page 66
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 66
 
 
  2904      5F746162 
@@ -3954,212 +3954,212 @@ ARM GAS  C:\temp\ccIfBigj.s 			page 1
  2924 00b6 6C6F6E67 		.ascii	"long int\000"
  2924      20696E74 
  2924      00
- 2925              	.LASF55:
- 2926 00bf 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
- 2926      73657273 
- 2926      5C424541 
-ARM GAS  C:\temp\ccIfBigj.s 			page 67
+ 2925              	.LASF18:
+ 2926 00bf 72656731 		.ascii	"reg16\000"
+ 2926      3600
+ 2927              	.LASF51:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 67
 
 
- 2926      53545C44 
- 2926      65736B74 
- 2927 00ed 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
- 2927      6E745F63 
- 2927      6F6E7472 
- 2927      6F6C325F 
- 2927      302E6379 
- 2928              	.LASF18:
- 2929 0105 72656731 		.ascii	"reg16\000"
- 2929      3600
- 2930              	.LASF51:
- 2931 010b 6D656D63 		.ascii	"memcpy\000"
- 2931      707900
- 2932              	.LASF12:
- 2933 0112 75696E74 		.ascii	"uint8\000"
- 2933      3800
- 2934              	.LASF16:
- 2935 0118 646F7562 		.ascii	"double\000"
- 2935      6C6500
- 2936              	.LASF29:
- 2937 011f 43594D45 		.ascii	"CYMEMZERO\000"
- 2937      4D5A4552 
- 2937      4F00
- 2938              	.LASF14:
- 2939 0129 75696E74 		.ascii	"uint32\000"
- 2939      333200
- 2940              	.LASF34:
- 2941 0130 72656756 		.ascii	"regValue\000"
- 2941      616C7565 
- 2941      00
- 2942              	.LASF22:
- 2943 0139 76616C75 		.ascii	"value\000"
- 2943      6500
- 2944              	.LASF0:
- 2945 013f 756E7369 		.ascii	"unsigned int\000"
- 2945      676E6564 
- 2945      20696E74 
- 2945      00
- 2946              	.LASF49:
- 2947 014c 6E756D42 		.ascii	"numBytes\000"
- 2947      79746573 
- 2947      00
- 2948              	.LASF6:
- 2949 0155 6C6F6E67 		.ascii	"long unsigned int\000"
- 2949      20756E73 
- 2949      69676E65 
- 2949      6420696E 
- 2949      7400
- 2950              	.LASF43:
- 2951 0167 6366675F 		.ascii	"cfg_memcpy_t\000"
- 2951      6D656D63 
- 2951      70795F74 
- 2951      00
- 2952              	.LASF41:
- 2953 0174 73697A65 		.ascii	"size\000"
- 2953      00
- 2954              	.LASF4:
-ARM GAS  C:\temp\ccIfBigj.s 			page 68
+ 2928 00c5 6D656D63 		.ascii	"memcpy\000"
+ 2928      707900
+ 2929              	.LASF12:
+ 2930 00cc 75696E74 		.ascii	"uint8\000"
+ 2930      3800
+ 2931              	.LASF16:
+ 2932 00d2 646F7562 		.ascii	"double\000"
+ 2932      6C6500
+ 2933              	.LASF29:
+ 2934 00d9 43594D45 		.ascii	"CYMEMZERO\000"
+ 2934      4D5A4552 
+ 2934      4F00
+ 2935              	.LASF14:
+ 2936 00e3 75696E74 		.ascii	"uint32\000"
+ 2936      333200
+ 2937              	.LASF34:
+ 2938 00ea 72656756 		.ascii	"regValue\000"
+ 2938      616C7565 
+ 2938      00
+ 2939              	.LASF22:
+ 2940 00f3 76616C75 		.ascii	"value\000"
+ 2940      6500
+ 2941              	.LASF0:
+ 2942 00f9 756E7369 		.ascii	"unsigned int\000"
+ 2942      676E6564 
+ 2942      20696E74 
+ 2942      00
+ 2943              	.LASF49:
+ 2944 0106 6E756D42 		.ascii	"numBytes\000"
+ 2944      79746573 
+ 2944      00
+ 2945              	.LASF6:
+ 2946 010f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2946      20756E73 
+ 2946      69676E65 
+ 2946      6420696E 
+ 2946      7400
+ 2947              	.LASF43:
+ 2948 0121 6366675F 		.ascii	"cfg_memcpy_t\000"
+ 2948      6D656D63 
+ 2948      70795F74 
+ 2948      00
+ 2949              	.LASF41:
+ 2950 012e 73697A65 		.ascii	"size\000"
+ 2950      00
+ 2951              	.LASF4:
+ 2952 0133 73686F72 		.ascii	"short unsigned int\000"
+ 2952      7420756E 
+ 2952      7369676E 
+ 2952      65642069 
+ 2952      6E7400
+ 2953              	.LASF56:
+ 2954 0146 4379496E 		.ascii	"CyIntSetVector\000"
+ 2954      74536574 
+ 2954      56656374 
+ 2954      6F7200
+ 2955              	.LASF52:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 68
 
 
- 2955 0179 73686F72 		.ascii	"short unsigned int\000"
- 2955      7420756E 
- 2955      7369676E 
- 2955      65642069 
- 2955      6E7400
- 2956              	.LASF56:
- 2957 018c 4379496E 		.ascii	"CyIntSetVector\000"
- 2957      74536574 
- 2957      56656374 
- 2957      6F7200
- 2958              	.LASF52:
- 2959 019b 43795379 		.ascii	"CySysClkWriteImoFreq\000"
- 2959      73436C6B 
- 2959      57726974 
- 2959      65496D6F 
- 2959      46726571 
- 2960              	.LASF19:
- 2961 01b0 72656733 		.ascii	"reg32\000"
- 2961      3200
- 2962              	.LASF30:
- 2963 01b6 4359434F 		.ascii	"CYCONFIGCPYCODE\000"
- 2963      4E464947 
- 2963      43505943 
- 2963      4F444500 
- 2964              	.LASF9:
- 2965 01c6 73697A65 		.ascii	"sizetype\000"
- 2965      74797065 
- 2965      00
- 2966              	.LASF40:
- 2967 01cf 61646472 		.ascii	"address\000"
- 2967      65737300 
- 2968              	.LASF42:
- 2969 01d7 6366675F 		.ascii	"cfg_memset_t\000"
- 2969      6D656D73 
- 2969      65745F74 
- 2969      00
- 2970              	.LASF44:
- 2971 01e4 6366675F 		.ascii	"cfg_memset_list\000"
- 2971      6D656D73 
- 2971      65745F6C 
- 2971      69737400 
- 2972              	.LASF53:
- 2973 01f4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 2973      4320342E 
- 2973      392E3320 
- 2973      32303135 
- 2973      30333033 
- 2974 0227 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 2974      20726576 
- 2974      6973696F 
- 2974      6E203232 
- 2974      31323230 
- 2975 025a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2975      66756E63 
- 2975      74696F6E 
- 2975      2D736563 
- 2975      74696F6E 
-ARM GAS  C:\temp\ccIfBigj.s 			page 69
+ 2956 0155 43795379 		.ascii	"CySysClkWriteImoFreq\000"
+ 2956      73436C6B 
+ 2956      57726974 
+ 2956      65496D6F 
+ 2956      46726571 
+ 2957              	.LASF19:
+ 2958 016a 72656733 		.ascii	"reg32\000"
+ 2958      3200
+ 2959              	.LASF30:
+ 2960 0170 4359434F 		.ascii	"CYCONFIGCPYCODE\000"
+ 2960      4E464947 
+ 2960      43505943 
+ 2960      4F444500 
+ 2961              	.LASF9:
+ 2962 0180 73697A65 		.ascii	"sizetype\000"
+ 2962      74797065 
+ 2962      00
+ 2963              	.LASF40:
+ 2964 0189 61646472 		.ascii	"address\000"
+ 2964      65737300 
+ 2965              	.LASF42:
+ 2966 0191 6366675F 		.ascii	"cfg_memset_t\000"
+ 2966      6D656D73 
+ 2966      65745F74 
+ 2966      00
+ 2967              	.LASF44:
+ 2968 019e 6366675F 		.ascii	"cfg_memset_list\000"
+ 2968      6D656D73 
+ 2968      65745F6C 
+ 2968      69737400 
+ 2969              	.LASF53:
+ 2970 01ae 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2970      4320342E 
+ 2970      392E3320 
+ 2970      32303135 
+ 2970      30333033 
+ 2971 01e1 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2971      20726576 
+ 2971      6973696F 
+ 2971      6E203232 
+ 2971      31323230 
+ 2972 0214 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2972      66756E63 
+ 2972      74696F6E 
+ 2972      2D736563 
+ 2972      74696F6E 
+ 2973              	.LASF31:
+ 2974 023c 64657374 		.ascii	"dest\000"
+ 2974      00
+ 2975              	.LASF54:
+ 2976 0241 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
+ 2976      6E657261 
+ 2976      7465645F 
+ 2976      536F7572 
+ 2976      63655C50 
+ 2977              	.LASF15:
+ 2978 0269 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 69
 
 
- 2976              	.LASF31:
- 2977 0282 64657374 		.ascii	"dest\000"
- 2977      00
- 2978              	.LASF54:
- 2979 0287 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
- 2979      6E657261 
- 2979      7465645F 
- 2979      536F7572 
- 2979      63655C50 
- 2980              	.LASF15:
- 2981 02af 666C6F61 		.ascii	"float\000"
- 2981      7400
- 2982              	.LASF45:
- 2983 02b5 42535F55 		.ascii	"BS_UDB_0_1_0_CONFIG_VAL\000"
- 2983      44425F30 
- 2983      5F315F30 
- 2983      5F434F4E 
- 2983      4649475F 
- 2984              	.LASF47:
- 2985 02cd 64657374 		.ascii	"destPtr\000"
- 2985      50747200 
- 2986              	.LASF17:
- 2987 02d5 72656738 		.ascii	"reg8\000"
- 2987      00
- 2988              	.LASF2:
- 2989 02da 756E7369 		.ascii	"unsigned char\000"
- 2989      676E6564 
- 2989      20636861 
- 2989      7200
- 2990              	.LASF3:
- 2991 02e8 73686F72 		.ascii	"short int\000"
- 2991      7420696E 
- 2991      7400
- 2992              	.LASF57:
- 2993 02f2 4379496E 		.ascii	"CyIntEnable\000"
- 2993      74456E61 
- 2993      626C6500 
- 2994              	.LASF23:
- 2995 02fe 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
- 2995      66675F61 
- 2995      64647276 
- 2995      616C7565 
- 2995      5F7400
- 2996              	.LASF10:
- 2997 0311 63686172 		.ascii	"char\000"
- 2997      00
- 2998              	.LASF20:
- 2999 0316 63796973 		.ascii	"cyisraddress\000"
- 2999      72616464 
- 2999      72657373 
- 2999      00
- 3000              	.LASF48:
- 3001 0323 73726350 		.ascii	"srcPtr\000"
- 3001      747200
- 3002              	.LASF36:
- 3003 032a 53657441 		.ascii	"SetAnalogRoutingPumps\000"
- 3003      6E616C6F 
-ARM GAS  C:\temp\ccIfBigj.s 			page 70
+ 2978      7400
+ 2979              	.LASF45:
+ 2980 026f 42535F55 		.ascii	"BS_UDB_0_1_0_CONFIG_VAL\000"
+ 2980      44425F30 
+ 2980      5F315F30 
+ 2980      5F434F4E 
+ 2980      4649475F 
+ 2981              	.LASF47:
+ 2982 0287 64657374 		.ascii	"destPtr\000"
+ 2982      50747200 
+ 2983              	.LASF17:
+ 2984 028f 72656738 		.ascii	"reg8\000"
+ 2984      00
+ 2985              	.LASF2:
+ 2986 0294 756E7369 		.ascii	"unsigned char\000"
+ 2986      676E6564 
+ 2986      20636861 
+ 2986      7200
+ 2987              	.LASF3:
+ 2988 02a2 73686F72 		.ascii	"short int\000"
+ 2988      7420696E 
+ 2988      7400
+ 2989              	.LASF57:
+ 2990 02ac 4379496E 		.ascii	"CyIntEnable\000"
+ 2990      74456E61 
+ 2990      626C6500 
+ 2991              	.LASF23:
+ 2992 02b8 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
+ 2992      66675F61 
+ 2992      64647276 
+ 2992      616C7565 
+ 2992      5F7400
+ 2993              	.LASF10:
+ 2994 02cb 63686172 		.ascii	"char\000"
+ 2994      00
+ 2995              	.LASF20:
+ 2996 02d0 63796973 		.ascii	"cyisraddress\000"
+ 2996      72616464 
+ 2996      72657373 
+ 2996      00
+ 2997              	.LASF48:
+ 2998 02dd 73726350 		.ascii	"srcPtr\000"
+ 2998      747200
+ 2999              	.LASF36:
+ 3000 02e4 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 3000      6E616C6F 
+ 3000      67526F75 
+ 3000      74696E67 
+ 3000      50756D70 
+ 3001              	.LASF21:
+ 3002 02fa 6F666673 		.ascii	"offset\000"
+ 3002      657400
+ 3003              	.LASF33:
+ 3004 0301 656E6162 		.ascii	"enabled\000"
+ 3004      6C656400 
+ 3005              	.LASF50:
+ 3006 0309 6D656D73 		.ascii	"memset\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cclkxaMI.s 			page 70
 
 
- 3003      67526F75 
- 3003      74696E67 
- 3003      50756D70 
- 3004              	.LASF21:
- 3005 0340 6F666673 		.ascii	"offset\000"
- 3005      657400
- 3006              	.LASF33:
- 3007 0347 656E6162 		.ascii	"enabled\000"
- 3007      6C656400 
- 3008              	.LASF50:
- 3009 034f 6D656D73 		.ascii	"memset\000"
- 3009      657400
+ 3006      657400
+ 3007              	.LASF55:
+ 3008 0310 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 3008      73657273 
+ 3008      5C4C6169 
+ 3008      6D6F6E61 
+ 3008      7349676E 
+ 3009 033f 2E637964 		.ascii	".cydsn\\PSoC\\Plant_control2_0.cydsn\000"
+ 3009      736E5C50 
+ 3009      536F435C 
+ 3009      506C616E 
+ 3009      745F636F 
  3010              	.LASF46:
- 3011 0356 6366675F 		.ascii	"cfg_memcpy_list\000"
+ 3011 0362 6366675F 		.ascii	"cfg_memcpy_list\000"
  3011      6D656D63 
  3011      70795F6C 
  3011      69737400 
  3012              	.LASF37:
- 3013 0366 63796669 		.ascii	"cyfitter_cfg\000"
+ 3013 0372 63796669 		.ascii	"cyfitter_cfg\000"
  3013      74746572 
  3013      5F636667 
  3013      00

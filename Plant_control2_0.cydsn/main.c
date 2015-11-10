@@ -16,7 +16,7 @@
 
 CY_ISR_PROTO(isr_EOC_vec);
 
-
+uint8 count = 6;
 
 int main()
 {
@@ -33,8 +33,20 @@ int main()
     
     for(;;)
     {
-
-        tick();
+        updateSensors();
+        CyDelay(50);
+        
+        if(count == 6)
+        {        
+            sendSensorData(sensors_);
+            count = 0;
+        }
+        
+        if(wantedMoisture >= sensors_.currentMoisture)
+            startPumpingWater();
+        
+        count++;
+        CyDelay(60000);
     }
 }
 

@@ -11,15 +11,12 @@
 */
 #include <pump.h>
 
-void start()
+void startPumpingWater()
 {
-  Pumpe_Write(1);
-    
-}
-
-void stop()
-{
+    Pumpe_Write(1);
+    CyDelay(5000);
     Pumpe_Write(0);
 }
+
 
 /* [] END OF FILE */
