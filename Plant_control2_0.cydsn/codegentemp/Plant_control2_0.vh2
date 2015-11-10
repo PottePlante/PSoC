@@ -2,7 +2,7 @@
 --	Conversion of Plant_control2_0.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Nov 10 15:28:31 2015
+--	Tue Nov 10 20:04:30 2015
 --
 
 USE cypress.cypress.all;

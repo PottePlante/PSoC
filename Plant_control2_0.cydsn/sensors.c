@@ -101,9 +101,7 @@ int16 get_moisture(void)
             CyDelay(1000);
             */
             moisture_ptr=0;
-            //return (int16)moisture; BRUGRES TIL TEST HUSK AT RETTE
-            return 50;
-            
+            return (int16)moisture;
        }
         return 0;
 }

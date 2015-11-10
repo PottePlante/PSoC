@@ -19,7 +19,7 @@ uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = 2;                         //Pottens ID / PSoC ID
+uint8 plantID = -'-';                         //Pottens ID / PSoC ID
 
 CY_ISR(UART_ISR)
 {
@@ -203,7 +203,7 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
 //    dataType[0] = dataBuf[0];       //Moist
 //    dataType[1] = dataBuf[5];       //Rotate
     plantIDLocal = dataBuf[1];        //'1' i ascii er = 49 i decimal, derfor minus med decimal48 for at få 1. NEVERMIND.
-    
+
     for(i=0;i<3;i++)
         value_char[i] = dataBuf[i+2];   //Tager moist value
     for(i=0;i<3;i++)

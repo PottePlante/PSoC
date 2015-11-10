@@ -33,6 +33,7 @@ int main()
     
     for(;;)
     {
+        //tick();
         updateSensors();
         CyDelay(50);
         
@@ -43,10 +44,15 @@ int main()
         }
         
         if(wantedMoisture >= sensors_.currentMoisture)
-            startPumpingWater();
+        {
+            UART_PutString("wantedMoisture is bigger than currentMoist");
+            //startPumpingWater();
+        }
+        else
+            UART_PutString("plant is moist :D");
         
         count++;
-        CyDelay(60000);
+        CyDelay(1000);
     }
 }
 
