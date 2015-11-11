@@ -19,7 +19,7 @@ uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = -'-';                         //Pottens ID / PSoC ID
+uint8 plantID = '-';                         //Pottens ID / PSoC ID
 
 CY_ISR(UART_ISR)
 {

@@ -6,7 +6,7 @@
 
 #Build Date:         Aug 18 2015 10:30:14
 
-#File Generated:     Nov 10 2015 20:04:31
+#File Generated:     Nov 11 2015 16:16:07
 
 #Purpose:            
 
@@ -86,7 +86,7 @@ Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:  44.8 MHz | Target:   1.8 MHz
+Clock: UART_IntClock        | Frequency:  44.8 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -108,7 +108,7 @@ Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   1.8 MHz
+Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -153,7 +153,7 @@ Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   1.8 MHz
+Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -182,7 +182,7 @@ Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   1.8 MHz
+Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -204,7 +204,7 @@ Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   1.8 MHz
+Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -249,7 +249,7 @@ Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.5 MHz | Target:   1.8 MHz
+Clock: UART_IntClock        | Frequency:   2.5 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary

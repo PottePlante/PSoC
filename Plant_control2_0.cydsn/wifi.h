@@ -14,13 +14,13 @@
 #include <Plantcontrol.h>
     
 /*******************************************MAKROER***********************************************************/
-#define SSID2 "Lemonade"                    //Router SSID
-#define PASS2 "ESPisBEST"                   //Router PASSWORD
+#define SSID "Lemonade"                    //Router SSID
+#define PASS "ESPisBEST"                   //Router PASSWORD
 //#define DevKitIP "192.168.43.125"            //DevKit IP Adresse
-#define DevKitIP "192.168.1.117"
+#define DevKitIP "192.168.43.49"
 #define DevKitPortNr 8888                   //Port nr. på DevKit
-#define SSID "Mom Use This One"             //brugt til test
-#define PASS "Laimonasisthebest12345"       //brugt til test
+#define SSID2 "Mom Use This One"             //brugt til test
+#define PASS2 "Laimonasisthebest12345"       //brugt til test
 
     
 struct updateParameters;
