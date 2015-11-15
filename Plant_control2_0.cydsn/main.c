@@ -39,21 +39,20 @@ int main()
         
         if(count == 6)
         {      
-            UART_PutString("Count is 6\r\n");
+            //UART_PutString("Count is 6\r\n");
             sendSensorData(sensors_);
             count = 0;
         }
         
         if(wantedMoisture >= sensors_.currentMoisture)
         {
-            UART_PutString("wantedMoisture is bigger than currentMoist\r\n");
-            //startPumpingWater();
+            startPumpingWater();
         }
-        else
-            UART_PutString("plant is moist :D\r\n");
+//        else if(count == 5 && wantedMoisture <= sensors_.currentMoisture )
+//            UART_PutString("plant is moist :D\r\n");
         
         count++;
-        CyDelay(1000);
+        CyDelay(60000);
     }
 }
 

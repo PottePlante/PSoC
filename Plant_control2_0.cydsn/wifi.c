@@ -19,7 +19,7 @@ uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = '-';                         //Pottens ID / PSoC ID
+uint8 plantID = '-';                        //Pottens ID / PSoC ID - Sættes til '-' for at teste om DevKittet kan give den en anderledes værdi
 
 CY_ISR(UART_ISR)
 {
@@ -194,15 +194,12 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
     int i = 0;
     
     char dataBuf[255];  ///string med data modtaget fra DevKittet
-//    char dataType[4];
     char value_char[8];
     uint8 plantIDLocal;
 
     while(receiveDataDevKit(inputString,dataBuf) == 0u);
-    //M1065R1099
-//    dataType[0] = dataBuf[0];       //Moist
-//    dataType[1] = dataBuf[5];       //Rotate
-    plantIDLocal = dataBuf[1];        //'1' i ascii er = 49 i decimal, derfor minus med decimal48 for at få 1. NEVERMIND.
+    //M1065R1099  -- Protokollen kan opdateres og gøres mere effectiv, evt. blot sende chars over UARTen, samt kun sende ID 1 gang og ikke specificere værdiernes dataTyper
+    plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID. 
 
     for(i=0;i<3;i++)
         value_char[i] = dataBuf[i+2];   //Tager moist value
@@ -211,7 +208,7 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
         
     value_char[6] = 0;
     
-    if (plantIDLocal >= 0)
+    if (plantIDLocal >= 0) //plante IDen valideres
     {
         plantID = plantIDLocal;
         setPlantData(value_char);
@@ -306,7 +303,7 @@ void testSendSensorData(uint8 moist,uint8 water,uint8 light,uint8 battery,uint8 
     updatePlantData(uartString);
 
     CyDelay(500);
-    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)
+    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit), så der ikke forbliver en spøgelses forbindelse
 }
 
 void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
@@ -475,8 +472,6 @@ void tick()
             UART_PutString("Pump is done pumping\r\n");
             
         }
-        
-            
     }
 }
 

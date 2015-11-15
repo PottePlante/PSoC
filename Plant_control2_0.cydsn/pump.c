@@ -11,7 +11,7 @@
 */
 #include <pump.h>
 
-void startPumpingWater()
+void startPumpingWater()    //simpel function som tænder for pumpen, venter 5 sekunder og slukker for den igen
 {
     Pumpe_Write(1);
     CyDelay(5000);
