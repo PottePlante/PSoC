@@ -50,117 +50,119 @@ CY_ISR(isr_EOC_vec)
     
 }
 
-
+int16 procent_moisture = 0;
 int16 get_moisture(void)
 {
      if(moisture_ptr == 50)
-       {
-            int16 moisture_max = moisture[0];
-            int16 moisture_min = moisture[0];
-           
+        {
+            int16 min=moisture[0];
+            int16 max=moisture[0];
             
             int i;
             for(i = 1; i < 50; i++)
             {
-                  if(moisture_max < moisture[i])
-                    moisture_max = moisture[i];
-                  else if(moisture_min > moisture[i])
-                    moisture_min = moisture[i];
- 
-            }
-          
-        
-            char moisture_data[50];
-            
-            int16 moisture_maxV=ADC_SAR_Seq_1_CountsTo_mVolts(0, moisture_max);
-            int16 moisture_minV=ADC_SAR_Seq_1_CountsTo_mVolts(0, moisture_min);
-            int16 moisture_pp = (int16)moisture_maxV - (int16)moisture_minV;
-            float moisture;
-            
-            if(moisture_pp < 965)
-            {
-                moisture= 318.06-((float)moisture_pp)*0.278;
-                if(moisture > 100)
+                if(min > moisture[i])
                 {
-                    moisture=100;
+                    min = moisture[i];   
                 }
-            }
-            else if(moisture_pp >965)
-            {
-                moisture=78.13-0.0292*((float)moisture_pp);
-                if(moisture < 0)
+                else if(max < moisture[i])
                 {
-                    moisture=0;
+                    max = moisture[i];   
                 }
             }
             
+            int16 pp = ((max - min)*806)/1000;
             
-            /* //til test af sensorer
-            sprintf(moisture_data, "fugtniveau procent = %d\n\r",(int16)moisture);
-            UART_1_UartPutString(moisture_data);
-            CyDelay(1000);
-            */
+            double procent_d;
+            
+            if(pp>= 1117)
+            {
+                  procent_d = (-0.223834*((double)pp/1000)+0.583310)*100;
+            }else
+            {
+                  procent_d = (-1.08366*((double)pp/1000)+1.54356)*100; 
+            }
+            if(procent_d < 0)
+            {
+                procent_d = 0;   
+            }
+            else if(procent_d > 100)
+            {
+                procent_d = 100;   
+            }
+            
+            int16 procent = (int16)procent_d;
+            //char bufchar[50];
+            
+            /*sprintf(bufchar, "max = %d\n\rmin = %d\n\rpp = %d mV\n\rprocent = %d %%\n\n\r", max, min, pp, procent);
+            
+            UART_1_UartPutString(bufchar);
+            CyDelay(1000);*/
             moisture_ptr=0;
-            return (int16)moisture;
-       }
-        return 0;
+            
+            procent_moisture = procent;
+                        
+        }
+        
+    return procent_moisture;
 }
+
+int16 procent_waterlevel = 0;
 
 int16 get_waterlevel(void)
 {
-if(waterlevel_ptr == 50)
+    if(waterlevel_ptr == 50)
         {
-            int16 waterlevel_max = waterlevel[0];
-            int16 waterlevel_min = waterlevel[0];
-           
+            int16 min=waterlevel[0];
+            int16 max=waterlevel[0];
             
             int i;
             for(i = 1; i < 50; i++)
             {
-                  if(waterlevel_max < waterlevel[i])
-                    waterlevel_max = waterlevel[i];
-                  else if(waterlevel_min > waterlevel[i])
-                    waterlevel_min = waterlevel[i];
- 
-            }
-          
-        
-            char waterlevel_data[50];
- 
-            
-            
-            int16 waterlevel_maxV=ADC_SAR_Seq_1_CountsTo_mVolts(2, waterlevel_max);
-            int16 waterlevel_minV=ADC_SAR_Seq_1_CountsTo_mVolts(2, waterlevel_min);
-            int16 waterlevel_pp =waterlevel_maxV-waterlevel_minV;
-            
-            float water_level;
-            
-            if(waterlevel_pp < 965)
-            {
-                water_level= 310.64-((float)waterlevel_pp)*0.268;
-                if(water_level > 100)
+                if(min > waterlevel[i])
                 {
-                    water_level=100;
+                    min = waterlevel[i];   
+                }
+                else if(max < waterlevel[i])
+                {
+                    max = waterlevel[i];   
                 }
             }
-            else if(waterlevel_pp >=965)
+            char bufchar[50];
+            
+            int16 pp = ((max - min)*806)/1000;
+            
+            double procent_d;
+            
+            if(pp>= 1117)
             {
-                water_level=78.03-0.0273*((float)waterlevel_pp);
-                if(water_level < 0)
-                {
-                    water_level=0;
-                }
+                  procent_d = (-0.223834*((double)pp/1000)+0.583310)*100;
+            }else
+            {
+                  procent_d = (-1.08366*((double)pp/1000)+1.54356)*100; 
             }
-            /* //til test af sensorer
-            sprintf(waterlevel_data, "vand niveau procent = %d\n\r", (int16)water_level);
-            UART_1_UartPutString(waterlevel_data);
-            CyDelay(1000);
-            */
+            if(procent_d < 0)
+            {
+                procent_d = 0;   
+            }
+            else if(procent_d > 100)
+            {
+                procent_d = 100;   
+            }
+            
+            int16 procent = (int16)procent_d;
+            
+            /*sprintf(bufchar, "max = %d\n\rmin = %d\n\rpp = %d mV\n\rprocent = %d %%\n\n\r", max, min, pp, procent);
+            
+            UART_1_UartPutString(bufchar);
+            CyDelay(1000);*/
             waterlevel_ptr=0;
-            return (int16)water_level;
             
+            procent_waterlevel = procent;
+                        
         }
-    return 0;
+        
+    return procent_waterlevel;
 }
 
 int16 get_temp(void)
@@ -178,13 +180,10 @@ int16 get_temp(void)
             temp_avg=(temp_avg>>3u);
             
             
-            
-          
-        
             char temp_data[50];
             
             // omregning af temperatur. 
-            temp_avg=(temp_avg-29)*0.253; 
+            temp_avg=(temp_avg-314)*0.0362; 
             // 1.65V som svare til 0 grader trækkes fra og forstærkning gange på for at få temperatur i grader (eks 39mV=39 grader)
         
             /* //til test af sensorer
@@ -203,7 +202,7 @@ int16 get_temp(void)
         return 0; 
 }
 
-int16 get_batterylevel(void)
+int16   get_batterylevel(void)
 {
      if(batterylevel_ptr == 8u)
         {

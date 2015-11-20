@@ -25,8 +25,8 @@ void updateSensors()
     get_waterlevel();
     // Data hentes
     
-    sensors_.currentMoisture=50;
-    //sensors_.currentMoisture=get_moisture();
+    //sensors_.currentMoisture=50;
+    sensors_.currentMoisture=get_moisture();
     //sensors_.currentLight=get_lightlevel();
     sensors_.currentBattery=get_batterylevel();
     sensors_.currentLight=50;

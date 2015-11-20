@@ -34,8 +34,6 @@
 #include "Lysfoler.h"
 #include "Lysfoler_aliases.h"
 #include "isr_EOC.h"
-#include "temperatur_ref.h"
-#include "temperatur_ref_aliases.h"
 #include "Clock_1.h"
 #include "Clock_out_capasitiv_sensors.h"
 #include "Clock_out_capasitiv_sensors_aliases.h"

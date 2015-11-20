@@ -110,9 +110,6 @@
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\Lysfoler_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\isr_EOC.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\isr_EOC.h</File>
-          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\temperatur_ref.c</File>
-          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\temperatur_ref.h</File>
-          <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\temperatur_ref_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\stromstyring_plus.c</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\stromstyring_plus.h</File>
           <File BuildType="BUILD" Toolchain="">.\Generated_Source\PSoC4\stromstyring_plus_aliases.h</File>

@@ -1,4 +1,8 @@
-C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/cyfitter_cfg.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/ADC_SAR_Seq_1.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h : 
 
 C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
 
@@ -8,9 +12,173 @@ C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cyds
 
 C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h : 
 
-C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/ADC_SAR_Seq_1_INT.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_INT.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_INT.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/ADC_SAR_Seq_1_IRQ.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/ADC_SAR_Seq_1_PM.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_PM.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_PM.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/ADC_SAR_Seq_1_intClock.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Clock_1.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Clock_out_capasitiv_sensors.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Cm0Start.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Cm0Start.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Cm0Start.c : 
 
 C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
 
-C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/CyFlash.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/CyLFClk.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/CyLib.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Fugt.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Lysfoler.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Niveau_vandtank.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Pumpe.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/Rotor_motor.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/UART.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/UART_BOOT.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_BOOT.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_BOOT.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/UART_INT.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_INT.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_INT.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/UART_IntClock.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/UART_PM.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_PM.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_PM.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/cyPm.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/cyfitter_cfg.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/cymetadata.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cymetadata.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cymetadata.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/cyutils.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyutils.c 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyutils.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/isr_EOC.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/isr_UART.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/cyapicallbacks.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/stromstyring_plus.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/temperatur.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.c : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h : 
+
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h : 
 

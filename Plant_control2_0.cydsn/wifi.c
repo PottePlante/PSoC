@@ -19,7 +19,7 @@ uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = '-';                        //Pottens ID / PSoC ID - Sættes til '-' for at teste om DevKittet kan give den en anderledes værdi
+uint8 plantID = '2';                        //Pottens ID / PSoC ID - Sættes til '-' for at teste om DevKittet kan give den en anderledes værdi
 
 CY_ISR(UART_ISR)
 {
@@ -195,12 +195,14 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
     
     char dataBuf[255];  ///string med data modtaget fra DevKittet
     char value_char[8];
-    uint8 plantIDLocal;
+    uint8 plantIDLocal = 2;
 
     while(receiveDataDevKit(inputString,dataBuf) == 0u);
     //M1065R1099  -- Protokollen kan opdateres og gøres mere effectiv, evt. blot sende chars over UARTen, samt kun sende ID 1 gang og ikke specificere værdiernes dataTyper
-    plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID. 
-
+    //plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID. 
+    //SKAL FJERNES SENERE....
+    
+    //WOOOOOP
     for(i=0;i<3;i++)
         value_char[i] = dataBuf[i+2];   //Tager moist value
     for(i=0;i<3;i++)
@@ -210,7 +212,7 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
     
     if (plantIDLocal >= 0) //plante IDen valideres
     {
-        plantID = plantIDLocal;
+        plantID = '2';
         setPlantData(value_char);
     }
     else
@@ -298,7 +300,7 @@ void testSendSensorData(uint8 moist,uint8 water,uint8 light,uint8 battery,uint8 
     else if(tempe < 10 && tempe >=0)
         sprintf(temperatureString,"T%c00%d",plantID,tempe);
         
-    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,batteryString,temperatureString);
+    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,temperatureString,batteryString);
     sendDataDevkit(sendString);            
     updatePlantData(uartString);
 
@@ -356,11 +358,12 @@ void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et 
     else if(sensors.currentTemperature < 10 && sensors.currentTemperature >=0)
         sprintf(temperatureString,"T%c00%d",plantID,sensors.currentTemperature);
         
-    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,batteryString,temperatureString);
-    sendDataDevkit(sendString);            
+    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,temperatureString,batteryString);
+    sendDataDevkit(sendString);
+    //UART_PutCRLF(0u);
     updatePlantData(uartString);
 
-    CyDelay(500);
+    CyDelay(2000);
     UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)  
 }
 
@@ -451,19 +454,7 @@ void tick()
             char fastPrint[16];
             sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
             UART_PutString(fastPrint);
-            CyDelay(1000);
-            updateSensors();
-            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
-            UART_PutString(fastPrint);
-            CyDelay(1000);
-            updateSensors();
-            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
-            UART_PutString(fastPrint);
-            CyDelay(1000);
-            updateSensors();
-            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
-            UART_PutString(fastPrint);
-            CyDelay(1000);
+            CyDelay(500);
             updateSensors();
             sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
             UART_PutString(fastPrint);

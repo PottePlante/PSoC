@@ -33,7 +33,7 @@ int main()
     
     for(;;)
     {
-        //tick();
+       //tick();
         updateSensors();
         CyDelay(50);
         
@@ -44,15 +44,19 @@ int main()
             count = 0;
         }
         
-        if(wantedMoisture >= sensors_.currentMoisture)
+        if(wantedMoisture >= sensors_.currentMoisture)  //hvis den værdi devkit sender er større end sensors værdi så pumpes der
         {
-            startPumpingWater();
+            //startPumpingWater();
+            Pumpe_Write(1);
+            CyDelay(1000);
+            Pumpe_Write(0);
+            
         }
-//        else if(count == 5 && wantedMoisture <= sensors_.currentMoisture )
-//            UART_PutString("plant is moist :D\r\n");
+       // else //(count == 5 && wantedMoisture <= sensors_.currentMoisture )
+        //    UART_PutString("plant is moist :D\r\n");
         
         count++;
-        CyDelay(60000);
+        CyDelay(12000);
     }
 }
 

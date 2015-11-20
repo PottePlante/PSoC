@@ -753,45 +753,6 @@
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\Custom\custom.cs</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\PSoC4\API\intc.c</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\PSoC4\API\intc.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\cy_pins_v2_10.cysym</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\cy_pins_v2_10.cystate</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\cy_pins_v2_10.cyprimitive</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\custom.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyenums.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinsdata.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinpicture.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinutils.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cygeneralcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cygeneralcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyinputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyinputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cymappingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cymappingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyoutputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyoutputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinaliasdialog.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinaliasdialog.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinscontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinscontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyporcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyporcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\Resource1.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyclockingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyclockingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cygeneralcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyinputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cymappingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyoutputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinaliasdialog.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cypinscontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyporcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\Resource1.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\Custom\cyclockingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\PSoC4\API\pins.c</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\PSoC4\API\pins.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_10\PSoC4\API\aliases.h</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_20\cy_clock_v2_20.cyprimitive</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_20\cy_clock_v2_20.cysym</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
@@ -1140,7 +1101,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="130917285720599930" />
+<deps_time v="130923147097802270" />
 <top_block v="TopDesign" />
 <last_generation v="2" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
@@ -1151,7 +1112,7 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM0\ARM_GCC_493\Debug\main.o">
+<file name=".\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
@@ -1191,10 +1152,8 @@
 <dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
+<dep name=".\Plantcontrol.c" />
 <dep name=".\Plantcontrol.h" />
-<dep name=".\main.c" />
 <dep name=".\pump.h" />
 <dep name=".\sensors.h" />
 <dep name=".\wifi.h" />
@@ -1238,14 +1197,12 @@
 <file name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
 <file name=".\Generated_Source\PSoC4\temperatur.h" />
 <file name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<file name=".\Generated_Source\PSoC4\temperatur_ref.h" />
-<file name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
+<file name=".\Plantcontrol.c" />
 <file name=".\Plantcontrol.h" />
-<file name=".\main.c" />
 <file name=".\pump.h" />
 <file name=".\sensors.h" />
 <file name=".\wifi.h" />
-<file name=".\CortexM0\ARM_GCC_493\Debug\wifi.o">
+<file name=".\CortexM0\ARM_GCC_493\Debug\main.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
@@ -1285,74 +1242,13 @@
 <dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
 <dep name=".\Plantcontrol.h" />
-<dep name=".\pump.h" />
-<dep name=".\sensors.h" />
-<dep name=".\wifi.c" />
-<dep name=".\wifi.h" />
-</file>
-<file name=".\wifi.c" />
-<file name=".\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o">
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-</file>
-<file name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
-<file name=".\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o">
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_1.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\Fugt.h" />
-<dep name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Lysfoler.h" />
-<dep name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
-<dep name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Pumpe.h" />
-<dep name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\UART.h" />
-<dep name=".\Generated_Source\PSoC4\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
-<dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC4\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC4\cyPm.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC4\cypins.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-<dep name=".\Generated_Source\PSoC4\isr_EOC.h" />
-<dep name=".\Generated_Source\PSoC4\isr_UART.h" />
-<dep name=".\Generated_Source\PSoC4\project.h" />
-<dep name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
-<dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
-<dep name=".\Plantcontrol.c" />
-<dep name=".\Plantcontrol.h" />
+<dep name=".\main.c" />
 <dep name=".\pump.h" />
 <dep name=".\sensors.h" />
 <dep name=".\wifi.h" />
 </file>
-<file name=".\Plantcontrol.c" />
+<file name=".\main.c" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\sensors.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
@@ -1393,12 +1289,57 @@
 <dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
 <dep name=".\sensors.c" />
 <dep name=".\sensors.h" />
 </file>
 <file name=".\sensors.c" />
+<file name=".\CortexM0\ARM_GCC_493\Debug\wifi.o">
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_1.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\Fugt.h" />
+<dep name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Lysfoler.h" />
+<dep name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
+<dep name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Pumpe.h" />
+<dep name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\UART.h" />
+<dep name=".\Generated_Source\PSoC4\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
+<dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC4\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC4\cyPm.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC4\cypins.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+<dep name=".\Generated_Source\PSoC4\isr_EOC.h" />
+<dep name=".\Generated_Source\PSoC4\isr_UART.h" />
+<dep name=".\Generated_Source\PSoC4\project.h" />
+<dep name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
+<dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\temperatur.h" />
+<dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
+<dep name=".\Plantcontrol.h" />
+<dep name=".\pump.h" />
+<dep name=".\sensors.h" />
+<dep name=".\wifi.c" />
+<dep name=".\wifi.h" />
+</file>
+<file name=".\wifi.c" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\pump.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
@@ -1439,8 +1380,6 @@
 <dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur.h" />
 <dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
 <dep name=".\pump.c" />
 <dep name=".\pump.h" />
 </file>
@@ -1664,6 +1603,16 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\cyPm.c" />
+<file name=".\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o">
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC4\cyfitter_cfg.c" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\cymetadata.o">
 <dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC4\cyfitter.h" />
@@ -1720,6 +1669,16 @@
 <dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\temperatur.c" />
+<file name=".\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o">
+<dep name=".\Generated_Source\PSoC4\CyBootAsmGnu.s" />
+<dep name=".\Generated_Source\PSoC4\cydevicegnu_trm.inc" />
+<dep name=".\Generated_Source\PSoC4\cyfittergnu.inc" />
+</file>
+<file name=".\Generated_Source\PSoC4\CyBootAsmGnu.s" />
+<file name=".\Generated_Source\PSoC4\cydevicegnu_trm.inc" />
+<file name=".\Generated_Source\PSoC4\cyfittergnu.inc" />
+<file name=".\Generated_Source\PSoC4\temperatur_ref.h" />
+<file name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\temperatur_ref.o">
 <dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC4\cyfitter.h" />
@@ -1730,14 +1689,6 @@
 <dep name=".\Generated_Source\PSoC4\temperatur_ref_aliases.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\temperatur_ref.c" />
-<file name=".\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o">
-<dep name=".\Generated_Source\PSoC4\CyBootAsmGnu.s" />
-<dep name=".\Generated_Source\PSoC4\cydevicegnu_trm.inc" />
-<dep name=".\Generated_Source\PSoC4\cyfittergnu.inc" />
-</file>
-<file name=".\Generated_Source\PSoC4\CyBootAsmGnu.s" />
-<file name=".\Generated_Source\PSoC4\cydevicegnu_trm.inc" />
-<file name=".\Generated_Source\PSoC4\cyfittergnu.inc" />
 <file name=".\Generated_Source\PSoC4\UART_1.h" />
 <file name=".\Generated_Source\PSoC4\UART_1_BOOT.h" />
 <file name=".\Generated_Source\PSoC4\UART_1_PINS.h" />
@@ -1954,7 +1905,6 @@
 <dep name=".\CortexM0\ARM_GCC_493\Debug\Rotor_motor.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Debug\Lysfoler.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Debug\isr_EOC.o" />
-<dep name=".\CortexM0\ARM_GCC_493\Debug\temperatur_ref.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Debug\Clock_1.o" />
 <dep name=".\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o" />
@@ -2032,13 +1982,13 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="130917368791170623" />
+<deps_time v="130923245321261341" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
 <debugger_breakpoint_list>
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\sensors.c" linenumber="283" />
+<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\sensors.c" linenumber="282" />
 </debugger_breakpoint_list>
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>

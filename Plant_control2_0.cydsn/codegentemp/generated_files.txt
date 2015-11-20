@@ -41,9 +41,6 @@
   <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\Lysfoler_aliases.h" value="NONE;Lysfoler" />
   <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\isr_EOC.c" value="ARM_C_FILE;isr_EOC" />
   <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\isr_EOC.h" value="NONE;isr_EOC" />
-  <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\temperatur_ref.c" value="ARM_C_FILE;temperatur_ref" />
-  <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\temperatur_ref.h" value="NONE;temperatur_ref" />
-  <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\temperatur_ref_aliases.h" value="NONE;temperatur_ref" />
   <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\Clock_1.c" value="ARM_C_FILE;Clock_1" />
   <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\Clock_1.h" value="NONE;Clock_1" />
   <file name="C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\codegentemp\Clock_out_capasitiv_sensors.c" value="ARM_C_FILE;Clock_out_capasitiv_sensors" />

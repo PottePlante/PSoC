@@ -141,7 +141,7 @@ typedef struct
 
 /* Determines whether the configuration contains external negative input. */
 #define ADC_SAR_Seq_1_SINGLE_PRESENT                 (0u)
-#define ADC_SAR_Seq_1_CHANNELS_MODE                  (8u)
+#define ADC_SAR_Seq_1_CHANNELS_MODE                  (0u)
 #define ADC_SAR_Seq_1_MAX_CHANNELS_EN_MASK           (0xffffu >> (16u - ADC_SAR_Seq_1_SEQUENCED_CHANNELS_NUM))
 
 

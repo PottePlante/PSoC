@@ -1,11 +1,30 @@
---------------- Build Started: 11/11/2015 18:34:37 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 11/18/2015 13:48:49 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
-arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_intClock.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\Fugt.o .\CortexM0\ARM_GCC_493\Debug\temperatur.o .\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o .\CortexM0\ARM_GCC_493\Debug\Pumpe.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor.o .\CortexM0\ARM_GCC_493\Debug\Lysfoler.o .\CortexM0\ARM_GCC_493\Debug\isr_EOC.o .\CortexM0\ARM_GCC_493\Debug\temperatur_ref.o .\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o .\CortexM0\ARM_GCC_493\Debug\Clock_1.o .\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\isr_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Plantcontrol.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Plantcontrol.c -o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/sensors.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\sensors.c -o .\CortexM0\ARM_GCC_493\Debug\sensors.o
+.\sensors.c: In function 'get_waterlevel':
+.\sensors.c:131:18: warning: unused variable 'bufchar' [-Wunused-variable]
+             char bufchar[50];
+                  ^
+.\sensors.c: In function 'get_temp':
+.\sensors.c:183:18: warning: unused variable 'temp_data' [-Wunused-variable]
+             char temp_data[50];
+                  ^
+.\sensors.c: In function 'get_batterylevel':
+.\sensors.c:220:18: warning: unused variable 'battery_data' [-Wunused-variable]
+             char battery_data[50];
+                  ^
+.\sensors.c: In function 'get_lightlevel':
+.\sensors.c:304:18: warning: unused variable 'light_data' [-Wunused-variable]
+             char light_data[50];
+                  ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/wifi.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\wifi.c -o .\CortexM0\ARM_GCC_493\Debug\wifi.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_intClock.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\Fugt.o .\CortexM0\ARM_GCC_493\Debug\temperatur.o .\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o .\CortexM0\ARM_GCC_493\Debug\Pumpe.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor.o .\CortexM0\ARM_GCC_493\Debug\Lysfoler.o .\CortexM0\ARM_GCC_493\Debug\isr_EOC.o .\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o .\CortexM0\ARM_GCC_493\Debug\Clock_1.o .\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\isr_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o .\CortexM0\ARM_GCC_493\Debug\sensors.o .\CortexM0\ARM_GCC_493\Debug\pump.o .\CortexM0\ARM_GCC_493\Debug\wifi.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Og -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/Plant_control2_0.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf --flash_row_size 128 --flash_size 32768
 cyelftool.exe -S C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf
-Flash used: 16640 of 32768 bytes (50,8 %).
+Flash used: 18432 of 32768 bytes (56,3 %).
 SRAM used: 2916 of 4096 bytes (71,2 %). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 11/11/2015 18:34:39 ---------------
+--------------- Build Succeeded: 11/18/2015 13:48:52 ---------------

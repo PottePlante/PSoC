@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.385ms
+Loading plugins phase: Elapsed time ==> 1s.500ms
 Initializing data phase: Elapsed time ==> 0s.000ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj -d CY8C4245AXI-483 -s C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 2s.647ms
+Elaboration phase: Elapsed time ==> 10s.172ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.088ms
+HDL generation phase: Elapsed time ==> 0s.265ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Laimo
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed Nov 11 16:16:05 2015
+Wed Nov 18 11:04:49 2015
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 Plant_control2_0.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed Nov 11 16:16:05 2015
+Wed Nov 18 11:04:49 2015
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'
@@ -100,7 +100,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Laimo
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed Nov 11 16:16:05 2015
+Wed Nov 18 11:04:49 2015
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -137,7 +137,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Laimo
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed Nov 11 16:16:06 2015
+Wed Nov 18 11:04:51 2015
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -220,7 +220,6 @@ Aliasing tmpOE__Niveau_vandtank_net_0 to \ADC_SAR_Seq_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__Pumpe_net_0 to \ADC_SAR_Seq_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__Rotor_motor_net_0 to \ADC_SAR_Seq_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__Lysfoler_net_0 to \ADC_SAR_Seq_1:tmpOE__Bypass_net_0\
-Aliasing tmpOE__temperatur_ref_net_0 to \ADC_SAR_Seq_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__Clock_out_capasitiv_sensors_net_0 to \ADC_SAR_Seq_1:tmpOE__Bypass_net_0\
 Aliasing Net_166 to \ADC_SAR_Seq_1:Net_3107\
 Aliasing \UART:BUART:tx_hd_send_break\ to \ADC_SAR_Seq_1:Net_3107\
@@ -270,119 +269,118 @@ Removing Lhs of wire \ADC_SAR_Seq_1:Net_17\[143] = \ADC_SAR_Seq_1:Net_1845\[2]
 Removing Lhs of wire \ADC_SAR_Seq_1:Net_3207_1\[165] = zero[87]
 Removing Lhs of wire \ADC_SAR_Seq_1:Net_3207_0\[166] = zero[87]
 Removing Lhs of wire \ADC_SAR_Seq_1:Net_3235\[167] = zero[87]
-Removing Lhs of wire tmpOE__Fugt_net_0[235] = one[92]
-Removing Lhs of wire tmpOE__stromstyring_plus_net_0[241] = one[92]
-Removing Lhs of wire tmpOE__temperatur_net_0[247] = one[92]
-Removing Lhs of wire tmpOE__Niveau_vandtank_net_0[253] = one[92]
-Removing Lhs of wire tmpOE__Pumpe_net_0[259] = one[92]
-Removing Lhs of wire tmpOE__Rotor_motor_net_0[265] = one[92]
-Removing Lhs of wire tmpOE__Lysfoler_net_0[271] = one[92]
-Removing Lhs of wire tmpOE__temperatur_ref_net_0[278] = one[92]
-Removing Lhs of wire tmpOE__Clock_out_capasitiv_sensors_net_0[286] = one[92]
-Removing Rhs of wire Net_710[292] = \UART:BUART:tx_interrupt_out\[314]
-Removing Rhs of wire Net_174[296] = \UART:BUART:rx_interrupt_out\[315]
-Removing Lhs of wire \UART:Net_61\[297] = \UART:Net_9\[294]
-Removing Lhs of wire Net_166[301] = zero[87]
-Removing Lhs of wire \UART:BUART:tx_hd_send_break\[302] = zero[87]
-Removing Lhs of wire \UART:BUART:HalfDuplexSend\[303] = zero[87]
-Removing Lhs of wire \UART:BUART:FinalParityType_1\[304] = zero[87]
-Removing Lhs of wire \UART:BUART:FinalParityType_0\[305] = zero[87]
-Removing Lhs of wire \UART:BUART:FinalAddrMode_2\[306] = zero[87]
-Removing Lhs of wire \UART:BUART:FinalAddrMode_1\[307] = zero[87]
-Removing Lhs of wire \UART:BUART:FinalAddrMode_0\[308] = zero[87]
-Removing Lhs of wire \UART:BUART:tx_ctrl_mark\[309] = zero[87]
-Removing Rhs of wire \UART:BUART:tx_bitclk_enable_pre\[319] = \UART:BUART:tx_bitclk_dp\[355]
-Removing Lhs of wire \UART:BUART:tx_counter_tc\[365] = \UART:BUART:tx_counter_dp\[356]
-Removing Lhs of wire \UART:BUART:tx_status_6\[366] = zero[87]
-Removing Lhs of wire \UART:BUART:tx_status_5\[367] = zero[87]
-Removing Lhs of wire \UART:BUART:tx_status_4\[368] = zero[87]
-Removing Lhs of wire \UART:BUART:tx_status_1\[370] = \UART:BUART:tx_fifo_empty\[333]
-Removing Lhs of wire \UART:BUART:tx_status_3\[372] = \UART:BUART:tx_fifo_notfull\[332]
-Removing Rhs of wire \UART:BUART:rx_count7_bit8_wire\[432] = \UART:BUART:rx_count7_bit8\[433]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_1\[441] = \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_1\[452]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_0\[443] = \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_0\[453]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_2\[444] = \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_0\[469]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\[445] = \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\[483]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_1\[446] = \UART:BUART:sRX:s23Poll:MODIN1_1\[447]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN1_1\[447] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_0\[448] = \UART:BUART:sRX:s23Poll:MODIN1_0\[449]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN1_0\[449] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[455] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[456] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_1\[457] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_1\[458] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_0\[459] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_0\[460] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_1\[461] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_0\[462] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_1\[463] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_0\[464] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_1\[465] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_0\[466] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\[471] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_1\[472] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\[473] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_0\[474] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\[475] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\[476] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\[477] = \UART:BUART:pollcount_1\[439]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\[478] = \UART:BUART:pollcount_0\[442]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\[479] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\[480] = zero[87]
-Removing Lhs of wire \UART:BUART:rx_status_1\[487] = zero[87]
-Removing Rhs of wire \UART:BUART:rx_status_2\[488] = \UART:BUART:rx_parity_error_status\[489]
-Removing Rhs of wire \UART:BUART:rx_status_3\[490] = \UART:BUART:rx_stop_bit_error\[491]
-Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_4\[501] = \UART:BUART:sRX:MODULE_4:g2:a0:lta_0\[549]
-Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_5\[505] = \UART:BUART:sRX:MODULE_5:g1:a0:xneq\[571]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_6\[506] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_5\[507] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_4\[508] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_3\[509] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_2\[510] = \UART:BUART:sRX:MODIN4_6\[511]
-Removing Lhs of wire \UART:BUART:sRX:MODIN4_6\[511] = \UART:BUART:rx_count_6\[428]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_1\[512] = \UART:BUART:sRX:MODIN4_5\[513]
-Removing Lhs of wire \UART:BUART:sRX:MODIN4_5\[513] = \UART:BUART:rx_count_5\[429]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_0\[514] = \UART:BUART:sRX:MODIN4_4\[515]
-Removing Lhs of wire \UART:BUART:sRX:MODIN4_4\[515] = \UART:BUART:rx_count_4\[430]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_6\[516] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_5\[517] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_4\[518] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_3\[519] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_2\[520] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_1\[521] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_0\[522] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_6\[523] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_5\[524] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_4\[525] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_3\[526] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_2\[527] = \UART:BUART:rx_count_6\[428]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_1\[528] = \UART:BUART:rx_count_5\[429]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_0\[529] = \UART:BUART:rx_count_4\[430]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_6\[530] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_5\[531] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_4\[532] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_3\[533] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_2\[534] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_1\[535] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_0\[536] = zero[87]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:newa_0\[551] = \UART:BUART:rx_postpoll\[386]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:newb_0\[552] = \UART:BUART:rx_parity_bit\[504]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:dataa_0\[553] = \UART:BUART:rx_postpoll\[386]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:datab_0\[554] = \UART:BUART:rx_parity_bit\[504]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:a_0\[555] = \UART:BUART:rx_postpoll\[386]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:b_0\[556] = \UART:BUART:rx_parity_bit\[504]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_0\[558] = one[92]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eq_0\[559] = \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\[557]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eqi_0\[560] = \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\[557]
-Removing Lhs of wire tmpOE__Rx_1_net_0[582] = one[92]
-Removing Lhs of wire tmpOE__Tx_1_net_0[587] = one[92]
-Removing Lhs of wire \UART:BUART:reset_reg\\D\[593] = zero[87]
-Removing Lhs of wire Net_707D[598] = zero[87]
-Removing Lhs of wire \UART:BUART:rx_parity_error_pre\\D\[618] = \UART:BUART:rx_parity_error_pre\[499]
-Removing Lhs of wire \UART:BUART:rx_break_status\\D\[619] = zero[87]
+Removing Lhs of wire tmpOE__Fugt_net_0[234] = one[92]
+Removing Lhs of wire tmpOE__stromstyring_plus_net_0[240] = one[92]
+Removing Lhs of wire tmpOE__temperatur_net_0[246] = one[92]
+Removing Lhs of wire tmpOE__Niveau_vandtank_net_0[252] = one[92]
+Removing Lhs of wire tmpOE__Pumpe_net_0[258] = one[92]
+Removing Lhs of wire tmpOE__Rotor_motor_net_0[264] = one[92]
+Removing Lhs of wire tmpOE__Lysfoler_net_0[270] = one[92]
+Removing Lhs of wire tmpOE__Clock_out_capasitiv_sensors_net_0[279] = one[92]
+Removing Rhs of wire Net_710[285] = \UART:BUART:tx_interrupt_out\[307]
+Removing Rhs of wire Net_174[289] = \UART:BUART:rx_interrupt_out\[308]
+Removing Lhs of wire \UART:Net_61\[290] = \UART:Net_9\[287]
+Removing Lhs of wire Net_166[294] = zero[87]
+Removing Lhs of wire \UART:BUART:tx_hd_send_break\[295] = zero[87]
+Removing Lhs of wire \UART:BUART:HalfDuplexSend\[296] = zero[87]
+Removing Lhs of wire \UART:BUART:FinalParityType_1\[297] = zero[87]
+Removing Lhs of wire \UART:BUART:FinalParityType_0\[298] = zero[87]
+Removing Lhs of wire \UART:BUART:FinalAddrMode_2\[299] = zero[87]
+Removing Lhs of wire \UART:BUART:FinalAddrMode_1\[300] = zero[87]
+Removing Lhs of wire \UART:BUART:FinalAddrMode_0\[301] = zero[87]
+Removing Lhs of wire \UART:BUART:tx_ctrl_mark\[302] = zero[87]
+Removing Rhs of wire \UART:BUART:tx_bitclk_enable_pre\[312] = \UART:BUART:tx_bitclk_dp\[348]
+Removing Lhs of wire \UART:BUART:tx_counter_tc\[358] = \UART:BUART:tx_counter_dp\[349]
+Removing Lhs of wire \UART:BUART:tx_status_6\[359] = zero[87]
+Removing Lhs of wire \UART:BUART:tx_status_5\[360] = zero[87]
+Removing Lhs of wire \UART:BUART:tx_status_4\[361] = zero[87]
+Removing Lhs of wire \UART:BUART:tx_status_1\[363] = \UART:BUART:tx_fifo_empty\[326]
+Removing Lhs of wire \UART:BUART:tx_status_3\[365] = \UART:BUART:tx_fifo_notfull\[325]
+Removing Rhs of wire \UART:BUART:rx_count7_bit8_wire\[425] = \UART:BUART:rx_count7_bit8\[426]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_1\[434] = \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_1\[445]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_1_0\[436] = \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:s_0\[446]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_2\[437] = \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:lta_0\[462]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\[438] = \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\[476]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_1\[439] = \UART:BUART:sRX:s23Poll:MODIN1_1\[440]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN1_1\[440] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:a_0\[441] = \UART:BUART:sRX:s23Poll:MODIN1_0\[442]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN1_0\[442] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[448] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[449] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_1\[450] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_1\[451] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newa_0\[452] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_0\[453] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_1\[454] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:newb_0\[455] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_1\[456] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:dataa_0\[457] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_1\[458] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:datab_0\[459] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\[464] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_1\[465] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\[466] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_0\[467] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\[468] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\[469] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\[470] = \UART:BUART:pollcount_1\[432]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\[471] = \UART:BUART:pollcount_0\[435]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\[472] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\[473] = zero[87]
+Removing Lhs of wire \UART:BUART:rx_status_1\[480] = zero[87]
+Removing Rhs of wire \UART:BUART:rx_status_2\[481] = \UART:BUART:rx_parity_error_status\[482]
+Removing Rhs of wire \UART:BUART:rx_status_3\[483] = \UART:BUART:rx_stop_bit_error\[484]
+Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_4\[494] = \UART:BUART:sRX:MODULE_4:g2:a0:lta_0\[542]
+Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_5\[498] = \UART:BUART:sRX:MODULE_5:g1:a0:xneq\[564]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_6\[499] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_5\[500] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_4\[501] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_3\[502] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_2\[503] = \UART:BUART:sRX:MODIN4_6\[504]
+Removing Lhs of wire \UART:BUART:sRX:MODIN4_6\[504] = \UART:BUART:rx_count_6\[421]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_1\[505] = \UART:BUART:sRX:MODIN4_5\[506]
+Removing Lhs of wire \UART:BUART:sRX:MODIN4_5\[506] = \UART:BUART:rx_count_5\[422]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newa_0\[507] = \UART:BUART:sRX:MODIN4_4\[508]
+Removing Lhs of wire \UART:BUART:sRX:MODIN4_4\[508] = \UART:BUART:rx_count_4\[423]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_6\[509] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_5\[510] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_4\[511] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_3\[512] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_2\[513] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_1\[514] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:newb_0\[515] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_6\[516] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_5\[517] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_4\[518] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_3\[519] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_2\[520] = \UART:BUART:rx_count_6\[421]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_1\[521] = \UART:BUART:rx_count_5\[422]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:dataa_0\[522] = \UART:BUART:rx_count_4\[423]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_6\[523] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_5\[524] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_4\[525] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_3\[526] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_2\[527] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_1\[528] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_4:g2:a0:datab_0\[529] = zero[87]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:newa_0\[544] = \UART:BUART:rx_postpoll\[379]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:newb_0\[545] = \UART:BUART:rx_parity_bit\[497]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:dataa_0\[546] = \UART:BUART:rx_postpoll\[379]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:datab_0\[547] = \UART:BUART:rx_parity_bit\[497]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:a_0\[548] = \UART:BUART:rx_postpoll\[379]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:b_0\[549] = \UART:BUART:rx_parity_bit\[497]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:aeqb_0\[551] = one[92]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eq_0\[552] = \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\[550]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:eqi_0\[553] = \UART:BUART:sRX:MODULE_5:g1:a0:gx:u0:xnor_array_0\[550]
+Removing Lhs of wire tmpOE__Rx_1_net_0[575] = one[92]
+Removing Lhs of wire tmpOE__Tx_1_net_0[580] = one[92]
+Removing Lhs of wire \UART:BUART:reset_reg\\D\[586] = zero[87]
+Removing Lhs of wire Net_707D[591] = zero[87]
+Removing Lhs of wire \UART:BUART:rx_parity_error_pre\\D\[611] = \UART:BUART:rx_parity_error_pre\[492]
+Removing Lhs of wire \UART:BUART:rx_break_status\\D\[612] = zero[87]
 
 ------------------------------------------------------
-Aliased 0 equations, 120 wires.
+Aliased 0 equations, 119 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -531,15 +529,15 @@ Aliasing \UART:BUART:rx_status_6\ to zero
 Aliasing \UART:BUART:rx_markspace_status\\D\ to zero
 Aliasing \UART:BUART:rx_parity_error_status\\D\ to zero
 Aliasing \UART:BUART:rx_addr_match_status\\D\ to zero
-Removing Rhs of wire \UART:BUART:rx_bitclk_enable\[385] = \UART:BUART:rx_bitclk\[434]
-Removing Lhs of wire \UART:BUART:rx_status_0\[485] = zero[87]
-Removing Lhs of wire \UART:BUART:rx_status_6\[494] = zero[87]
-Removing Lhs of wire \UART:BUART:tx_ctrl_mark_last\\D\[600] = \UART:BUART:tx_ctrl_mark_last\[376]
-Removing Lhs of wire \UART:BUART:rx_markspace_status\\D\[613] = zero[87]
-Removing Lhs of wire \UART:BUART:rx_parity_error_status\\D\[614] = zero[87]
-Removing Lhs of wire \UART:BUART:rx_addr_match_status\\D\[616] = zero[87]
-Removing Lhs of wire \UART:BUART:rx_markspace_pre\\D\[617] = \UART:BUART:rx_markspace_pre\[498]
-Removing Lhs of wire \UART:BUART:rx_parity_bit\\D\[622] = \UART:BUART:rx_parity_bit\[504]
+Removing Rhs of wire \UART:BUART:rx_bitclk_enable\[378] = \UART:BUART:rx_bitclk\[427]
+Removing Lhs of wire \UART:BUART:rx_status_0\[478] = zero[87]
+Removing Lhs of wire \UART:BUART:rx_status_6\[487] = zero[87]
+Removing Lhs of wire \UART:BUART:tx_ctrl_mark_last\\D\[593] = \UART:BUART:tx_ctrl_mark_last\[369]
+Removing Lhs of wire \UART:BUART:rx_markspace_status\\D\[606] = zero[87]
+Removing Lhs of wire \UART:BUART:rx_parity_error_status\\D\[607] = zero[87]
+Removing Lhs of wire \UART:BUART:rx_addr_match_status\\D\[609] = zero[87]
+Removing Lhs of wire \UART:BUART:rx_markspace_pre\\D\[610] = \UART:BUART:rx_markspace_pre\[491]
+Removing Lhs of wire \UART:BUART:rx_parity_bit\\D\[615] = \UART:BUART:rx_parity_bit\[497]
 
 ------------------------------------------------------
 Aliased 0 equations, 9 wires.
@@ -578,14 +576,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj -dcpsoc3 Plant_control2_0.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 1s.032ms
+Warp synthesis phase: Elapsed time ==> 3s.891ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V3.3.0.410, Family: PSoC3, Started at: Wednesday, 11 November 2015 16:16:06
+cyp3fit: V3.3.0.410, Family: PSoC3, Started at: Wednesday, 18 November 2015 11:04:52
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj -d CY8C4245AXI-483 Plant_control2_0.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.064ms
+Design parsing phase: Elapsed time ==> 0s.062ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -1023,46 +1021,6 @@ Design Equations
             pa_out => Lysfoler(0)__PA ,
             analog_term => Net_501 ,
             pad => Lysfoler(0)_PAD );
-
-    Pin : Name = temperatur_ref(0)
-        Attributes:
-            In Group/Port: True
-            In Sync Option: AUTO
-            Out Sync Option: AUTO
-            Interrupt generated: False
-            Interrupt mode: NONE
-            Drive mode: HI_Z_ANALOG
-            VTrip: EITHER
-            Slew: FAST
-            Input Sync needed: False
-            Output Sync needed: False
-            SC shield enabled: False
-            POR State: ANY
-            LCD Mode: COMMON
-            Register Mode: RegComb
-            CaSense Mode: NEITHER
-            Treat as pin: True
-            Is OE Registered: False
-            Uses Analog: True
-            Can contain Digital: False
-            Is SIO: False
-            SIO Output Buf: NONREGULATED
-            SIO Input Buf: SINGLE_ENDED
-            SIO HiFreq: LOW
-            SIO Hyst: DISABLED
-            SIO Vtrip: MULTIPLIER_0_5
-            SIO Multiplier Index: 0
-            SIO RefSel: VCC_IO
-            Required Capabilitites: ANALOG
-            Initial Value: 1
-            IO Voltage: 0
-        PORT MAP (
-            pa_out => temperatur_ref(0)__PA ,
-            analog_term => Net_679 ,
-            pad => temperatur_ref(0)_PAD );
-        Properties:
-        {
-        }
 
     Pin : Name = Clock_out_capasitiv_sensors(0)
         Attributes:
@@ -1870,7 +1828,7 @@ Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
 Digital Clocks                :    2 :    2 :    4 : 50.00 %
 Interrupts                    :    5 :   27 :   32 : 15.63 %
-IO                            :   14 :   22 :   36 : 38.89 %
+IO                            :   13 :   23 :   36 : 36.11 %
 Segment LCD                   :    0 :    1 :    1 :  0.00 %
 CapSense                      :    0 :    1 :    1 :  0.00 %
 Die Temp                      :    0 :    1 :    1 :  0.00 %
@@ -1893,20 +1851,20 @@ DAC                           :      :      :      :
   7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
   8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.064ms
-Tech mapping phase: Elapsed time ==> 0s.100ms
+Technology Mapping: Elapsed time ==> 0s.250ms
+Tech mapping phase: Elapsed time ==> 0s.390ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="Analog Placement">
-Elapsed time ==> 0.1445282s
+Elapsed time ==> 0.5143995s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.335ms
+Analog Placement phase: Elapsed time ==> 1s.250ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0260867 secs
+Route success=True, Iterations=1 Elapsed=0.0755832 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.027ms
+Analog Routing phase: Elapsed time ==> 0s.078ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1922,13 +1880,10 @@ Map of net to items {
     p2_6
   }
   Net: Net_501 {
-    p2_3
+    p2_5
   }
   Net: Net_650 {
     p2_0
-  }
-  Net: Net_679 {
-    p2_5
   }
   Net: \ADC_SAR_Seq_1:Net_1851\ {
   }
@@ -1942,6 +1897,8 @@ Map of net to items {
   Net: \ADC_SAR_Seq_1:mux_bus_minus_0\ {
   }
   Net: \ADC_SAR_Seq_1:mux_bus_minus_1\ {
+  }
+  Net: \ADC_SAR_Seq_1:mux_bus_minus_2\ {
   }
   Net: \ADC_SAR_Seq_1:mux_bus_minus_3\ {
   }
@@ -1959,22 +1916,20 @@ Map of net to items {
     SARMUX0_sw7
     SARMUX0_sw4
     SARMUX0_sw6
-    SARMUX0_sw3
+    SARMUX0_sw5
   }
   Net: \ADC_SAR_Seq_1:muxout_minus\ {
     sarmux_vminus
   }
   Net: AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_B {
-    SARMUX0_sw13
   }
 }
 Map of item to net {
   p2_7                                             -> Net_306
   p2_4                                             -> Net_314
   p2_6                                             -> Net_321
-  p2_3                                             -> Net_501
+  p2_5                                             -> Net_501
   p2_0                                             -> Net_650
-  p2_5                                             -> Net_679
   p1_7                                             -> \ADC_SAR_Seq_1:Net_3225\
   swh_1                                            -> \ADC_SAR_Seq_1:Net_3225\
   Net_2120                                         -> \ADC_SAR_Seq_1:Net_3225\
@@ -1983,9 +1938,8 @@ Map of item to net {
   SARMUX0_sw7                                      -> AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
   SARMUX0_sw4                                      -> AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
   SARMUX0_sw6                                      -> AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
-  SARMUX0_sw3                                      -> AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  SARMUX0_sw5                                      -> AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
   sarmux_vminus                                    -> \ADC_SAR_Seq_1:muxout_minus\
-  SARMUX0_sw13                                     -> AMuxNet::\ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_B
 }
 Mux Info {
   Mux: \ADC_SAR_Seq_1:cy_psoc4_sarmux_8\_CYAMUXSIDE_A {
@@ -2032,11 +1986,11 @@ Mux Info {
     }
     Arm: 4 {
       Net:   Net_501
-      Outer: SARMUX0_sw3
+      Outer: SARMUX0_sw5
       Inner: __open__
       Path {
-        SARMUX0_sw3
-        p2_3
+        SARMUX0_sw5
+        p2_5
       }
     }
   }
@@ -2061,12 +2015,10 @@ Mux Info {
       }
     }
     Arm: 2 {
-      Net:   Net_679
-      Outer: SARMUX0_sw13
+      Net:   \ADC_SAR_Seq_1:Net_1851\
+      Outer: __open__
       Inner: __open__
       Path {
-        SARMUX0_sw13
-        p2_5
       }
     }
     Arm: 3 {
@@ -2085,11 +2037,11 @@ Mux Info {
     }
   }
 }
-Analog Code Generation phase: Elapsed time ==> 0s.054ms
+Analog Code Generation phase: Elapsed time ==> 0s.062ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 0.6 sec.
+I2076: Total run-time: 2.0 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -2113,17 +2065,17 @@ PLD Packing Summary
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.001ms
+PLD Packing: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.015ms
+Partitioning: Elapsed time ==> 0s.062ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Simulated Annealing">
-Annealing: Elapsed time ==> 0s.001ms
+Annealing: Elapsed time ==> 0s.000ms
 <CYPRESSTAG name="Simulated Annealing Results">
 The seed used for moves was 114161200.
 Inital cost was 174, final cost is 174 (0.00% improvement).</CYPRESSTAG>
@@ -3188,47 +3140,6 @@ Pin : Name = Fugt(0)
     {
     }
 
-[IoId=3]: 
-Pin : Name = Lysfoler(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: AUTO
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: HI_Z_ANALOG
-        VTrip: EITHER
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: ANY
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: True
-        Can contain Digital: False
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilitites: ANALOG
-        Initial Value: 1
-        IO Voltage: 3.3
-    PORT MAP (
-        pa_out => Lysfoler(0)__PA ,
-        analog_term => Net_501 ,
-        pad => Lysfoler(0)_PAD );
-    Properties:
-    {
-    }
-
 [IoId=4]: 
 Pin : Name = temperatur(0)
     Attributes:
@@ -3271,7 +3182,7 @@ Pin : Name = temperatur(0)
     }
 
 [IoId=5]: 
-Pin : Name = temperatur_ref(0)
+Pin : Name = Lysfoler(0)
     Attributes:
         In Group/Port: True
         In Sync Option: AUTO
@@ -3302,11 +3213,11 @@ Pin : Name = temperatur_ref(0)
         SIO RefSel: VCC_IO
         Required Capabilitites: ANALOG
         Initial Value: 1
-        IO Voltage: 0
+        IO Voltage: 3.3
     PORT MAP (
-        pa_out => temperatur_ref(0)__PA ,
-        analog_term => Net_679 ,
-        pad => temperatur_ref(0)_PAD );
+        pa_out => Lysfoler(0)__PA ,
+        analog_term => Net_501 ,
+        pad => Lysfoler(0)_PAD );
     Properties:
     {
     }
@@ -3485,7 +3396,7 @@ Blocks not positioned by the digital component placer:
             muxin_plus_0 => Net_650 ,
             muxin_minus_4 => \ADC_SAR_Seq_1:mux_bus_minus_4\ ,
             muxin_minus_3 => \ADC_SAR_Seq_1:mux_bus_minus_3\ ,
-            muxin_minus_2 => Net_679 ,
+            muxin_minus_2 => \ADC_SAR_Seq_1:mux_bus_minus_2\ ,
             muxin_minus_1 => \ADC_SAR_Seq_1:mux_bus_minus_1\ ,
             muxin_minus_0 => \ADC_SAR_Seq_1:mux_bus_minus_0\ ,
             cmn_neg => \ADC_SAR_Seq_1:Net_1851\ ,
@@ -3494,7 +3405,7 @@ Blocks not positioned by the digital component placer:
         Properties:
         {
             cy_registers = ""
-            input_mode = "00100"
+            input_mode = "00000"
             muxin_width = 5
         }
 </CYPRESSTAG>
@@ -3515,41 +3426,40 @@ Port | Pin | Fixed |      Type |       Drive Mode |                           Na
    1 |   7 |     * |      NONE |      HI_Z_ANALOG |      \ADC_SAR_Seq_1:Bypass(0)\ | Analog(\ADC_SAR_Seq_1:Net_3225\)
 -----+-----+-------+-----------+------------------+--------------------------------+---------------------------------
    2 |   0 |       |      NONE |      HI_Z_ANALOG |                        Fugt(0) | Analog(Net_650)
-     |   3 |       |      NONE |      HI_Z_ANALOG |                    Lysfoler(0) | Analog(Net_501)
      |   4 |     * |      NONE |      HI_Z_ANALOG |                  temperatur(0) | Analog(Net_314)
-     |   5 |     * |      NONE |      HI_Z_ANALOG |              temperatur_ref(0) | Analog(Net_679)
+     |   5 |       |      NONE |      HI_Z_ANALOG |                    Lysfoler(0) | Analog(Net_501)
      |   6 |       |      NONE |      HI_Z_ANALOG |             Niveau_vandtank(0) | Analog(Net_321)
      |   7 |       |      NONE |      HI_Z_ANALOG |           stromstyring_plus(0) | Analog(Net_306)
 ---------------------------------------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.002ms
-Digital Placement phase: Elapsed time ==> 0s.894ms
+Digital component placer commit/Report: Elapsed time ==> 0s.000ms
+Digital Placement phase: Elapsed time ==> 2s.984ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.936ms
+Digital Routing phase: Elapsed time ==> 3s.303ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream and API generation">
-Bitstream and API generation phase: Elapsed time ==> 0s.238ms
+Bitstream and API generation phase: Elapsed time ==> 0s.732ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream verification">
-Bitstream verification phase: Elapsed time ==> 0s.051ms
+Bitstream verification phase: Elapsed time ==> 0s.234ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in Plant_control2_0_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.637ms
+Static timing analysis phase: Elapsed time ==> 1s.140ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.210ms
+Design database save phase: Elapsed time ==> 0s.781ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 3s.572ms
+cydsfit: Elapsed time ==> 11s.082ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 3s.775ms
-API generation phase: Elapsed time ==> 1s.150ms
-Dependency generation phase: Elapsed time ==> 0s.018ms
-Cleanup phase: Elapsed time ==> 0s.001ms
+Fitter phase: Elapsed time ==> 11s.254ms
+API generation phase: Elapsed time ==> 4s.348ms
+Dependency generation phase: Elapsed time ==> 0s.046ms
+Cleanup phase: Elapsed time ==> 0s.000ms

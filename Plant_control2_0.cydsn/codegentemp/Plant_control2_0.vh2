@@ -2,7 +2,7 @@
 --	Conversion of Plant_control2_0.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Nov 11 16:16:06 2015
+--	Wed Nov 18 11:04:52 2015
 --
 
 USE cypress.cypress.all;
@@ -142,7 +142,6 @@ TERMINAL \ADC_SAR_Seq_1:mux_bus_plus_12\ : bit;
 TERMINAL \ADC_SAR_Seq_1:mux_bus_plus_13\ : bit;
 TERMINAL \ADC_SAR_Seq_1:mux_bus_plus_14\ : bit;
 TERMINAL \ADC_SAR_Seq_1:mux_bus_plus_15\ : bit;
-TERMINAL Net_679 : bit;
 TERMINAL \ADC_SAR_Seq_1:mux_bus_minus_6\ : bit;
 TERMINAL \ADC_SAR_Seq_1:mux_bus_minus_7\ : bit;
 TERMINAL \ADC_SAR_Seq_1:mux_bus_minus_8\ : bit;
@@ -189,11 +188,6 @@ SIGNAL tmpFB_0__Lysfoler_net_0 : bit;
 SIGNAL tmpIO_0__Lysfoler_net_0 : bit;
 TERMINAL tmpSIOVREF__Lysfoler_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Lysfoler_net_0 : bit;
-SIGNAL tmpOE__temperatur_ref_net_0 : bit;
-SIGNAL tmpFB_0__temperatur_ref_net_0 : bit;
-SIGNAL tmpIO_0__temperatur_ref_net_0 : bit;
-TERMINAL tmpSIOVREF__temperatur_ref_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__temperatur_ref_net_0 : bit;
 SIGNAL Net_697 : bit;
 SIGNAL tmpOE__Clock_out_capasitiv_sensors_net_0 : bit;
 SIGNAL tmpFB_0__Clock_out_capasitiv_sensors_net_0 : bit;
@@ -948,7 +942,7 @@ Net_705 <= (not \UART:BUART:txn\);
 \ADC_SAR_Seq_1:cy_psoc4_sarmux_8\:cy_psoc4_sarmux_v1_0
 	GENERIC MAP(cy_registers=>"",
 		muxin_width=>5,
-		input_mode=>"00100")
+		input_mode=>"00000")
 	PORT MAP(muxin_plus=>(\ADC_SAR_Seq_1:Net_1450_4\, \ADC_SAR_Seq_1:Net_1450_3\, \ADC_SAR_Seq_1:Net_1450_2\, \ADC_SAR_Seq_1:Net_1450_1\,
 			\ADC_SAR_Seq_1:Net_1450_0\),
 		muxin_minus=>(\ADC_SAR_Seq_1:Net_2375_4\, \ADC_SAR_Seq_1:Net_2375_3\, \ADC_SAR_Seq_1:Net_2375_2\, \ADC_SAR_Seq_1:Net_2375_1\,
@@ -1055,7 +1049,7 @@ Net_705 <= (not \UART:BUART:txn\);
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC_SAR_Seq_1:mux_bus_minus_2\,
-		signal2=>Net_679);
+		signal2=>\ADC_SAR_Seq_1:Net_3168\);
 \ADC_SAR_Seq_1:cy_analog_virtualmux_vminus3_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
@@ -1631,76 +1625,6 @@ Lysfoler:cy_psoc3_pins_v1_10
 isr_EOC:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
 	PORT MAP(int_signal=>Net_506);
-temperatur_ref:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"e0a7c900-1d11-4a85-a070-001f7ac9b239",
-		drive_mode=>"000",
-		ibuf_enabled=>"0",
-		init_dr_st=>"1",
-		input_sync=>"1",
-		input_clk_en=>'0',
-		input_sync_mode=>"0",
-		intr_mode=>"00",
-		invert_in_clock=>'0',
-		invert_in_clock_en=>'0',
-		invert_in_reset=>'0',
-		invert_out_clock=>'0',
-		invert_out_clock_en=>'0',
-		invert_out_reset=>'0',
-		io_voltage=>"",
-		layout_mode=>"CONTIGUOUS",
-		output_conn=>"0",
-		output_sync=>"0",
-		output_clk_en=>'0',
-		output_mode=>"0",
-		output_reset=>'0',
-		output_clock_mode=>"0",
-		oe_sync=>"0",
-		oe_conn=>"0",
-		oe_reset=>'0',
-		pin_aliases=>"",
-		pin_mode=>"A",
-		por_state=>4,
-		sio_group_cnt=>0,
-		sio_hifreq=>"",
-		sio_hyst=>"1",
-		sio_ibuf=>"00000000",
-		sio_info=>"00",
-		sio_obuf=>"00000000",
-		sio_refsel=>"00000000",
-		sio_vtrip=>"00000000",
-		sio_vohsel=>"",
-		slew_rate=>"0",
-		spanning=>'0',
-		sw_only=>'0',
-		vtrip=>"10",
-		width=>1,
-		port_alias_required=>'0',
-		port_alias_group=>"",
-		use_annotation=>"0",
-		pa_in_clock=>-1,
-		pa_in_clock_en=>-1,
-		pa_in_reset=>-1,
-		pa_out_clock=>-1,
-		pa_out_clock_en=>-1,
-		pa_out_reset=>-1,
-		ovt_needed=>"0",
-		ovt_slew_control=>"00",
-		ovt_hyst_trim=>"0",
-		input_buffer_sel=>"00")
-	PORT MAP(oe=>(one),
-		y=>(zero),
-		fb=>(tmpFB_0__temperatur_ref_net_0),
-		analog=>Net_679,
-		io=>(tmpIO_0__temperatur_ref_net_0),
-		siovref=>(tmpSIOVREF__temperatur_ref_net_0),
-		annotation=>(open),
-		in_clock=>zero,
-		in_clock_en=>one,
-		in_reset=>zero,
-		out_clock=>zero,
-		out_clock_en=>one,
-		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__temperatur_ref_net_0);
 Clock_1:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"4b58f892-097b-42b1-99f7-fb22790b57ab",
