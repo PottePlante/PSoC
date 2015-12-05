@@ -30,27 +30,28 @@ int main()
     
     initPSoCWiFi(SSID,PASS,DevKitIP);
     
-    
     for(;;)
     {
-       //tick();
+    //   tick();
         updateSensors();
         CyDelay(50);
         
         if(count == 6)
         {      
-            //UART_PutString("Count is 6\r\n");
             sendSensorData(sensors_);
             count = 0;
         }
         
+        //Rotere
+        rotate(wantedRotate);
+        wantedRotate = 0;
+        
+        //Pumpe
         if(wantedMoisture >= sensors_.currentMoisture)  //hvis den værdi devkit sender er større end sensors værdi så pumpes der
         {
-            //startPumpingWater();
             Pumpe_Write(1);
             CyDelay(1000);
             Pumpe_Write(0);
-            
         }
        // else //(count == 5 && wantedMoisture <= sensors_.currentMoisture )
         //    UART_PutString("plant is moist :D\r\n");

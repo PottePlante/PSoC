@@ -1,6 +1,6 @@
 // ======================================================================
 // Plant_control2_0.v generated from TopDesign.cysch
-// 11/18/2015 at 11:04
+// 12/05/2015 at 20:11
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -921,23 +921,23 @@ module top ;
           wire  Net_705;
           wire  Net_704;
           wire  Net_702;
-          wire  Net_445;
-          wire  Net_444;
-          wire  Net_442;
-    electrical  Net_441;
+          wire  Net_850;
+          wire  Net_849;
+          wire  Net_848;
+    electrical  Net_847;
+          wire  Net_506;
+    electrical  Net_650;
+    electrical  Net_306;
+    electrical  Net_314;
+    electrical  Net_321;
+    electrical  Net_501;
           wire  Net_174;
           wire  Net_166;
           wire  Net_697;
-    electrical  Net_650;
-          wire  Net_506;
-    electrical  Net_501;
-    electrical  Net_321;
-    electrical  Net_314;
-    electrical  Net_306;
 
     ADC_SAR_SEQ_P4_v2_20_0 ADC_SAR_Seq_1 (
-        .Vref(Net_441),
-        .sdone(Net_442),
+        .Vref(Net_847),
+        .sdone(Net_848),
         .eoc(Net_506),
         .aclk(1'b0),
         .soc(1'b0),
@@ -1316,79 +1316,6 @@ module top ;
 
 	assign tmpOE__Pumpe_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-	wire [0:0] tmpOE__Rotor_motor_net;
-	wire [0:0] tmpFB_0__Rotor_motor_net;
-	wire [0:0] tmpIO_0__Rotor_motor_net;
-	wire [0:0] tmpINTERRUPT_0__Rotor_motor_net;
-	electrical [0:0] tmpSIOVREF__Rotor_motor_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("de980455-8318-4e31-82a1-d4c905370f28"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b0),
-		  .input_clk_en(0),
-		  .input_sync(1'b1),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("O"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b1),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b0),
-		  .vtrip(2'b10),
-		  .width(1),
-		  .ovt_hyst_trim(1'b0),
-		  .ovt_needed(1'b0),
-		  .ovt_slew_control(2'b00),
-		  .input_buffer_sel(2'b00))
-		Rotor_motor
-		 (.oe(tmpOE__Rotor_motor_net),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__Rotor_motor_net[0:0]}),
-		  .io({tmpIO_0__Rotor_motor_net[0:0]}),
-		  .siovref(tmpSIOVREF__Rotor_motor_net),
-		  .interrupt({tmpINTERRUPT_0__Rotor_motor_net[0:0]}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__Rotor_motor_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
 	wire [0:0] tmpOE__Lysfoler_net;
 	wire [0:0] tmpFB_0__Lysfoler_net;
 	wire [0:0] tmpIO_0__Lysfoler_net;
@@ -1735,6 +1662,298 @@ module top ;
 		isr_UART
 		 (.int_signal(Net_174));
 
+
+	wire [0:0] tmpOE__Rotor_motor1_plus_BLK_net;
+	wire [0:0] tmpFB_0__Rotor_motor1_plus_BLK_net;
+	wire [0:0] tmpIO_0__Rotor_motor1_plus_BLK_net;
+	wire [0:0] tmpINTERRUPT_0__Rotor_motor1_plus_BLK_net;
+	electrical [0:0] tmpSIOVREF__Rotor_motor1_plus_BLK_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("d6f1c306-d6e6-4dc8-b24c-a7f1c34d33d4"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Rotor_motor1_plus_BLK
+		 (.oe(tmpOE__Rotor_motor1_plus_BLK_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__Rotor_motor1_plus_BLK_net[0:0]}),
+		  .io({tmpIO_0__Rotor_motor1_plus_BLK_net[0:0]}),
+		  .siovref(tmpSIOVREF__Rotor_motor1_plus_BLK_net),
+		  .interrupt({tmpINTERRUPT_0__Rotor_motor1_plus_BLK_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Rotor_motor1_plus_BLK_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Rotor_motor2_plus_RED_net;
+	wire [0:0] tmpFB_0__Rotor_motor2_plus_RED_net;
+	wire [0:0] tmpIO_0__Rotor_motor2_plus_RED_net;
+	wire [0:0] tmpINTERRUPT_0__Rotor_motor2_plus_RED_net;
+	electrical [0:0] tmpSIOVREF__Rotor_motor2_plus_RED_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("1ca83b1a-0904-4d1a-a7e9-20bf2d5621cf"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Rotor_motor2_plus_RED
+		 (.oe(tmpOE__Rotor_motor2_plus_RED_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__Rotor_motor2_plus_RED_net[0:0]}),
+		  .io({tmpIO_0__Rotor_motor2_plus_RED_net[0:0]}),
+		  .siovref(tmpSIOVREF__Rotor_motor2_plus_RED_net),
+		  .interrupt({tmpINTERRUPT_0__Rotor_motor2_plus_RED_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Rotor_motor2_plus_RED_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Rotor_motor1_minus_GRN_net;
+	wire [0:0] tmpFB_0__Rotor_motor1_minus_GRN_net;
+	wire [0:0] tmpIO_0__Rotor_motor1_minus_GRN_net;
+	wire [0:0] tmpINTERRUPT_0__Rotor_motor1_minus_GRN_net;
+	electrical [0:0] tmpSIOVREF__Rotor_motor1_minus_GRN_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("7c039f5c-c07d-4c2d-8117-8bbd7c1dcdbd"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Rotor_motor1_minus_GRN
+		 (.oe(tmpOE__Rotor_motor1_minus_GRN_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__Rotor_motor1_minus_GRN_net[0:0]}),
+		  .io({tmpIO_0__Rotor_motor1_minus_GRN_net[0:0]}),
+		  .siovref(tmpSIOVREF__Rotor_motor1_minus_GRN_net),
+		  .interrupt({tmpINTERRUPT_0__Rotor_motor1_minus_GRN_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Rotor_motor1_minus_GRN_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+	wire [0:0] tmpOE__Rotor_motor2_minus_BLU_net;
+	wire [0:0] tmpFB_0__Rotor_motor2_minus_BLU_net;
+	wire [0:0] tmpIO_0__Rotor_motor2_minus_BLU_net;
+	wire [0:0] tmpINTERRUPT_0__Rotor_motor2_minus_BLU_net;
+	electrical [0:0] tmpSIOVREF__Rotor_motor2_minus_BLU_net;
+
+	cy_psoc3_pins_v1_10
+		#(.id("82c36d13-c1a1-4f44-839a-2a7479ce5842"),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
+		  .init_dr_st(1'b0),
+		  .input_clk_en(0),
+		  .input_sync(1'b1),
+		  .input_sync_mode(1'b0),
+		  .intr_mode(2'b00),
+		  .invert_in_clock(0),
+		  .invert_in_clock_en(0),
+		  .invert_in_reset(0),
+		  .invert_out_clock(0),
+		  .invert_out_clock_en(0),
+		  .invert_out_reset(0),
+		  .io_voltage(""),
+		  .layout_mode("CONTIGUOUS"),
+		  .oe_conn(1'b0),
+		  .oe_reset(0),
+		  .oe_sync(1'b0),
+		  .output_clk_en(0),
+		  .output_clock_mode(1'b0),
+		  .output_conn(1'b0),
+		  .output_mode(1'b0),
+		  .output_reset(0),
+		  .output_sync(1'b0),
+		  .pa_in_clock(-1),
+		  .pa_in_clock_en(-1),
+		  .pa_in_reset(-1),
+		  .pa_out_clock(-1),
+		  .pa_out_clock_en(-1),
+		  .pa_out_reset(-1),
+		  .pin_aliases(""),
+		  .pin_mode("O"),
+		  .por_state(4),
+		  .sio_group_cnt(0),
+		  .sio_hyst(1'b1),
+		  .sio_ibuf(""),
+		  .sio_info(2'b00),
+		  .sio_obuf(""),
+		  .sio_refsel(""),
+		  .sio_vtrip(""),
+		  .slew_rate(1'b0),
+		  .spanning(0),
+		  .use_annotation(1'b0),
+		  .vtrip(2'b10),
+		  .width(1),
+		  .ovt_hyst_trim(1'b0),
+		  .ovt_needed(1'b0),
+		  .ovt_slew_control(2'b00),
+		  .input_buffer_sel(2'b00))
+		Rotor_motor2_minus_BLU
+		 (.oe(tmpOE__Rotor_motor2_minus_BLU_net),
+		  .y({1'b0}),
+		  .fb({tmpFB_0__Rotor_motor2_minus_BLU_net[0:0]}),
+		  .io({tmpIO_0__Rotor_motor2_minus_BLU_net[0:0]}),
+		  .siovref(tmpSIOVREF__Rotor_motor2_minus_BLU_net),
+		  .interrupt({tmpINTERRUPT_0__Rotor_motor2_minus_BLU_net[0:0]}),
+		  .in_clock({1'b0}),
+		  .in_clock_en({1'b1}),
+		  .in_reset({1'b0}),
+		  .out_clock({1'b0}),
+		  .out_clock_en({1'b1}),
+		  .out_reset({1'b0}));
+
+	assign tmpOE__Rotor_motor2_minus_BLU_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 
 

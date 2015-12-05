@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
+  <block name="isr_UART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rotor_motor1_plus_BLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_lfclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rotor_motor2_minus_BLU" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rotor_motor2_plus_RED" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Rotor_motor1_minus_GRN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="UART" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="RXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -26,16 +36,9 @@
       <field name="UART_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" />
     </register>
   </block>
-  <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Clock_out_capasitiv_sensors" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_lfclk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="isr_UART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="stromstyring_plus" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="temperatur" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Niveau_vandtank" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="stromstyring_plus" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ADC_SAR_Seq_1" BASE="0x0" SIZE="0x0" desc="Sequencing SAR ADC" visible="true" hidden="false">
     <block name="cy_analog_noconnect_31" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="cy_analog_noconnect_32" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -443,9 +446,9 @@
     </register>
   </block>
   <block name="Fugt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Niveau_vandtank" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Lysfoler" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Clock_out_capasitiv_sensors" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="isr_EOC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pumpe" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Rotor_motor" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Lysfoler" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Rotor_motor.c  
+* File Name: Rotor_motor2_plus_RED.c  
 * Version 2.10
 *
 * Description:
@@ -15,18 +15,18 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Rotor_motor.h"
+#include "Rotor_motor2_plus_RED.h"
 
 #define SetP4PinDriveMode(shift, mode)  \
     do { \
-        Rotor_motor_PC =   (Rotor_motor_PC & \
-                                (uint32)(~(uint32)(Rotor_motor_DRIVE_MODE_IND_MASK << (Rotor_motor_DRIVE_MODE_BITS * (shift))))) | \
-                                (uint32)((uint32)(mode) << (Rotor_motor_DRIVE_MODE_BITS * (shift))); \
+        Rotor_motor2_plus_RED_PC =   (Rotor_motor2_plus_RED_PC & \
+                                (uint32)(~(uint32)(Rotor_motor2_plus_RED_DRIVE_MODE_IND_MASK << (Rotor_motor2_plus_RED_DRIVE_MODE_BITS * (shift))))) | \
+                                (uint32)((uint32)(mode) << (Rotor_motor2_plus_RED_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 
 
 /*******************************************************************************
-* Function Name: Rotor_motor_Write
+* Function Name: Rotor_motor2_plus_RED_Write
 ********************************************************************************
 *
 * Summary:
@@ -39,16 +39,16 @@
 *  None 
 *  
 *******************************************************************************/
-void Rotor_motor_Write(uint8 value) 
+void Rotor_motor2_plus_RED_Write(uint8 value) 
 {
-    uint8 drVal = (uint8)(Rotor_motor_DR & (uint8)(~Rotor_motor_MASK));
-    drVal = (drVal | ((uint8)(value << Rotor_motor_SHIFT) & Rotor_motor_MASK));
-    Rotor_motor_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Rotor_motor2_plus_RED_DR & (uint8)(~Rotor_motor2_plus_RED_MASK));
+    drVal = (drVal | ((uint8)(value << Rotor_motor2_plus_RED_SHIFT) & Rotor_motor2_plus_RED_MASK));
+    Rotor_motor2_plus_RED_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Rotor_motor_SetDriveMode
+* Function Name: Rotor_motor2_plus_RED_SetDriveMode
 ********************************************************************************
 *
 * Summary:
@@ -57,27 +57,27 @@ void Rotor_motor_Write(uint8 value)
 * Parameters:  
 *  mode:  Change the pins to one of the following drive modes.
 *
-*  Rotor_motor_DM_STRONG     Strong Drive 
-*  Rotor_motor_DM_OD_HI      Open Drain, Drives High 
-*  Rotor_motor_DM_OD_LO      Open Drain, Drives Low 
-*  Rotor_motor_DM_RES_UP     Resistive Pull Up 
-*  Rotor_motor_DM_RES_DWN    Resistive Pull Down 
-*  Rotor_motor_DM_RES_UPDWN  Resistive Pull Up/Down 
-*  Rotor_motor_DM_DIG_HIZ    High Impedance Digital 
-*  Rotor_motor_DM_ALG_HIZ    High Impedance Analog 
+*  Rotor_motor2_plus_RED_DM_STRONG     Strong Drive 
+*  Rotor_motor2_plus_RED_DM_OD_HI      Open Drain, Drives High 
+*  Rotor_motor2_plus_RED_DM_OD_LO      Open Drain, Drives Low 
+*  Rotor_motor2_plus_RED_DM_RES_UP     Resistive Pull Up 
+*  Rotor_motor2_plus_RED_DM_RES_DWN    Resistive Pull Down 
+*  Rotor_motor2_plus_RED_DM_RES_UPDWN  Resistive Pull Up/Down 
+*  Rotor_motor2_plus_RED_DM_DIG_HIZ    High Impedance Digital 
+*  Rotor_motor2_plus_RED_DM_ALG_HIZ    High Impedance Analog 
 *
 * Return: 
 *  None
 *
 *******************************************************************************/
-void Rotor_motor_SetDriveMode(uint8 mode) 
+void Rotor_motor2_plus_RED_SetDriveMode(uint8 mode) 
 {
-	SetP4PinDriveMode(Rotor_motor__0__SHIFT, mode);
+	SetP4PinDriveMode(Rotor_motor2_plus_RED__0__SHIFT, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Rotor_motor_Read
+* Function Name: Rotor_motor2_plus_RED_Read
 ********************************************************************************
 *
 * Summary:
@@ -91,17 +91,17 @@ void Rotor_motor_SetDriveMode(uint8 mode)
 *  Returns the current value of the Digital Port as a right justified number
 *  
 * Note:
-*  Macro Rotor_motor_ReadPS calls this function. 
+*  Macro Rotor_motor2_plus_RED_ReadPS calls this function. 
 *  
 *******************************************************************************/
-uint8 Rotor_motor_Read(void) 
+uint8 Rotor_motor2_plus_RED_Read(void) 
 {
-    return (uint8)((Rotor_motor_PS & Rotor_motor_MASK) >> Rotor_motor_SHIFT);
+    return (uint8)((Rotor_motor2_plus_RED_PS & Rotor_motor2_plus_RED_MASK) >> Rotor_motor2_plus_RED_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Rotor_motor_ReadDataReg
+* Function Name: Rotor_motor2_plus_RED_ReadDataReg
 ********************************************************************************
 *
 * Summary:
@@ -114,17 +114,17 @@ uint8 Rotor_motor_Read(void)
 *  Returns the current value assigned to the Digital Port's data output register
 *  
 *******************************************************************************/
-uint8 Rotor_motor_ReadDataReg(void) 
+uint8 Rotor_motor2_plus_RED_ReadDataReg(void) 
 {
-    return (uint8)((Rotor_motor_DR & Rotor_motor_MASK) >> Rotor_motor_SHIFT);
+    return (uint8)((Rotor_motor2_plus_RED_DR & Rotor_motor2_plus_RED_MASK) >> Rotor_motor2_plus_RED_SHIFT);
 }
 
 
 /* If Interrupts Are Enabled for this Pins component */ 
-#if defined(Rotor_motor_INTSTAT) 
+#if defined(Rotor_motor2_plus_RED_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: Rotor_motor_ClearInterrupt
+    * Function Name: Rotor_motor2_plus_RED_ClearInterrupt
     ********************************************************************************
     *
     * Summary:
@@ -138,11 +138,11 @@ uint8 Rotor_motor_ReadDataReg(void)
     *  Returns the value of the interrupt status register
     *  
     *******************************************************************************/
-    uint8 Rotor_motor_ClearInterrupt(void) 
+    uint8 Rotor_motor2_plus_RED_ClearInterrupt(void) 
     {
-		uint8 maskedStatus = (uint8)(Rotor_motor_INTSTAT & Rotor_motor_MASK);
-		Rotor_motor_INTSTAT = maskedStatus;
-        return maskedStatus >> Rotor_motor_SHIFT;
+		uint8 maskedStatus = (uint8)(Rotor_motor2_plus_RED_INTSTAT & Rotor_motor2_plus_RED_MASK);
+		Rotor_motor2_plus_RED_INTSTAT = maskedStatus;
+        return maskedStatus >> Rotor_motor2_plus_RED_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

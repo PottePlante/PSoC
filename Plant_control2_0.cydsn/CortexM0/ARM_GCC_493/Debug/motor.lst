@@ -1,0 +1,949 @@
+ARM GAS  C:\temp\ccdv6RFM.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"motor.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.rotate,"ax",%progbits
+  18              		.align	2
+  19              		.global	rotate
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	rotate, %function
+  23              	rotate:
+  24              	.LFB33:
+  25              		.file 1 ".\\motor.c"
+   1:.\motor.c     **** /* ========================================
+   2:.\motor.c     ****  *
+   3:.\motor.c     ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\motor.c     ****  * All Rights Reserved
+   5:.\motor.c     ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\motor.c     ****  *
+   7:.\motor.c     ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\motor.c     ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\motor.c     ****  *
+  10:.\motor.c     ****  * ========================================
+  11:.\motor.c     **** */
+  12:.\motor.c     **** #include<motor.h>
+  13:.\motor.c     **** 
+  14:.\motor.c     **** 
+  15:.\motor.c     **** void rotate(int16 step)
+  16:.\motor.c     **** {
+  26              		.loc 1 16 0
+  27              		.cfi_startproc
+  28              	.LVL0:
+  29 0000 10B5     		push	{r4, lr}
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 4, -8
+  32              		.cfi_offset 14, -4
+  33 0002 041C     		mov	r4, r0
+  34              	.LVL1:
+  17:.\motor.c     ****     int8 speed=10;
+  18:.\motor.c     ****     if(indexnummer1==0)
+  35              		.loc 1 18 0
+  36 0004 294B     		ldr	r3, .L12
+  37 0006 1B88     		ldrh	r3, [r3]
+  38 0008 002B     		cmp	r3, #0
+  39 000a 02D1     		bne	.L2
+ARM GAS  C:\temp\ccdv6RFM.s 			page 2
+
+
+  19:.\motor.c     ****         indexnummer1=1;
+  40              		.loc 1 19 0
+  41 000c 0122     		mov	r2, #1
+  42 000e 274B     		ldr	r3, .L12
+  43 0010 1A80     		strh	r2, [r3]
+  44              	.L2:
+  20:.\motor.c     ****     
+  21:.\motor.c     ****     if(step>=0) //validering
+  45              		.loc 1 21 0
+  46 0012 002C     		cmp	r4, #0
+  47 0014 47DA     		bge	.L4
+  22:.\motor.c     ****     step=step;
+  23:.\motor.c     ****     else
+  24:.\motor.c     ****     step=0;
+  48              		.loc 1 24 0
+  49 0016 0024     		mov	r4, #0
+  50 0018 45E0     		b	.L4
+  51              	.LVL2:
+  52              	.L11:
+  25:.\motor.c     ****     
+  26:.\motor.c     ****     while(step!=0)
+  27:.\motor.c     ****     { 
+  28:.\motor.c     ****         if(indexnummer1==1)
+  53              		.loc 1 28 0
+  54 001a 244B     		ldr	r3, .L12
+  55 001c 0022     		mov	r2, #0
+  56 001e 9B5E     		ldrsh	r3, [r3, r2]
+  57 0020 012B     		cmp	r3, #1
+  58 0022 08D1     		bne	.L5
+  29:.\motor.c     ****         {    
+  30:.\motor.c     ****         Rotor_motor1_plus_BLK_Write(1);
+  59              		.loc 1 30 0
+  60 0024 0120     		mov	r0, #1
+  61 0026 FFF7FEFF 		bl	Rotor_motor1_plus_BLK_Write
+  62              	.LVL3:
+  31:.\motor.c     ****         CyDelay(speed);
+  63              		.loc 1 31 0
+  64 002a 0A20     		mov	r0, #10
+  65 002c FFF7FEFF 		bl	CyDelay
+  66              	.LVL4:
+  32:.\motor.c     ****         Rotor_motor1_plus_BLK_Write(0);
+  67              		.loc 1 32 0
+  68 0030 0020     		mov	r0, #0
+  69 0032 FFF7FEFF 		bl	Rotor_motor1_plus_BLK_Write
+  70              	.LVL5:
+  71              	.L5:
+  33:.\motor.c     ****         }
+  34:.\motor.c     ****         if(indexnummer1==2)
+  72              		.loc 1 34 0
+  73 0036 1D4B     		ldr	r3, .L12
+  74 0038 0022     		mov	r2, #0
+  75 003a 9B5E     		ldrsh	r3, [r3, r2]
+  76 003c 022B     		cmp	r3, #2
+  77 003e 08D1     		bne	.L6
+  35:.\motor.c     ****         {    
+  36:.\motor.c     ****         Rotor_motor2_plus_RED_Write(1);
+  78              		.loc 1 36 0
+ARM GAS  C:\temp\ccdv6RFM.s 			page 3
+
+
+  79 0040 0120     		mov	r0, #1
+  80 0042 FFF7FEFF 		bl	Rotor_motor2_plus_RED_Write
+  81              	.LVL6:
+  37:.\motor.c     ****         CyDelay(speed);
+  82              		.loc 1 37 0
+  83 0046 0A20     		mov	r0, #10
+  84 0048 FFF7FEFF 		bl	CyDelay
+  85              	.LVL7:
+  38:.\motor.c     ****         Rotor_motor2_plus_RED_Write(0);
+  86              		.loc 1 38 0
+  87 004c 0020     		mov	r0, #0
+  88 004e FFF7FEFF 		bl	Rotor_motor2_plus_RED_Write
+  89              	.LVL8:
+  90              	.L6:
+  39:.\motor.c     ****         }
+  40:.\motor.c     ****          if(indexnummer1==3)
+  91              		.loc 1 40 0
+  92 0052 164B     		ldr	r3, .L12
+  93 0054 0022     		mov	r2, #0
+  94 0056 9B5E     		ldrsh	r3, [r3, r2]
+  95 0058 032B     		cmp	r3, #3
+  96 005a 08D1     		bne	.L7
+  41:.\motor.c     ****         {    
+  42:.\motor.c     ****         Rotor_motor1_minus_GRN_Write(1);
+  97              		.loc 1 42 0
+  98 005c 0120     		mov	r0, #1
+  99 005e FFF7FEFF 		bl	Rotor_motor1_minus_GRN_Write
+ 100              	.LVL9:
+  43:.\motor.c     ****         CyDelay(speed);
+ 101              		.loc 1 43 0
+ 102 0062 0A20     		mov	r0, #10
+ 103 0064 FFF7FEFF 		bl	CyDelay
+ 104              	.LVL10:
+  44:.\motor.c     ****         Rotor_motor1_minus_GRN_Write(0);
+ 105              		.loc 1 44 0
+ 106 0068 0020     		mov	r0, #0
+ 107 006a FFF7FEFF 		bl	Rotor_motor1_minus_GRN_Write
+ 108              	.LVL11:
+ 109              	.L7:
+  45:.\motor.c     ****         }
+  46:.\motor.c     ****          if(indexnummer1==4)
+ 110              		.loc 1 46 0
+ 111 006e 0F4B     		ldr	r3, .L12
+ 112 0070 0022     		mov	r2, #0
+ 113 0072 9B5E     		ldrsh	r3, [r3, r2]
+ 114 0074 042B     		cmp	r3, #4
+ 115 0076 08D1     		bne	.L8
+  47:.\motor.c     ****         {    
+  48:.\motor.c     ****         Rotor_motor2_minus_BLU_Write(1);
+ 116              		.loc 1 48 0
+ 117 0078 0120     		mov	r0, #1
+ 118 007a FFF7FEFF 		bl	Rotor_motor2_minus_BLU_Write
+ 119              	.LVL12:
+  49:.\motor.c     ****         CyDelay(speed);
+ 120              		.loc 1 49 0
+ 121 007e 0A20     		mov	r0, #10
+ 122 0080 FFF7FEFF 		bl	CyDelay
+ARM GAS  C:\temp\ccdv6RFM.s 			page 4
+
+
+ 123              	.LVL13:
+  50:.\motor.c     ****         Rotor_motor2_minus_BLU_Write(0);
+ 124              		.loc 1 50 0
+ 125 0084 0020     		mov	r0, #0
+ 126 0086 FFF7FEFF 		bl	Rotor_motor2_minus_BLU_Write
+ 127              	.LVL14:
+ 128              	.L8:
+  51:.\motor.c     ****         }
+  52:.\motor.c     ****        
+  53:.\motor.c     ****         if(indexnummer1==4)
+ 129              		.loc 1 53 0
+ 130 008a 084B     		ldr	r3, .L12
+ 131 008c 1B88     		ldrh	r3, [r3]
+ 132 008e 1AB2     		sxth	r2, r3
+ 133 0090 042A     		cmp	r2, #4
+ 134 0092 03D1     		bne	.L9
+  54:.\motor.c     ****         indexnummer1=1;
+ 135              		.loc 1 54 0
+ 136 0094 033A     		sub	r2, r2, #3
+ 137 0096 054B     		ldr	r3, .L12
+ 138 0098 1A80     		strh	r2, [r3]
+ 139 009a 02E0     		b	.L10
+ 140              	.L9:
+  55:.\motor.c     ****         else
+  56:.\motor.c     ****         indexnummer1++;
+ 141              		.loc 1 56 0
+ 142 009c 0133     		add	r3, r3, #1
+ 143 009e 034A     		ldr	r2, .L12
+ 144 00a0 1380     		strh	r3, [r2]
+ 145              	.L10:
+  57:.\motor.c     ****       
+  58:.\motor.c     ****         step--;   
+ 146              		.loc 1 58 0
+ 147 00a2 013C     		sub	r4, r4, #1
+ 148              	.LVL15:
+ 149 00a4 24B2     		sxth	r4, r4
+ 150              	.LVL16:
+ 151              	.L4:
+  26:.\motor.c     ****     { 
+ 152              		.loc 1 26 0
+ 153 00a6 002C     		cmp	r4, #0
+ 154 00a8 B7D1     		bne	.L11
+  59:.\motor.c     ****     } 
+  60:.\motor.c     **** }
+ 155              		.loc 1 60 0
+ 156              		@ sp needed
+ 157              	.LVL17:
+ 158 00aa 10BD     		pop	{r4, pc}
+ 159              	.L13:
+ 160              		.align	2
+ 161              	.L12:
+ 162 00ac 00000000 		.word	indexnummer1
+ 163              		.cfi_endproc
+ 164              	.LFE33:
+ 165              		.size	rotate, .-rotate
+ 166              		.comm	indexnummer1,2,2
+ 167              		.text
+ARM GAS  C:\temp\ccdv6RFM.s 			page 5
+
+
+ 168              	.Letext0:
+ 169              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 170              		.file 3 "Generated_Source\\PSoC4/Rotor_motor1_plus_BLK.h"
+ 171              		.file 4 "Generated_Source\\PSoC4/CyLib.h"
+ 172              		.file 5 "Generated_Source\\PSoC4/Rotor_motor2_plus_RED.h"
+ 173              		.file 6 "Generated_Source\\PSoC4/Rotor_motor1_minus_GRN.h"
+ 174              		.file 7 "./motor.h"
+ 175              		.file 8 "Generated_Source\\PSoC4/Rotor_motor2_minus_BLU.h"
+ 176              		.section	.debug_info,"",%progbits
+ 177              	.Ldebug_info0:
+ 178 0000 23020000 		.4byte	0x223
+ 179 0004 0400     		.2byte	0x4
+ 180 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 181 000a 04       		.byte	0x4
+ 182 000b 01       		.uleb128 0x1
+ 183 000c 6A010000 		.4byte	.LASF21
+ 184 0010 01       		.byte	0x1
+ 185 0011 97000000 		.4byte	.LASF22
+ 186 0015 15000000 		.4byte	.LASF23
+ 187 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 188 001d 00000000 		.4byte	0
+ 189 0021 00000000 		.4byte	.Ldebug_line0
+ 190 0025 02       		.uleb128 0x2
+ 191 0026 01       		.byte	0x1
+ 192 0027 06       		.byte	0x6
+ 193 0028 5E010000 		.4byte	.LASF0
+ 194 002c 02       		.uleb128 0x2
+ 195 002d 01       		.byte	0x1
+ 196 002e 08       		.byte	0x8
+ 197 002f E3000000 		.4byte	.LASF1
+ 198 0033 02       		.uleb128 0x2
+ 199 0034 02       		.byte	0x2
+ 200 0035 05       		.byte	0x5
+ 201 0036 1B020000 		.4byte	.LASF2
+ 202 003a 02       		.uleb128 0x2
+ 203 003b 02       		.byte	0x2
+ 204 003c 07       		.byte	0x7
+ 205 003d 4B010000 		.4byte	.LASF3
+ 206 0041 02       		.uleb128 0x2
+ 207 0042 04       		.byte	0x4
+ 208 0043 05       		.byte	0x5
+ 209 0044 2F010000 		.4byte	.LASF4
+ 210 0048 02       		.uleb128 0x2
+ 211 0049 04       		.byte	0x4
+ 212 004a 07       		.byte	0x7
+ 213 004b AF000000 		.4byte	.LASF5
+ 214 004f 02       		.uleb128 0x2
+ 215 0050 08       		.byte	0x8
+ 216 0051 05       		.byte	0x5
+ 217 0052 00000000 		.4byte	.LASF6
+ 218 0056 02       		.uleb128 0x2
+ 219 0057 08       		.byte	0x8
+ 220 0058 07       		.byte	0x7
+ 221 0059 C1000000 		.4byte	.LASF7
+ 222 005d 03       		.uleb128 0x3
+ 223 005e 04       		.byte	0x4
+ 224 005f 05       		.byte	0x5
+ARM GAS  C:\temp\ccdv6RFM.s 			page 6
+
+
+ 225 0060 696E7400 		.ascii	"int\000"
+ 226 0064 02       		.uleb128 0x2
+ 227 0065 04       		.byte	0x4
+ 228 0066 07       		.byte	0x7
+ 229 0067 5B000000 		.4byte	.LASF8
+ 230 006b 04       		.uleb128 0x4
+ 231 006c A9000000 		.4byte	.LASF9
+ 232 0070 02       		.byte	0x2
+ 233 0071 C2       		.byte	0xc2
+ 234 0072 2C000000 		.4byte	0x2c
+ 235 0076 04       		.uleb128 0x4
+ 236 0077 0E000000 		.4byte	.LASF10
+ 237 007b 02       		.byte	0x2
+ 238 007c C4       		.byte	0xc4
+ 239 007d 48000000 		.4byte	0x48
+ 240 0081 04       		.uleb128 0x4
+ 241 0082 92000000 		.4byte	.LASF11
+ 242 0086 02       		.byte	0x2
+ 243 0087 C5       		.byte	0xc5
+ 244 0088 25000000 		.4byte	0x25
+ 245 008c 04       		.uleb128 0x4
+ 246 008d 15020000 		.4byte	.LASF12
+ 247 0091 02       		.byte	0x2
+ 248 0092 C6       		.byte	0xc6
+ 249 0093 33000000 		.4byte	0x33
+ 250 0097 02       		.uleb128 0x2
+ 251 0098 04       		.byte	0x4
+ 252 0099 04       		.byte	0x4
+ 253 009a D8000000 		.4byte	.LASF13
+ 254 009e 02       		.uleb128 0x2
+ 255 009f 08       		.byte	0x8
+ 256 00a0 04       		.byte	0x4
+ 257 00a1 38010000 		.4byte	.LASF14
+ 258 00a5 02       		.uleb128 0x2
+ 259 00a6 01       		.byte	0x1
+ 260 00a7 08       		.byte	0x8
+ 261 00a8 DE000000 		.4byte	.LASF15
+ 262 00ac 02       		.uleb128 0x2
+ 263 00ad 04       		.byte	0x4
+ 264 00ae 07       		.byte	0x7
+ 265 00af 25020000 		.4byte	.LASF16
+ 266 00b3 05       		.uleb128 0x5
+ 267 00b4 44010000 		.4byte	.LASF24
+ 268 00b8 01       		.byte	0x1
+ 269 00b9 0F       		.byte	0xf
+ 270 00ba 00000000 		.4byte	.LFB33
+ 271 00be B0000000 		.4byte	.LFE33-.LFB33
+ 272 00c2 01       		.uleb128 0x1
+ 273 00c3 9C       		.byte	0x9c
+ 274 00c4 C4010000 		.4byte	0x1c4
+ 275 00c8 06       		.uleb128 0x6
+ 276 00c9 3F010000 		.4byte	.LASF25
+ 277 00cd 01       		.byte	0x1
+ 278 00ce 0F       		.byte	0xf
+ 279 00cf 8C000000 		.4byte	0x8c
+ 280 00d3 00000000 		.4byte	.LLST0
+ 281 00d7 07       		.uleb128 0x7
+ARM GAS  C:\temp\ccdv6RFM.s 			page 7
+
+
+ 282 00d8 F1000000 		.4byte	.LASF26
+ 283 00dc 01       		.byte	0x1
+ 284 00dd 11       		.byte	0x11
+ 285 00de 81000000 		.4byte	0x81
+ 286 00e2 0A       		.byte	0xa
+ 287 00e3 08       		.uleb128 0x8
+ 288 00e4 2A000000 		.4byte	.LVL3
+ 289 00e8 D5010000 		.4byte	0x1d5
+ 290 00ec F6000000 		.4byte	0xf6
+ 291 00f0 09       		.uleb128 0x9
+ 292 00f1 01       		.uleb128 0x1
+ 293 00f2 50       		.byte	0x50
+ 294 00f3 01       		.uleb128 0x1
+ 295 00f4 31       		.byte	0x31
+ 296 00f5 00       		.byte	0
+ 297 00f6 08       		.uleb128 0x8
+ 298 00f7 30000000 		.4byte	.LVL4
+ 299 00fb E6010000 		.4byte	0x1e6
+ 300 00ff 09010000 		.4byte	0x109
+ 301 0103 09       		.uleb128 0x9
+ 302 0104 01       		.uleb128 0x1
+ 303 0105 50       		.byte	0x50
+ 304 0106 01       		.uleb128 0x1
+ 305 0107 3A       		.byte	0x3a
+ 306 0108 00       		.byte	0
+ 307 0109 08       		.uleb128 0x8
+ 308 010a 36000000 		.4byte	.LVL5
+ 309 010e D5010000 		.4byte	0x1d5
+ 310 0112 1C010000 		.4byte	0x11c
+ 311 0116 09       		.uleb128 0x9
+ 312 0117 01       		.uleb128 0x1
+ 313 0118 50       		.byte	0x50
+ 314 0119 01       		.uleb128 0x1
+ 315 011a 30       		.byte	0x30
+ 316 011b 00       		.byte	0
+ 317 011c 08       		.uleb128 0x8
+ 318 011d 46000000 		.4byte	.LVL6
+ 319 0121 F7010000 		.4byte	0x1f7
+ 320 0125 2F010000 		.4byte	0x12f
+ 321 0129 09       		.uleb128 0x9
+ 322 012a 01       		.uleb128 0x1
+ 323 012b 50       		.byte	0x50
+ 324 012c 01       		.uleb128 0x1
+ 325 012d 31       		.byte	0x31
+ 326 012e 00       		.byte	0
+ 327 012f 08       		.uleb128 0x8
+ 328 0130 4C000000 		.4byte	.LVL7
+ 329 0134 E6010000 		.4byte	0x1e6
+ 330 0138 42010000 		.4byte	0x142
+ 331 013c 09       		.uleb128 0x9
+ 332 013d 01       		.uleb128 0x1
+ 333 013e 50       		.byte	0x50
+ 334 013f 01       		.uleb128 0x1
+ 335 0140 3A       		.byte	0x3a
+ 336 0141 00       		.byte	0
+ 337 0142 08       		.uleb128 0x8
+ 338 0143 52000000 		.4byte	.LVL8
+ARM GAS  C:\temp\ccdv6RFM.s 			page 8
+
+
+ 339 0147 F7010000 		.4byte	0x1f7
+ 340 014b 55010000 		.4byte	0x155
+ 341 014f 09       		.uleb128 0x9
+ 342 0150 01       		.uleb128 0x1
+ 343 0151 50       		.byte	0x50
+ 344 0152 01       		.uleb128 0x1
+ 345 0153 30       		.byte	0x30
+ 346 0154 00       		.byte	0
+ 347 0155 08       		.uleb128 0x8
+ 348 0156 62000000 		.4byte	.LVL9
+ 349 015a 08020000 		.4byte	0x208
+ 350 015e 68010000 		.4byte	0x168
+ 351 0162 09       		.uleb128 0x9
+ 352 0163 01       		.uleb128 0x1
+ 353 0164 50       		.byte	0x50
+ 354 0165 01       		.uleb128 0x1
+ 355 0166 31       		.byte	0x31
+ 356 0167 00       		.byte	0
+ 357 0168 08       		.uleb128 0x8
+ 358 0169 68000000 		.4byte	.LVL10
+ 359 016d E6010000 		.4byte	0x1e6
+ 360 0171 7B010000 		.4byte	0x17b
+ 361 0175 09       		.uleb128 0x9
+ 362 0176 01       		.uleb128 0x1
+ 363 0177 50       		.byte	0x50
+ 364 0178 01       		.uleb128 0x1
+ 365 0179 3A       		.byte	0x3a
+ 366 017a 00       		.byte	0
+ 367 017b 08       		.uleb128 0x8
+ 368 017c 6E000000 		.4byte	.LVL11
+ 369 0180 08020000 		.4byte	0x208
+ 370 0184 8E010000 		.4byte	0x18e
+ 371 0188 09       		.uleb128 0x9
+ 372 0189 01       		.uleb128 0x1
+ 373 018a 50       		.byte	0x50
+ 374 018b 01       		.uleb128 0x1
+ 375 018c 30       		.byte	0x30
+ 376 018d 00       		.byte	0
+ 377 018e 08       		.uleb128 0x8
+ 378 018f 7E000000 		.4byte	.LVL12
+ 379 0193 19020000 		.4byte	0x219
+ 380 0197 A1010000 		.4byte	0x1a1
+ 381 019b 09       		.uleb128 0x9
+ 382 019c 01       		.uleb128 0x1
+ 383 019d 50       		.byte	0x50
+ 384 019e 01       		.uleb128 0x1
+ 385 019f 31       		.byte	0x31
+ 386 01a0 00       		.byte	0
+ 387 01a1 08       		.uleb128 0x8
+ 388 01a2 84000000 		.4byte	.LVL13
+ 389 01a6 E6010000 		.4byte	0x1e6
+ 390 01aa B4010000 		.4byte	0x1b4
+ 391 01ae 09       		.uleb128 0x9
+ 392 01af 01       		.uleb128 0x1
+ 393 01b0 50       		.byte	0x50
+ 394 01b1 01       		.uleb128 0x1
+ 395 01b2 3A       		.byte	0x3a
+ARM GAS  C:\temp\ccdv6RFM.s 			page 9
+
+
+ 396 01b3 00       		.byte	0
+ 397 01b4 0A       		.uleb128 0xa
+ 398 01b5 8A000000 		.4byte	.LVL14
+ 399 01b9 19020000 		.4byte	0x219
+ 400 01bd 09       		.uleb128 0x9
+ 401 01be 01       		.uleb128 0x1
+ 402 01bf 50       		.byte	0x50
+ 403 01c0 01       		.uleb128 0x1
+ 404 01c1 30       		.byte	0x30
+ 405 01c2 00       		.byte	0
+ 406 01c3 00       		.byte	0
+ 407 01c4 0B       		.uleb128 0xb
+ 408 01c5 85000000 		.4byte	.LASF27
+ 409 01c9 07       		.byte	0x7
+ 410 01ca 11       		.byte	0x11
+ 411 01cb 8C000000 		.4byte	0x8c
+ 412 01cf 05       		.uleb128 0x5
+ 413 01d0 03       		.byte	0x3
+ 414 01d1 00000000 		.4byte	indexnummer1
+ 415 01d5 0C       		.uleb128 0xc
+ 416 01d6 F7000000 		.4byte	.LASF17
+ 417 01da 03       		.byte	0x3
+ 418 01db 1D       		.byte	0x1d
+ 419 01dc E6010000 		.4byte	0x1e6
+ 420 01e0 0D       		.uleb128 0xd
+ 421 01e1 6B000000 		.4byte	0x6b
+ 422 01e5 00       		.byte	0
+ 423 01e6 0C       		.uleb128 0xc
+ 424 01e7 A1000000 		.4byte	.LASF18
+ 425 01eb 04       		.byte	0x4
+ 426 01ec 57       		.byte	0x57
+ 427 01ed F7010000 		.4byte	0x1f7
+ 428 01f1 0D       		.uleb128 0xd
+ 429 01f2 76000000 		.4byte	0x76
+ 430 01f6 00       		.byte	0
+ 431 01f7 0C       		.uleb128 0xc
+ 432 01f8 13010000 		.4byte	.LASF19
+ 433 01fc 05       		.byte	0x5
+ 434 01fd 1D       		.byte	0x1d
+ 435 01fe 08020000 		.4byte	0x208
+ 436 0202 0D       		.uleb128 0xd
+ 437 0203 6B000000 		.4byte	0x6b
+ 438 0207 00       		.byte	0
+ 439 0208 0C       		.uleb128 0xc
+ 440 0209 F8010000 		.4byte	.LASF20
+ 441 020d 06       		.byte	0x6
+ 442 020e 1D       		.byte	0x1d
+ 443 020f 19020000 		.4byte	0x219
+ 444 0213 0D       		.uleb128 0xd
+ 445 0214 6B000000 		.4byte	0x6b
+ 446 0218 00       		.byte	0
+ 447 0219 0E       		.uleb128 0xe
+ 448 021a 68000000 		.4byte	.LASF28
+ 449 021e 08       		.byte	0x8
+ 450 021f 1D       		.byte	0x1d
+ 451 0220 0D       		.uleb128 0xd
+ 452 0221 6B000000 		.4byte	0x6b
+ARM GAS  C:\temp\ccdv6RFM.s 			page 10
+
+
+ 453 0225 00       		.byte	0
+ 454 0226 00       		.byte	0
+ 455              		.section	.debug_abbrev,"",%progbits
+ 456              	.Ldebug_abbrev0:
+ 457 0000 01       		.uleb128 0x1
+ 458 0001 11       		.uleb128 0x11
+ 459 0002 01       		.byte	0x1
+ 460 0003 25       		.uleb128 0x25
+ 461 0004 0E       		.uleb128 0xe
+ 462 0005 13       		.uleb128 0x13
+ 463 0006 0B       		.uleb128 0xb
+ 464 0007 03       		.uleb128 0x3
+ 465 0008 0E       		.uleb128 0xe
+ 466 0009 1B       		.uleb128 0x1b
+ 467 000a 0E       		.uleb128 0xe
+ 468 000b 55       		.uleb128 0x55
+ 469 000c 17       		.uleb128 0x17
+ 470 000d 11       		.uleb128 0x11
+ 471 000e 01       		.uleb128 0x1
+ 472 000f 10       		.uleb128 0x10
+ 473 0010 17       		.uleb128 0x17
+ 474 0011 00       		.byte	0
+ 475 0012 00       		.byte	0
+ 476 0013 02       		.uleb128 0x2
+ 477 0014 24       		.uleb128 0x24
+ 478 0015 00       		.byte	0
+ 479 0016 0B       		.uleb128 0xb
+ 480 0017 0B       		.uleb128 0xb
+ 481 0018 3E       		.uleb128 0x3e
+ 482 0019 0B       		.uleb128 0xb
+ 483 001a 03       		.uleb128 0x3
+ 484 001b 0E       		.uleb128 0xe
+ 485 001c 00       		.byte	0
+ 486 001d 00       		.byte	0
+ 487 001e 03       		.uleb128 0x3
+ 488 001f 24       		.uleb128 0x24
+ 489 0020 00       		.byte	0
+ 490 0021 0B       		.uleb128 0xb
+ 491 0022 0B       		.uleb128 0xb
+ 492 0023 3E       		.uleb128 0x3e
+ 493 0024 0B       		.uleb128 0xb
+ 494 0025 03       		.uleb128 0x3
+ 495 0026 08       		.uleb128 0x8
+ 496 0027 00       		.byte	0
+ 497 0028 00       		.byte	0
+ 498 0029 04       		.uleb128 0x4
+ 499 002a 16       		.uleb128 0x16
+ 500 002b 00       		.byte	0
+ 501 002c 03       		.uleb128 0x3
+ 502 002d 0E       		.uleb128 0xe
+ 503 002e 3A       		.uleb128 0x3a
+ 504 002f 0B       		.uleb128 0xb
+ 505 0030 3B       		.uleb128 0x3b
+ 506 0031 0B       		.uleb128 0xb
+ 507 0032 49       		.uleb128 0x49
+ 508 0033 13       		.uleb128 0x13
+ 509 0034 00       		.byte	0
+ARM GAS  C:\temp\ccdv6RFM.s 			page 11
+
+
+ 510 0035 00       		.byte	0
+ 511 0036 05       		.uleb128 0x5
+ 512 0037 2E       		.uleb128 0x2e
+ 513 0038 01       		.byte	0x1
+ 514 0039 3F       		.uleb128 0x3f
+ 515 003a 19       		.uleb128 0x19
+ 516 003b 03       		.uleb128 0x3
+ 517 003c 0E       		.uleb128 0xe
+ 518 003d 3A       		.uleb128 0x3a
+ 519 003e 0B       		.uleb128 0xb
+ 520 003f 3B       		.uleb128 0x3b
+ 521 0040 0B       		.uleb128 0xb
+ 522 0041 27       		.uleb128 0x27
+ 523 0042 19       		.uleb128 0x19
+ 524 0043 11       		.uleb128 0x11
+ 525 0044 01       		.uleb128 0x1
+ 526 0045 12       		.uleb128 0x12
+ 527 0046 06       		.uleb128 0x6
+ 528 0047 40       		.uleb128 0x40
+ 529 0048 18       		.uleb128 0x18
+ 530 0049 9742     		.uleb128 0x2117
+ 531 004b 19       		.uleb128 0x19
+ 532 004c 01       		.uleb128 0x1
+ 533 004d 13       		.uleb128 0x13
+ 534 004e 00       		.byte	0
+ 535 004f 00       		.byte	0
+ 536 0050 06       		.uleb128 0x6
+ 537 0051 05       		.uleb128 0x5
+ 538 0052 00       		.byte	0
+ 539 0053 03       		.uleb128 0x3
+ 540 0054 0E       		.uleb128 0xe
+ 541 0055 3A       		.uleb128 0x3a
+ 542 0056 0B       		.uleb128 0xb
+ 543 0057 3B       		.uleb128 0x3b
+ 544 0058 0B       		.uleb128 0xb
+ 545 0059 49       		.uleb128 0x49
+ 546 005a 13       		.uleb128 0x13
+ 547 005b 02       		.uleb128 0x2
+ 548 005c 17       		.uleb128 0x17
+ 549 005d 00       		.byte	0
+ 550 005e 00       		.byte	0
+ 551 005f 07       		.uleb128 0x7
+ 552 0060 34       		.uleb128 0x34
+ 553 0061 00       		.byte	0
+ 554 0062 03       		.uleb128 0x3
+ 555 0063 0E       		.uleb128 0xe
+ 556 0064 3A       		.uleb128 0x3a
+ 557 0065 0B       		.uleb128 0xb
+ 558 0066 3B       		.uleb128 0x3b
+ 559 0067 0B       		.uleb128 0xb
+ 560 0068 49       		.uleb128 0x49
+ 561 0069 13       		.uleb128 0x13
+ 562 006a 1C       		.uleb128 0x1c
+ 563 006b 0B       		.uleb128 0xb
+ 564 006c 00       		.byte	0
+ 565 006d 00       		.byte	0
+ 566 006e 08       		.uleb128 0x8
+ARM GAS  C:\temp\ccdv6RFM.s 			page 12
+
+
+ 567 006f 898201   		.uleb128 0x4109
+ 568 0072 01       		.byte	0x1
+ 569 0073 11       		.uleb128 0x11
+ 570 0074 01       		.uleb128 0x1
+ 571 0075 31       		.uleb128 0x31
+ 572 0076 13       		.uleb128 0x13
+ 573 0077 01       		.uleb128 0x1
+ 574 0078 13       		.uleb128 0x13
+ 575 0079 00       		.byte	0
+ 576 007a 00       		.byte	0
+ 577 007b 09       		.uleb128 0x9
+ 578 007c 8A8201   		.uleb128 0x410a
+ 579 007f 00       		.byte	0
+ 580 0080 02       		.uleb128 0x2
+ 581 0081 18       		.uleb128 0x18
+ 582 0082 9142     		.uleb128 0x2111
+ 583 0084 18       		.uleb128 0x18
+ 584 0085 00       		.byte	0
+ 585 0086 00       		.byte	0
+ 586 0087 0A       		.uleb128 0xa
+ 587 0088 898201   		.uleb128 0x4109
+ 588 008b 01       		.byte	0x1
+ 589 008c 11       		.uleb128 0x11
+ 590 008d 01       		.uleb128 0x1
+ 591 008e 31       		.uleb128 0x31
+ 592 008f 13       		.uleb128 0x13
+ 593 0090 00       		.byte	0
+ 594 0091 00       		.byte	0
+ 595 0092 0B       		.uleb128 0xb
+ 596 0093 34       		.uleb128 0x34
+ 597 0094 00       		.byte	0
+ 598 0095 03       		.uleb128 0x3
+ 599 0096 0E       		.uleb128 0xe
+ 600 0097 3A       		.uleb128 0x3a
+ 601 0098 0B       		.uleb128 0xb
+ 602 0099 3B       		.uleb128 0x3b
+ 603 009a 0B       		.uleb128 0xb
+ 604 009b 49       		.uleb128 0x49
+ 605 009c 13       		.uleb128 0x13
+ 606 009d 3F       		.uleb128 0x3f
+ 607 009e 19       		.uleb128 0x19
+ 608 009f 02       		.uleb128 0x2
+ 609 00a0 18       		.uleb128 0x18
+ 610 00a1 00       		.byte	0
+ 611 00a2 00       		.byte	0
+ 612 00a3 0C       		.uleb128 0xc
+ 613 00a4 2E       		.uleb128 0x2e
+ 614 00a5 01       		.byte	0x1
+ 615 00a6 3F       		.uleb128 0x3f
+ 616 00a7 19       		.uleb128 0x19
+ 617 00a8 03       		.uleb128 0x3
+ 618 00a9 0E       		.uleb128 0xe
+ 619 00aa 3A       		.uleb128 0x3a
+ 620 00ab 0B       		.uleb128 0xb
+ 621 00ac 3B       		.uleb128 0x3b
+ 622 00ad 0B       		.uleb128 0xb
+ 623 00ae 27       		.uleb128 0x27
+ARM GAS  C:\temp\ccdv6RFM.s 			page 13
+
+
+ 624 00af 19       		.uleb128 0x19
+ 625 00b0 3C       		.uleb128 0x3c
+ 626 00b1 19       		.uleb128 0x19
+ 627 00b2 01       		.uleb128 0x1
+ 628 00b3 13       		.uleb128 0x13
+ 629 00b4 00       		.byte	0
+ 630 00b5 00       		.byte	0
+ 631 00b6 0D       		.uleb128 0xd
+ 632 00b7 05       		.uleb128 0x5
+ 633 00b8 00       		.byte	0
+ 634 00b9 49       		.uleb128 0x49
+ 635 00ba 13       		.uleb128 0x13
+ 636 00bb 00       		.byte	0
+ 637 00bc 00       		.byte	0
+ 638 00bd 0E       		.uleb128 0xe
+ 639 00be 2E       		.uleb128 0x2e
+ 640 00bf 01       		.byte	0x1
+ 641 00c0 3F       		.uleb128 0x3f
+ 642 00c1 19       		.uleb128 0x19
+ 643 00c2 03       		.uleb128 0x3
+ 644 00c3 0E       		.uleb128 0xe
+ 645 00c4 3A       		.uleb128 0x3a
+ 646 00c5 0B       		.uleb128 0xb
+ 647 00c6 3B       		.uleb128 0x3b
+ 648 00c7 0B       		.uleb128 0xb
+ 649 00c8 27       		.uleb128 0x27
+ 650 00c9 19       		.uleb128 0x19
+ 651 00ca 3C       		.uleb128 0x3c
+ 652 00cb 19       		.uleb128 0x19
+ 653 00cc 00       		.byte	0
+ 654 00cd 00       		.byte	0
+ 655 00ce 00       		.byte	0
+ 656              		.section	.debug_loc,"",%progbits
+ 657              	.Ldebug_loc0:
+ 658              	.LLST0:
+ 659 0000 00000000 		.4byte	.LVL0
+ 660 0004 1A000000 		.4byte	.LVL2
+ 661 0008 0100     		.2byte	0x1
+ 662 000a 50       		.byte	0x50
+ 663 000b 1A000000 		.4byte	.LVL2
+ 664 000f A4000000 		.4byte	.LVL15
+ 665 0013 0100     		.2byte	0x1
+ 666 0015 54       		.byte	0x54
+ 667 0016 A6000000 		.4byte	.LVL16
+ 668 001a AA000000 		.4byte	.LVL17
+ 669 001e 0100     		.2byte	0x1
+ 670 0020 54       		.byte	0x54
+ 671 0021 00000000 		.4byte	0
+ 672 0025 00000000 		.4byte	0
+ 673              		.section	.debug_aranges,"",%progbits
+ 674 0000 1C000000 		.4byte	0x1c
+ 675 0004 0200     		.2byte	0x2
+ 676 0006 00000000 		.4byte	.Ldebug_info0
+ 677 000a 04       		.byte	0x4
+ 678 000b 00       		.byte	0
+ 679 000c 0000     		.2byte	0
+ 680 000e 0000     		.2byte	0
+ARM GAS  C:\temp\ccdv6RFM.s 			page 14
+
+
+ 681 0010 00000000 		.4byte	.LFB33
+ 682 0014 B0000000 		.4byte	.LFE33-.LFB33
+ 683 0018 00000000 		.4byte	0
+ 684 001c 00000000 		.4byte	0
+ 685              		.section	.debug_ranges,"",%progbits
+ 686              	.Ldebug_ranges0:
+ 687 0000 00000000 		.4byte	.LFB33
+ 688 0004 B0000000 		.4byte	.LFE33
+ 689 0008 00000000 		.4byte	0
+ 690 000c 00000000 		.4byte	0
+ 691              		.section	.debug_line,"",%progbits
+ 692              	.Ldebug_line0:
+ 693 0000 FD000000 		.section	.debug_str,"MS",%progbits,1
+ 693      0200CA00 
+ 693      00000201 
+ 693      FB0E0D00 
+ 693      01010101 
+ 694              	.LASF6:
+ 695 0000 6C6F6E67 		.ascii	"long long int\000"
+ 695      206C6F6E 
+ 695      6720696E 
+ 695      7400
+ 696              	.LASF10:
+ 697 000e 75696E74 		.ascii	"uint32\000"
+ 697      333200
+ 698              	.LASF23:
+ 699 0015 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
+ 699      73657273 
+ 699      5C424541 
+ 699      53545C44 
+ 699      65736B74 
+ 700 0043 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
+ 700      6E745F63 
+ 700      6F6E7472 
+ 700      6F6C325F 
+ 700      302E6379 
+ 701              	.LASF8:
+ 702 005b 756E7369 		.ascii	"unsigned int\000"
+ 702      676E6564 
+ 702      20696E74 
+ 702      00
+ 703              	.LASF28:
+ 704 0068 526F746F 		.ascii	"Rotor_motor2_minus_BLU_Write\000"
+ 704      725F6D6F 
+ 704      746F7232 
+ 704      5F6D696E 
+ 704      75735F42 
+ 705              	.LASF27:
+ 706 0085 696E6465 		.ascii	"indexnummer1\000"
+ 706      786E756D 
+ 706      6D657231 
+ 706      00
+ 707              	.LASF11:
+ 708 0092 696E7438 		.ascii	"int8\000"
+ 708      00
+ 709              	.LASF22:
+ 710 0097 2E5C6D6F 		.ascii	".\\motor.c\000"
+ARM GAS  C:\temp\ccdv6RFM.s 			page 15
+
+
+ 710      746F722E 
+ 710      6300
+ 711              	.LASF18:
+ 712 00a1 43794465 		.ascii	"CyDelay\000"
+ 712      6C617900 
+ 713              	.LASF9:
+ 714 00a9 75696E74 		.ascii	"uint8\000"
+ 714      3800
+ 715              	.LASF5:
+ 716 00af 6C6F6E67 		.ascii	"long unsigned int\000"
+ 716      20756E73 
+ 716      69676E65 
+ 716      6420696E 
+ 716      7400
+ 717              	.LASF7:
+ 718 00c1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 718      206C6F6E 
+ 718      6720756E 
+ 718      7369676E 
+ 718      65642069 
+ 719              	.LASF13:
+ 720 00d8 666C6F61 		.ascii	"float\000"
+ 720      7400
+ 721              	.LASF15:
+ 722 00de 63686172 		.ascii	"char\000"
+ 722      00
+ 723              	.LASF1:
+ 724 00e3 756E7369 		.ascii	"unsigned char\000"
+ 724      676E6564 
+ 724      20636861 
+ 724      7200
+ 725              	.LASF26:
+ 726 00f1 73706565 		.ascii	"speed\000"
+ 726      6400
+ 727              	.LASF17:
+ 728 00f7 526F746F 		.ascii	"Rotor_motor1_plus_BLK_Write\000"
+ 728      725F6D6F 
+ 728      746F7231 
+ 728      5F706C75 
+ 728      735F424C 
+ 729              	.LASF19:
+ 730 0113 526F746F 		.ascii	"Rotor_motor2_plus_RED_Write\000"
+ 730      725F6D6F 
+ 730      746F7232 
+ 730      5F706C75 
+ 730      735F5245 
+ 731              	.LASF4:
+ 732 012f 6C6F6E67 		.ascii	"long int\000"
+ 732      20696E74 
+ 732      00
+ 733              	.LASF14:
+ 734 0138 646F7562 		.ascii	"double\000"
+ 734      6C6500
+ 735              	.LASF25:
+ 736 013f 73746570 		.ascii	"step\000"
+ 736      00
+ 737              	.LASF24:
+ARM GAS  C:\temp\ccdv6RFM.s 			page 16
+
+
+ 738 0144 726F7461 		.ascii	"rotate\000"
+ 738      746500
+ 739              	.LASF3:
+ 740 014b 73686F72 		.ascii	"short unsigned int\000"
+ 740      7420756E 
+ 740      7369676E 
+ 740      65642069 
+ 740      6E7400
+ 741              	.LASF0:
+ 742 015e 7369676E 		.ascii	"signed char\000"
+ 742      65642063 
+ 742      68617200 
+ 743              	.LASF21:
+ 744 016a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 744      4320342E 
+ 744      392E3320 
+ 744      32303135 
+ 744      30333033 
+ 745 019d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 745      20726576 
+ 745      6973696F 
+ 745      6E203232 
+ 745      31323230 
+ 746 01d0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 746      66756E63 
+ 746      74696F6E 
+ 746      2D736563 
+ 746      74696F6E 
+ 747              	.LASF20:
+ 748 01f8 526F746F 		.ascii	"Rotor_motor1_minus_GRN_Write\000"
+ 748      725F6D6F 
+ 748      746F7231 
+ 748      5F6D696E 
+ 748      75735F47 
+ 749              	.LASF12:
+ 750 0215 696E7431 		.ascii	"int16\000"
+ 750      3600
+ 751              	.LASF2:
+ 752 021b 73686F72 		.ascii	"short int\000"
+ 752      7420696E 
+ 752      7400
+ 753              	.LASF16:
+ 754 0225 73697A65 		.ascii	"sizetype\000"
+ 754      74797065 
+ 754      00
+ 755              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

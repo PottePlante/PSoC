@@ -19,7 +19,7 @@ uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = '2';                        //Pottens ID / PSoC ID - Sættes til '-' for at teste om DevKittet kan give den en anderledes værdi
+uint8 plantID = '-';                        //Pottens ID / PSoC ID - Sættes til '-' for at teste om DevKittet kan give den en anderledes værdi
 
 CY_ISR(UART_ISR)
 {
@@ -50,7 +50,6 @@ void updateBuf()
 
 char getStringFromUart(char *data)
 {
-    
     uint8 i;
     
     if(!RXnewData)
@@ -192,14 +191,13 @@ uint8 receiveDataDevKit(char *inputString, char *data)
 void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der kan sættes, resten valideres bare
 {
     int i = 0;
-    
     char dataBuf[255];  ///string med data modtaget fra DevKittet
     char value_char[8];
-    uint8 plantIDLocal = 2;
+    uint8 plantIDLocal;
 
     while(receiveDataDevKit(inputString,dataBuf) == 0u);
     //M1065R1099  -- Protokollen kan opdateres og gøres mere effectiv, evt. blot sende chars over UARTen, samt kun sende ID 1 gang og ikke specificere værdiernes dataTyper
-    //plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID. 
+    plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID. 
     //SKAL FJERNES SENERE....
     
     //WOOOOOP
@@ -210,9 +208,9 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
         
     value_char[6] = 0;
     
-    if (plantIDLocal >= 0) //plante IDen valideres
+    if (plantIDLocal >= 0 || plantID == '-') //plante IDen valideres
     {
-        plantID = '2';
+        plantID = plantIDLocal;
         setPlantData(value_char);
     }
     else
@@ -237,75 +235,17 @@ void setPlantData(char *plantValue)
     plantRotate[3] = 0;
 
     valueMoist = atoi(plantMoist);       //data fra dataBuf læses fra pladserne [2-4] hvor der kan stå 0-999 som pr. protocol definitionen. Laves fra char til int.
-    valueRotate = atoi(plantRotate);     //
+    valueRotate = atoi(plantRotate);     
     
         if(valueMoist >=10 && valueMoist <=100)             //moisture samt rotate validering
             wantedMoisture = valueMoist;
         else
             UART_PutString("Value outside permitted plant set data for Moist\r\n");       //debugging
 
-        if(valueRotate >=0 && valueRotate <= 100)
+        if(valueRotate >=0 && valueRotate <= 200)
             wantedRotate = valueRotate;
         else
             UART_PutString("Value outside permitted plant set data for Rotate\r\n");       //debugging
-}
-
-void testSendSensorData(uint8 moist,uint8 water,uint8 light,uint8 battery,uint8 tempe)
-{
-    char sendString[128]; //lokal string til behandling af sprintf
-    //Sender alt i 1 lang string
-    char moistureString[16];
-    char waterString[16];
-    char lightString[16];
-    char batteryString[16];
-    char temperatureString[16];
-    
-    //Moisture fejlhåndtering
-    if(moist > 99)
-        sprintf(moistureString,"M%c%d",plantID,moist);
-    else if(moist <= 99 && moist >= 10)
-        sprintf(moistureString,"M%c0%d",plantID,moist);
-    else if(moist < 10 && moist >=0)
-        sprintf(moistureString,"M%c00%d",plantID,moist);
-        
-    //Water fejlhåndtering    
-    if(water > 99)
-        sprintf(waterString,"W%c%d",plantID,water);
-    else if(water <= 99 && water >= 10)
-        sprintf(waterString,"W%c0%d",plantID,water);
-    else if(water < 10 && water >=0)
-        sprintf(waterString,"W%c00%d",plantID,water);
-    
-    //Light fejlhåndtering    
-    if(light > 99)
-        sprintf(lightString,"L%c%d",plantID,light);
-    else if(light <= 99 && light >= 10)
-        sprintf(lightString,"L%c0%d",plantID,light);
-    else if(light < 10 && light >=0)
-        sprintf(lightString,"L%c00%d",plantID,light);
-        
-    //Battery fejlhåndtering    
-    if(battery > 99)
-        sprintf(batteryString,"B%c%d",plantID,battery);
-    else if(battery <= 99 && battery >= 10)
-        sprintf(batteryString,"B%c0%d",plantID,battery);
-    else if(battery < 10 && battery >=0)
-        sprintf(batteryString,"B%c00%d",plantID,battery);
-         
-    //Temperature fejlhåndtering    
-    if(tempe > 99)
-        sprintf(temperatureString,"T%c%d",plantID,tempe);
-    else if(tempe <= 99 && tempe >= 10)
-        sprintf(temperatureString,"T%c0%d",plantID,tempe);
-    else if(tempe < 10 && tempe >=0)
-        sprintf(temperatureString,"T%c00%d",plantID,tempe);
-        
-    sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,temperatureString,batteryString);
-    sendDataDevkit(sendString);            
-    updatePlantData(uartString);
-
-    CyDelay(500);
-    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit), så der ikke forbliver en spøgelses forbindelse
 }
 
 void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
@@ -360,7 +300,6 @@ void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et 
         
     sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,temperatureString,batteryString);
     sendDataDevkit(sendString);
-    //UART_PutCRLF(0u);
     updatePlantData(uartString);
 
     CyDelay(2000);
@@ -391,7 +330,7 @@ void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstar
     }
    
     CyDelay(100);
-    for(i=0;i<2;i++)                            //forbinde til DevKit
+    for(i=0;i<3;i++)                            //forbinde til DevKit
     {
         if(connectToDevKit(DevKitIPAdress))
             break;
@@ -401,11 +340,9 @@ void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstar
 
 void tick()   
 {
-
     char sendString[128];                        //temp string til at handle lidt printning -- fjernes senere ved endelig prog
     if(getStringFromUart(uartString) != 0)
     {
-        
         if(strcmp(uartString,"GG") == 0)
         {
             UART_PutString("Works...");
@@ -437,31 +374,6 @@ void tick()
         else if(strcmp(uartString,"Receive data") == 0)
         {
             updatePlantData(uartString);
-        }
-        else if(strcmp(uartString,"Test Pump") == 0)
-        {
-//            updateSensors();
-//            CyDelay(200);
-//            
-//            sendSensorData(sensors_);
-//            while(wantedMoisture < sensors_.currentMoisture)
-//                startPumpingWater();
-            UART_PutString("Pump is starting\r\n");
-            //startPumpingWater();
-            Pumpe_Write(1);
-            CyDelay(1000);
-            updateSensors();
-            char fastPrint[16];
-            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
-            UART_PutString(fastPrint);
-            CyDelay(500);
-            updateSensors();
-            sprintf(fastPrint,"Bat:%d\r\n",sensors_.currentBattery);
-            UART_PutString(fastPrint);
-            Pumpe_Write(0);
-            
-            UART_PutString("Pump is done pumping\r\n");
-            
         }
     }
 }

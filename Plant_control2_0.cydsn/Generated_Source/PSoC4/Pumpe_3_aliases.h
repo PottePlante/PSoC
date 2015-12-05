@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Rotor_motor.h  
+* File Name: Pumpe_3.h  
 * Version 2.10
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Rotor_motor_ALIASES_H) /* Pins Rotor_motor_ALIASES_H */
-#define CY_PINS_Rotor_motor_ALIASES_H
+#if !defined(CY_PINS_Pumpe_3_ALIASES_H) /* Pins Pumpe_3_ALIASES_H */
+#define CY_PINS_Pumpe_3_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,14 +26,14 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Rotor_motor_0		(Rotor_motor__0__PC)
-#define Rotor_motor_0_PS		(Rotor_motor__0__PS)
-#define Rotor_motor_0_PC		(Rotor_motor__0__PC)
-#define Rotor_motor_0_DR		(Rotor_motor__0__DR)
-#define Rotor_motor_0_SHIFT	(Rotor_motor__0__SHIFT)
+#define Pumpe_3_0		(Pumpe_3__0__PC)
+#define Pumpe_3_0_PS		(Pumpe_3__0__PS)
+#define Pumpe_3_0_PC		(Pumpe_3__0__PC)
+#define Pumpe_3_0_DR		(Pumpe_3__0__DR)
+#define Pumpe_3_0_SHIFT	(Pumpe_3__0__SHIFT)
 
 
-#endif /* End Pins Rotor_motor_ALIASES_H */
+#endif /* End Pins Pumpe_3_ALIASES_H */
 
 
 /* [] END OF FILE */

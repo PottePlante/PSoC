@@ -1,9 +1,10 @@
---------------- Rebuild Started: 11/09/2015 19:18:07 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 12/05/2015 20:11:24 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\main.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\sensors.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\pump.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\wifi.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\motor.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\cymetadata.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o"
@@ -22,10 +23,8 @@ Deleting file ".\CortexM0\ARM_GCC_493\Debug\Fugt.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\temperatur.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Pumpe.o"
-Deleting file ".\CortexM0\ARM_GCC_493\Debug\Rotor_motor.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Lysfoler.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\isr_EOC.o"
-Deleting file ".\CortexM0\ARM_GCC_493\Debug\temperatur_ref.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Clock_1.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o"
@@ -35,6 +34,10 @@ Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_INT.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\isr_UART.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_plus_BLK.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_plus_RED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_minus_GRN.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_minus_BLU.o"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.hex"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf"
 Deleting file ".\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.map"
@@ -51,7 +54,7 @@ HDL Generation ...
 Synthesis ...
 Place and Route ...
 Tech mapping ...
-ADD: pft.M0040: information: The following 7 pin(s) will be assigned a location by the fitter: Clock_out_capasitiv_sensors(0), Fugt(0), Lysfoler(0), Niveau_vandtank(0), Pumpe(0), Rotor_motor(0), stromstyring_plus(0)
+ADD: pft.M0040: information: The following 4 pin(s) will be assigned a location by the fitter: Rotor_motor1_minus_GRN(0), Rotor_motor1_plus_BLK(0), Rotor_motor2_minus_BLU(0), Rotor_motor2_plus_RED(0)
 Analog Placement ...
 Analog Routing ...
 Analog Code Generation ...
@@ -65,36 +68,21 @@ Clean Temporary Files ...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Plantcontrol.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Plantcontrol.c -o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/sensors.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\sensors.c -o .\CortexM0\ARM_GCC_493\Debug\sensors.o
-.\sensors.c: In function 'get_moisture':
-.\sensors.c:73:18: warning: unused variable 'moisture_data' [-Wunused-variable]
-             char moisture_data[50];
-                  ^
 .\sensors.c: In function 'get_waterlevel':
-.\sensors.c:130:18: warning: unused variable 'waterlevel_data' [-Wunused-variable]
-             char waterlevel_data[50];
+.\sensors.c:131:18: warning: unused variable 'bufchar' [-Wunused-variable]
+             char bufchar[50];
                   ^
 .\sensors.c: In function 'get_temp':
-.\sensors.c:186:18: warning: unused variable 'temp_data' [-Wunused-variable]
+.\sensors.c:182:18: warning: unused variable 'temp_data' [-Wunused-variable]
              char temp_data[50];
                   ^
 .\sensors.c: In function 'get_batterylevel':
-.\sensors.c:223:18: warning: unused variable 'battery_data' [-Wunused-variable]
+.\sensors.c:220:18: warning: unused variable 'battery_data' [-Wunused-variable]
              char battery_data[50];
                   ^
-.\sensors.c: In function 'get_lightlevel':
-.\sensors.c:307:18: warning: unused variable 'light_data' [-Wunused-variable]
-             char light_data[50];
-                  ^
-.\sensors.c: In function 'get_moisture':
-.\sensors.c:104:13: warning: 'moisture' may be used uninitialized in this function [-Wmaybe-uninitialized]
-             return (int16)moisture;
-             ^
-.\sensors.c: In function 'get_waterlevel':
-.\sensors.c:162:13: warning: 'water_level' may be used uninitialized in this function [-Wmaybe-uninitialized]
-             return (int16)water_level;
-             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/pump.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\pump.c -o .\CortexM0\ARM_GCC_493\Debug\pump.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/wifi.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\wifi.c -o .\CortexM0\ARM_GCC_493\Debug\wifi.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/motor.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\motor.c -o .\CortexM0\ARM_GCC_493\Debug\motor.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/ADC_SAR_Seq_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\ADC_SAR_Seq_1.c -o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o
@@ -113,10 +101,8 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\P
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/temperatur.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\temperatur.c -o .\CortexM0\ARM_GCC_493\Debug\temperatur.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Niveau_vandtank.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Niveau_vandtank.c -o .\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Pumpe.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Pumpe.c -o .\CortexM0\ARM_GCC_493\Debug\Pumpe.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Rotor_motor.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor.c -o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Lysfoler.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Lysfoler.c -o .\CortexM0\ARM_GCC_493\Debug\Lysfoler.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/isr_EOC.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\isr_EOC.c -o .\CortexM0\ARM_GCC_493\Debug\isr_EOC.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/temperatur_ref.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\temperatur_ref.c -o .\CortexM0\ARM_GCC_493\Debug\temperatur_ref.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/stromstyring_plus.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\stromstyring_plus.c -o .\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Clock_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Clock_1.c -o .\CortexM0\ARM_GCC_493\Debug\Clock_1.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Clock_out_capasitiv_sensors.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.c -o .\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o
@@ -126,11 +112,15 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\P
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/UART_BOOT.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_BOOT.c -o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/isr_UART.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\isr_UART.c -o .\CortexM0\ARM_GCC_493\Debug\isr_UART.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/UART_IntClock.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_IntClock.c -o .\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o
-arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_intClock.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\Fugt.o .\CortexM0\ARM_GCC_493\Debug\temperatur.o .\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o .\CortexM0\ARM_GCC_493\Debug\Pumpe.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor.o .\CortexM0\ARM_GCC_493\Debug\Lysfoler.o .\CortexM0\ARM_GCC_493\Debug\isr_EOC.o .\CortexM0\ARM_GCC_493\Debug\temperatur_ref.o .\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o .\CortexM0\ARM_GCC_493\Debug\Clock_1.o .\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\isr_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Rotor_motor1_plus_BLK.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.c -o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_plus_BLK.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Rotor_motor2_plus_RED.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor2_plus_RED.c -o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_plus_RED.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Rotor_motor1_minus_GRN.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.c -o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_minus_GRN.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Rotor_motor2_minus_BLU.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.c -o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_minus_BLU.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_intClock.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\Fugt.o .\CortexM0\ARM_GCC_493\Debug\temperatur.o .\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o .\CortexM0\ARM_GCC_493\Debug\Pumpe.o .\CortexM0\ARM_GCC_493\Debug\Lysfoler.o .\CortexM0\ARM_GCC_493\Debug\isr_EOC.o .\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o .\CortexM0\ARM_GCC_493\Debug\Clock_1.o .\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\isr_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_plus_BLK.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_plus_RED.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_minus_GRN.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_minus_BLU.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o .\CortexM0\ARM_GCC_493\Debug\sensors.o .\CortexM0\ARM_GCC_493\Debug\pump.o .\CortexM0\ARM_GCC_493\Debug\wifi.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Og -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/Plant_control2_0.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o .\CortexM0\ARM_GCC_493\Debug\sensors.o .\CortexM0\ARM_GCC_493\Debug\pump.o .\CortexM0\ARM_GCC_493\Debug\wifi.o .\CortexM0\ARM_GCC_493\Debug\motor.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Og -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/Plant_control2_0.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf" --flash_row_size 128 --flash_size 32768
 cyelftool.exe -S "C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf"
-Flash used: 17152 of 32768 bytes (52,3 %).
-SRAM used: 2916 of 4096 bytes (71,2 %). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 11/09/2015 19:18:21 ---------------
+Flash used: 18048 of 32768 bytes (55,1 %).
+SRAM used: 2924 of 4096 bytes (71,4 %). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 12/05/2015 20:11:37 ---------------

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Plant_control2_0-000\Plant_control2_0\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Plant_control2_0-000\Plant_control2_0\Header Files\wifi.h">
 <ExpandedNodeIds>
 <v>Plant_control2_0-000</v>
 <v>Plant_control2_0-000\Plant_control2_0</v>
@@ -21,12 +21,14 @@
 <v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0.cydwr</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\cyapicallbacks.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Header Files\motor.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\Plantcontrol.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\pump.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\sensors.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\wifi.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\main.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Source Files\motor.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\Plantcontrol.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\pump.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\sensors.c</v>
@@ -97,10 +99,22 @@
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe\Pumpe.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe\Pumpe.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe\Pumpe_aliases.h</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor\Rotor_motor.c</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor\Rotor_motor.h</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor\Rotor_motor_aliases.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN\Rotor_motor1_minus_GRN.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN\Rotor_motor1_minus_GRN.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN\Rotor_motor1_minus_GRN_aliases.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_plus_BLK</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_plus_BLK\Rotor_motor1_plus_BLK.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_plus_BLK\Rotor_motor1_plus_BLK.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_plus_BLK\Rotor_motor1_plus_BLK_aliases.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_minus_BLU</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_minus_BLU\Rotor_motor2_minus_BLU.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_minus_BLU\Rotor_motor2_minus_BLU.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_minus_BLU\Rotor_motor2_minus_BLU_aliases.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_plus_RED</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_plus_RED\Rotor_motor2_plus_RED.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_plus_RED\Rotor_motor2_plus_RED.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor2_plus_RED\Rotor_motor2_plus_RED_aliases.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\stromstyring_plus</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\stromstyring_plus\stromstyring_plus.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\stromstyring_plus\stromstyring_plus.h</v>
@@ -109,10 +123,6 @@
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur\temperatur.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur\temperatur.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur\temperatur_aliases.h</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur_ref</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur_ref\temperatur_ref.c</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur_ref\temperatur_ref.h</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\temperatur_ref\temperatur_ref_aliases.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\UART</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\UART\UART.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\UART\UART.h</v>
@@ -145,12 +155,14 @@
 <v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0.cydwr</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\cyapicallbacks.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Header Files\motor.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\Plantcontrol.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\pump.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\sensors.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Header Files\wifi.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\main.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Source Files\motor.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\Plantcontrol.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\pump.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Source Files\sensors.c</v>
@@ -185,10 +197,6 @@
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -234,15 +242,18 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_UART.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Lysfoler.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\motor.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Niveau_vandtank.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Plantcontrol.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\pump.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Pumpe.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_minus_GRN.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_plus_BLK.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor2_minus_BLU.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor2_plus_RED.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\sensors.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\stromstyring_plus.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\temperatur.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\temperatur_ref.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
@@ -284,15 +295,18 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_UART.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Lysfoler.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\motor.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Niveau_vandtank.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Plantcontrol.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\pump.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Pumpe.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_minus_GRN.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_plus_BLK.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor2_minus_BLU.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor2_plus_RED.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\sensors.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\stromstyring_plus.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\temperatur.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\temperatur_ref.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
@@ -302,9 +316,6 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.hex</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.map</v>
-<v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0.gpdsc</v>
-<v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0.rpt</v>
-<v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -351,6 +362,21 @@
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
 </dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="26" DocumentName=".\Plantcontrol.h" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="246" DocumentName=".\wifi.c" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="352" DocumentName=".\wifi.c" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+</indicators>
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
@@ -361,8 +387,15 @@
 <name v=".\sensors.c" />
 <name v=".\main.c" />
 <name v=".\Plant_control2_0.cydwr" />
-<name v=".\TopDesign\TopDesign.cysch" />
 <name v=".\Plantcontrol.c" />
+<name v=".\sensors.h" />
+<name v=".\motor.h" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\motor.c" />
+<name v=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.c" />
+<name v=".\cyapicallbacks.h" />
+<name v=".\pump.h" />
+<name v=".\pump.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

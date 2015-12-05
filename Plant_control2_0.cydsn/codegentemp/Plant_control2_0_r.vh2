@@ -1,14 +1,17 @@
 -- Project:   Plant_control2_0
--- Generated: 11/18/2015 11:04:57
+-- Generated: 12/05/2015 20:11:29
 -- PSoC Creator  3.3
 
 ENTITY Plant_control2_0 IS
     PORT(
         Pumpe(0)_PAD : OUT std_ulogic;
-        Rotor_motor(0)_PAD : OUT std_ulogic;
         Clock_out_capasitiv_sensors(0)_PAD : OUT std_ulogic;
         Rx_1(0)_PAD : IN std_ulogic;
-        Tx_1(0)_PAD : OUT std_ulogic);
+        Tx_1(0)_PAD : OUT std_ulogic;
+        Rotor_motor1_plus_BLK(0)_PAD : OUT std_ulogic;
+        Rotor_motor2_plus_RED(0)_PAD : OUT std_ulogic;
+        Rotor_motor1_minus_GRN(0)_PAD : OUT std_ulogic;
+        Rotor_motor2_minus_BLU(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDD OF __DEFAULT__ : ENTITY IS 3.3e0;
 END Plant_control2_0;
@@ -26,7 +29,6 @@ ARCHITECTURE __DEFAULT__ OF Plant_control2_0 IS
     SIGNAL Fugt(0)__PA : bit;
     SIGNAL Lysfoler(0)__PA : bit;
     SIGNAL Net_174 : bit;
-    SIGNAL Net_442 : bit;
     SIGNAL Net_506 : bit;
     SIGNAL Net_697_digital : bit;
     ATTRIBUTE global_signal OF Net_697_digital : SIGNAL IS true;
@@ -34,9 +36,13 @@ ARCHITECTURE __DEFAULT__ OF Plant_control2_0 IS
     ATTRIBUTE placement_force OF Net_705 : SIGNAL IS "U(1,1,B)2";
     SIGNAL Net_709 : bit;
     SIGNAL Net_710 : bit;
+    SIGNAL Net_848 : bit;
     SIGNAL Niveau_vandtank(0)__PA : bit;
     SIGNAL Pumpe(0)__PA : bit;
-    SIGNAL Rotor_motor(0)__PA : bit;
+    SIGNAL Rotor_motor1_minus_GRN(0)__PA : bit;
+    SIGNAL Rotor_motor1_plus_BLK(0)__PA : bit;
+    SIGNAL Rotor_motor2_minus_BLU(0)__PA : bit;
+    SIGNAL Rotor_motor2_plus_RED(0)__PA : bit;
     SIGNAL Rx_1(0)__PA : bit;
     SIGNAL Tx_1(0)__PA : bit;
     SIGNAL \\\ADC_SAR_Seq_1:Bypass(0)\\__PA\ : bit;
@@ -157,16 +163,22 @@ ARCHITECTURE __DEFAULT__ OF Plant_control2_0 IS
     ATTRIBUTE Location OF Niveau_vandtank(0) : LABEL IS "P2[6]";
     ATTRIBUTE lib_model OF Pumpe(0) : LABEL IS "iocell6";
     ATTRIBUTE Location OF Pumpe(0) : LABEL IS "P0[1]";
-    ATTRIBUTE lib_model OF Rotor_motor(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF Rotor_motor(0) : LABEL IS "P0[2]";
-    ATTRIBUTE lib_model OF Lysfoler(0) : LABEL IS "iocell8";
+    ATTRIBUTE lib_model OF Lysfoler(0) : LABEL IS "iocell7";
     ATTRIBUTE Location OF Lysfoler(0) : LABEL IS "P2[5]";
-    ATTRIBUTE lib_model OF Clock_out_capasitiv_sensors(0) : LABEL IS "iocell9";
+    ATTRIBUTE lib_model OF Clock_out_capasitiv_sensors(0) : LABEL IS "iocell8";
     ATTRIBUTE Location OF Clock_out_capasitiv_sensors(0) : LABEL IS "P0[0]";
-    ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell10";
+    ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P0[4]";
-    ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell11";
+    ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell10";
     ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P0[5]";
+    ATTRIBUTE lib_model OF Rotor_motor1_plus_BLK(0) : LABEL IS "iocell11";
+    ATTRIBUTE Location OF Rotor_motor1_plus_BLK(0) : LABEL IS "P0[2]";
+    ATTRIBUTE lib_model OF Rotor_motor2_plus_RED(0) : LABEL IS "iocell12";
+    ATTRIBUTE Location OF Rotor_motor2_plus_RED(0) : LABEL IS "P0[6]";
+    ATTRIBUTE lib_model OF Rotor_motor1_minus_GRN(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF Rotor_motor1_minus_GRN(0) : LABEL IS "P0[3]";
+    ATTRIBUTE lib_model OF Rotor_motor2_minus_BLU(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF Rotor_motor2_minus_BLU(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF Net_705 : LABEL IS "macrocell2";
     ATTRIBUTE Location OF Net_705 : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \UART:BUART:counter_load_not\ : LABEL IS "macrocell3";
@@ -1177,96 +1189,6 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Rotor_motor:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "1",
-            id => "de980455-8318-4e31-82a1-d4c905370f28",
-            init_dr_st => "0",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "1",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "O",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    Rotor_motor(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "Rotor_motor",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
-        PORT MAP(
-            pa_out => Rotor_motor(0)__PA,
-            oe => open,
-            pad_in => Rotor_motor(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
     Lysfoler:logicalport
         GENERIC MAP(
             drive_mode => "000",
@@ -1631,6 +1553,366 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    Rotor_motor1_plus_BLK:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "d6f1c306-d6e6-4dc8-b24c-a7f1c34d33d4",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Rotor_motor1_plus_BLK(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Rotor_motor1_plus_BLK",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Rotor_motor1_plus_BLK(0)__PA,
+            oe => open,
+            pad_in => Rotor_motor1_plus_BLK(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Rotor_motor2_plus_RED:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "1ca83b1a-0904-4d1a-a7e9-20bf2d5621cf",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Rotor_motor2_plus_RED(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Rotor_motor2_plus_RED",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Rotor_motor2_plus_RED(0)__PA,
+            oe => open,
+            pad_in => Rotor_motor2_plus_RED(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Rotor_motor1_minus_GRN:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "7c039f5c-c07d-4c2d-8117-8bbd7c1dcdbd",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Rotor_motor1_minus_GRN(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Rotor_motor1_minus_GRN",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Rotor_motor1_minus_GRN(0)__PA,
+            oe => open,
+            pad_in => Rotor_motor1_minus_GRN(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Rotor_motor2_minus_BLU:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "82c36d13-c1a1-4f44-839a-2a7479ce5842",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Rotor_motor2_minus_BLU(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Rotor_motor2_minus_BLU",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Rotor_motor2_minus_BLU(0)__PA,
+            oe => open,
+            pad_in => Rotor_motor2_minus_BLU(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
     Net_705:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0)",
@@ -1721,7 +2003,7 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             clock => \ADC_SAR_Seq_1:Net_1845_ff7\,
-            sample_done => Net_442,
+            sample_done => Net_848,
             chan_id_valid => \ADC_SAR_Seq_1:Net_3108\,
             chan_id_3 => \ADC_SAR_Seq_1:Net_3109_3\,
             chan_id_2 => \ADC_SAR_Seq_1:Net_3109_2\,

@@ -44,7 +44,7 @@ CY_ISR(isr_EOC_vec)
     }
     if(lightlevel_ptr< 8u)
     {
-        lightlevel[batterylevel_ptr]=ADC_SAR_Seq_1_CountsTo_mVolts(2u,ADC_SAR_Seq_1_GetResult16(4));
+        lightlevel[lightlevel_ptr]=ADC_SAR_Seq_1_CountsTo_mVolts(2u,ADC_SAR_Seq_1_GetResult16(4));
         lightlevel_ptr++;
     }
     
@@ -179,11 +179,10 @@ int16 get_temp(void)
             
             temp_avg=(temp_avg>>3u);
             
-            
             char temp_data[50];
             
             // omregning af temperatur. 
-            temp_avg=(temp_avg-314)*0.0362; 
+            temp_avg=(temp_avg-1650)*0.014;
             // 1.65V som svare til 0 grader trækkes fra og forstærkning gange på for at få temperatur i grader (eks 39mV=39 grader)
         
             /* //til test af sensorer
@@ -191,6 +190,7 @@ int16 get_temp(void)
             UART_1_UartPutString(temp_data);
             CyDelay(1000);
             */
+            
             temperature_ptr=0u;
             
             if(temp_avg < 0)
@@ -288,24 +288,55 @@ int16   get_batterylevel(void)
 
 int16 get_lightlevel(void)
 {
-if(lightlevel_ptr == 8u)
+    if(lightlevel_ptr == 8u)
         {
-   
             int16 light_avg=0;
             int i;
-            for(i = 1; i < 8; i++)
+            for(i = 0; i < 8; i++)
             {
                  light_avg=light_avg+lightlevel[i];
             }
             
-            light_avg=(light_avg/8);
+            light_avg=(light_avg>>3u);
           
-        
-            char light_data[50];
+            //Lys level går fra 3.3V ved 10000 Lux til 0 ved under 200mV. 
+            int16 lightLux = 0;
+            
+            //ref modstand 500Ohm.
+            if(light_avg <= 0)
+                lightLux = 0;
+            else if(light_avg <= 228)
+                lightLux = 1;
+            else if(light_avg <= 723)
+                lightLux = 5;
+            else if(light_avg <= 1096)
+                lightLux = 10;
+            else if(light_avg <= 2153)
+                lightLux = 50;
+            else if(light_avg <= 2535)
+                lightLux = 100;
+            else if(light_avg <= 2716)
+                lightLux = 150;
+            else if(light_avg <= 2822)
+                lightLux = 200;
+            else if(light_avg <= 2892)
+                lightLux = 250;
+            else if(light_avg <= 2942)
+                lightLux = 300;
+            else if(light_avg <= 3011)
+                lightLux = 400;
+            else if(light_avg <= 3057)
+                lightLux = 500;
+            else if(light_avg <= 3089)
+                lightLux = 600;
+            else if(light_avg <= 3122)
+                lightLux = 750;
+            else if(light_avg <= 3300)
+                lightLux = 999;
+            
             
             // Behandling af målt avg til et lys niveau eller spænding
- 
-          
+
             /* //til test af sensorer
             sprintf(light_data, "lys niveau i volt = %d\n\r", light_avg);
             UART_1_UartPutString(light_data);
@@ -313,8 +344,7 @@ if(lightlevel_ptr == 8u)
             */
             
             lightlevel_ptr=0;
-            return light_avg;
-            
+            return lightLux;
         }
         return 0; 
 

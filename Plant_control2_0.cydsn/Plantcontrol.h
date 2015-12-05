@@ -15,6 +15,7 @@
 #include <sensors.h>
 #include <pump.h>
 #include <wifi.h>
+#include <motor.h>
 
 int8 ID;
 int8 wantedMoisture;
@@ -24,16 +25,6 @@ int8 battery;
 int8 water;
 int8 wantedRotate;
        
-struct datas
-{
-    int8 water;
-};
-// int16 currentMoisture;
-//    int16 currentBattery;
-//    int16 currentWater;
-//    int16 currentLight;
-//    int16 currentTemperature;
-
 struct updateParameters
 {
     int16 currentMoisture;
