@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2015-12-05T19:11:30Z")
+ (DATE "2015-12-06T02:29:10Z")
  (DESIGN "Plant_control2_0")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -206,7 +206,7 @@
     (INTERCONNECT ClockGenBlock.gen_clk_out_1 \\UART\:BUART\:txn\\.clock_0 (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.udb_div_1 ClockGenBlock.gen_clk_in_1 (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.udb_div_3 ClockGenBlock.gen_clk_in_3 (0.000:0.000:0.000))
-    (INTERCONNECT Pumpe\(0\)_PAD Pumpe\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT waterPump\(0\)_PAD waterPump\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Clock_out_capasitiv_sensors\(0\)_PAD Clock_out_capasitiv_sensors\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Rx_1\(0\)_PAD Rx_1\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Tx_1\(0\).pad_out Tx_1\(0\)_PAD (0.000:0.000:0.000))

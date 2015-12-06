@@ -30,9 +30,9 @@
   <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Niveau_vandtank.c" value="ARM_C_FILE;Niveau_vandtank" />
   <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Niveau_vandtank.h" value="NONE;Niveau_vandtank" />
   <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Niveau_vandtank_aliases.h" value="NONE;Niveau_vandtank" />
-  <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Pumpe.c" value="ARM_C_FILE;Pumpe" />
-  <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Pumpe.h" value="NONE;Pumpe" />
-  <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Pumpe_aliases.h" value="NONE;Pumpe" />
+  <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\waterPump.c" value="ARM_C_FILE;waterPump" />
+  <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\waterPump.h" value="NONE;waterPump" />
+  <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\waterPump_aliases.h" value="NONE;waterPump" />
   <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Lysfoler.c" value="ARM_C_FILE;Lysfoler" />
   <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Lysfoler.h" value="NONE;Lysfoler" />
   <file name="C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\codegentemp\Lysfoler_aliases.h" value="NONE;Lysfoler" />

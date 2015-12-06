@@ -1,0 +1,3089 @@
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"sensors.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.isr_EOC_vec,"ax",%progbits
+  18              		.align	1
+  19              		.global	isr_EOC_vec
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	isr_EOC_vec, %function
+  23              	isr_EOC_vec:
+  24              	.LFB33:
+  25              		.file 1 ".\\sensors.c"
+   1:.\sensors.c   **** /* ========================================
+   2:.\sensors.c   ****  *
+   3:.\sensors.c   ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\sensors.c   ****  * All Rights Reserved
+   5:.\sensors.c   ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\sensors.c   ****  *
+   7:.\sensors.c   ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\sensors.c   ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\sensors.c   ****  *
+  10:.\sensors.c   ****  * ========================================
+  11:.\sensors.c   **** */
+  12:.\sensors.c   **** #include <sensors.h>
+  13:.\sensors.c   **** 
+  14:.\sensors.c   **** uint8 moisture_ptr = 0;
+  15:.\sensors.c   **** uint8 waterlevel_ptr=0;
+  16:.\sensors.c   **** uint8 temperature_ptr=0;
+  17:.\sensors.c   **** uint8 batterylevel_ptr=0;
+  18:.\sensors.c   **** uint8 lightlevel_ptr=0;
+  19:.\sensors.c   **** 
+  20:.\sensors.c   **** CY_ISR(isr_EOC_vec)
+  21:.\sensors.c   **** {
+  26              		.loc 1 21 0
+  27              		.cfi_startproc
+  28 0000 38B5     		push	{r3, r4, r5, lr}
+  29              		.cfi_def_cfa_offset 16
+  30              		.cfi_offset 3, -16
+  31              		.cfi_offset 4, -12
+  32              		.cfi_offset 5, -8
+  33              		.cfi_offset 14, -4
+  22:.\sensors.c   ****     if(moisture_ptr < 50u)
+  34              		.loc 1 22 0
+  35 0002 254C     		ldr	r4, .L8
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 2
+
+
+  36 0004 2578     		ldrb	r5, [r4]
+  37 0006 312D     		cmp	r5, #49
+  38 0008 08D8     		bhi	.L2
+  23:.\sensors.c   ****     {
+  24:.\sensors.c   ****         moisture[moisture_ptr]=ADC_SAR_Seq_1_GetResult16(0);
+  39              		.loc 1 24 0
+  40 000a 0020     		mov	r0, #0
+  41 000c FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  42              	.LVL0:
+  43 0010 224B     		ldr	r3, .L8+4
+  44 0012 6D00     		lsl	r5, r5, #1
+  45 0014 E852     		strh	r0, [r5, r3]
+  25:.\sensors.c   ****         moisture_ptr++; 
+  46              		.loc 1 25 0
+  47 0016 2378     		ldrb	r3, [r4]
+  48 0018 0133     		add	r3, r3, #1
+  49 001a 2370     		strb	r3, [r4]
+  50              	.L2:
+  26:.\sensors.c   ****     }
+  27:.\sensors.c   ****     if(waterlevel_ptr<50u)
+  51              		.loc 1 27 0
+  52 001c 6578     		ldrb	r5, [r4, #1]
+  53 001e 312D     		cmp	r5, #49
+  54 0020 08D8     		bhi	.L3
+  28:.\sensors.c   ****     {
+  29:.\sensors.c   ****         waterlevel[waterlevel_ptr]=ADC_SAR_Seq_1_GetResult16(3);
+  55              		.loc 1 29 0
+  56 0022 0320     		mov	r0, #3
+  57 0024 FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  58              	.LVL1:
+  59 0028 1D4B     		ldr	r3, .L8+8
+  60 002a 6D00     		lsl	r5, r5, #1
+  61 002c E852     		strh	r0, [r5, r3]
+  30:.\sensors.c   ****         waterlevel_ptr++;
+  62              		.loc 1 30 0
+  63 002e 6378     		ldrb	r3, [r4, #1]
+  64 0030 0133     		add	r3, r3, #1
+  65 0032 6370     		strb	r3, [r4, #1]
+  66              	.L3:
+  31:.\sensors.c   ****     }
+  32:.\sensors.c   ****    if(temperature_ptr < 8u )
+  67              		.loc 1 32 0
+  68 0034 A578     		ldrb	r5, [r4, #2]
+  69 0036 072D     		cmp	r5, #7
+  70 0038 0CD8     		bhi	.L4
+  33:.\sensors.c   ****     {
+  34:.\sensors.c   ****         temperature[temperature_ptr]=ADC_SAR_Seq_1_CountsTo_mVolts(2u,ADC_SAR_Seq_1_GetResult16(2))
+  71              		.loc 1 34 0
+  72 003a 0220     		mov	r0, #2
+  73 003c FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  74              	.LVL2:
+  75 0040 011C     		mov	r1, r0
+  76 0042 0220     		mov	r0, #2
+  77 0044 FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+  78              	.LVL3:
+  79 0048 164B     		ldr	r3, .L8+12
+  80 004a 6D00     		lsl	r5, r5, #1
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 3
+
+
+  81 004c E852     		strh	r0, [r5, r3]
+  35:.\sensors.c   ****         temperature_ptr++;  
+  82              		.loc 1 35 0
+  83 004e A378     		ldrb	r3, [r4, #2]
+  84 0050 0133     		add	r3, r3, #1
+  85 0052 A370     		strb	r3, [r4, #2]
+  86              	.L4:
+  36:.\sensors.c   ****     }
+  37:.\sensors.c   ****     if(batterylevel_ptr< 8u)
+  87              		.loc 1 37 0
+  88 0054 E578     		ldrb	r5, [r4, #3]
+  89 0056 072D     		cmp	r5, #7
+  90 0058 0CD8     		bhi	.L5
+  38:.\sensors.c   ****     {
+  39:.\sensors.c   ****         batterylevel[batterylevel_ptr]=ADC_SAR_Seq_1_CountsTo_mVolts(2u,ADC_SAR_Seq_1_GetResult16(1
+  91              		.loc 1 39 0
+  92 005a 0120     		mov	r0, #1
+  93 005c FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  94              	.LVL4:
+  95 0060 011C     		mov	r1, r0
+  96 0062 0220     		mov	r0, #2
+  97 0064 FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+  98              	.LVL5:
+  99 0068 0F4B     		ldr	r3, .L8+16
+ 100 006a 6D00     		lsl	r5, r5, #1
+ 101 006c E852     		strh	r0, [r5, r3]
+  40:.\sensors.c   ****         batterylevel_ptr++;
+ 102              		.loc 1 40 0
+ 103 006e E378     		ldrb	r3, [r4, #3]
+ 104 0070 0133     		add	r3, r3, #1
+ 105 0072 E370     		strb	r3, [r4, #3]
+ 106              	.L5:
+  41:.\sensors.c   ****     }
+  42:.\sensors.c   ****     if(lightlevel_ptr< 8u)
+ 107              		.loc 1 42 0
+ 108 0074 2579     		ldrb	r5, [r4, #4]
+ 109 0076 072D     		cmp	r5, #7
+ 110 0078 0CD8     		bhi	.L1
+  43:.\sensors.c   ****     {
+  44:.\sensors.c   ****         lightlevel[lightlevel_ptr]=ADC_SAR_Seq_1_CountsTo_mVolts(2u,ADC_SAR_Seq_1_GetResult16(4));
+ 111              		.loc 1 44 0
+ 112 007a 0420     		mov	r0, #4
+ 113 007c FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+ 114              	.LVL6:
+ 115 0080 011C     		mov	r1, r0
+ 116 0082 0220     		mov	r0, #2
+ 117 0084 FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+ 118              	.LVL7:
+ 119 0088 084B     		ldr	r3, .L8+20
+ 120 008a 6D00     		lsl	r5, r5, #1
+ 121 008c E852     		strh	r0, [r5, r3]
+  45:.\sensors.c   ****         lightlevel_ptr++;
+ 122              		.loc 1 45 0
+ 123 008e 2379     		ldrb	r3, [r4, #4]
+ 124 0090 0133     		add	r3, r3, #1
+ 125 0092 2371     		strb	r3, [r4, #4]
+ 126              	.L1:
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 4
+
+
+  46:.\sensors.c   ****     }
+  47:.\sensors.c   ****     
+  48:.\sensors.c   **** }
+ 127              		.loc 1 48 0
+ 128              		@ sp needed
+ 129 0094 38BD     		pop	{r3, r4, r5, pc}
+ 130              	.L9:
+ 131 0096 C046     		.align	2
+ 132              	.L8:
+ 133 0098 00000000 		.word	.LANCHOR0
+ 134 009c 00000000 		.word	moisture
+ 135 00a0 00000000 		.word	waterlevel
+ 136 00a4 00000000 		.word	temperature
+ 137 00a8 00000000 		.word	batterylevel
+ 138 00ac 00000000 		.word	lightlevel
+ 139              		.cfi_endproc
+ 140              	.LFE33:
+ 141              		.size	isr_EOC_vec, .-isr_EOC_vec
+ 142              		.global	__aeabi_idiv
+ 143              		.global	__aeabi_i2d
+ 144              		.global	__aeabi_ddiv
+ 145              		.global	__aeabi_dmul
+ 146              		.global	__aeabi_dadd
+ 147              		.global	__aeabi_dcmplt
+ 148              		.global	__aeabi_dcmpgt
+ 149              		.global	__aeabi_d2iz
+ 150              		.section	.text.get_moisture,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	get_moisture
+ 153              		.code	16
+ 154              		.thumb_func
+ 155              		.type	get_moisture, %function
+ 156              	get_moisture:
+ 157              	.LFB34:
+  49:.\sensors.c   **** 
+  50:.\sensors.c   **** int16 procent_moisture = 0;
+  51:.\sensors.c   **** int16 get_moisture(void)
+  52:.\sensors.c   **** {
+ 158              		.loc 1 52 0
+ 159              		.cfi_startproc
+ 160 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 161              		.cfi_def_cfa_offset 24
+ 162              		.cfi_offset 3, -24
+ 163              		.cfi_offset 4, -20
+ 164              		.cfi_offset 5, -16
+ 165              		.cfi_offset 6, -12
+ 166              		.cfi_offset 7, -8
+ 167              		.cfi_offset 14, -4
+  53:.\sensors.c   ****      if(moisture_ptr == 50)
+ 168              		.loc 1 53 0
+ 169 0002 314C     		ldr	r4, .L23
+ 170 0004 2378     		ldrb	r3, [r4]
+ 171 0006 322B     		cmp	r3, #50
+ 172 0008 5BD1     		bne	.L11
+ 173              	.LBB2:
+  54:.\sensors.c   ****         {
+  55:.\sensors.c   ****             int16 min=moisture[0];
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 5
+
+
+ 174              		.loc 1 55 0
+ 175 000a 304D     		ldr	r5, .L23+4
+  56:.\sensors.c   ****             int16 max=moisture[0];
+  57:.\sensors.c   ****             
+  58:.\sensors.c   ****             int i;
+  59:.\sensors.c   ****             for(i = 1; i < 50; i++)
+ 176              		.loc 1 59 0
+ 177 000c 0121     		mov	r1, #1
+  55:.\sensors.c   ****             int16 max=moisture[0];
+ 178              		.loc 1 55 0
+ 179 000e 2888     		ldrh	r0, [r5]
+ 180              	.LVL8:
+  56:.\sensors.c   ****             int16 max=moisture[0];
+ 181              		.loc 1 56 0
+ 182 0010 031C     		mov	r3, r0
+ 183              	.LVL9:
+ 184              	.L14:
+ 185 0012 4A00     		lsl	r2, r1, #1
+  60:.\sensors.c   ****             {
+  61:.\sensors.c   ****                 if(min > moisture[i])
+ 186              		.loc 1 61 0
+ 187 0014 AA5A     		ldrh	r2, [r5, r2]
+ 188 0016 06B2     		sxth	r6, r0
+ 189 0018 17B2     		sxth	r7, r2
+ 190 001a BE42     		cmp	r6, r7
+ 191 001c 05DC     		bgt	.L19
+ 192 001e 1EB2     		sxth	r6, r3
+ 193 0020 B742     		cmp	r7, r6
+ 194 0022 00DA     		bge	.L13
+ 195 0024 1A1C     		add	r2, r3, #0
+ 196              	.L13:
+ 197 0026 93B2     		uxth	r3, r2
+ 198              	.LVL10:
+ 199 0028 00E0     		b	.L12
+ 200              	.LVL11:
+ 201              	.L19:
+ 202 002a 101C     		mov	r0, r2
+ 203              	.LVL12:
+ 204              	.L12:
+  59:.\sensors.c   ****             {
+ 205              		.loc 1 59 0 discriminator 2
+ 206 002c 0131     		add	r1, r1, #1
+ 207              	.LVL13:
+ 208 002e 3229     		cmp	r1, #50
+ 209 0030 EFD1     		bne	.L14
+  62:.\sensors.c   ****                 {
+  63:.\sensors.c   ****                     min = moisture[i];   
+  64:.\sensors.c   ****                 }
+  65:.\sensors.c   ****                 else if(max < moisture[i])
+  66:.\sensors.c   ****                 {
+  67:.\sensors.c   ****                     max = moisture[i];   
+  68:.\sensors.c   ****                 }
+  69:.\sensors.c   ****             }
+  70:.\sensors.c   ****             
+  71:.\sensors.c   ****             int16 pp = ((max - min)*806)/1000;
+ 210              		.loc 1 71 0
+ 211 0032 FA21     		mov	r1, #250
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 6
+
+
+ 212              	.LVL14:
+ 213 0034 00B2     		sxth	r0, r0
+ 214 0036 1BB2     		sxth	r3, r3
+ 215 0038 1B1A     		sub	r3, r3, r0
+ 216              	.LVL15:
+ 217 003a 2548     		ldr	r0, .L23+8
+ 218              	.LVL16:
+ 219 003c 8900     		lsl	r1, r1, #2
+ 220 003e 5843     		mul	r0, r3
+ 221 0040 FFF7FEFF 		bl	__aeabi_idiv
+ 222              	.LVL17:
+  72:.\sensors.c   ****             
+  73:.\sensors.c   ****             double procent_d;
+  74:.\sensors.c   ****             
+  75:.\sensors.c   ****             if(pp>= 1117)
+ 223              		.loc 1 75 0
+ 224 0044 234B     		ldr	r3, .L23+12
+ 225 0046 00B2     		sxth	r0, r0
+ 226 0048 9842     		cmp	r0, r3
+ 227 004a 0CDD     		ble	.L15
+  76:.\sensors.c   ****             {
+  77:.\sensors.c   ****                   procent_d = (-0.223834*((double)pp/1000)+0.583310)*100;
+ 228              		.loc 1 77 0
+ 229 004c FFF7FEFF 		bl	__aeabi_i2d
+ 230              	.LVL18:
+ 231 0050 0022     		mov	r2, #0
+ 232 0052 214B     		ldr	r3, .L23+16
+ 233 0054 FFF7FEFF 		bl	__aeabi_ddiv
+ 234              	.LVL19:
+ 235 0058 204A     		ldr	r2, .L23+20
+ 236 005a 214B     		ldr	r3, .L23+24
+ 237 005c FFF7FEFF 		bl	__aeabi_dmul
+ 238              	.LVL20:
+ 239 0060 204A     		ldr	r2, .L23+28
+ 240 0062 214B     		ldr	r3, .L23+32
+ 241 0064 0BE0     		b	.L22
+ 242              	.LVL21:
+ 243              	.L15:
+  78:.\sensors.c   ****             }else
+  79:.\sensors.c   ****             {
+  80:.\sensors.c   ****                   procent_d = (-1.08366*((double)pp/1000)+1.54356)*100; 
+ 244              		.loc 1 80 0
+ 245 0066 FFF7FEFF 		bl	__aeabi_i2d
+ 246              	.LVL22:
+ 247 006a 0022     		mov	r2, #0
+ 248 006c 1A4B     		ldr	r3, .L23+16
+ 249 006e FFF7FEFF 		bl	__aeabi_ddiv
+ 250              	.LVL23:
+ 251 0072 1E4A     		ldr	r2, .L23+36
+ 252 0074 1E4B     		ldr	r3, .L23+40
+ 253 0076 FFF7FEFF 		bl	__aeabi_dmul
+ 254              	.LVL24:
+ 255 007a 1E4A     		ldr	r2, .L23+44
+ 256 007c 1E4B     		ldr	r3, .L23+48
+ 257              	.L22:
+ 258 007e FFF7FEFF 		bl	__aeabi_dadd
+ 259              	.LVL25:
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 7
+
+
+ 260 0082 0022     		mov	r2, #0
+ 261 0084 1D4B     		ldr	r3, .L23+52
+ 262 0086 FFF7FEFF 		bl	__aeabi_dmul
+ 263              	.LVL26:
+  81:.\sensors.c   ****             }
+  82:.\sensors.c   ****             if(procent_d < 0)
+ 264              		.loc 1 82 0
+ 265 008a 0022     		mov	r2, #0
+ 266 008c 0023     		mov	r3, #0
+  80:.\sensors.c   ****             }
+ 267              		.loc 1 80 0
+ 268 008e 061C     		mov	r6, r0
+ 269 0090 0F1C     		mov	r7, r1
+ 270              	.LVL27:
+ 271              		.loc 1 82 0
+ 272 0092 FFF7FEFF 		bl	__aeabi_dcmplt
+ 273              	.LVL28:
+ 274 0096 0028     		cmp	r0, #0
+ 275 0098 0AD1     		bne	.L20
+  83:.\sensors.c   ****             {
+  84:.\sensors.c   ****                 procent_d = 0;   
+  85:.\sensors.c   ****             }
+  86:.\sensors.c   ****             else if(procent_d > 100)
+ 276              		.loc 1 86 0
+ 277 009a 301C     		mov	r0, r6
+ 278 009c 391C     		mov	r1, r7
+ 279 009e 0022     		mov	r2, #0
+ 280 00a0 164B     		ldr	r3, .L23+52
+ 281 00a2 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 282              	.LVL29:
+ 283 00a6 0028     		cmp	r0, #0
+ 284 00a8 04D0     		beq	.L17
+  87:.\sensors.c   ****             {
+  88:.\sensors.c   ****                 procent_d = 100;   
+ 285              		.loc 1 88 0
+ 286 00aa 0026     		mov	r6, #0
+ 287              	.LVL30:
+ 288 00ac 134F     		ldr	r7, .L23+52
+ 289 00ae 01E0     		b	.L17
+ 290              	.LVL31:
+ 291              	.L20:
+  84:.\sensors.c   ****             }
+ 292              		.loc 1 84 0
+ 293 00b0 0026     		mov	r6, #0
+ 294              	.LVL32:
+ 295 00b2 0027     		mov	r7, #0
+ 296              	.L17:
+ 297              	.LVL33:
+  89:.\sensors.c   ****             }
+  90:.\sensors.c   ****             
+  91:.\sensors.c   ****             int16 procent = (int16)procent_d;
+  92:.\sensors.c   ****             //char bufchar[50];
+  93:.\sensors.c   ****             
+  94:.\sensors.c   ****             /*sprintf(bufchar, "max = %d\n\rmin = %d\n\rpp = %d mV\n\rprocent = %d %%\n\n\r", max, 
+  95:.\sensors.c   ****             
+  96:.\sensors.c   ****             UART_1_UartPutString(bufchar);
+  97:.\sensors.c   ****             CyDelay(1000);*/
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 8
+
+
+  98:.\sensors.c   ****             moisture_ptr=0;
+ 298              		.loc 1 98 0
+ 299 00b4 0023     		mov	r3, #0
+  91:.\sensors.c   ****             //char bufchar[50];
+ 300              		.loc 1 91 0
+ 301 00b6 301C     		mov	r0, r6
+ 302              		.loc 1 98 0
+ 303 00b8 2370     		strb	r3, [r4]
+  91:.\sensors.c   ****             //char bufchar[50];
+ 304              		.loc 1 91 0
+ 305 00ba 391C     		mov	r1, r7
+ 306 00bc FFF7FEFF 		bl	__aeabi_d2iz
+ 307              	.LVL34:
+ 308 00c0 E080     		strh	r0, [r4, #6]
+ 309              	.LVL35:
+ 310              	.L11:
+ 311              	.LBE2:
+  99:.\sensors.c   ****             
+ 100:.\sensors.c   ****             procent_moisture = procent;
+ 101:.\sensors.c   ****                         
+ 102:.\sensors.c   ****         }
+ 103:.\sensors.c   ****         
+ 104:.\sensors.c   ****     return procent_moisture;
+ 312              		.loc 1 104 0
+ 313 00c2 0623     		mov	r3, #6
+ 314 00c4 E05E     		ldrsh	r0, [r4, r3]
+ 105:.\sensors.c   **** }
+ 315              		.loc 1 105 0
+ 316              		@ sp needed
+ 317 00c6 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 318              	.L24:
+ 319              		.align	2
+ 320              	.L23:
+ 321 00c8 00000000 		.word	.LANCHOR0
+ 322 00cc 00000000 		.word	moisture
+ 323 00d0 26030000 		.word	806
+ 324 00d4 5C040000 		.word	1116
+ 325 00d8 00408F40 		.word	1083129856
+ 326 00dc 7DCEDDAE 		.word	-1361195395
+ 327 00e0 97A6CCBF 		.word	-1077107049
+ 328 00e4 98C0ADBB 		.word	-1146240872
+ 329 00e8 79AAE23F 		.word	1071819385
+ 330 00ec D8BB3FDE 		.word	-566248488
+ 331 00f0 AB56F1BF 		.word	-1074702677
+ 332 00f4 C39E76F8 		.word	-126443837
+ 333 00f8 6BB2F83F 		.word	1073263211
+ 334 00fc 00005940 		.word	1079574528
+ 335              		.cfi_endproc
+ 336              	.LFE34:
+ 337              		.size	get_moisture, .-get_moisture
+ 338              		.section	.text.get_waterlevel,"ax",%progbits
+ 339              		.align	1
+ 340              		.global	get_waterlevel
+ 341              		.code	16
+ 342              		.thumb_func
+ 343              		.type	get_waterlevel, %function
+ 344              	get_waterlevel:
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 9
+
+
+ 345              	.LFB35:
+ 106:.\sensors.c   **** 
+ 107:.\sensors.c   **** int16 procent_waterlevel = 0;
+ 108:.\sensors.c   **** 
+ 109:.\sensors.c   **** int16 get_waterlevel(void)
+ 110:.\sensors.c   **** {
+ 346              		.loc 1 110 0
+ 347              		.cfi_startproc
+ 348 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 349              		.cfi_def_cfa_offset 24
+ 350              		.cfi_offset 3, -24
+ 351              		.cfi_offset 4, -20
+ 352              		.cfi_offset 5, -16
+ 353              		.cfi_offset 6, -12
+ 354              		.cfi_offset 7, -8
+ 355              		.cfi_offset 14, -4
+ 111:.\sensors.c   ****     if(waterlevel_ptr == 50)
+ 356              		.loc 1 111 0
+ 357 0002 314C     		ldr	r4, .L38
+ 358 0004 6378     		ldrb	r3, [r4, #1]
+ 359 0006 322B     		cmp	r3, #50
+ 360 0008 5BD1     		bne	.L26
+ 361              	.LBB3:
+ 112:.\sensors.c   ****         {
+ 113:.\sensors.c   ****             int16 min=waterlevel[0];
+ 362              		.loc 1 113 0
+ 363 000a 304D     		ldr	r5, .L38+4
+ 114:.\sensors.c   ****             int16 max=waterlevel[0];
+ 115:.\sensors.c   ****             
+ 116:.\sensors.c   ****             int i;
+ 117:.\sensors.c   ****             for(i = 1; i < 50; i++)
+ 364              		.loc 1 117 0
+ 365 000c 0121     		mov	r1, #1
+ 113:.\sensors.c   ****             int16 max=waterlevel[0];
+ 366              		.loc 1 113 0
+ 367 000e 2888     		ldrh	r0, [r5]
+ 368              	.LVL36:
+ 114:.\sensors.c   ****             int16 max=waterlevel[0];
+ 369              		.loc 1 114 0
+ 370 0010 031C     		mov	r3, r0
+ 371              	.LVL37:
+ 372              	.L29:
+ 373 0012 4A00     		lsl	r2, r1, #1
+ 118:.\sensors.c   ****             {
+ 119:.\sensors.c   ****                 if(min > waterlevel[i])
+ 374              		.loc 1 119 0
+ 375 0014 AA5A     		ldrh	r2, [r5, r2]
+ 376 0016 06B2     		sxth	r6, r0
+ 377 0018 17B2     		sxth	r7, r2
+ 378 001a BE42     		cmp	r6, r7
+ 379 001c 05DC     		bgt	.L34
+ 380 001e 1EB2     		sxth	r6, r3
+ 381 0020 B742     		cmp	r7, r6
+ 382 0022 00DA     		bge	.L28
+ 383 0024 1A1C     		add	r2, r3, #0
+ 384              	.L28:
+ 385 0026 93B2     		uxth	r3, r2
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 10
+
+
+ 386              	.LVL38:
+ 387 0028 00E0     		b	.L27
+ 388              	.LVL39:
+ 389              	.L34:
+ 390 002a 101C     		mov	r0, r2
+ 391              	.LVL40:
+ 392              	.L27:
+ 117:.\sensors.c   ****             {
+ 393              		.loc 1 117 0 discriminator 2
+ 394 002c 0131     		add	r1, r1, #1
+ 395              	.LVL41:
+ 396 002e 3229     		cmp	r1, #50
+ 397 0030 EFD1     		bne	.L29
+ 120:.\sensors.c   ****                 {
+ 121:.\sensors.c   ****                     min = waterlevel[i];   
+ 122:.\sensors.c   ****                 }
+ 123:.\sensors.c   ****                 else if(max < waterlevel[i])
+ 124:.\sensors.c   ****                 {
+ 125:.\sensors.c   ****                     max = waterlevel[i];   
+ 126:.\sensors.c   ****                 }
+ 127:.\sensors.c   ****             }
+ 128:.\sensors.c   ****             char bufchar[50];
+ 129:.\sensors.c   ****             
+ 130:.\sensors.c   ****             int16 pp = ((max - min)*806)/1000;
+ 398              		.loc 1 130 0
+ 399 0032 FA21     		mov	r1, #250
+ 400              	.LVL42:
+ 401 0034 00B2     		sxth	r0, r0
+ 402 0036 1BB2     		sxth	r3, r3
+ 403 0038 1B1A     		sub	r3, r3, r0
+ 404              	.LVL43:
+ 405 003a 2548     		ldr	r0, .L38+8
+ 406              	.LVL44:
+ 407 003c 8900     		lsl	r1, r1, #2
+ 408 003e 5843     		mul	r0, r3
+ 409 0040 FFF7FEFF 		bl	__aeabi_idiv
+ 410              	.LVL45:
+ 131:.\sensors.c   ****             
+ 132:.\sensors.c   ****             double procent_d;
+ 133:.\sensors.c   ****             
+ 134:.\sensors.c   ****             if(pp>= 1117)
+ 411              		.loc 1 134 0
+ 412 0044 234B     		ldr	r3, .L38+12
+ 413 0046 00B2     		sxth	r0, r0
+ 414 0048 9842     		cmp	r0, r3
+ 415 004a 0CDD     		ble	.L30
+ 135:.\sensors.c   ****             {
+ 136:.\sensors.c   ****                   procent_d = (-0.223834*((double)pp/1000)+0.583310)*100;
+ 416              		.loc 1 136 0
+ 417 004c FFF7FEFF 		bl	__aeabi_i2d
+ 418              	.LVL46:
+ 419 0050 0022     		mov	r2, #0
+ 420 0052 214B     		ldr	r3, .L38+16
+ 421 0054 FFF7FEFF 		bl	__aeabi_ddiv
+ 422              	.LVL47:
+ 423 0058 204A     		ldr	r2, .L38+20
+ 424 005a 214B     		ldr	r3, .L38+24
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 11
+
+
+ 425 005c FFF7FEFF 		bl	__aeabi_dmul
+ 426              	.LVL48:
+ 427 0060 204A     		ldr	r2, .L38+28
+ 428 0062 214B     		ldr	r3, .L38+32
+ 429 0064 0BE0     		b	.L37
+ 430              	.LVL49:
+ 431              	.L30:
+ 137:.\sensors.c   ****             }else
+ 138:.\sensors.c   ****             {
+ 139:.\sensors.c   ****                   procent_d = (-1.08366*((double)pp/1000)+1.54356)*100; 
+ 432              		.loc 1 139 0
+ 433 0066 FFF7FEFF 		bl	__aeabi_i2d
+ 434              	.LVL50:
+ 435 006a 0022     		mov	r2, #0
+ 436 006c 1A4B     		ldr	r3, .L38+16
+ 437 006e FFF7FEFF 		bl	__aeabi_ddiv
+ 438              	.LVL51:
+ 439 0072 1E4A     		ldr	r2, .L38+36
+ 440 0074 1E4B     		ldr	r3, .L38+40
+ 441 0076 FFF7FEFF 		bl	__aeabi_dmul
+ 442              	.LVL52:
+ 443 007a 1E4A     		ldr	r2, .L38+44
+ 444 007c 1E4B     		ldr	r3, .L38+48
+ 445              	.L37:
+ 446 007e FFF7FEFF 		bl	__aeabi_dadd
+ 447              	.LVL53:
+ 448 0082 0022     		mov	r2, #0
+ 449 0084 1D4B     		ldr	r3, .L38+52
+ 450 0086 FFF7FEFF 		bl	__aeabi_dmul
+ 451              	.LVL54:
+ 140:.\sensors.c   ****             }
+ 141:.\sensors.c   ****             if(procent_d < 0)
+ 452              		.loc 1 141 0
+ 453 008a 0022     		mov	r2, #0
+ 454 008c 0023     		mov	r3, #0
+ 139:.\sensors.c   ****             }
+ 455              		.loc 1 139 0
+ 456 008e 061C     		mov	r6, r0
+ 457 0090 0F1C     		mov	r7, r1
+ 458              	.LVL55:
+ 459              		.loc 1 141 0
+ 460 0092 FFF7FEFF 		bl	__aeabi_dcmplt
+ 461              	.LVL56:
+ 462 0096 0028     		cmp	r0, #0
+ 463 0098 0AD1     		bne	.L35
+ 142:.\sensors.c   ****             {
+ 143:.\sensors.c   ****                 procent_d = 0;   
+ 144:.\sensors.c   ****             }
+ 145:.\sensors.c   ****             else if(procent_d > 100)
+ 464              		.loc 1 145 0
+ 465 009a 301C     		mov	r0, r6
+ 466 009c 391C     		mov	r1, r7
+ 467 009e 0022     		mov	r2, #0
+ 468 00a0 164B     		ldr	r3, .L38+52
+ 469 00a2 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 470              	.LVL57:
+ 471 00a6 0028     		cmp	r0, #0
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 12
+
+
+ 472 00a8 04D0     		beq	.L32
+ 146:.\sensors.c   ****             {
+ 147:.\sensors.c   ****                 procent_d = 100;   
+ 473              		.loc 1 147 0
+ 474 00aa 0026     		mov	r6, #0
+ 475              	.LVL58:
+ 476 00ac 134F     		ldr	r7, .L38+52
+ 477 00ae 01E0     		b	.L32
+ 478              	.LVL59:
+ 479              	.L35:
+ 143:.\sensors.c   ****             }
+ 480              		.loc 1 143 0
+ 481 00b0 0026     		mov	r6, #0
+ 482              	.LVL60:
+ 483 00b2 0027     		mov	r7, #0
+ 484              	.L32:
+ 485              	.LVL61:
+ 148:.\sensors.c   ****             }
+ 149:.\sensors.c   ****             
+ 150:.\sensors.c   ****             int16 procent = (int16)procent_d;
+ 151:.\sensors.c   ****             
+ 152:.\sensors.c   ****             /*sprintf(bufchar, "max = %d\n\rmin = %d\n\rpp = %d mV\n\rprocent = %d %%\n\n\r", max, 
+ 153:.\sensors.c   ****             
+ 154:.\sensors.c   ****             UART_1_UartPutString(bufchar);
+ 155:.\sensors.c   ****             CyDelay(1000);*/
+ 156:.\sensors.c   ****             waterlevel_ptr=0;
+ 486              		.loc 1 156 0
+ 487 00b4 0023     		mov	r3, #0
+ 150:.\sensors.c   ****             
+ 488              		.loc 1 150 0
+ 489 00b6 301C     		mov	r0, r6
+ 490              		.loc 1 156 0
+ 491 00b8 6370     		strb	r3, [r4, #1]
+ 150:.\sensors.c   ****             
+ 492              		.loc 1 150 0
+ 493 00ba 391C     		mov	r1, r7
+ 494 00bc FFF7FEFF 		bl	__aeabi_d2iz
+ 495              	.LVL62:
+ 496 00c0 2081     		strh	r0, [r4, #8]
+ 497              	.LVL63:
+ 498              	.L26:
+ 499              	.LBE3:
+ 157:.\sensors.c   ****             
+ 158:.\sensors.c   ****             procent_waterlevel = procent;
+ 159:.\sensors.c   ****                         
+ 160:.\sensors.c   ****         }
+ 161:.\sensors.c   ****         
+ 162:.\sensors.c   ****     return procent_waterlevel;
+ 500              		.loc 1 162 0
+ 501 00c2 0823     		mov	r3, #8
+ 502 00c4 E05E     		ldrsh	r0, [r4, r3]
+ 163:.\sensors.c   **** }
+ 503              		.loc 1 163 0
+ 504              		@ sp needed
+ 505 00c6 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 506              	.L39:
+ 507              		.align	2
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 13
+
+
+ 508              	.L38:
+ 509 00c8 00000000 		.word	.LANCHOR0
+ 510 00cc 00000000 		.word	waterlevel
+ 511 00d0 26030000 		.word	806
+ 512 00d4 5C040000 		.word	1116
+ 513 00d8 00408F40 		.word	1083129856
+ 514 00dc 7DCEDDAE 		.word	-1361195395
+ 515 00e0 97A6CCBF 		.word	-1077107049
+ 516 00e4 98C0ADBB 		.word	-1146240872
+ 517 00e8 79AAE23F 		.word	1071819385
+ 518 00ec D8BB3FDE 		.word	-566248488
+ 519 00f0 AB56F1BF 		.word	-1074702677
+ 520 00f4 C39E76F8 		.word	-126443837
+ 521 00f8 6BB2F83F 		.word	1073263211
+ 522 00fc 00005940 		.word	1079574528
+ 523              		.cfi_endproc
+ 524              	.LFE35:
+ 525              		.size	get_waterlevel, .-get_waterlevel
+ 526              		.section	.text.get_temp,"ax",%progbits
+ 527              		.align	1
+ 528              		.global	get_temp
+ 529              		.code	16
+ 530              		.thumb_func
+ 531              		.type	get_temp, %function
+ 532              	get_temp:
+ 533              	.LFB36:
+ 164:.\sensors.c   **** 
+ 165:.\sensors.c   **** int16 get_temp(void)
+ 166:.\sensors.c   **** {
+ 534              		.loc 1 166 0
+ 535              		.cfi_startproc
+ 536 0000 10B5     		push	{r4, lr}
+ 537              		.cfi_def_cfa_offset 8
+ 538              		.cfi_offset 4, -8
+ 539              		.cfi_offset 14, -4
+ 167:.\sensors.c   ****     if(temperature_ptr == 8u)
+ 540              		.loc 1 167 0
+ 541 0002 114C     		ldr	r4, .L45
+ 168:.\sensors.c   ****         {
+ 169:.\sensors.c   ****             
+ 170:.\sensors.c   ****             int16 temp_avg=0;
+ 171:.\sensors.c   ****             int i;
+ 172:.\sensors.c   ****             for(i = 0; i < 8; i++)
+ 173:.\sensors.c   ****             {
+ 174:.\sensors.c   ****                  temp_avg=temp_avg+temperature[i];
+ 175:.\sensors.c   ****             }
+ 176:.\sensors.c   ****             
+ 177:.\sensors.c   ****             temp_avg=(temp_avg>>3u);
+ 178:.\sensors.c   ****             
+ 179:.\sensors.c   ****             char temp_data[50];
+ 180:.\sensors.c   ****             
+ 181:.\sensors.c   ****             // omregning af temperatur. 
+ 182:.\sensors.c   ****             temp_avg=(temp_avg-1650)*0.014;
+ 183:.\sensors.c   ****             // 1.65V som svare til 0 grader trækkes fra og forstærkning gange på for at få temp
+ 184:.\sensors.c   ****         
+ 185:.\sensors.c   ****             /* //til test af sensorer
+ 186:.\sensors.c   ****             sprintf(temp_data, "temperature = %d \n\r",temp_avg);
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 14
+
+
+ 187:.\sensors.c   ****             UART_1_UartPutString(temp_data);
+ 188:.\sensors.c   ****             CyDelay(1000);
+ 189:.\sensors.c   ****             */
+ 190:.\sensors.c   ****             
+ 191:.\sensors.c   ****             temperature_ptr=0u;
+ 192:.\sensors.c   ****             
+ 193:.\sensors.c   ****             if(temp_avg < 0)
+ 194:.\sensors.c   ****                 temp_avg = 0;
+ 195:.\sensors.c   ****             
+ 196:.\sensors.c   ****             return temp_avg;
+ 197:.\sensors.c   ****             
+ 198:.\sensors.c   ****         }
+ 199:.\sensors.c   ****         return 0; 
+ 542              		.loc 1 199 0
+ 543 0004 0020     		mov	r0, #0
+ 167:.\sensors.c   ****     if(temperature_ptr == 8u)
+ 544              		.loc 1 167 0
+ 545 0006 A378     		ldrb	r3, [r4, #2]
+ 546 0008 082B     		cmp	r3, #8
+ 547 000a 1AD1     		bne	.L41
+ 548 000c 031C     		mov	r3, r0
+ 549              	.L42:
+ 550              	.LVL64:
+ 551              	.LBB4:
+ 174:.\sensors.c   ****             }
+ 552              		.loc 1 174 0 discriminator 3
+ 553 000e 0F4A     		ldr	r2, .L45+4
+ 554 0010 125A     		ldrh	r2, [r2, r0]
+ 555 0012 0230     		add	r0, r0, #2
+ 556 0014 D318     		add	r3, r2, r3
+ 557              	.LVL65:
+ 558 0016 9BB2     		uxth	r3, r3
+ 559              	.LVL66:
+ 172:.\sensors.c   ****             {
+ 560              		.loc 1 172 0 discriminator 3
+ 561 0018 1028     		cmp	r0, #16
+ 562 001a F8D1     		bne	.L42
+ 563              	.LVL67:
+ 182:.\sensors.c   ****             // 1.65V som svare til 0 grader trækkes fra og forstærkning gange på for at få temp
+ 564              		.loc 1 182 0
+ 565 001c 0C4A     		ldr	r2, .L45+8
+ 177:.\sensors.c   ****             
+ 566              		.loc 1 177 0
+ 567 001e 18B2     		sxth	r0, r3
+ 182:.\sensors.c   ****             // 1.65V som svare til 0 grader trækkes fra og forstærkning gange på for at få temp
+ 568              		.loc 1 182 0
+ 569 0020 C310     		asr	r3, r0, #3
+ 570              	.LVL68:
+ 571 0022 9818     		add	r0, r3, r2
+ 572              	.LVL69:
+ 573 0024 FFF7FEFF 		bl	__aeabi_i2d
+ 574              	.LVL70:
+ 575 0028 0A4A     		ldr	r2, .L45+12
+ 576 002a 0B4B     		ldr	r3, .L45+16
+ 577 002c FFF7FEFF 		bl	__aeabi_dmul
+ 578              	.LVL71:
+ 191:.\sensors.c   ****             
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 15
+
+
+ 579              		.loc 1 191 0
+ 580 0030 0023     		mov	r3, #0
+ 581 0032 A370     		strb	r3, [r4, #2]
+ 182:.\sensors.c   ****             // 1.65V som svare til 0 grader trækkes fra og forstærkning gange på for at få temp
+ 582              		.loc 1 182 0
+ 583 0034 FFF7FEFF 		bl	__aeabi_d2iz
+ 584              	.LVL72:
+ 585 0038 03B2     		sxth	r3, r0
+ 586 003a DB43     		mvn	r3, r3
+ 587 003c DB17     		asr	r3, r3, #31
+ 588 003e 1840     		and	r0, r3
+ 589 0040 80B2     		uxth	r0, r0
+ 590              	.L41:
+ 591 0042 00B2     		sxth	r0, r0
+ 592              	.LBE4:
+ 200:.\sensors.c   **** }
+ 593              		.loc 1 200 0 discriminator 1
+ 594              		@ sp needed
+ 595 0044 10BD     		pop	{r4, pc}
+ 596              	.L46:
+ 597 0046 C046     		.align	2
+ 598              	.L45:
+ 599 0048 00000000 		.word	.LANCHOR0
+ 600 004c 00000000 		.word	temperature
+ 601 0050 8EF9FFFF 		.word	-1650
+ 602 0054 79E92631 		.word	824633721
+ 603 0058 08AC8C3F 		.word	1066183688
+ 604              		.cfi_endproc
+ 605              	.LFE36:
+ 606              		.size	get_temp, .-get_temp
+ 607              		.section	.text.get_batterylevel,"ax",%progbits
+ 608              		.align	1
+ 609              		.global	get_batterylevel
+ 610              		.code	16
+ 611              		.thumb_func
+ 612              		.type	get_batterylevel, %function
+ 613              	get_batterylevel:
+ 614              	.LFB37:
+ 201:.\sensors.c   **** 
+ 202:.\sensors.c   **** int16   get_batterylevel(void)
+ 203:.\sensors.c   **** {
+ 615              		.loc 1 203 0
+ 616              		.cfi_startproc
+ 617 0000 10B5     		push	{r4, lr}
+ 618              		.cfi_def_cfa_offset 8
+ 619              		.cfi_offset 4, -8
+ 620              		.cfi_offset 14, -4
+ 204:.\sensors.c   ****      if(batterylevel_ptr == 8u)
+ 621              		.loc 1 204 0
+ 622 0002 204B     		ldr	r3, .L62
+ 205:.\sensors.c   ****         {
+ 206:.\sensors.c   ****    
+ 207:.\sensors.c   ****             int16 battery_avg=0;
+ 208:.\sensors.c   ****             int i;
+ 209:.\sensors.c   ****             for(i = 1; i < 8; i++)
+ 210:.\sensors.c   ****             {
+ 211:.\sensors.c   ****                  battery_avg=battery_avg+batterylevel[i];
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 16
+
+
+ 212:.\sensors.c   ****             }
+ 213:.\sensors.c   ****             
+ 214:.\sensors.c   ****             battery_avg=(battery_avg>>3u);
+ 215:.\sensors.c   ****           
+ 216:.\sensors.c   ****         
+ 217:.\sensors.c   ****             char battery_data[50];
+ 218:.\sensors.c   ****             
+ 219:.\sensors.c   ****            
+ 220:.\sensors.c   ****             //batteri styringen går fra 3.3V ved fuld opladt batteri til 2.7 diff 600mV
+ 221:.\sensors.c   ****             int16 battery_pro=0;
+ 222:.\sensors.c   ****             battery_avg=battery_avg+1970;
+ 223:.\sensors.c   ****          
+ 224:.\sensors.c   ****             
+ 225:.\sensors.c   ****             if(battery_avg > 3300)
+ 226:.\sensors.c   ****             {
+ 227:.\sensors.c   ****                 battery_pro=100;
+ 228:.\sensors.c   ****             }
+ 229:.\sensors.c   ****             else if(battery_avg > 3240)
+ 230:.\sensors.c   ****             {
+ 231:.\sensors.c   ****                 battery_pro=90;
+ 232:.\sensors.c   ****             }
+ 233:.\sensors.c   ****             else if(battery_avg > 3180)
+ 234:.\sensors.c   ****             {
+ 235:.\sensors.c   ****                 battery_pro=80;
+ 236:.\sensors.c   ****             }
+ 237:.\sensors.c   ****             else if(battery_avg > 3120)
+ 238:.\sensors.c   ****             {
+ 239:.\sensors.c   ****                 battery_pro=70;
+ 240:.\sensors.c   ****             }
+ 241:.\sensors.c   ****             else if(battery_avg > 3060)
+ 242:.\sensors.c   ****             {
+ 243:.\sensors.c   ****                 battery_pro=60;
+ 244:.\sensors.c   ****             }
+ 245:.\sensors.c   ****             else if(battery_avg > 3000)
+ 246:.\sensors.c   ****             {
+ 247:.\sensors.c   ****                 battery_pro=50;
+ 248:.\sensors.c   ****             }
+ 249:.\sensors.c   ****             else if(battery_avg > 2940)
+ 250:.\sensors.c   ****             {
+ 251:.\sensors.c   ****                 battery_pro=40;
+ 252:.\sensors.c   ****             }
+ 253:.\sensors.c   ****             else if(battery_avg > 2880)
+ 254:.\sensors.c   ****             {
+ 255:.\sensors.c   ****                 battery_pro=30;
+ 256:.\sensors.c   ****             }
+ 257:.\sensors.c   ****             else if(battery_avg > 2820)
+ 258:.\sensors.c   ****             {
+ 259:.\sensors.c   ****                 battery_pro=20;
+ 260:.\sensors.c   ****             }
+ 261:.\sensors.c   ****             else if(battery_avg > 2760)
+ 262:.\sensors.c   ****             {
+ 263:.\sensors.c   ****                 battery_pro=10;
+ 264:.\sensors.c   ****             }
+ 265:.\sensors.c   ****             else
+ 266:.\sensors.c   ****             {
+ 267:.\sensors.c   ****                 battery_pro=5;
+ 268:.\sensors.c   ****             }
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 17
+
+
+ 269:.\sensors.c   ****            
+ 270:.\sensors.c   ****           
+ 271:.\sensors.c   ****             /* //til test af sensorer
+ 272:.\sensors.c   ****             sprintf(battery_data, "batteri niveau = %d\n\r", battery_pro);
+ 273:.\sensors.c   ****             UART_1_UartPutString(battery_data);
+ 274:.\sensors.c   ****             CyDelay(1000);
+ 275:.\sensors.c   ****             */
+ 276:.\sensors.c   ****             
+ 277:.\sensors.c   ****             batterylevel_ptr=0;
+ 278:.\sensors.c   ****             return battery_pro;
+ 279:.\sensors.c   ****             
+ 280:.\sensors.c   ****         }
+ 281:.\sensors.c   ****         return 0; 
+ 623              		.loc 1 281 0
+ 624 0004 0020     		mov	r0, #0
+ 204:.\sensors.c   ****      if(batterylevel_ptr == 8u)
+ 625              		.loc 1 204 0
+ 626 0006 D978     		ldrb	r1, [r3, #3]
+ 627 0008 1A1C     		mov	r2, r3
+ 628 000a 0829     		cmp	r1, #8
+ 629 000c 37D1     		bne	.L48
+ 630 000e 0123     		mov	r3, #1
+ 631              	.L49:
+ 632              	.LVL73:
+ 633              	.LBB5:
+ 211:.\sensors.c   ****             }
+ 634              		.loc 1 211 0 discriminator 3
+ 635 0010 1D4C     		ldr	r4, .L62+4
+ 636 0012 5900     		lsl	r1, r3, #1
+ 637 0014 615A     		ldrh	r1, [r4, r1]
+ 209:.\sensors.c   ****             {
+ 638              		.loc 1 209 0 discriminator 3
+ 639 0016 0133     		add	r3, r3, #1
+ 640              	.LVL74:
+ 211:.\sensors.c   ****             }
+ 641              		.loc 1 211 0 discriminator 3
+ 642 0018 0818     		add	r0, r1, r0
+ 643              	.LVL75:
+ 644 001a 80B2     		uxth	r0, r0
+ 645              	.LVL76:
+ 209:.\sensors.c   ****             {
+ 646              		.loc 1 209 0 discriminator 3
+ 647 001c 082B     		cmp	r3, #8
+ 648 001e F7D1     		bne	.L49
+ 649              	.LVL77:
+ 214:.\sensors.c   ****           
+ 650              		.loc 1 214 0
+ 651 0020 00B2     		sxth	r0, r0
+ 225:.\sensors.c   ****             {
+ 652              		.loc 1 225 0
+ 653 0022 1A4B     		ldr	r3, .L62+8
+ 654              	.LVL78:
+ 214:.\sensors.c   ****           
+ 655              		.loc 1 214 0
+ 656 0024 C010     		asr	r0, r0, #3
+ 657              	.LVL79:
+ 225:.\sensors.c   ****             {
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 18
+
+
+ 658              		.loc 1 225 0
+ 659 0026 1A49     		ldr	r1, .L62+12
+ 660 0028 C318     		add	r3, r0, r3
+ 227:.\sensors.c   ****             }
+ 661              		.loc 1 227 0
+ 662 002a 6420     		mov	r0, #100
+ 663              	.LVL80:
+ 225:.\sensors.c   ****             {
+ 664              		.loc 1 225 0
+ 665 002c 8B42     		cmp	r3, r1
+ 666 002e 24DC     		bgt	.L50
+ 229:.\sensors.c   ****             {
+ 667              		.loc 1 229 0
+ 668 0030 1849     		ldr	r1, .L62+16
+ 231:.\sensors.c   ****             }
+ 669              		.loc 1 231 0
+ 670 0032 0A38     		sub	r0, r0, #10
+ 229:.\sensors.c   ****             {
+ 671              		.loc 1 229 0
+ 672 0034 8B42     		cmp	r3, r1
+ 673 0036 20DC     		bgt	.L50
+ 233:.\sensors.c   ****             {
+ 674              		.loc 1 233 0
+ 675 0038 1749     		ldr	r1, .L62+20
+ 235:.\sensors.c   ****             }
+ 676              		.loc 1 235 0
+ 677 003a 0A38     		sub	r0, r0, #10
+ 233:.\sensors.c   ****             {
+ 678              		.loc 1 233 0
+ 679 003c 8B42     		cmp	r3, r1
+ 680 003e 1CDC     		bgt	.L50
+ 237:.\sensors.c   ****             {
+ 681              		.loc 1 237 0
+ 682 0040 3C39     		sub	r1, r1, #60
+ 239:.\sensors.c   ****             }
+ 683              		.loc 1 239 0
+ 684 0042 0A38     		sub	r0, r0, #10
+ 237:.\sensors.c   ****             {
+ 685              		.loc 1 237 0
+ 686 0044 8B42     		cmp	r3, r1
+ 687 0046 18DC     		bgt	.L50
+ 241:.\sensors.c   ****             {
+ 688              		.loc 1 241 0
+ 689 0048 1449     		ldr	r1, .L62+24
+ 243:.\sensors.c   ****             }
+ 690              		.loc 1 243 0
+ 691 004a 0A38     		sub	r0, r0, #10
+ 241:.\sensors.c   ****             {
+ 692              		.loc 1 241 0
+ 693 004c 8B42     		cmp	r3, r1
+ 694 004e 14DC     		bgt	.L50
+ 245:.\sensors.c   ****             {
+ 695              		.loc 1 245 0
+ 696 0050 1349     		ldr	r1, .L62+28
+ 247:.\sensors.c   ****             }
+ 697              		.loc 1 247 0
+ 698 0052 0A38     		sub	r0, r0, #10
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 19
+
+
+ 245:.\sensors.c   ****             {
+ 699              		.loc 1 245 0
+ 700 0054 8B42     		cmp	r3, r1
+ 701 0056 10DC     		bgt	.L50
+ 249:.\sensors.c   ****             {
+ 702              		.loc 1 249 0
+ 703 0058 1249     		ldr	r1, .L62+32
+ 251:.\sensors.c   ****             }
+ 704              		.loc 1 251 0
+ 705 005a 0A38     		sub	r0, r0, #10
+ 249:.\sensors.c   ****             {
+ 706              		.loc 1 249 0
+ 707 005c 8B42     		cmp	r3, r1
+ 708 005e 0CDC     		bgt	.L50
+ 253:.\sensors.c   ****             {
+ 709              		.loc 1 253 0
+ 710 0060 3C39     		sub	r1, r1, #60
+ 255:.\sensors.c   ****             }
+ 711              		.loc 1 255 0
+ 712 0062 0A38     		sub	r0, r0, #10
+ 253:.\sensors.c   ****             {
+ 713              		.loc 1 253 0
+ 714 0064 8B42     		cmp	r3, r1
+ 715 0066 08DC     		bgt	.L50
+ 257:.\sensors.c   ****             {
+ 716              		.loc 1 257 0
+ 717 0068 0F49     		ldr	r1, .L62+36
+ 259:.\sensors.c   ****             }
+ 718              		.loc 1 259 0
+ 719 006a 0A38     		sub	r0, r0, #10
+ 257:.\sensors.c   ****             {
+ 720              		.loc 1 257 0
+ 721 006c 8B42     		cmp	r3, r1
+ 722 006e 04DC     		bgt	.L50
+ 261:.\sensors.c   ****             {
+ 723              		.loc 1 261 0
+ 724 0070 0E49     		ldr	r1, .L62+40
+ 263:.\sensors.c   ****             }
+ 725              		.loc 1 263 0
+ 726 0072 0A38     		sub	r0, r0, #10
+ 261:.\sensors.c   ****             {
+ 727              		.loc 1 261 0
+ 728 0074 8B42     		cmp	r3, r1
+ 729 0076 00DC     		bgt	.L50
+ 267:.\sensors.c   ****             }
+ 730              		.loc 1 267 0
+ 731 0078 0538     		sub	r0, r0, #5
+ 732              	.L50:
+ 733              	.LVL81:
+ 277:.\sensors.c   ****             return battery_pro;
+ 734              		.loc 1 277 0
+ 735 007a 0023     		mov	r3, #0
+ 736              	.LVL82:
+ 737 007c D370     		strb	r3, [r2, #3]
+ 738              	.LVL83:
+ 739              	.L48:
+ 740 007e 00B2     		sxth	r0, r0
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 20
+
+
+ 741              	.LBE5:
+ 282:.\sensors.c   **** 
+ 283:.\sensors.c   **** 
+ 284:.\sensors.c   **** }
+ 742              		.loc 1 284 0 discriminator 1
+ 743              		@ sp needed
+ 744 0080 10BD     		pop	{r4, pc}
+ 745              	.L63:
+ 746 0082 C046     		.align	2
+ 747              	.L62:
+ 748 0084 00000000 		.word	.LANCHOR0
+ 749 0088 00000000 		.word	batterylevel
+ 750 008c B2070000 		.word	1970
+ 751 0090 E40C0000 		.word	3300
+ 752 0094 A80C0000 		.word	3240
+ 753 0098 6C0C0000 		.word	3180
+ 754 009c F40B0000 		.word	3060
+ 755 00a0 B80B0000 		.word	3000
+ 756 00a4 7C0B0000 		.word	2940
+ 757 00a8 040B0000 		.word	2820
+ 758 00ac C80A0000 		.word	2760
+ 759              		.cfi_endproc
+ 760              	.LFE37:
+ 761              		.size	get_batterylevel, .-get_batterylevel
+ 762              		.section	.text.get_lightlevel,"ax",%progbits
+ 763              		.align	1
+ 764              		.global	get_lightlevel
+ 765              		.code	16
+ 766              		.thumb_func
+ 767              		.type	get_lightlevel, %function
+ 768              	get_lightlevel:
+ 769              	.LFB38:
+ 285:.\sensors.c   **** 
+ 286:.\sensors.c   **** int16 get_lightlevel(void)
+ 287:.\sensors.c   **** {
+ 770              		.loc 1 287 0
+ 771              		.cfi_startproc
+ 288:.\sensors.c   ****     if(lightlevel_ptr == 8u)
+ 772              		.loc 1 288 0
+ 773 0000 2B4B     		ldr	r3, .L85
+ 289:.\sensors.c   ****         {
+ 290:.\sensors.c   ****             int16 light_avg=0;
+ 291:.\sensors.c   ****             int i;
+ 292:.\sensors.c   ****             for(i = 0; i < 8; i++)
+ 293:.\sensors.c   ****             {
+ 294:.\sensors.c   ****                  light_avg=light_avg+lightlevel[i];
+ 295:.\sensors.c   ****             }
+ 296:.\sensors.c   ****             
+ 297:.\sensors.c   ****             light_avg=(light_avg>>3u);
+ 298:.\sensors.c   ****           
+ 299:.\sensors.c   ****             //Lys level går fra 3.3V ved 10000 Lux til 0 ved under 200mV. 
+ 300:.\sensors.c   ****             int16 lightLux = 0;
+ 301:.\sensors.c   ****             
+ 302:.\sensors.c   ****             //ref modstand 500Ohm.
+ 303:.\sensors.c   ****             if(light_avg <= 0)
+ 304:.\sensors.c   ****                 lightLux = 0;
+ 305:.\sensors.c   ****             else if(light_avg <= 228)
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 21
+
+
+ 306:.\sensors.c   ****                 lightLux = 1;
+ 307:.\sensors.c   ****             else if(light_avg <= 723)
+ 308:.\sensors.c   ****                 lightLux = 5;
+ 309:.\sensors.c   ****             else if(light_avg <= 1096)
+ 310:.\sensors.c   ****                 lightLux = 10;
+ 311:.\sensors.c   ****             else if(light_avg <= 2153)
+ 312:.\sensors.c   ****                 lightLux = 50;
+ 313:.\sensors.c   ****             else if(light_avg <= 2535)
+ 314:.\sensors.c   ****                 lightLux = 100;
+ 315:.\sensors.c   ****             else if(light_avg <= 2716)
+ 316:.\sensors.c   ****                 lightLux = 150;
+ 317:.\sensors.c   ****             else if(light_avg <= 2822)
+ 318:.\sensors.c   ****                 lightLux = 200;
+ 319:.\sensors.c   ****             else if(light_avg <= 2892)
+ 320:.\sensors.c   ****                 lightLux = 250;
+ 321:.\sensors.c   ****             else if(light_avg <= 2942)
+ 322:.\sensors.c   ****                 lightLux = 300;
+ 323:.\sensors.c   ****             else if(light_avg <= 3011)
+ 324:.\sensors.c   ****                 lightLux = 400;
+ 325:.\sensors.c   ****             else if(light_avg <= 3057)
+ 326:.\sensors.c   ****                 lightLux = 500;
+ 327:.\sensors.c   ****             else if(light_avg <= 3089)
+ 328:.\sensors.c   ****                 lightLux = 600;
+ 329:.\sensors.c   ****             else if(light_avg <= 3122)
+ 330:.\sensors.c   ****                 lightLux = 750;
+ 331:.\sensors.c   ****             else if(light_avg <= 3300)
+ 332:.\sensors.c   ****                 lightLux = 999;
+ 333:.\sensors.c   ****             
+ 334:.\sensors.c   ****             
+ 335:.\sensors.c   ****             // Behandling af målt avg til et lys niveau eller spænding
+ 336:.\sensors.c   **** 
+ 337:.\sensors.c   ****             /* //til test af sensorer
+ 338:.\sensors.c   ****             sprintf(light_data, "lys niveau i volt = %d\n\r", light_avg);
+ 339:.\sensors.c   ****             UART_1_UartPutString(light_data);
+ 340:.\sensors.c   ****             CyDelay(1000);
+ 341:.\sensors.c   ****             */
+ 342:.\sensors.c   ****             
+ 343:.\sensors.c   ****             lightlevel_ptr=0;
+ 344:.\sensors.c   ****             return lightLux;
+ 345:.\sensors.c   ****         }
+ 346:.\sensors.c   ****         return 0; 
+ 774              		.loc 1 346 0
+ 775 0002 0020     		mov	r0, #0
+ 288:.\sensors.c   ****     if(lightlevel_ptr == 8u)
+ 776              		.loc 1 288 0
+ 777 0004 1979     		ldrb	r1, [r3, #4]
+ 778 0006 1A1C     		mov	r2, r3
+ 779 0008 0829     		cmp	r1, #8
+ 780 000a 4ED1     		bne	.L65
+ 781 000c 031C     		mov	r3, r0
+ 782              	.L66:
+ 783              	.LVL84:
+ 784              	.LBB6:
+ 294:.\sensors.c   ****             }
+ 785              		.loc 1 294 0 discriminator 3
+ 786 000e 2949     		ldr	r1, .L85+4
+ 787 0010 095A     		ldrh	r1, [r1, r0]
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 22
+
+
+ 788 0012 0230     		add	r0, r0, #2
+ 789 0014 CB18     		add	r3, r1, r3
+ 790              	.LVL85:
+ 791 0016 9BB2     		uxth	r3, r3
+ 792              	.LVL86:
+ 292:.\sensors.c   ****             {
+ 793              		.loc 1 292 0 discriminator 3
+ 794 0018 1028     		cmp	r0, #16
+ 795 001a F8D1     		bne	.L66
+ 304:.\sensors.c   ****             else if(light_avg <= 228)
+ 796              		.loc 1 304 0
+ 797 001c 0020     		mov	r0, #0
+ 297:.\sensors.c   ****           
+ 798              		.loc 1 297 0
+ 799 001e 1BB2     		sxth	r3, r3
+ 800              	.LVL87:
+ 303:.\sensors.c   ****                 lightLux = 0;
+ 801              		.loc 1 303 0
+ 802 0020 DB10     		asr	r3, r3, #3
+ 803              	.LVL88:
+ 804 0022 8342     		cmp	r3, r0
+ 805 0024 3FDD     		ble	.L67
+ 306:.\sensors.c   ****             else if(light_avg <= 723)
+ 806              		.loc 1 306 0
+ 807 0026 0130     		add	r0, r0, #1
+ 305:.\sensors.c   ****                 lightLux = 1;
+ 808              		.loc 1 305 0
+ 809 0028 E42B     		cmp	r3, #228
+ 810 002a 3CDD     		ble	.L67
+ 307:.\sensors.c   ****                 lightLux = 5;
+ 811              		.loc 1 307 0
+ 812 002c 2249     		ldr	r1, .L85+8
+ 308:.\sensors.c   ****             else if(light_avg <= 1096)
+ 813              		.loc 1 308 0
+ 814 002e 0430     		add	r0, r0, #4
+ 307:.\sensors.c   ****                 lightLux = 5;
+ 815              		.loc 1 307 0
+ 816 0030 8B42     		cmp	r3, r1
+ 817 0032 38DD     		ble	.L67
+ 309:.\sensors.c   ****                 lightLux = 10;
+ 818              		.loc 1 309 0
+ 819 0034 7631     		add	r1, r1, #118
+ 820 0036 FF31     		add	r1, r1, #255
+ 310:.\sensors.c   ****             else if(light_avg <= 2153)
+ 821              		.loc 1 310 0
+ 822 0038 0530     		add	r0, r0, #5
+ 309:.\sensors.c   ****                 lightLux = 10;
+ 823              		.loc 1 309 0
+ 824 003a 8B42     		cmp	r3, r1
+ 825 003c 33DD     		ble	.L67
+ 311:.\sensors.c   ****                 lightLux = 50;
+ 826              		.loc 1 311 0
+ 827 003e 1F49     		ldr	r1, .L85+12
+ 312:.\sensors.c   ****             else if(light_avg <= 2535)
+ 828              		.loc 1 312 0
+ 829 0040 2830     		add	r0, r0, #40
+ 311:.\sensors.c   ****                 lightLux = 50;
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 23
+
+
+ 830              		.loc 1 311 0
+ 831 0042 8B42     		cmp	r3, r1
+ 832 0044 2FDD     		ble	.L67
+ 313:.\sensors.c   ****                 lightLux = 100;
+ 833              		.loc 1 313 0
+ 834 0046 1E49     		ldr	r1, .L85+16
+ 314:.\sensors.c   ****             else if(light_avg <= 2716)
+ 835              		.loc 1 314 0
+ 836 0048 3230     		add	r0, r0, #50
+ 313:.\sensors.c   ****                 lightLux = 100;
+ 837              		.loc 1 313 0
+ 838 004a 8B42     		cmp	r3, r1
+ 839 004c 2BDD     		ble	.L67
+ 315:.\sensors.c   ****                 lightLux = 150;
+ 840              		.loc 1 315 0
+ 841 004e 1D49     		ldr	r1, .L85+20
+ 316:.\sensors.c   ****             else if(light_avg <= 2822)
+ 842              		.loc 1 316 0
+ 843 0050 3230     		add	r0, r0, #50
+ 315:.\sensors.c   ****                 lightLux = 150;
+ 844              		.loc 1 315 0
+ 845 0052 8B42     		cmp	r3, r1
+ 846 0054 27DD     		ble	.L67
+ 317:.\sensors.c   ****                 lightLux = 200;
+ 847              		.loc 1 317 0
+ 848 0056 1C49     		ldr	r1, .L85+24
+ 318:.\sensors.c   ****             else if(light_avg <= 2892)
+ 849              		.loc 1 318 0
+ 850 0058 3230     		add	r0, r0, #50
+ 317:.\sensors.c   ****                 lightLux = 200;
+ 851              		.loc 1 317 0
+ 852 005a 8B42     		cmp	r3, r1
+ 853 005c 23DD     		ble	.L67
+ 319:.\sensors.c   ****                 lightLux = 250;
+ 854              		.loc 1 319 0
+ 855 005e 1B49     		ldr	r1, .L85+28
+ 320:.\sensors.c   ****             else if(light_avg <= 2942)
+ 856              		.loc 1 320 0
+ 857 0060 3230     		add	r0, r0, #50
+ 319:.\sensors.c   ****                 lightLux = 250;
+ 858              		.loc 1 319 0
+ 859 0062 8B42     		cmp	r3, r1
+ 860 0064 1FDD     		ble	.L67
+ 321:.\sensors.c   ****                 lightLux = 300;
+ 861              		.loc 1 321 0
+ 862 0066 1A49     		ldr	r1, .L85+32
+ 863 0068 8B42     		cmp	r3, r1
+ 864 006a 11DD     		ble	.L78
+ 323:.\sensors.c   ****                 lightLux = 400;
+ 865              		.loc 1 323 0
+ 866 006c 1949     		ldr	r1, .L85+36
+ 867 006e 8B42     		cmp	r3, r1
+ 868 0070 10DD     		ble	.L79
+ 325:.\sensors.c   ****                 lightLux = 500;
+ 869              		.loc 1 325 0
+ 870 0072 1949     		ldr	r1, .L85+40
+ 871 0074 8B42     		cmp	r3, r1
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 24
+
+
+ 872 0076 10DD     		ble	.L80
+ 327:.\sensors.c   ****                 lightLux = 600;
+ 873              		.loc 1 327 0
+ 874 0078 1849     		ldr	r1, .L85+44
+ 875 007a 8B42     		cmp	r3, r1
+ 876 007c 0FDD     		ble	.L81
+ 329:.\sensors.c   ****                 lightLux = 750;
+ 877              		.loc 1 329 0
+ 878 007e 1849     		ldr	r1, .L85+48
+ 879 0080 8B42     		cmp	r3, r1
+ 880 0082 0FDD     		ble	.L82
+ 331:.\sensors.c   ****                 lightLux = 999;
+ 881              		.loc 1 331 0
+ 882 0084 1749     		ldr	r1, .L85+52
+ 300:.\sensors.c   ****             
+ 883              		.loc 1 300 0
+ 884 0086 0020     		mov	r0, #0
+ 331:.\sensors.c   ****                 lightLux = 999;
+ 885              		.loc 1 331 0
+ 886 0088 8B42     		cmp	r3, r1
+ 887 008a 0CDC     		bgt	.L67
+ 332:.\sensors.c   ****             
+ 888              		.loc 1 332 0
+ 889 008c 1648     		ldr	r0, .L85+56
+ 890 008e 0AE0     		b	.L67
+ 891              	.L78:
+ 322:.\sensors.c   ****             else if(light_avg <= 3011)
+ 892              		.loc 1 322 0
+ 893 0090 9620     		mov	r0, #150
+ 894 0092 00E0     		b	.L84
+ 895              	.L79:
+ 324:.\sensors.c   ****             else if(light_avg <= 3057)
+ 896              		.loc 1 324 0
+ 897 0094 C820     		mov	r0, #200
+ 898              	.L84:
+ 899 0096 4000     		lsl	r0, r0, #1
+ 900 0098 05E0     		b	.L67
+ 901              	.L80:
+ 326:.\sensors.c   ****             else if(light_avg <= 3089)
+ 902              		.loc 1 326 0
+ 903 009a FA20     		mov	r0, #250
+ 904 009c FBE7     		b	.L84
+ 905              	.L81:
+ 328:.\sensors.c   ****             else if(light_avg <= 3122)
+ 906              		.loc 1 328 0
+ 907 009e 9620     		mov	r0, #150
+ 908 00a0 8000     		lsl	r0, r0, #2
+ 909 00a2 00E0     		b	.L67
+ 910              	.L82:
+ 330:.\sensors.c   ****             else if(light_avg <= 3300)
+ 911              		.loc 1 330 0
+ 912 00a4 1148     		ldr	r0, .L85+60
+ 913              	.L67:
+ 914              	.LVL89:
+ 343:.\sensors.c   ****             return lightLux;
+ 915              		.loc 1 343 0
+ 916 00a6 0023     		mov	r3, #0
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 25
+
+
+ 917 00a8 1371     		strb	r3, [r2, #4]
+ 918              	.LVL90:
+ 919              	.L65:
+ 920 00aa 00B2     		sxth	r0, r0
+ 921              	.LBE6:
+ 347:.\sensors.c   **** 
+ 348:.\sensors.c   **** }
+ 922              		.loc 1 348 0
+ 923              		@ sp needed
+ 924 00ac 7047     		bx	lr
+ 925              	.L86:
+ 926 00ae C046     		.align	2
+ 927              	.L85:
+ 928 00b0 00000000 		.word	.LANCHOR0
+ 929 00b4 00000000 		.word	lightlevel
+ 930 00b8 D3020000 		.word	723
+ 931 00bc 69080000 		.word	2153
+ 932 00c0 E7090000 		.word	2535
+ 933 00c4 9C0A0000 		.word	2716
+ 934 00c8 060B0000 		.word	2822
+ 935 00cc 4C0B0000 		.word	2892
+ 936 00d0 7E0B0000 		.word	2942
+ 937 00d4 C30B0000 		.word	3011
+ 938 00d8 F10B0000 		.word	3057
+ 939 00dc 110C0000 		.word	3089
+ 940 00e0 320C0000 		.word	3122
+ 941 00e4 E40C0000 		.word	3300
+ 942 00e8 E7030000 		.word	999
+ 943 00ec EE020000 		.word	750
+ 944              		.cfi_endproc
+ 945              	.LFE38:
+ 946              		.size	get_lightlevel, .-get_lightlevel
+ 947              		.global	procent_waterlevel
+ 948              		.global	procent_moisture
+ 949              		.global	lightlevel_ptr
+ 950              		.global	batterylevel_ptr
+ 951              		.global	temperature_ptr
+ 952              		.global	waterlevel_ptr
+ 953              		.global	moisture_ptr
+ 954              		.comm	lightlevel,16,2
+ 955              		.comm	batterylevel,16,2
+ 956              		.comm	temperature,16,2
+ 957              		.comm	waterlevel,100,2
+ 958              		.comm	moisture,100,2
+ 959              		.bss
+ 960              		.align	1
+ 961              		.set	.LANCHOR0,. + 0
+ 962              		.type	moisture_ptr, %object
+ 963              		.size	moisture_ptr, 1
+ 964              	moisture_ptr:
+ 965 0000 00       		.space	1
+ 966              		.type	waterlevel_ptr, %object
+ 967              		.size	waterlevel_ptr, 1
+ 968              	waterlevel_ptr:
+ 969 0001 00       		.space	1
+ 970              		.type	temperature_ptr, %object
+ 971              		.size	temperature_ptr, 1
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 26
+
+
+ 972              	temperature_ptr:
+ 973 0002 00       		.space	1
+ 974              		.type	batterylevel_ptr, %object
+ 975              		.size	batterylevel_ptr, 1
+ 976              	batterylevel_ptr:
+ 977 0003 00       		.space	1
+ 978              		.type	lightlevel_ptr, %object
+ 979              		.size	lightlevel_ptr, 1
+ 980              	lightlevel_ptr:
+ 981 0004 00       		.space	1
+ 982 0005 00       		.space	1
+ 983              		.type	procent_moisture, %object
+ 984              		.size	procent_moisture, 2
+ 985              	procent_moisture:
+ 986 0006 0000     		.space	2
+ 987              		.type	procent_waterlevel, %object
+ 988              		.size	procent_waterlevel, 2
+ 989              	procent_waterlevel:
+ 990 0008 0000     		.space	2
+ 991              		.text
+ 992              	.Letext0:
+ 993              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 994              		.file 3 "./sensors.h"
+ 995              		.file 4 "Generated_Source\\PSoC4/ADC_SAR_Seq_1.h"
+ 996              		.section	.debug_info,"",%progbits
+ 997              	.Ldebug_info0:
+ 998 0000 67040000 		.4byte	0x467
+ 999 0004 0400     		.2byte	0x4
+ 1000 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1001 000a 04       		.byte	0x4
+ 1002 000b 01       		.uleb128 0x1
+ 1003 000c 1C000000 		.4byte	.LASF43
+ 1004 0010 01       		.byte	0x1
+ 1005 0011 F9020000 		.4byte	.LASF44
+ 1006 0015 A4020000 		.4byte	.LASF45
+ 1007 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1008 001d 00000000 		.4byte	0
+ 1009 0021 00000000 		.4byte	.Ldebug_line0
+ 1010 0025 02       		.uleb128 0x2
+ 1011 0026 08       		.byte	0x8
+ 1012 0027 04       		.byte	0x4
+ 1013 0028 60010000 		.4byte	.LASF0
+ 1014 002c 02       		.uleb128 0x2
+ 1015 002d 02       		.byte	0x2
+ 1016 002e 05       		.byte	0x5
+ 1017 002f 5E020000 		.4byte	.LASF1
+ 1018 0033 02       		.uleb128 0x2
+ 1019 0034 01       		.byte	0x1
+ 1020 0035 06       		.byte	0x6
+ 1021 0036 FA000000 		.4byte	.LASF2
+ 1022 003a 02       		.uleb128 0x2
+ 1023 003b 01       		.byte	0x1
+ 1024 003c 08       		.byte	0x8
+ 1025 003d 06010000 		.4byte	.LASF3
+ 1026 0041 02       		.uleb128 0x2
+ 1027 0042 02       		.byte	0x2
+ 1028 0043 07       		.byte	0x7
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 27
+
+
+ 1029 0044 CA000000 		.4byte	.LASF4
+ 1030 0048 02       		.uleb128 0x2
+ 1031 0049 04       		.byte	0x4
+ 1032 004a 05       		.byte	0x5
+ 1033 004b 68020000 		.4byte	.LASF5
+ 1034 004f 02       		.uleb128 0x2
+ 1035 0050 04       		.byte	0x4
+ 1036 0051 07       		.byte	0x7
+ 1037 0052 9A010000 		.4byte	.LASF6
+ 1038 0056 02       		.uleb128 0x2
+ 1039 0057 08       		.byte	0x8
+ 1040 0058 05       		.byte	0x5
+ 1041 0059 20020000 		.4byte	.LASF7
+ 1042 005d 02       		.uleb128 0x2
+ 1043 005e 08       		.byte	0x8
+ 1044 005f 07       		.byte	0x7
+ 1045 0060 D5010000 		.4byte	.LASF8
+ 1046 0064 03       		.uleb128 0x3
+ 1047 0065 04       		.byte	0x4
+ 1048 0066 05       		.byte	0x5
+ 1049 0067 696E7400 		.ascii	"int\000"
+ 1050 006b 02       		.uleb128 0x2
+ 1051 006c 04       		.byte	0x4
+ 1052 006d 07       		.byte	0x7
+ 1053 006e AC010000 		.4byte	.LASF9
+ 1054 0072 04       		.uleb128 0x4
+ 1055 0073 2A010000 		.4byte	.LASF10
+ 1056 0077 02       		.byte	0x2
+ 1057 0078 C2       		.byte	0xc2
+ 1058 0079 3A000000 		.4byte	0x3a
+ 1059 007d 04       		.uleb128 0x4
+ 1060 007e 93010000 		.4byte	.LASF11
+ 1061 0082 02       		.byte	0x2
+ 1062 0083 C4       		.byte	0xc4
+ 1063 0084 4F000000 		.4byte	0x4f
+ 1064 0088 04       		.uleb128 0x4
+ 1065 0089 EC010000 		.4byte	.LASF12
+ 1066 008d 02       		.byte	0x2
+ 1067 008e C6       		.byte	0xc6
+ 1068 008f 2C000000 		.4byte	0x2c
+ 1069 0093 02       		.uleb128 0x2
+ 1070 0094 04       		.byte	0x4
+ 1071 0095 04       		.byte	0x4
+ 1072 0096 B2000000 		.4byte	.LASF13
+ 1073 009a 02       		.uleb128 0x2
+ 1074 009b 01       		.byte	0x1
+ 1075 009c 08       		.byte	0x8
+ 1076 009d 2E020000 		.4byte	.LASF14
+ 1077 00a1 02       		.uleb128 0x2
+ 1078 00a2 04       		.byte	0x4
+ 1079 00a3 07       		.byte	0x7
+ 1080 00a4 17020000 		.4byte	.LASF15
+ 1081 00a8 05       		.uleb128 0x5
+ 1082 00a9 40020000 		.4byte	.LASF46
+ 1083 00ad 01       		.byte	0x1
+ 1084 00ae 14       		.byte	0x14
+ 1085 00af 00000000 		.4byte	.LFB33
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 28
+
+
+ 1086 00b3 B0000000 		.4byte	.LFE33-.LFB33
+ 1087 00b7 01       		.uleb128 0x1
+ 1088 00b8 9C       		.byte	0x9c
+ 1089 00b9 52010000 		.4byte	0x152
+ 1090 00bd 06       		.uleb128 0x6
+ 1091 00be 10000000 		.4byte	.LVL0
+ 1092 00c2 3F040000 		.4byte	0x43f
+ 1093 00c6 D0000000 		.4byte	0xd0
+ 1094 00ca 07       		.uleb128 0x7
+ 1095 00cb 01       		.uleb128 0x1
+ 1096 00cc 50       		.byte	0x50
+ 1097 00cd 01       		.uleb128 0x1
+ 1098 00ce 30       		.byte	0x30
+ 1099 00cf 00       		.byte	0
+ 1100 00d0 06       		.uleb128 0x6
+ 1101 00d1 28000000 		.4byte	.LVL1
+ 1102 00d5 3F040000 		.4byte	0x43f
+ 1103 00d9 E3000000 		.4byte	0xe3
+ 1104 00dd 07       		.uleb128 0x7
+ 1105 00de 01       		.uleb128 0x1
+ 1106 00df 50       		.byte	0x50
+ 1107 00e0 01       		.uleb128 0x1
+ 1108 00e1 33       		.byte	0x33
+ 1109 00e2 00       		.byte	0
+ 1110 00e3 06       		.uleb128 0x6
+ 1111 00e4 40000000 		.4byte	.LVL2
+ 1112 00e8 3F040000 		.4byte	0x43f
+ 1113 00ec F6000000 		.4byte	0xf6
+ 1114 00f0 07       		.uleb128 0x7
+ 1115 00f1 01       		.uleb128 0x1
+ 1116 00f2 50       		.byte	0x50
+ 1117 00f3 01       		.uleb128 0x1
+ 1118 00f4 32       		.byte	0x32
+ 1119 00f5 00       		.byte	0
+ 1120 00f6 06       		.uleb128 0x6
+ 1121 00f7 48000000 		.4byte	.LVL3
+ 1122 00fb 54040000 		.4byte	0x454
+ 1123 00ff 09010000 		.4byte	0x109
+ 1124 0103 07       		.uleb128 0x7
+ 1125 0104 01       		.uleb128 0x1
+ 1126 0105 50       		.byte	0x50
+ 1127 0106 01       		.uleb128 0x1
+ 1128 0107 32       		.byte	0x32
+ 1129 0108 00       		.byte	0
+ 1130 0109 06       		.uleb128 0x6
+ 1131 010a 60000000 		.4byte	.LVL4
+ 1132 010e 3F040000 		.4byte	0x43f
+ 1133 0112 1C010000 		.4byte	0x11c
+ 1134 0116 07       		.uleb128 0x7
+ 1135 0117 01       		.uleb128 0x1
+ 1136 0118 50       		.byte	0x50
+ 1137 0119 01       		.uleb128 0x1
+ 1138 011a 31       		.byte	0x31
+ 1139 011b 00       		.byte	0
+ 1140 011c 06       		.uleb128 0x6
+ 1141 011d 68000000 		.4byte	.LVL5
+ 1142 0121 54040000 		.4byte	0x454
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 29
+
+
+ 1143 0125 2F010000 		.4byte	0x12f
+ 1144 0129 07       		.uleb128 0x7
+ 1145 012a 01       		.uleb128 0x1
+ 1146 012b 50       		.byte	0x50
+ 1147 012c 01       		.uleb128 0x1
+ 1148 012d 32       		.byte	0x32
+ 1149 012e 00       		.byte	0
+ 1150 012f 06       		.uleb128 0x6
+ 1151 0130 80000000 		.4byte	.LVL6
+ 1152 0134 3F040000 		.4byte	0x43f
+ 1153 0138 42010000 		.4byte	0x142
+ 1154 013c 07       		.uleb128 0x7
+ 1155 013d 01       		.uleb128 0x1
+ 1156 013e 50       		.byte	0x50
+ 1157 013f 01       		.uleb128 0x1
+ 1158 0140 34       		.byte	0x34
+ 1159 0141 00       		.byte	0
+ 1160 0142 08       		.uleb128 0x8
+ 1161 0143 88000000 		.4byte	.LVL7
+ 1162 0147 54040000 		.4byte	0x454
+ 1163 014b 07       		.uleb128 0x7
+ 1164 014c 01       		.uleb128 0x1
+ 1165 014d 50       		.byte	0x50
+ 1166 014e 01       		.uleb128 0x1
+ 1167 014f 32       		.byte	0x32
+ 1168 0150 00       		.byte	0
+ 1169 0151 00       		.byte	0
+ 1170 0152 09       		.uleb128 0x9
+ 1171 0153 0F000000 		.4byte	.LASF18
+ 1172 0157 01       		.byte	0x1
+ 1173 0158 33       		.byte	0x33
+ 1174 0159 88000000 		.4byte	0x88
+ 1175 015d 00000000 		.4byte	.LFB34
+ 1176 0161 00010000 		.4byte	.LFE34-.LFB34
+ 1177 0165 01       		.uleb128 0x1
+ 1178 0166 9C       		.byte	0x9c
+ 1179 0167 CD010000 		.4byte	0x1cd
+ 1180 016b 0A       		.uleb128 0xa
+ 1181 016c 0A000000 		.4byte	.LBB2
+ 1182 0170 B8000000 		.4byte	.LBE2-.LBB2
+ 1183 0174 0B       		.uleb128 0xb
+ 1184 0175 6D696E00 		.ascii	"min\000"
+ 1185 0179 01       		.byte	0x1
+ 1186 017a 37       		.byte	0x37
+ 1187 017b 88000000 		.4byte	0x88
+ 1188 017f 00000000 		.4byte	.LLST0
+ 1189 0183 0B       		.uleb128 0xb
+ 1190 0184 6D617800 		.ascii	"max\000"
+ 1191 0188 01       		.byte	0x1
+ 1192 0189 38       		.byte	0x38
+ 1193 018a 88000000 		.4byte	0x88
+ 1194 018e 13000000 		.4byte	.LLST1
+ 1195 0192 0B       		.uleb128 0xb
+ 1196 0193 6900     		.ascii	"i\000"
+ 1197 0195 01       		.byte	0x1
+ 1198 0196 3A       		.byte	0x3a
+ 1199 0197 64000000 		.4byte	0x64
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 30
+
+
+ 1200 019b 47000000 		.4byte	.LLST2
+ 1201 019f 0B       		.uleb128 0xb
+ 1202 01a0 707000   		.ascii	"pp\000"
+ 1203 01a3 01       		.byte	0x1
+ 1204 01a4 47       		.byte	0x47
+ 1205 01a5 88000000 		.4byte	0x88
+ 1206 01a9 66000000 		.4byte	.LLST3
+ 1207 01ad 0C       		.uleb128 0xc
+ 1208 01ae 54020000 		.4byte	.LASF16
+ 1209 01b2 01       		.byte	0x1
+ 1210 01b3 49       		.byte	0x49
+ 1211 01b4 25000000 		.4byte	0x25
+ 1212 01b8 84000000 		.4byte	.LLST4
+ 1213 01bc 0C       		.uleb128 0xc
+ 1214 01bd AA000000 		.4byte	.LASF17
+ 1215 01c1 01       		.byte	0x1
+ 1216 01c2 5B       		.byte	0x5b
+ 1217 01c3 88000000 		.4byte	0x88
+ 1218 01c7 BC000000 		.4byte	.LLST5
+ 1219 01cb 00       		.byte	0
+ 1220 01cc 00       		.byte	0
+ 1221 01cd 09       		.uleb128 0x9
+ 1222 01ce EA020000 		.4byte	.LASF19
+ 1223 01d2 01       		.byte	0x1
+ 1224 01d3 6D       		.byte	0x6d
+ 1225 01d4 88000000 		.4byte	0x88
+ 1226 01d8 00000000 		.4byte	.LFB35
+ 1227 01dc 00010000 		.4byte	.LFE35-.LFB35
+ 1228 01e0 01       		.uleb128 0x1
+ 1229 01e1 9C       		.byte	0x9c
+ 1230 01e2 53020000 		.4byte	0x253
+ 1231 01e6 0A       		.uleb128 0xa
+ 1232 01e7 0A000000 		.4byte	.LBB3
+ 1233 01eb B8000000 		.4byte	.LBE3-.LBB3
+ 1234 01ef 0B       		.uleb128 0xb
+ 1235 01f0 6D696E00 		.ascii	"min\000"
+ 1236 01f4 01       		.byte	0x1
+ 1237 01f5 71       		.byte	0x71
+ 1238 01f6 88000000 		.4byte	0x88
+ 1239 01fa D6000000 		.4byte	.LLST6
+ 1240 01fe 0B       		.uleb128 0xb
+ 1241 01ff 6D617800 		.ascii	"max\000"
+ 1242 0203 01       		.byte	0x1
+ 1243 0204 72       		.byte	0x72
+ 1244 0205 88000000 		.4byte	0x88
+ 1245 0209 E9000000 		.4byte	.LLST7
+ 1246 020d 0B       		.uleb128 0xb
+ 1247 020e 6900     		.ascii	"i\000"
+ 1248 0210 01       		.byte	0x1
+ 1249 0211 74       		.byte	0x74
+ 1250 0212 64000000 		.4byte	0x64
+ 1251 0216 1D010000 		.4byte	.LLST8
+ 1252 021a 0D       		.uleb128 0xd
+ 1253 021b 4C020000 		.4byte	.LASF22
+ 1254 021f 01       		.byte	0x1
+ 1255 0220 80       		.byte	0x80
+ 1256 0221 53020000 		.4byte	0x253
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 31
+
+
+ 1257 0225 0B       		.uleb128 0xb
+ 1258 0226 707000   		.ascii	"pp\000"
+ 1259 0229 01       		.byte	0x1
+ 1260 022a 82       		.byte	0x82
+ 1261 022b 88000000 		.4byte	0x88
+ 1262 022f 3C010000 		.4byte	.LLST9
+ 1263 0233 0C       		.uleb128 0xc
+ 1264 0234 54020000 		.4byte	.LASF16
+ 1265 0238 01       		.byte	0x1
+ 1266 0239 84       		.byte	0x84
+ 1267 023a 25000000 		.4byte	0x25
+ 1268 023e 5A010000 		.4byte	.LLST10
+ 1269 0242 0C       		.uleb128 0xc
+ 1270 0243 AA000000 		.4byte	.LASF17
+ 1271 0247 01       		.byte	0x1
+ 1272 0248 96       		.byte	0x96
+ 1273 0249 88000000 		.4byte	0x88
+ 1274 024d 92010000 		.4byte	.LLST11
+ 1275 0251 00       		.byte	0
+ 1276 0252 00       		.byte	0
+ 1277 0253 0E       		.uleb128 0xe
+ 1278 0254 9A000000 		.4byte	0x9a
+ 1279 0258 63020000 		.4byte	0x263
+ 1280 025c 0F       		.uleb128 0xf
+ 1281 025d A1000000 		.4byte	0xa1
+ 1282 0261 31       		.byte	0x31
+ 1283 0262 00       		.byte	0
+ 1284 0263 09       		.uleb128 0x9
+ 1285 0264 71020000 		.4byte	.LASF20
+ 1286 0268 01       		.byte	0x1
+ 1287 0269 A5       		.byte	0xa5
+ 1288 026a 88000000 		.4byte	0x88
+ 1289 026e 00000000 		.4byte	.LFB36
+ 1290 0272 5C000000 		.4byte	.LFE36-.LFB36
+ 1291 0276 01       		.uleb128 0x1
+ 1292 0277 9C       		.byte	0x9c
+ 1293 0278 AA020000 		.4byte	0x2aa
+ 1294 027c 0A       		.uleb128 0xa
+ 1295 027d 0E000000 		.4byte	.LBB4
+ 1296 0281 36000000 		.4byte	.LBE4-.LBB4
+ 1297 0285 0C       		.uleb128 0xc
+ 1298 0286 C1000000 		.4byte	.LASF21
+ 1299 028a 01       		.byte	0x1
+ 1300 028b AA       		.byte	0xaa
+ 1301 028c 88000000 		.4byte	0x88
+ 1302 0290 AC010000 		.4byte	.LLST12
+ 1303 0294 10       		.uleb128 0x10
+ 1304 0295 6900     		.ascii	"i\000"
+ 1305 0297 01       		.byte	0x1
+ 1306 0298 AB       		.byte	0xab
+ 1307 0299 64000000 		.4byte	0x64
+ 1308 029d 0D       		.uleb128 0xd
+ 1309 029e F2010000 		.4byte	.LASF23
+ 1310 02a2 01       		.byte	0x1
+ 1311 02a3 B3       		.byte	0xb3
+ 1312 02a4 53020000 		.4byte	0x253
+ 1313 02a8 00       		.byte	0
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 32
+
+
+ 1314 02a9 00       		.byte	0
+ 1315 02aa 11       		.uleb128 0x11
+ 1316 02ab 76010000 		.4byte	.LASF24
+ 1317 02af 01       		.byte	0x1
+ 1318 02b0 CA       		.byte	0xca
+ 1319 02b1 88000000 		.4byte	0x88
+ 1320 02b5 00000000 		.4byte	.LFB37
+ 1321 02b9 B0000000 		.4byte	.LFE37-.LFB37
+ 1322 02bd 01       		.uleb128 0x1
+ 1323 02be 9C       		.byte	0x9c
+ 1324 02bf 04030000 		.4byte	0x304
+ 1325 02c3 0A       		.uleb128 0xa
+ 1326 02c4 10000000 		.4byte	.LBB5
+ 1327 02c8 70000000 		.4byte	.LBE5-.LBB5
+ 1328 02cc 0C       		.uleb128 0xc
+ 1329 02cd 7A020000 		.4byte	.LASF25
+ 1330 02d1 01       		.byte	0x1
+ 1331 02d2 CF       		.byte	0xcf
+ 1332 02d3 88000000 		.4byte	0x88
+ 1333 02d7 FA010000 		.4byte	.LLST13
+ 1334 02db 0B       		.uleb128 0xb
+ 1335 02dc 6900     		.ascii	"i\000"
+ 1336 02de 01       		.byte	0x1
+ 1337 02df D0       		.byte	0xd0
+ 1338 02e0 64000000 		.4byte	0x64
+ 1339 02e4 40020000 		.4byte	.LLST14
+ 1340 02e8 0D       		.uleb128 0xd
+ 1341 02e9 33020000 		.4byte	.LASF26
+ 1342 02ed 01       		.byte	0x1
+ 1343 02ee D9       		.byte	0xd9
+ 1344 02ef 53020000 		.4byte	0x253
+ 1345 02f3 0C       		.uleb128 0xc
+ 1346 02f4 87010000 		.4byte	.LASF27
+ 1347 02f8 01       		.byte	0x1
+ 1348 02f9 DD       		.byte	0xdd
+ 1349 02fa 88000000 		.4byte	0x88
+ 1350 02fe 6B020000 		.4byte	.LLST15
+ 1351 0302 00       		.byte	0
+ 1352 0303 00       		.byte	0
+ 1353 0304 12       		.uleb128 0x12
+ 1354 0305 C6010000 		.4byte	.LASF28
+ 1355 0309 01       		.byte	0x1
+ 1356 030a 1E01     		.2byte	0x11e
+ 1357 030c 88000000 		.4byte	0x88
+ 1358 0310 00000000 		.4byte	.LFB38
+ 1359 0314 F0000000 		.4byte	.LFE38-.LFB38
+ 1360 0318 01       		.uleb128 0x1
+ 1361 0319 9C       		.byte	0x9c
+ 1362 031a 53030000 		.4byte	0x353
+ 1363 031e 0A       		.uleb128 0xa
+ 1364 031f 0E000000 		.4byte	.LBB6
+ 1365 0323 9E000000 		.4byte	.LBE6-.LBB6
+ 1366 0327 13       		.uleb128 0x13
+ 1367 0328 0D020000 		.4byte	.LASF29
+ 1368 032c 01       		.byte	0x1
+ 1369 032d 2201     		.2byte	0x122
+ 1370 032f 88000000 		.4byte	0x88
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 33
+
+
+ 1371 0333 8A020000 		.4byte	.LLST16
+ 1372 0337 14       		.uleb128 0x14
+ 1373 0338 6900     		.ascii	"i\000"
+ 1374 033a 01       		.byte	0x1
+ 1375 033b 2301     		.2byte	0x123
+ 1376 033d 64000000 		.4byte	0x64
+ 1377 0341 13       		.uleb128 0x13
+ 1378 0342 05030000 		.4byte	.LASF30
+ 1379 0346 01       		.byte	0x1
+ 1380 0347 2C01     		.2byte	0x12c
+ 1381 0349 88000000 		.4byte	0x88
+ 1382 034d B7020000 		.4byte	.LLST17
+ 1383 0351 00       		.byte	0
+ 1384 0352 00       		.byte	0
+ 1385 0353 0E       		.uleb128 0xe
+ 1386 0354 88000000 		.4byte	0x88
+ 1387 0358 63030000 		.4byte	0x363
+ 1388 035c 0F       		.uleb128 0xf
+ 1389 035d A1000000 		.4byte	0xa1
+ 1390 0361 31       		.byte	0x31
+ 1391 0362 00       		.byte	0
+ 1392 0363 15       		.uleb128 0x15
+ 1393 0364 B8000000 		.4byte	.LASF31
+ 1394 0368 03       		.byte	0x3
+ 1395 0369 12       		.byte	0x12
+ 1396 036a 53030000 		.4byte	0x353
+ 1397 036e 05       		.uleb128 0x5
+ 1398 036f 03       		.byte	0x3
+ 1399 0370 00000000 		.4byte	moisture
+ 1400 0374 15       		.uleb128 0x15
+ 1401 0375 1F010000 		.4byte	.LASF32
+ 1402 0379 03       		.byte	0x3
+ 1403 037a 13       		.byte	0x13
+ 1404 037b 53030000 		.4byte	0x353
+ 1405 037f 05       		.uleb128 0x5
+ 1406 0380 03       		.byte	0x3
+ 1407 0381 00000000 		.4byte	waterlevel
+ 1408 0385 0E       		.uleb128 0xe
+ 1409 0386 88000000 		.4byte	0x88
+ 1410 038a 95030000 		.4byte	0x395
+ 1411 038e 0F       		.uleb128 0xf
+ 1412 038f A1000000 		.4byte	0xa1
+ 1413 0393 07       		.byte	0x7
+ 1414 0394 00       		.byte	0
+ 1415 0395 15       		.uleb128 0x15
+ 1416 0396 EE000000 		.4byte	.LASF33
+ 1417 039a 03       		.byte	0x3
+ 1418 039b 14       		.byte	0x14
+ 1419 039c 85030000 		.4byte	0x385
+ 1420 03a0 05       		.uleb128 0x5
+ 1421 03a1 03       		.byte	0x3
+ 1422 03a2 00000000 		.4byte	temperature
+ 1423 03a6 15       		.uleb128 0x15
+ 1424 03a7 B9010000 		.4byte	.LASF34
+ 1425 03ab 03       		.byte	0x3
+ 1426 03ac 15       		.byte	0x15
+ 1427 03ad 85030000 		.4byte	0x385
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 34
+
+
+ 1428 03b1 05       		.uleb128 0x5
+ 1429 03b2 03       		.byte	0x3
+ 1430 03b3 00000000 		.4byte	batterylevel
+ 1431 03b7 15       		.uleb128 0x15
+ 1432 03b8 14010000 		.4byte	.LASF35
+ 1433 03bc 03       		.byte	0x3
+ 1434 03bd 16       		.byte	0x16
+ 1435 03be 85030000 		.4byte	0x385
+ 1436 03c2 05       		.uleb128 0x5
+ 1437 03c3 03       		.byte	0x3
+ 1438 03c4 00000000 		.4byte	lightlevel
+ 1439 03c8 15       		.uleb128 0x15
+ 1440 03c9 30010000 		.4byte	.LASF36
+ 1441 03cd 01       		.byte	0x1
+ 1442 03ce 0E       		.byte	0xe
+ 1443 03cf 72000000 		.4byte	0x72
+ 1444 03d3 05       		.uleb128 0x5
+ 1445 03d4 03       		.byte	0x3
+ 1446 03d5 00000000 		.4byte	moisture_ptr
+ 1447 03d9 15       		.uleb128 0x15
+ 1448 03da 67010000 		.4byte	.LASF37
+ 1449 03de 01       		.byte	0x1
+ 1450 03df 0F       		.byte	0xf
+ 1451 03e0 72000000 		.4byte	0x72
+ 1452 03e4 05       		.uleb128 0x5
+ 1453 03e5 03       		.byte	0x3
+ 1454 03e6 00000000 		.4byte	waterlevel_ptr
+ 1455 03ea 15       		.uleb128 0x15
+ 1456 03eb 3D010000 		.4byte	.LASF38
+ 1457 03ef 01       		.byte	0x1
+ 1458 03f0 10       		.byte	0x10
+ 1459 03f1 72000000 		.4byte	0x72
+ 1460 03f5 05       		.uleb128 0x5
+ 1461 03f6 03       		.byte	0x3
+ 1462 03f7 00000000 		.4byte	temperature_ptr
+ 1463 03fb 15       		.uleb128 0x15
+ 1464 03fc FC010000 		.4byte	.LASF39
+ 1465 0400 01       		.byte	0x1
+ 1466 0401 11       		.byte	0x11
+ 1467 0402 72000000 		.4byte	0x72
+ 1468 0406 05       		.uleb128 0x5
+ 1469 0407 03       		.byte	0x3
+ 1470 0408 00000000 		.4byte	batterylevel_ptr
+ 1471 040c 15       		.uleb128 0x15
+ 1472 040d 00000000 		.4byte	.LASF40
+ 1473 0411 01       		.byte	0x1
+ 1474 0412 12       		.byte	0x12
+ 1475 0413 72000000 		.4byte	0x72
+ 1476 0417 05       		.uleb128 0x5
+ 1477 0418 03       		.byte	0x3
+ 1478 0419 00000000 		.4byte	lightlevel_ptr
+ 1479 041d 15       		.uleb128 0x15
+ 1480 041e DD000000 		.4byte	.LASF41
+ 1481 0422 01       		.byte	0x1
+ 1482 0423 32       		.byte	0x32
+ 1483 0424 88000000 		.4byte	0x88
+ 1484 0428 05       		.uleb128 0x5
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 35
+
+
+ 1485 0429 03       		.byte	0x3
+ 1486 042a 00000000 		.4byte	procent_moisture
+ 1487 042e 15       		.uleb128 0x15
+ 1488 042f 4D010000 		.4byte	.LASF42
+ 1489 0433 01       		.byte	0x1
+ 1490 0434 6B       		.byte	0x6b
+ 1491 0435 88000000 		.4byte	0x88
+ 1492 0439 05       		.uleb128 0x5
+ 1493 043a 03       		.byte	0x3
+ 1494 043b 00000000 		.4byte	procent_waterlevel
+ 1495 043f 16       		.uleb128 0x16
+ 1496 0440 0E030000 		.4byte	.LASF47
+ 1497 0444 04       		.byte	0x4
+ 1498 0445 9F       		.byte	0x9f
+ 1499 0446 88000000 		.4byte	0x88
+ 1500 044a 54040000 		.4byte	0x454
+ 1501 044e 17       		.uleb128 0x17
+ 1502 044f 7D000000 		.4byte	0x7d
+ 1503 0453 00       		.byte	0
+ 1504 0454 18       		.uleb128 0x18
+ 1505 0455 86020000 		.4byte	.LASF48
+ 1506 0459 04       		.byte	0x4
+ 1507 045a AB       		.byte	0xab
+ 1508 045b 88000000 		.4byte	0x88
+ 1509 045f 17       		.uleb128 0x17
+ 1510 0460 7D000000 		.4byte	0x7d
+ 1511 0464 17       		.uleb128 0x17
+ 1512 0465 88000000 		.4byte	0x88
+ 1513 0469 00       		.byte	0
+ 1514 046a 00       		.byte	0
+ 1515              		.section	.debug_abbrev,"",%progbits
+ 1516              	.Ldebug_abbrev0:
+ 1517 0000 01       		.uleb128 0x1
+ 1518 0001 11       		.uleb128 0x11
+ 1519 0002 01       		.byte	0x1
+ 1520 0003 25       		.uleb128 0x25
+ 1521 0004 0E       		.uleb128 0xe
+ 1522 0005 13       		.uleb128 0x13
+ 1523 0006 0B       		.uleb128 0xb
+ 1524 0007 03       		.uleb128 0x3
+ 1525 0008 0E       		.uleb128 0xe
+ 1526 0009 1B       		.uleb128 0x1b
+ 1527 000a 0E       		.uleb128 0xe
+ 1528 000b 55       		.uleb128 0x55
+ 1529 000c 17       		.uleb128 0x17
+ 1530 000d 11       		.uleb128 0x11
+ 1531 000e 01       		.uleb128 0x1
+ 1532 000f 10       		.uleb128 0x10
+ 1533 0010 17       		.uleb128 0x17
+ 1534 0011 00       		.byte	0
+ 1535 0012 00       		.byte	0
+ 1536 0013 02       		.uleb128 0x2
+ 1537 0014 24       		.uleb128 0x24
+ 1538 0015 00       		.byte	0
+ 1539 0016 0B       		.uleb128 0xb
+ 1540 0017 0B       		.uleb128 0xb
+ 1541 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 36
+
+
+ 1542 0019 0B       		.uleb128 0xb
+ 1543 001a 03       		.uleb128 0x3
+ 1544 001b 0E       		.uleb128 0xe
+ 1545 001c 00       		.byte	0
+ 1546 001d 00       		.byte	0
+ 1547 001e 03       		.uleb128 0x3
+ 1548 001f 24       		.uleb128 0x24
+ 1549 0020 00       		.byte	0
+ 1550 0021 0B       		.uleb128 0xb
+ 1551 0022 0B       		.uleb128 0xb
+ 1552 0023 3E       		.uleb128 0x3e
+ 1553 0024 0B       		.uleb128 0xb
+ 1554 0025 03       		.uleb128 0x3
+ 1555 0026 08       		.uleb128 0x8
+ 1556 0027 00       		.byte	0
+ 1557 0028 00       		.byte	0
+ 1558 0029 04       		.uleb128 0x4
+ 1559 002a 16       		.uleb128 0x16
+ 1560 002b 00       		.byte	0
+ 1561 002c 03       		.uleb128 0x3
+ 1562 002d 0E       		.uleb128 0xe
+ 1563 002e 3A       		.uleb128 0x3a
+ 1564 002f 0B       		.uleb128 0xb
+ 1565 0030 3B       		.uleb128 0x3b
+ 1566 0031 0B       		.uleb128 0xb
+ 1567 0032 49       		.uleb128 0x49
+ 1568 0033 13       		.uleb128 0x13
+ 1569 0034 00       		.byte	0
+ 1570 0035 00       		.byte	0
+ 1571 0036 05       		.uleb128 0x5
+ 1572 0037 2E       		.uleb128 0x2e
+ 1573 0038 01       		.byte	0x1
+ 1574 0039 3F       		.uleb128 0x3f
+ 1575 003a 19       		.uleb128 0x19
+ 1576 003b 03       		.uleb128 0x3
+ 1577 003c 0E       		.uleb128 0xe
+ 1578 003d 3A       		.uleb128 0x3a
+ 1579 003e 0B       		.uleb128 0xb
+ 1580 003f 3B       		.uleb128 0x3b
+ 1581 0040 0B       		.uleb128 0xb
+ 1582 0041 27       		.uleb128 0x27
+ 1583 0042 19       		.uleb128 0x19
+ 1584 0043 11       		.uleb128 0x11
+ 1585 0044 01       		.uleb128 0x1
+ 1586 0045 12       		.uleb128 0x12
+ 1587 0046 06       		.uleb128 0x6
+ 1588 0047 40       		.uleb128 0x40
+ 1589 0048 18       		.uleb128 0x18
+ 1590 0049 9742     		.uleb128 0x2117
+ 1591 004b 19       		.uleb128 0x19
+ 1592 004c 01       		.uleb128 0x1
+ 1593 004d 13       		.uleb128 0x13
+ 1594 004e 00       		.byte	0
+ 1595 004f 00       		.byte	0
+ 1596 0050 06       		.uleb128 0x6
+ 1597 0051 898201   		.uleb128 0x4109
+ 1598 0054 01       		.byte	0x1
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 37
+
+
+ 1599 0055 11       		.uleb128 0x11
+ 1600 0056 01       		.uleb128 0x1
+ 1601 0057 31       		.uleb128 0x31
+ 1602 0058 13       		.uleb128 0x13
+ 1603 0059 01       		.uleb128 0x1
+ 1604 005a 13       		.uleb128 0x13
+ 1605 005b 00       		.byte	0
+ 1606 005c 00       		.byte	0
+ 1607 005d 07       		.uleb128 0x7
+ 1608 005e 8A8201   		.uleb128 0x410a
+ 1609 0061 00       		.byte	0
+ 1610 0062 02       		.uleb128 0x2
+ 1611 0063 18       		.uleb128 0x18
+ 1612 0064 9142     		.uleb128 0x2111
+ 1613 0066 18       		.uleb128 0x18
+ 1614 0067 00       		.byte	0
+ 1615 0068 00       		.byte	0
+ 1616 0069 08       		.uleb128 0x8
+ 1617 006a 898201   		.uleb128 0x4109
+ 1618 006d 01       		.byte	0x1
+ 1619 006e 11       		.uleb128 0x11
+ 1620 006f 01       		.uleb128 0x1
+ 1621 0070 31       		.uleb128 0x31
+ 1622 0071 13       		.uleb128 0x13
+ 1623 0072 00       		.byte	0
+ 1624 0073 00       		.byte	0
+ 1625 0074 09       		.uleb128 0x9
+ 1626 0075 2E       		.uleb128 0x2e
+ 1627 0076 01       		.byte	0x1
+ 1628 0077 3F       		.uleb128 0x3f
+ 1629 0078 19       		.uleb128 0x19
+ 1630 0079 03       		.uleb128 0x3
+ 1631 007a 0E       		.uleb128 0xe
+ 1632 007b 3A       		.uleb128 0x3a
+ 1633 007c 0B       		.uleb128 0xb
+ 1634 007d 3B       		.uleb128 0x3b
+ 1635 007e 0B       		.uleb128 0xb
+ 1636 007f 27       		.uleb128 0x27
+ 1637 0080 19       		.uleb128 0x19
+ 1638 0081 49       		.uleb128 0x49
+ 1639 0082 13       		.uleb128 0x13
+ 1640 0083 11       		.uleb128 0x11
+ 1641 0084 01       		.uleb128 0x1
+ 1642 0085 12       		.uleb128 0x12
+ 1643 0086 06       		.uleb128 0x6
+ 1644 0087 40       		.uleb128 0x40
+ 1645 0088 18       		.uleb128 0x18
+ 1646 0089 9642     		.uleb128 0x2116
+ 1647 008b 19       		.uleb128 0x19
+ 1648 008c 01       		.uleb128 0x1
+ 1649 008d 13       		.uleb128 0x13
+ 1650 008e 00       		.byte	0
+ 1651 008f 00       		.byte	0
+ 1652 0090 0A       		.uleb128 0xa
+ 1653 0091 0B       		.uleb128 0xb
+ 1654 0092 01       		.byte	0x1
+ 1655 0093 11       		.uleb128 0x11
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 38
+
+
+ 1656 0094 01       		.uleb128 0x1
+ 1657 0095 12       		.uleb128 0x12
+ 1658 0096 06       		.uleb128 0x6
+ 1659 0097 00       		.byte	0
+ 1660 0098 00       		.byte	0
+ 1661 0099 0B       		.uleb128 0xb
+ 1662 009a 34       		.uleb128 0x34
+ 1663 009b 00       		.byte	0
+ 1664 009c 03       		.uleb128 0x3
+ 1665 009d 08       		.uleb128 0x8
+ 1666 009e 3A       		.uleb128 0x3a
+ 1667 009f 0B       		.uleb128 0xb
+ 1668 00a0 3B       		.uleb128 0x3b
+ 1669 00a1 0B       		.uleb128 0xb
+ 1670 00a2 49       		.uleb128 0x49
+ 1671 00a3 13       		.uleb128 0x13
+ 1672 00a4 02       		.uleb128 0x2
+ 1673 00a5 17       		.uleb128 0x17
+ 1674 00a6 00       		.byte	0
+ 1675 00a7 00       		.byte	0
+ 1676 00a8 0C       		.uleb128 0xc
+ 1677 00a9 34       		.uleb128 0x34
+ 1678 00aa 00       		.byte	0
+ 1679 00ab 03       		.uleb128 0x3
+ 1680 00ac 0E       		.uleb128 0xe
+ 1681 00ad 3A       		.uleb128 0x3a
+ 1682 00ae 0B       		.uleb128 0xb
+ 1683 00af 3B       		.uleb128 0x3b
+ 1684 00b0 0B       		.uleb128 0xb
+ 1685 00b1 49       		.uleb128 0x49
+ 1686 00b2 13       		.uleb128 0x13
+ 1687 00b3 02       		.uleb128 0x2
+ 1688 00b4 17       		.uleb128 0x17
+ 1689 00b5 00       		.byte	0
+ 1690 00b6 00       		.byte	0
+ 1691 00b7 0D       		.uleb128 0xd
+ 1692 00b8 34       		.uleb128 0x34
+ 1693 00b9 00       		.byte	0
+ 1694 00ba 03       		.uleb128 0x3
+ 1695 00bb 0E       		.uleb128 0xe
+ 1696 00bc 3A       		.uleb128 0x3a
+ 1697 00bd 0B       		.uleb128 0xb
+ 1698 00be 3B       		.uleb128 0x3b
+ 1699 00bf 0B       		.uleb128 0xb
+ 1700 00c0 49       		.uleb128 0x49
+ 1701 00c1 13       		.uleb128 0x13
+ 1702 00c2 00       		.byte	0
+ 1703 00c3 00       		.byte	0
+ 1704 00c4 0E       		.uleb128 0xe
+ 1705 00c5 01       		.uleb128 0x1
+ 1706 00c6 01       		.byte	0x1
+ 1707 00c7 49       		.uleb128 0x49
+ 1708 00c8 13       		.uleb128 0x13
+ 1709 00c9 01       		.uleb128 0x1
+ 1710 00ca 13       		.uleb128 0x13
+ 1711 00cb 00       		.byte	0
+ 1712 00cc 00       		.byte	0
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 39
+
+
+ 1713 00cd 0F       		.uleb128 0xf
+ 1714 00ce 21       		.uleb128 0x21
+ 1715 00cf 00       		.byte	0
+ 1716 00d0 49       		.uleb128 0x49
+ 1717 00d1 13       		.uleb128 0x13
+ 1718 00d2 2F       		.uleb128 0x2f
+ 1719 00d3 0B       		.uleb128 0xb
+ 1720 00d4 00       		.byte	0
+ 1721 00d5 00       		.byte	0
+ 1722 00d6 10       		.uleb128 0x10
+ 1723 00d7 34       		.uleb128 0x34
+ 1724 00d8 00       		.byte	0
+ 1725 00d9 03       		.uleb128 0x3
+ 1726 00da 08       		.uleb128 0x8
+ 1727 00db 3A       		.uleb128 0x3a
+ 1728 00dc 0B       		.uleb128 0xb
+ 1729 00dd 3B       		.uleb128 0x3b
+ 1730 00de 0B       		.uleb128 0xb
+ 1731 00df 49       		.uleb128 0x49
+ 1732 00e0 13       		.uleb128 0x13
+ 1733 00e1 00       		.byte	0
+ 1734 00e2 00       		.byte	0
+ 1735 00e3 11       		.uleb128 0x11
+ 1736 00e4 2E       		.uleb128 0x2e
+ 1737 00e5 01       		.byte	0x1
+ 1738 00e6 3F       		.uleb128 0x3f
+ 1739 00e7 19       		.uleb128 0x19
+ 1740 00e8 03       		.uleb128 0x3
+ 1741 00e9 0E       		.uleb128 0xe
+ 1742 00ea 3A       		.uleb128 0x3a
+ 1743 00eb 0B       		.uleb128 0xb
+ 1744 00ec 3B       		.uleb128 0x3b
+ 1745 00ed 0B       		.uleb128 0xb
+ 1746 00ee 27       		.uleb128 0x27
+ 1747 00ef 19       		.uleb128 0x19
+ 1748 00f0 49       		.uleb128 0x49
+ 1749 00f1 13       		.uleb128 0x13
+ 1750 00f2 11       		.uleb128 0x11
+ 1751 00f3 01       		.uleb128 0x1
+ 1752 00f4 12       		.uleb128 0x12
+ 1753 00f5 06       		.uleb128 0x6
+ 1754 00f6 40       		.uleb128 0x40
+ 1755 00f7 18       		.uleb128 0x18
+ 1756 00f8 9742     		.uleb128 0x2117
+ 1757 00fa 19       		.uleb128 0x19
+ 1758 00fb 01       		.uleb128 0x1
+ 1759 00fc 13       		.uleb128 0x13
+ 1760 00fd 00       		.byte	0
+ 1761 00fe 00       		.byte	0
+ 1762 00ff 12       		.uleb128 0x12
+ 1763 0100 2E       		.uleb128 0x2e
+ 1764 0101 01       		.byte	0x1
+ 1765 0102 3F       		.uleb128 0x3f
+ 1766 0103 19       		.uleb128 0x19
+ 1767 0104 03       		.uleb128 0x3
+ 1768 0105 0E       		.uleb128 0xe
+ 1769 0106 3A       		.uleb128 0x3a
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 40
+
+
+ 1770 0107 0B       		.uleb128 0xb
+ 1771 0108 3B       		.uleb128 0x3b
+ 1772 0109 05       		.uleb128 0x5
+ 1773 010a 27       		.uleb128 0x27
+ 1774 010b 19       		.uleb128 0x19
+ 1775 010c 49       		.uleb128 0x49
+ 1776 010d 13       		.uleb128 0x13
+ 1777 010e 11       		.uleb128 0x11
+ 1778 010f 01       		.uleb128 0x1
+ 1779 0110 12       		.uleb128 0x12
+ 1780 0111 06       		.uleb128 0x6
+ 1781 0112 40       		.uleb128 0x40
+ 1782 0113 18       		.uleb128 0x18
+ 1783 0114 9742     		.uleb128 0x2117
+ 1784 0116 19       		.uleb128 0x19
+ 1785 0117 01       		.uleb128 0x1
+ 1786 0118 13       		.uleb128 0x13
+ 1787 0119 00       		.byte	0
+ 1788 011a 00       		.byte	0
+ 1789 011b 13       		.uleb128 0x13
+ 1790 011c 34       		.uleb128 0x34
+ 1791 011d 00       		.byte	0
+ 1792 011e 03       		.uleb128 0x3
+ 1793 011f 0E       		.uleb128 0xe
+ 1794 0120 3A       		.uleb128 0x3a
+ 1795 0121 0B       		.uleb128 0xb
+ 1796 0122 3B       		.uleb128 0x3b
+ 1797 0123 05       		.uleb128 0x5
+ 1798 0124 49       		.uleb128 0x49
+ 1799 0125 13       		.uleb128 0x13
+ 1800 0126 02       		.uleb128 0x2
+ 1801 0127 17       		.uleb128 0x17
+ 1802 0128 00       		.byte	0
+ 1803 0129 00       		.byte	0
+ 1804 012a 14       		.uleb128 0x14
+ 1805 012b 34       		.uleb128 0x34
+ 1806 012c 00       		.byte	0
+ 1807 012d 03       		.uleb128 0x3
+ 1808 012e 08       		.uleb128 0x8
+ 1809 012f 3A       		.uleb128 0x3a
+ 1810 0130 0B       		.uleb128 0xb
+ 1811 0131 3B       		.uleb128 0x3b
+ 1812 0132 05       		.uleb128 0x5
+ 1813 0133 49       		.uleb128 0x49
+ 1814 0134 13       		.uleb128 0x13
+ 1815 0135 00       		.byte	0
+ 1816 0136 00       		.byte	0
+ 1817 0137 15       		.uleb128 0x15
+ 1818 0138 34       		.uleb128 0x34
+ 1819 0139 00       		.byte	0
+ 1820 013a 03       		.uleb128 0x3
+ 1821 013b 0E       		.uleb128 0xe
+ 1822 013c 3A       		.uleb128 0x3a
+ 1823 013d 0B       		.uleb128 0xb
+ 1824 013e 3B       		.uleb128 0x3b
+ 1825 013f 0B       		.uleb128 0xb
+ 1826 0140 49       		.uleb128 0x49
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 41
+
+
+ 1827 0141 13       		.uleb128 0x13
+ 1828 0142 3F       		.uleb128 0x3f
+ 1829 0143 19       		.uleb128 0x19
+ 1830 0144 02       		.uleb128 0x2
+ 1831 0145 18       		.uleb128 0x18
+ 1832 0146 00       		.byte	0
+ 1833 0147 00       		.byte	0
+ 1834 0148 16       		.uleb128 0x16
+ 1835 0149 2E       		.uleb128 0x2e
+ 1836 014a 01       		.byte	0x1
+ 1837 014b 3F       		.uleb128 0x3f
+ 1838 014c 19       		.uleb128 0x19
+ 1839 014d 03       		.uleb128 0x3
+ 1840 014e 0E       		.uleb128 0xe
+ 1841 014f 3A       		.uleb128 0x3a
+ 1842 0150 0B       		.uleb128 0xb
+ 1843 0151 3B       		.uleb128 0x3b
+ 1844 0152 0B       		.uleb128 0xb
+ 1845 0153 27       		.uleb128 0x27
+ 1846 0154 19       		.uleb128 0x19
+ 1847 0155 49       		.uleb128 0x49
+ 1848 0156 13       		.uleb128 0x13
+ 1849 0157 3C       		.uleb128 0x3c
+ 1850 0158 19       		.uleb128 0x19
+ 1851 0159 01       		.uleb128 0x1
+ 1852 015a 13       		.uleb128 0x13
+ 1853 015b 00       		.byte	0
+ 1854 015c 00       		.byte	0
+ 1855 015d 17       		.uleb128 0x17
+ 1856 015e 05       		.uleb128 0x5
+ 1857 015f 00       		.byte	0
+ 1858 0160 49       		.uleb128 0x49
+ 1859 0161 13       		.uleb128 0x13
+ 1860 0162 00       		.byte	0
+ 1861 0163 00       		.byte	0
+ 1862 0164 18       		.uleb128 0x18
+ 1863 0165 2E       		.uleb128 0x2e
+ 1864 0166 01       		.byte	0x1
+ 1865 0167 3F       		.uleb128 0x3f
+ 1866 0168 19       		.uleb128 0x19
+ 1867 0169 03       		.uleb128 0x3
+ 1868 016a 0E       		.uleb128 0xe
+ 1869 016b 3A       		.uleb128 0x3a
+ 1870 016c 0B       		.uleb128 0xb
+ 1871 016d 3B       		.uleb128 0x3b
+ 1872 016e 0B       		.uleb128 0xb
+ 1873 016f 27       		.uleb128 0x27
+ 1874 0170 19       		.uleb128 0x19
+ 1875 0171 49       		.uleb128 0x49
+ 1876 0172 13       		.uleb128 0x13
+ 1877 0173 3C       		.uleb128 0x3c
+ 1878 0174 19       		.uleb128 0x19
+ 1879 0175 00       		.byte	0
+ 1880 0176 00       		.byte	0
+ 1881 0177 00       		.byte	0
+ 1882              		.section	.debug_loc,"",%progbits
+ 1883              	.Ldebug_loc0:
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 42
+
+
+ 1884              	.LLST0:
+ 1885 0000 10000000 		.4byte	.LVL8
+ 1886 0004 3C000000 		.4byte	.LVL16
+ 1887 0008 0100     		.2byte	0x1
+ 1888 000a 50       		.byte	0x50
+ 1889 000b 00000000 		.4byte	0
+ 1890 000f 00000000 		.4byte	0
+ 1891              	.LLST1:
+ 1892 0013 10000000 		.4byte	.LVL8
+ 1893 0017 12000000 		.4byte	.LVL9
+ 1894 001b 0100     		.2byte	0x1
+ 1895 001d 50       		.byte	0x50
+ 1896 001e 12000000 		.4byte	.LVL9
+ 1897 0022 28000000 		.4byte	.LVL10
+ 1898 0026 0100     		.2byte	0x1
+ 1899 0028 53       		.byte	0x53
+ 1900 0029 28000000 		.4byte	.LVL10
+ 1901 002d 2A000000 		.4byte	.LVL11
+ 1902 0031 0100     		.2byte	0x1
+ 1903 0033 56       		.byte	0x56
+ 1904 0034 2A000000 		.4byte	.LVL11
+ 1905 0038 3A000000 		.4byte	.LVL15
+ 1906 003c 0100     		.2byte	0x1
+ 1907 003e 53       		.byte	0x53
+ 1908 003f 00000000 		.4byte	0
+ 1909 0043 00000000 		.4byte	0
+ 1910              	.LLST2:
+ 1911 0047 10000000 		.4byte	.LVL8
+ 1912 004b 12000000 		.4byte	.LVL9
+ 1913 004f 0200     		.2byte	0x2
+ 1914 0051 31       		.byte	0x31
+ 1915 0052 9F       		.byte	0x9f
+ 1916 0053 12000000 		.4byte	.LVL9
+ 1917 0057 34000000 		.4byte	.LVL14
+ 1918 005b 0100     		.2byte	0x1
+ 1919 005d 51       		.byte	0x51
+ 1920 005e 00000000 		.4byte	0
+ 1921 0062 00000000 		.4byte	0
+ 1922              	.LLST3:
+ 1923 0066 44000000 		.4byte	.LVL17
+ 1924 006a 4F000000 		.4byte	.LVL18-1
+ 1925 006e 0100     		.2byte	0x1
+ 1926 0070 50       		.byte	0x50
+ 1927 0071 66000000 		.4byte	.LVL21
+ 1928 0075 69000000 		.4byte	.LVL22-1
+ 1929 0079 0100     		.2byte	0x1
+ 1930 007b 50       		.byte	0x50
+ 1931 007c 00000000 		.4byte	0
+ 1932 0080 00000000 		.4byte	0
+ 1933              	.LLST4:
+ 1934 0084 92000000 		.4byte	.LVL27
+ 1935 0088 AC000000 		.4byte	.LVL30
+ 1936 008c 0600     		.2byte	0x6
+ 1937 008e 56       		.byte	0x56
+ 1938 008f 93       		.byte	0x93
+ 1939 0090 04       		.uleb128 0x4
+ 1940 0091 57       		.byte	0x57
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 43
+
+
+ 1941 0092 93       		.byte	0x93
+ 1942 0093 04       		.uleb128 0x4
+ 1943 0094 B0000000 		.4byte	.LVL31
+ 1944 0098 B2000000 		.4byte	.LVL32
+ 1945 009c 0600     		.2byte	0x6
+ 1946 009e 56       		.byte	0x56
+ 1947 009f 93       		.byte	0x93
+ 1948 00a0 04       		.uleb128 0x4
+ 1949 00a1 57       		.byte	0x57
+ 1950 00a2 93       		.byte	0x93
+ 1951 00a3 04       		.uleb128 0x4
+ 1952 00a4 B4000000 		.4byte	.LVL33
+ 1953 00a8 C2000000 		.4byte	.LVL35
+ 1954 00ac 0600     		.2byte	0x6
+ 1955 00ae 56       		.byte	0x56
+ 1956 00af 93       		.byte	0x93
+ 1957 00b0 04       		.uleb128 0x4
+ 1958 00b1 57       		.byte	0x57
+ 1959 00b2 93       		.byte	0x93
+ 1960 00b3 04       		.uleb128 0x4
+ 1961 00b4 00000000 		.4byte	0
+ 1962 00b8 00000000 		.4byte	0
+ 1963              	.LLST5:
+ 1964 00bc B4000000 		.4byte	.LVL33
+ 1965 00c0 C2000000 		.4byte	.LVL35
+ 1966 00c4 0800     		.2byte	0x8
+ 1967 00c6 F5       		.byte	0xf5
+ 1968 00c7 06       		.uleb128 0x6
+ 1969 00c8 25       		.uleb128 0x25
+ 1970 00c9 F7       		.byte	0xf7
+ 1971 00ca 2C       		.uleb128 0x2c
+ 1972 00cb F7       		.byte	0xf7
+ 1973 00cc 00       		.uleb128 0
+ 1974 00cd 9F       		.byte	0x9f
+ 1975 00ce 00000000 		.4byte	0
+ 1976 00d2 00000000 		.4byte	0
+ 1977              	.LLST6:
+ 1978 00d6 10000000 		.4byte	.LVL36
+ 1979 00da 3C000000 		.4byte	.LVL44
+ 1980 00de 0100     		.2byte	0x1
+ 1981 00e0 50       		.byte	0x50
+ 1982 00e1 00000000 		.4byte	0
+ 1983 00e5 00000000 		.4byte	0
+ 1984              	.LLST7:
+ 1985 00e9 10000000 		.4byte	.LVL36
+ 1986 00ed 12000000 		.4byte	.LVL37
+ 1987 00f1 0100     		.2byte	0x1
+ 1988 00f3 50       		.byte	0x50
+ 1989 00f4 12000000 		.4byte	.LVL37
+ 1990 00f8 28000000 		.4byte	.LVL38
+ 1991 00fc 0100     		.2byte	0x1
+ 1992 00fe 53       		.byte	0x53
+ 1993 00ff 28000000 		.4byte	.LVL38
+ 1994 0103 2A000000 		.4byte	.LVL39
+ 1995 0107 0100     		.2byte	0x1
+ 1996 0109 56       		.byte	0x56
+ 1997 010a 2A000000 		.4byte	.LVL39
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 44
+
+
+ 1998 010e 3A000000 		.4byte	.LVL43
+ 1999 0112 0100     		.2byte	0x1
+ 2000 0114 53       		.byte	0x53
+ 2001 0115 00000000 		.4byte	0
+ 2002 0119 00000000 		.4byte	0
+ 2003              	.LLST8:
+ 2004 011d 10000000 		.4byte	.LVL36
+ 2005 0121 12000000 		.4byte	.LVL37
+ 2006 0125 0200     		.2byte	0x2
+ 2007 0127 31       		.byte	0x31
+ 2008 0128 9F       		.byte	0x9f
+ 2009 0129 12000000 		.4byte	.LVL37
+ 2010 012d 34000000 		.4byte	.LVL42
+ 2011 0131 0100     		.2byte	0x1
+ 2012 0133 51       		.byte	0x51
+ 2013 0134 00000000 		.4byte	0
+ 2014 0138 00000000 		.4byte	0
+ 2015              	.LLST9:
+ 2016 013c 44000000 		.4byte	.LVL45
+ 2017 0140 4F000000 		.4byte	.LVL46-1
+ 2018 0144 0100     		.2byte	0x1
+ 2019 0146 50       		.byte	0x50
+ 2020 0147 66000000 		.4byte	.LVL49
+ 2021 014b 69000000 		.4byte	.LVL50-1
+ 2022 014f 0100     		.2byte	0x1
+ 2023 0151 50       		.byte	0x50
+ 2024 0152 00000000 		.4byte	0
+ 2025 0156 00000000 		.4byte	0
+ 2026              	.LLST10:
+ 2027 015a 92000000 		.4byte	.LVL55
+ 2028 015e AC000000 		.4byte	.LVL58
+ 2029 0162 0600     		.2byte	0x6
+ 2030 0164 56       		.byte	0x56
+ 2031 0165 93       		.byte	0x93
+ 2032 0166 04       		.uleb128 0x4
+ 2033 0167 57       		.byte	0x57
+ 2034 0168 93       		.byte	0x93
+ 2035 0169 04       		.uleb128 0x4
+ 2036 016a B0000000 		.4byte	.LVL59
+ 2037 016e B2000000 		.4byte	.LVL60
+ 2038 0172 0600     		.2byte	0x6
+ 2039 0174 56       		.byte	0x56
+ 2040 0175 93       		.byte	0x93
+ 2041 0176 04       		.uleb128 0x4
+ 2042 0177 57       		.byte	0x57
+ 2043 0178 93       		.byte	0x93
+ 2044 0179 04       		.uleb128 0x4
+ 2045 017a B4000000 		.4byte	.LVL61
+ 2046 017e C2000000 		.4byte	.LVL63
+ 2047 0182 0600     		.2byte	0x6
+ 2048 0184 56       		.byte	0x56
+ 2049 0185 93       		.byte	0x93
+ 2050 0186 04       		.uleb128 0x4
+ 2051 0187 57       		.byte	0x57
+ 2052 0188 93       		.byte	0x93
+ 2053 0189 04       		.uleb128 0x4
+ 2054 018a 00000000 		.4byte	0
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 45
+
+
+ 2055 018e 00000000 		.4byte	0
+ 2056              	.LLST11:
+ 2057 0192 B4000000 		.4byte	.LVL61
+ 2058 0196 C2000000 		.4byte	.LVL63
+ 2059 019a 0800     		.2byte	0x8
+ 2060 019c F5       		.byte	0xf5
+ 2061 019d 06       		.uleb128 0x6
+ 2062 019e 25       		.uleb128 0x25
+ 2063 019f F7       		.byte	0xf7
+ 2064 01a0 2C       		.uleb128 0x2c
+ 2065 01a1 F7       		.byte	0xf7
+ 2066 01a2 00       		.uleb128 0
+ 2067 01a3 9F       		.byte	0x9f
+ 2068 01a4 00000000 		.4byte	0
+ 2069 01a8 00000000 		.4byte	0
+ 2070              	.LLST12:
+ 2071 01ac 0E000000 		.4byte	.LVL64
+ 2072 01b0 16000000 		.4byte	.LVL65
+ 2073 01b4 0100     		.2byte	0x1
+ 2074 01b6 53       		.byte	0x53
+ 2075 01b7 18000000 		.4byte	.LVL66
+ 2076 01bb 1C000000 		.4byte	.LVL67
+ 2077 01bf 0100     		.2byte	0x1
+ 2078 01c1 53       		.byte	0x53
+ 2079 01c2 1C000000 		.4byte	.LVL67
+ 2080 01c6 22000000 		.4byte	.LVL68
+ 2081 01ca 0500     		.2byte	0x5
+ 2082 01cc 73       		.byte	0x73
+ 2083 01cd 00       		.sleb128 0
+ 2084 01ce 33       		.byte	0x33
+ 2085 01cf 26       		.byte	0x26
+ 2086 01d0 9F       		.byte	0x9f
+ 2087 01d1 22000000 		.4byte	.LVL68
+ 2088 01d5 24000000 		.4byte	.LVL69
+ 2089 01d9 0500     		.2byte	0x5
+ 2090 01db 70       		.byte	0x70
+ 2091 01dc 00       		.sleb128 0
+ 2092 01dd 33       		.byte	0x33
+ 2093 01de 26       		.byte	0x26
+ 2094 01df 9F       		.byte	0x9f
+ 2095 01e0 30000000 		.4byte	.LVL71
+ 2096 01e4 37000000 		.4byte	.LVL72-1
+ 2097 01e8 0800     		.2byte	0x8
+ 2098 01ea F5       		.byte	0xf5
+ 2099 01eb 00       		.uleb128 0
+ 2100 01ec 25       		.uleb128 0x25
+ 2101 01ed F7       		.byte	0xf7
+ 2102 01ee 2C       		.uleb128 0x2c
+ 2103 01ef F7       		.byte	0xf7
+ 2104 01f0 00       		.uleb128 0
+ 2105 01f1 9F       		.byte	0x9f
+ 2106 01f2 00000000 		.4byte	0
+ 2107 01f6 00000000 		.4byte	0
+ 2108              	.LLST13:
+ 2109 01fa 10000000 		.4byte	.LVL73
+ 2110 01fe 1A000000 		.4byte	.LVL75
+ 2111 0202 0100     		.2byte	0x1
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 46
+
+
+ 2112 0204 50       		.byte	0x50
+ 2113 0205 1C000000 		.4byte	.LVL76
+ 2114 0209 20000000 		.4byte	.LVL77
+ 2115 020d 0100     		.2byte	0x1
+ 2116 020f 50       		.byte	0x50
+ 2117 0210 20000000 		.4byte	.LVL77
+ 2118 0214 26000000 		.4byte	.LVL79
+ 2119 0218 0500     		.2byte	0x5
+ 2120 021a 70       		.byte	0x70
+ 2121 021b 00       		.sleb128 0
+ 2122 021c 33       		.byte	0x33
+ 2123 021d 26       		.byte	0x26
+ 2124 021e 9F       		.byte	0x9f
+ 2125 021f 26000000 		.4byte	.LVL79
+ 2126 0223 2C000000 		.4byte	.LVL80
+ 2127 0227 0400     		.2byte	0x4
+ 2128 0229 70       		.byte	0x70
+ 2129 022a B20F     		.sleb128 1970
+ 2130 022c 9F       		.byte	0x9f
+ 2131 022d 2C000000 		.4byte	.LVL80
+ 2132 0231 7C000000 		.4byte	.LVL82
+ 2133 0235 0100     		.2byte	0x1
+ 2134 0237 53       		.byte	0x53
+ 2135 0238 00000000 		.4byte	0
+ 2136 023c 00000000 		.4byte	0
+ 2137              	.LLST14:
+ 2138 0240 10000000 		.4byte	.LVL73
+ 2139 0244 18000000 		.4byte	.LVL74
+ 2140 0248 0100     		.2byte	0x1
+ 2141 024a 53       		.byte	0x53
+ 2142 024b 18000000 		.4byte	.LVL74
+ 2143 024f 1C000000 		.4byte	.LVL76
+ 2144 0253 0300     		.2byte	0x3
+ 2145 0255 73       		.byte	0x73
+ 2146 0256 7F       		.sleb128 -1
+ 2147 0257 9F       		.byte	0x9f
+ 2148 0258 1C000000 		.4byte	.LVL76
+ 2149 025c 24000000 		.4byte	.LVL78
+ 2150 0260 0100     		.2byte	0x1
+ 2151 0262 53       		.byte	0x53
+ 2152 0263 00000000 		.4byte	0
+ 2153 0267 00000000 		.4byte	0
+ 2154              	.LLST15:
+ 2155 026b 20000000 		.4byte	.LVL77
+ 2156 026f 7A000000 		.4byte	.LVL81
+ 2157 0273 0200     		.2byte	0x2
+ 2158 0275 30       		.byte	0x30
+ 2159 0276 9F       		.byte	0x9f
+ 2160 0277 7A000000 		.4byte	.LVL81
+ 2161 027b 7E000000 		.4byte	.LVL83
+ 2162 027f 0100     		.2byte	0x1
+ 2163 0281 50       		.byte	0x50
+ 2164 0282 00000000 		.4byte	0
+ 2165 0286 00000000 		.4byte	0
+ 2166              	.LLST16:
+ 2167 028a 0E000000 		.4byte	.LVL84
+ 2168 028e 16000000 		.4byte	.LVL85
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 47
+
+
+ 2169 0292 0100     		.2byte	0x1
+ 2170 0294 53       		.byte	0x53
+ 2171 0295 18000000 		.4byte	.LVL86
+ 2172 0299 20000000 		.4byte	.LVL87
+ 2173 029d 0100     		.2byte	0x1
+ 2174 029f 53       		.byte	0x53
+ 2175 02a0 20000000 		.4byte	.LVL87
+ 2176 02a4 22000000 		.4byte	.LVL88
+ 2177 02a8 0500     		.2byte	0x5
+ 2178 02aa 73       		.byte	0x73
+ 2179 02ab 00       		.sleb128 0
+ 2180 02ac 33       		.byte	0x33
+ 2181 02ad 26       		.byte	0x26
+ 2182 02ae 9F       		.byte	0x9f
+ 2183 02af 00000000 		.4byte	0
+ 2184 02b3 00000000 		.4byte	0
+ 2185              	.LLST17:
+ 2186 02b7 20000000 		.4byte	.LVL87
+ 2187 02bb A6000000 		.4byte	.LVL89
+ 2188 02bf 0200     		.2byte	0x2
+ 2189 02c1 30       		.byte	0x30
+ 2190 02c2 9F       		.byte	0x9f
+ 2191 02c3 A6000000 		.4byte	.LVL89
+ 2192 02c7 AA000000 		.4byte	.LVL90
+ 2193 02cb 0100     		.2byte	0x1
+ 2194 02cd 50       		.byte	0x50
+ 2195 02ce 00000000 		.4byte	0
+ 2196 02d2 00000000 		.4byte	0
+ 2197              		.section	.debug_aranges,"",%progbits
+ 2198 0000 44000000 		.4byte	0x44
+ 2199 0004 0200     		.2byte	0x2
+ 2200 0006 00000000 		.4byte	.Ldebug_info0
+ 2201 000a 04       		.byte	0x4
+ 2202 000b 00       		.byte	0
+ 2203 000c 0000     		.2byte	0
+ 2204 000e 0000     		.2byte	0
+ 2205 0010 00000000 		.4byte	.LFB33
+ 2206 0014 B0000000 		.4byte	.LFE33-.LFB33
+ 2207 0018 00000000 		.4byte	.LFB34
+ 2208 001c 00010000 		.4byte	.LFE34-.LFB34
+ 2209 0020 00000000 		.4byte	.LFB35
+ 2210 0024 00010000 		.4byte	.LFE35-.LFB35
+ 2211 0028 00000000 		.4byte	.LFB36
+ 2212 002c 5C000000 		.4byte	.LFE36-.LFB36
+ 2213 0030 00000000 		.4byte	.LFB37
+ 2214 0034 B0000000 		.4byte	.LFE37-.LFB37
+ 2215 0038 00000000 		.4byte	.LFB38
+ 2216 003c F0000000 		.4byte	.LFE38-.LFB38
+ 2217 0040 00000000 		.4byte	0
+ 2218 0044 00000000 		.4byte	0
+ 2219              		.section	.debug_ranges,"",%progbits
+ 2220              	.Ldebug_ranges0:
+ 2221 0000 00000000 		.4byte	.LFB33
+ 2222 0004 B0000000 		.4byte	.LFE33
+ 2223 0008 00000000 		.4byte	.LFB34
+ 2224 000c 00010000 		.4byte	.LFE34
+ 2225 0010 00000000 		.4byte	.LFB35
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 48
+
+
+ 2226 0014 00010000 		.4byte	.LFE35
+ 2227 0018 00000000 		.4byte	.LFB36
+ 2228 001c 5C000000 		.4byte	.LFE36
+ 2229 0020 00000000 		.4byte	.LFB37
+ 2230 0024 B0000000 		.4byte	.LFE37
+ 2231 0028 00000000 		.4byte	.LFB38
+ 2232 002c F0000000 		.4byte	.LFE38
+ 2233 0030 00000000 		.4byte	0
+ 2234 0034 00000000 		.4byte	0
+ 2235              		.section	.debug_line,"",%progbits
+ 2236              	.Ldebug_line0:
+ 2237 0000 DF010000 		.section	.debug_str,"MS",%progbits,1
+ 2237      02006800 
+ 2237      00000201 
+ 2237      FB0E0D00 
+ 2237      01010101 
+ 2238              	.LASF40:
+ 2239 0000 6C696768 		.ascii	"lightlevel_ptr\000"
+ 2239      746C6576 
+ 2239      656C5F70 
+ 2239      747200
+ 2240              	.LASF18:
+ 2241 000f 6765745F 		.ascii	"get_moisture\000"
+ 2241      6D6F6973 
+ 2241      74757265 
+ 2241      00
+ 2242              	.LASF43:
+ 2243 001c 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2243      4320342E 
+ 2243      392E3320 
+ 2243      32303135 
+ 2243      30333033 
+ 2244 004f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 2244      20726576 
+ 2244      6973696F 
+ 2244      6E203232 
+ 2244      31323230 
+ 2245 0082 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 2245      66756E63 
+ 2245      74696F6E 
+ 2245      2D736563 
+ 2245      74696F6E 
+ 2246              	.LASF17:
+ 2247 00aa 70726F63 		.ascii	"procent\000"
+ 2247      656E7400 
+ 2248              	.LASF13:
+ 2249 00b2 666C6F61 		.ascii	"float\000"
+ 2249      7400
+ 2250              	.LASF31:
+ 2251 00b8 6D6F6973 		.ascii	"moisture\000"
+ 2251      74757265 
+ 2251      00
+ 2252              	.LASF21:
+ 2253 00c1 74656D70 		.ascii	"temp_avg\000"
+ 2253      5F617667 
+ 2253      00
+ 2254              	.LASF4:
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 49
+
+
+ 2255 00ca 73686F72 		.ascii	"short unsigned int\000"
+ 2255      7420756E 
+ 2255      7369676E 
+ 2255      65642069 
+ 2255      6E7400
+ 2256              	.LASF41:
+ 2257 00dd 70726F63 		.ascii	"procent_moisture\000"
+ 2257      656E745F 
+ 2257      6D6F6973 
+ 2257      74757265 
+ 2257      00
+ 2258              	.LASF33:
+ 2259 00ee 74656D70 		.ascii	"temperature\000"
+ 2259      65726174 
+ 2259      75726500 
+ 2260              	.LASF2:
+ 2261 00fa 7369676E 		.ascii	"signed char\000"
+ 2261      65642063 
+ 2261      68617200 
+ 2262              	.LASF3:
+ 2263 0106 756E7369 		.ascii	"unsigned char\000"
+ 2263      676E6564 
+ 2263      20636861 
+ 2263      7200
+ 2264              	.LASF35:
+ 2265 0114 6C696768 		.ascii	"lightlevel\000"
+ 2265      746C6576 
+ 2265      656C00
+ 2266              	.LASF32:
+ 2267 011f 77617465 		.ascii	"waterlevel\000"
+ 2267      726C6576 
+ 2267      656C00
+ 2268              	.LASF10:
+ 2269 012a 75696E74 		.ascii	"uint8\000"
+ 2269      3800
+ 2270              	.LASF36:
+ 2271 0130 6D6F6973 		.ascii	"moisture_ptr\000"
+ 2271      74757265 
+ 2271      5F707472 
+ 2271      00
+ 2272              	.LASF38:
+ 2273 013d 74656D70 		.ascii	"temperature_ptr\000"
+ 2273      65726174 
+ 2273      7572655F 
+ 2273      70747200 
+ 2274              	.LASF42:
+ 2275 014d 70726F63 		.ascii	"procent_waterlevel\000"
+ 2275      656E745F 
+ 2275      77617465 
+ 2275      726C6576 
+ 2275      656C00
+ 2276              	.LASF0:
+ 2277 0160 646F7562 		.ascii	"double\000"
+ 2277      6C6500
+ 2278              	.LASF37:
+ 2279 0167 77617465 		.ascii	"waterlevel_ptr\000"
+ 2279      726C6576 
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 50
+
+
+ 2279      656C5F70 
+ 2279      747200
+ 2280              	.LASF24:
+ 2281 0176 6765745F 		.ascii	"get_batterylevel\000"
+ 2281      62617474 
+ 2281      6572796C 
+ 2281      6576656C 
+ 2281      00
+ 2282              	.LASF27:
+ 2283 0187 62617474 		.ascii	"battery_pro\000"
+ 2283      6572795F 
+ 2283      70726F00 
+ 2284              	.LASF11:
+ 2285 0193 75696E74 		.ascii	"uint32\000"
+ 2285      333200
+ 2286              	.LASF6:
+ 2287 019a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2287      20756E73 
+ 2287      69676E65 
+ 2287      6420696E 
+ 2287      7400
+ 2288              	.LASF9:
+ 2289 01ac 756E7369 		.ascii	"unsigned int\000"
+ 2289      676E6564 
+ 2289      20696E74 
+ 2289      00
+ 2290              	.LASF34:
+ 2291 01b9 62617474 		.ascii	"batterylevel\000"
+ 2291      6572796C 
+ 2291      6576656C 
+ 2291      00
+ 2292              	.LASF28:
+ 2293 01c6 6765745F 		.ascii	"get_lightlevel\000"
+ 2293      6C696768 
+ 2293      746C6576 
+ 2293      656C00
+ 2294              	.LASF8:
+ 2295 01d5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2295      206C6F6E 
+ 2295      6720756E 
+ 2295      7369676E 
+ 2295      65642069 
+ 2296              	.LASF12:
+ 2297 01ec 696E7431 		.ascii	"int16\000"
+ 2297      3600
+ 2298              	.LASF23:
+ 2299 01f2 74656D70 		.ascii	"temp_data\000"
+ 2299      5F646174 
+ 2299      6100
+ 2300              	.LASF39:
+ 2301 01fc 62617474 		.ascii	"batterylevel_ptr\000"
+ 2301      6572796C 
+ 2301      6576656C 
+ 2301      5F707472 
+ 2301      00
+ 2302              	.LASF29:
+ 2303 020d 6C696768 		.ascii	"light_avg\000"
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 51
+
+
+ 2303      745F6176 
+ 2303      6700
+ 2304              	.LASF15:
+ 2305 0217 73697A65 		.ascii	"sizetype\000"
+ 2305      74797065 
+ 2305      00
+ 2306              	.LASF7:
+ 2307 0220 6C6F6E67 		.ascii	"long long int\000"
+ 2307      206C6F6E 
+ 2307      6720696E 
+ 2307      7400
+ 2308              	.LASF14:
+ 2309 022e 63686172 		.ascii	"char\000"
+ 2309      00
+ 2310              	.LASF26:
+ 2311 0233 62617474 		.ascii	"battery_data\000"
+ 2311      6572795F 
+ 2311      64617461 
+ 2311      00
+ 2312              	.LASF46:
+ 2313 0240 6973725F 		.ascii	"isr_EOC_vec\000"
+ 2313      454F435F 
+ 2313      76656300 
+ 2314              	.LASF22:
+ 2315 024c 62756663 		.ascii	"bufchar\000"
+ 2315      68617200 
+ 2316              	.LASF16:
+ 2317 0254 70726F63 		.ascii	"procent_d\000"
+ 2317      656E745F 
+ 2317      6400
+ 2318              	.LASF1:
+ 2319 025e 73686F72 		.ascii	"short int\000"
+ 2319      7420696E 
+ 2319      7400
+ 2320              	.LASF5:
+ 2321 0268 6C6F6E67 		.ascii	"long int\000"
+ 2321      20696E74 
+ 2321      00
+ 2322              	.LASF20:
+ 2323 0271 6765745F 		.ascii	"get_temp\000"
+ 2323      74656D70 
+ 2323      00
+ 2324              	.LASF25:
+ 2325 027a 62617474 		.ascii	"battery_avg\000"
+ 2325      6572795F 
+ 2325      61766700 
+ 2326              	.LASF48:
+ 2327 0286 4144435F 		.ascii	"ADC_SAR_Seq_1_CountsTo_mVolts\000"
+ 2327      5341525F 
+ 2327      5365715F 
+ 2327      315F436F 
+ 2327      756E7473 
+ 2328              	.LASF45:
+ 2329 02a4 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
+ 2329      73657273 
+ 2329      5C424541 
+ 2329      53545C44 
+ARM GAS  C:\temp\ccZXt7Ts.s 			page 52
+
+
+ 2329      65736B74 
+ 2330 02d2 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
+ 2330      6E745F63 
+ 2330      6F6E7472 
+ 2330      6F6C325F 
+ 2330      302E6379 
+ 2331              	.LASF19:
+ 2332 02ea 6765745F 		.ascii	"get_waterlevel\000"
+ 2332      77617465 
+ 2332      726C6576 
+ 2332      656C00
+ 2333              	.LASF44:
+ 2334 02f9 2E5C7365 		.ascii	".\\sensors.c\000"
+ 2334      6E736F72 
+ 2334      732E6300 
+ 2335              	.LASF30:
+ 2336 0305 6C696768 		.ascii	"lightLux\000"
+ 2336      744C7578 
+ 2336      00
+ 2337              	.LASF47:
+ 2338 030e 4144435F 		.ascii	"ADC_SAR_Seq_1_GetResult16\000"
+ 2338      5341525F 
+ 2338      5365715F 
+ 2338      315F4765 
+ 2338      74526573 
+ 2339              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

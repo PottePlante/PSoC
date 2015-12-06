@@ -9,14 +9,17 @@
  *
  * ========================================
 */
+
 #include <pump.h>
 
-void startPumpingWater()    //simpel function som tænder for pumpen, venter 5 sekunder og slukker for den igen
+void start()
 {
-    Pumpe_Write(1);
-    CyDelay(5000);
-    Pumpe_Write(0);
+    waterPump_Write(1);
 }
 
+void stop()
+{
+    waterPump_Write(0);
+}
 
 /* [] END OF FILE */

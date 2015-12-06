@@ -13,9 +13,9 @@
 #define PLANTCONTROL_H
 #include <project.h>
 #include <sensors.h>
-#include <pump.h>
 #include <wifi.h>
 #include <motor.h>
+#include <pump.h>
 
 int8 ID;
 int8 wantedMoisture;
@@ -37,6 +37,7 @@ struct updateParameters
 struct updateParameters sensors_;
 
 void updateSensors();
+void run();
 
 #endif
 

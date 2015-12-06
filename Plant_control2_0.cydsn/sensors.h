@@ -13,6 +13,8 @@
 #define SENSORS_H
 #include <project.h>
 
+CY_ISR_PROTO(isr_EOC_vec);
+    
 int16 moisture[50];
 int16 waterlevel[50];
 int16 temperature[8];

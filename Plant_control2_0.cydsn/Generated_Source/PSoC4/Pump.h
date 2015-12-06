@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pumpe.h  
+* File Name: Pump.h  
 * Version 2.10
 *
 * Description:
@@ -14,23 +14,23 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Pumpe_H) /* Pins Pumpe_H */
-#define CY_PINS_Pumpe_H
+#if !defined(CY_PINS_Pump_H) /* Pins Pump_H */
+#define CY_PINS_Pump_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
-#include "Pumpe_aliases.h"
+#include "Pump_aliases.h"
 
 
 /***************************************
 *        Function Prototypes             
 ***************************************/    
 
-void    Pumpe_Write(uint8 value) ;
-void    Pumpe_SetDriveMode(uint8 mode) ;
-uint8   Pumpe_ReadDataReg(void) ;
-uint8   Pumpe_Read(void) ;
-uint8   Pumpe_ClearInterrupt(void) ;
+void    Pump_Write(uint8 value) ;
+void    Pump_SetDriveMode(uint8 mode) ;
+uint8   Pump_ReadDataReg(void) ;
+uint8   Pump_Read(void) ;
+uint8   Pump_ClearInterrupt(void) ;
 
 
 /***************************************
@@ -38,22 +38,22 @@ uint8   Pumpe_ClearInterrupt(void) ;
 ***************************************/
 
 /* Drive Modes */
-#define Pumpe_DRIVE_MODE_BITS        (3)
-#define Pumpe_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - Pumpe_DRIVE_MODE_BITS))
+#define Pump_DRIVE_MODE_BITS        (3)
+#define Pump_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - Pump_DRIVE_MODE_BITS))
 
-#define Pumpe_DM_ALG_HIZ         (0x00u)
-#define Pumpe_DM_DIG_HIZ         (0x01u)
-#define Pumpe_DM_RES_UP          (0x02u)
-#define Pumpe_DM_RES_DWN         (0x03u)
-#define Pumpe_DM_OD_LO           (0x04u)
-#define Pumpe_DM_OD_HI           (0x05u)
-#define Pumpe_DM_STRONG          (0x06u)
-#define Pumpe_DM_RES_UPDWN       (0x07u)
+#define Pump_DM_ALG_HIZ         (0x00u)
+#define Pump_DM_DIG_HIZ         (0x01u)
+#define Pump_DM_RES_UP          (0x02u)
+#define Pump_DM_RES_DWN         (0x03u)
+#define Pump_DM_OD_LO           (0x04u)
+#define Pump_DM_OD_HI           (0x05u)
+#define Pump_DM_STRONG          (0x06u)
+#define Pump_DM_RES_UPDWN       (0x07u)
 
 /* Digital Port Constants */
-#define Pumpe_MASK               Pumpe__MASK
-#define Pumpe_SHIFT              Pumpe__SHIFT
-#define Pumpe_WIDTH              1u
+#define Pump_MASK               Pump__MASK
+#define Pump_SHIFT              Pump__SHIFT
+#define Pump_WIDTH              1u
 
 
 /***************************************
@@ -62,18 +62,18 @@ uint8   Pumpe_ClearInterrupt(void) ;
 
 /* Main Port Registers */
 /* Pin State */
-#define Pumpe_PS                     (* (reg32 *) Pumpe__PS)
+#define Pump_PS                     (* (reg32 *) Pump__PS)
 /* Port Configuration */
-#define Pumpe_PC                     (* (reg32 *) Pumpe__PC)
+#define Pump_PC                     (* (reg32 *) Pump__PC)
 /* Data Register */
-#define Pumpe_DR                     (* (reg32 *) Pumpe__DR)
+#define Pump_DR                     (* (reg32 *) Pump__DR)
 /* Input Buffer Disable Override */
-#define Pumpe_INP_DIS                (* (reg32 *) Pumpe__PC2)
+#define Pump_INP_DIS                (* (reg32 *) Pump__PC2)
 
 
-#if defined(Pumpe__INTSTAT)  /* Interrupt Registers */
+#if defined(Pump__INTSTAT)  /* Interrupt Registers */
 
-    #define Pumpe_INTSTAT                (* (reg32 *) Pumpe__INTSTAT)
+    #define Pump_INTSTAT                (* (reg32 *) Pump__INTSTAT)
 
 #endif /* Interrupt Registers */
 
@@ -83,11 +83,11 @@ uint8   Pumpe_ClearInterrupt(void) ;
 * must not be used.
 ***************************************/
 
-#define Pumpe_DRIVE_MODE_SHIFT       (0x00u)
-#define Pumpe_DRIVE_MODE_MASK        (0x07u << Pumpe_DRIVE_MODE_SHIFT)
+#define Pump_DRIVE_MODE_SHIFT       (0x00u)
+#define Pump_DRIVE_MODE_MASK        (0x07u << Pump_DRIVE_MODE_SHIFT)
 
 
-#endif /* End Pins Pumpe_H */
+#endif /* End Pins Pump_H */
 
 
 /* [] END OF FILE */

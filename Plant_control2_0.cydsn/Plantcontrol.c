@@ -9,7 +9,9 @@
  *
  * ========================================
 */
-#include<Plantcontrol.h>
+#include <Plantcontrol.h>
+
+uint8 count = 6;
 
 void updateSensors()
 {
@@ -31,7 +33,33 @@ void updateSensors()
     sensors_.currentLight=get_lightlevel();
     sensors_.currentTemperature=get_temp();
     sensors_.currentWater=get_waterlevel();
+}
 
+void run()
+{
+    updateSensors();
+    CyDelay(50);
+    
+    if(count == 6)
+    {      
+        sendSensorData(sensors_);
+        count = 0;
+    }
+    
+    //Rotere
+    rotate(wantedRotate);
+    wantedRotate = 0;
+
+    //Pumpe
+    if(wantedMoisture >= sensors_.currentMoisture)  //hvis den værdi devkit sender er større end sensors værdi så pumpes der
+    {
+        start();
+        CyDelay(1000);
+        stop();
+    }
+    
+    count++;
+    CyDelay(60000);
 }
 
 /* [] END OF FILE */

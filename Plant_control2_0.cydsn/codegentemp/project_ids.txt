@@ -1,7 +1,5 @@
-C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj|7e3e2128-7023-47e5-87de-b5508a2a290a
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3c49cddf-d9de-43ce-8662-446d24e8e3bd
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5662bcca-8356-4139-b73b-f5d28408250a
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7741b998-b3f0-4c98-8622-1aabf8638cc4
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|20ad1fc7-a9e9-43ec-8889-61ec695cdaf4
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev\psoc4\PSoC4AnalogDevice\psoc4arch.cydsn\psoc4arch.cyprj|b7d8503e-a0eb-425a-906d-f683aabb6db1
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|f80745e8-c350-45ce-85ab-436491b81158
+C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj|4e6acc15-ac52-40fd-94f2-eedeb21bece9
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|221d1435-ea93-4956-a582-44d7b44b2101
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|bef28edf-d27a-4188-aaf3-bcad15368613
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|607fd91c-9523-48e0-9b0b-2d92e43636ab
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e69eb24b-dafc-48fb-a770-434e65cd206c

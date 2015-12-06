@@ -1,4 +1,4 @@
-ARM GAS  C:\temp\ccdv6RFM.s 			page 1
+ARM GAS  C:\temp\cc3Bff6g.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -37,7 +37,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
    9:.\motor.c     ****  *
   10:.\motor.c     ****  * ========================================
   11:.\motor.c     **** */
-  12:.\motor.c     **** #include<motor.h>
+  12:.\motor.c     **** #include <motor.h>
   13:.\motor.c     **** 
   14:.\motor.c     **** 
   15:.\motor.c     **** void rotate(int16 step)
@@ -58,7 +58,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
   37 0006 1B88     		ldrh	r3, [r3]
   38 0008 002B     		cmp	r3, #0
   39 000a 02D1     		bne	.L2
-ARM GAS  C:\temp\ccdv6RFM.s 			page 2
+ARM GAS  C:\temp\cc3Bff6g.s 			page 2
 
 
   19:.\motor.c     ****         indexnummer1=1;
@@ -118,7 +118,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
   35:.\motor.c     ****         {    
   36:.\motor.c     ****         Rotor_motor2_plus_RED_Write(1);
   78              		.loc 1 36 0
-ARM GAS  C:\temp\ccdv6RFM.s 			page 3
+ARM GAS  C:\temp\cc3Bff6g.s 			page 3
 
 
   79 0040 0120     		mov	r0, #1
@@ -178,7 +178,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  120              		.loc 1 49 0
  121 007e 0A20     		mov	r0, #10
  122 0080 FFF7FEFF 		bl	CyDelay
-ARM GAS  C:\temp\ccdv6RFM.s 			page 4
+ARM GAS  C:\temp\cc3Bff6g.s 			page 4
 
 
  123              	.LVL13:
@@ -238,7 +238,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  165              		.size	rotate, .-rotate
  166              		.comm	indexnummer1,2,2
  167              		.text
-ARM GAS  C:\temp\ccdv6RFM.s 			page 5
+ARM GAS  C:\temp\cc3Bff6g.s 			page 5
 
 
  168              	.Letext0:
@@ -298,7 +298,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  222 005d 03       		.uleb128 0x3
  223 005e 04       		.byte	0x4
  224 005f 05       		.byte	0x5
-ARM GAS  C:\temp\ccdv6RFM.s 			page 6
+ARM GAS  C:\temp\cc3Bff6g.s 			page 6
 
 
  225 0060 696E7400 		.ascii	"int\000"
@@ -358,7 +358,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  279 00cf 8C000000 		.4byte	0x8c
  280 00d3 00000000 		.4byte	.LLST0
  281 00d7 07       		.uleb128 0x7
-ARM GAS  C:\temp\ccdv6RFM.s 			page 7
+ARM GAS  C:\temp\cc3Bff6g.s 			page 7
 
 
  282 00d8 F1000000 		.4byte	.LASF26
@@ -418,7 +418,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  336 0141 00       		.byte	0
  337 0142 08       		.uleb128 0x8
  338 0143 52000000 		.4byte	.LVL8
-ARM GAS  C:\temp\ccdv6RFM.s 			page 8
+ARM GAS  C:\temp\cc3Bff6g.s 			page 8
 
 
  339 0147 F7010000 		.4byte	0x1f7
@@ -478,7 +478,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  393 01b0 50       		.byte	0x50
  394 01b1 01       		.uleb128 0x1
  395 01b2 3A       		.byte	0x3a
-ARM GAS  C:\temp\ccdv6RFM.s 			page 9
+ARM GAS  C:\temp\cc3Bff6g.s 			page 9
 
 
  396 01b3 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  450 021f 1D       		.byte	0x1d
  451 0220 0D       		.uleb128 0xd
  452 0221 6B000000 		.4byte	0x6b
-ARM GAS  C:\temp\ccdv6RFM.s 			page 10
+ARM GAS  C:\temp\cc3Bff6g.s 			page 10
 
 
  453 0225 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  507 0032 49       		.uleb128 0x49
  508 0033 13       		.uleb128 0x13
  509 0034 00       		.byte	0
-ARM GAS  C:\temp\ccdv6RFM.s 			page 11
+ARM GAS  C:\temp\cc3Bff6g.s 			page 11
 
 
  510 0035 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  564 006c 00       		.byte	0
  565 006d 00       		.byte	0
  566 006e 08       		.uleb128 0x8
-ARM GAS  C:\temp\ccdv6RFM.s 			page 12
+ARM GAS  C:\temp\cc3Bff6g.s 			page 12
 
 
  567 006f 898201   		.uleb128 0x4109
@@ -718,7 +718,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  621 00ac 3B       		.uleb128 0x3b
  622 00ad 0B       		.uleb128 0xb
  623 00ae 27       		.uleb128 0x27
-ARM GAS  C:\temp\ccdv6RFM.s 			page 13
+ARM GAS  C:\temp\cc3Bff6g.s 			page 13
 
 
  624 00af 19       		.uleb128 0x19
@@ -778,7 +778,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  678 000b 00       		.byte	0
  679 000c 0000     		.2byte	0
  680 000e 0000     		.2byte	0
-ARM GAS  C:\temp\ccdv6RFM.s 			page 14
+ARM GAS  C:\temp\cc3Bff6g.s 			page 14
 
 
  681 0010 00000000 		.4byte	.LFB33
@@ -838,7 +838,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  708      00
  709              	.LASF22:
  710 0097 2E5C6D6F 		.ascii	".\\motor.c\000"
-ARM GAS  C:\temp\ccdv6RFM.s 			page 15
+ARM GAS  C:\temp\cc3Bff6g.s 			page 15
 
 
  710      746F722E 
@@ -898,7 +898,7 @@ ARM GAS  C:\temp\ccdv6RFM.s 			page 1
  736 013f 73746570 		.ascii	"step\000"
  736      00
  737              	.LASF24:
-ARM GAS  C:\temp\ccdv6RFM.s 			page 16
+ARM GAS  C:\temp\cc3Bff6g.s 			page 16
 
 
  738 0144 726F7461 		.ascii	"rotate\000"

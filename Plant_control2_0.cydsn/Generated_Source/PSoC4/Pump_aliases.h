@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pumpe.h  
+* File Name: Pump.h  
 * Version 2.10
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Pumpe_ALIASES_H) /* Pins Pumpe_ALIASES_H */
-#define CY_PINS_Pumpe_ALIASES_H
+#if !defined(CY_PINS_Pump_ALIASES_H) /* Pins Pump_ALIASES_H */
+#define CY_PINS_Pump_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,14 +26,14 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Pumpe_0		(Pumpe__0__PC)
-#define Pumpe_0_PS		(Pumpe__0__PS)
-#define Pumpe_0_PC		(Pumpe__0__PC)
-#define Pumpe_0_DR		(Pumpe__0__DR)
-#define Pumpe_0_SHIFT	(Pumpe__0__SHIFT)
+#define Pump_0		(Pump__0__PC)
+#define Pump_0_PS		(Pump__0__PS)
+#define Pump_0_PC		(Pump__0__PC)
+#define Pump_0_DR		(Pump__0__DR)
+#define Pump_0_SHIFT	(Pump__0__SHIFT)
 
 
-#endif /* End Pins Pumpe_ALIASES_H */
+#endif /* End Pins Pump_ALIASES_H */
 
 
 /* [] END OF FILE */

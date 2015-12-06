@@ -1,0 +1,1332 @@
+ARM GAS  C:\temp\ccuGPhU9.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 4
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Plantcontrol.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.updateSensors,"ax",%progbits
+  18              		.align	1
+  19              		.global	updateSensors
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	updateSensors, %function
+  23              	updateSensors:
+  24              	.LFB33:
+  25              		.file 1 ".\\Plantcontrol.c"
+   1:.\Plantcontrol.c **** /* ========================================
+   2:.\Plantcontrol.c ****  *
+   3:.\Plantcontrol.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\Plantcontrol.c ****  * All Rights Reserved
+   5:.\Plantcontrol.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\Plantcontrol.c ****  *
+   7:.\Plantcontrol.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\Plantcontrol.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\Plantcontrol.c ****  *
+  10:.\Plantcontrol.c ****  * ========================================
+  11:.\Plantcontrol.c **** */
+  12:.\Plantcontrol.c **** #include <Plantcontrol.h>
+  13:.\Plantcontrol.c **** 
+  14:.\Plantcontrol.c **** uint8 count = 6;
+  15:.\Plantcontrol.c **** 
+  16:.\Plantcontrol.c **** void updateSensors()
+  17:.\Plantcontrol.c **** {
+  26              		.loc 1 17 0
+  27              		.cfi_startproc
+  28 0000 10B5     		push	{r4, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 4, -8
+  31              		.cfi_offset 14, -4
+  18:.\Plantcontrol.c **** //    struct updateParameters sensor;
+  19:.\Plantcontrol.c **** //    struct updateParameters *updatePtr;
+  20:.\Plantcontrol.c **** //    updatePtr =&sensor;
+  21:.\Plantcontrol.c **** //    
+  22:.\Plantcontrol.c ****     // get funktioner skal hentes en gang før disse data læses (nødvendigt da dette data kan væ
+  23:.\Plantcontrol.c ****     get_batterylevel();
+  32              		.loc 1 23 0
+  33 0002 FFF7FEFF 		bl	get_batterylevel
+  34              	.LVL0:
+ARM GAS  C:\temp\ccuGPhU9.s 			page 2
+
+
+  24:.\Plantcontrol.c ****     get_lightlevel();
+  35              		.loc 1 24 0
+  36 0006 FFF7FEFF 		bl	get_lightlevel
+  37              	.LVL1:
+  25:.\Plantcontrol.c ****     get_moisture();
+  38              		.loc 1 25 0
+  39 000a FFF7FEFF 		bl	get_moisture
+  40              	.LVL2:
+  26:.\Plantcontrol.c ****     get_temp();
+  41              		.loc 1 26 0
+  42 000e FFF7FEFF 		bl	get_temp
+  43              	.LVL3:
+  27:.\Plantcontrol.c ****     get_waterlevel();
+  44              		.loc 1 27 0
+  45 0012 FFF7FEFF 		bl	get_waterlevel
+  46              	.LVL4:
+  28:.\Plantcontrol.c ****     // Data hentes
+  29:.\Plantcontrol.c **** 
+  30:.\Plantcontrol.c ****     sensors_.currentMoisture=get_moisture();
+  47              		.loc 1 30 0
+  48 0016 FFF7FEFF 		bl	get_moisture
+  49              	.LVL5:
+  50 001a 094C     		ldr	r4, .L2
+  31:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
+  32:.\Plantcontrol.c ****     sensors_.currentBattery=get_batterylevel();
+  33:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
+  34:.\Plantcontrol.c ****     sensors_.currentTemperature=get_temp();
+  35:.\Plantcontrol.c ****     sensors_.currentWater=get_waterlevel();
+  36:.\Plantcontrol.c **** }
+  51              		.loc 1 36 0
+  52              		@ sp needed
+  30:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
+  53              		.loc 1 30 0
+  54 001c 2080     		strh	r0, [r4]
+  31:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
+  55              		.loc 1 31 0
+  56 001e FFF7FEFF 		bl	get_lightlevel
+  57              	.LVL6:
+  58 0022 E080     		strh	r0, [r4, #6]
+  32:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
+  59              		.loc 1 32 0
+  60 0024 FFF7FEFF 		bl	get_batterylevel
+  61              	.LVL7:
+  62 0028 6080     		strh	r0, [r4, #2]
+  33:.\Plantcontrol.c ****     sensors_.currentTemperature=get_temp();
+  63              		.loc 1 33 0
+  64 002a FFF7FEFF 		bl	get_lightlevel
+  65              	.LVL8:
+  66 002e E080     		strh	r0, [r4, #6]
+  34:.\Plantcontrol.c ****     sensors_.currentWater=get_waterlevel();
+  67              		.loc 1 34 0
+  68 0030 FFF7FEFF 		bl	get_temp
+  69              	.LVL9:
+  70 0034 2081     		strh	r0, [r4, #8]
+  35:.\Plantcontrol.c **** }
+  71              		.loc 1 35 0
+  72 0036 FFF7FEFF 		bl	get_waterlevel
+ARM GAS  C:\temp\ccuGPhU9.s 			page 3
+
+
+  73              	.LVL10:
+  74 003a A080     		strh	r0, [r4, #4]
+  75              		.loc 1 36 0
+  76 003c 10BD     		pop	{r4, pc}
+  77              	.L3:
+  78 003e C046     		.align	2
+  79              	.L2:
+  80 0040 00000000 		.word	sensors_
+  81              		.cfi_endproc
+  82              	.LFE33:
+  83              		.size	updateSensors, .-updateSensors
+  84              		.section	.text.run,"ax",%progbits
+  85              		.align	1
+  86              		.global	run
+  87              		.code	16
+  88              		.thumb_func
+  89              		.type	run, %function
+  90              	run:
+  91              	.LFB34:
+  37:.\Plantcontrol.c **** 
+  38:.\Plantcontrol.c **** void run()
+  39:.\Plantcontrol.c **** {
+  92              		.loc 1 39 0
+  93              		.cfi_startproc
+  94 0000 38B5     		push	{r3, r4, r5, lr}
+  95              		.cfi_def_cfa_offset 16
+  96              		.cfi_offset 3, -16
+  97              		.cfi_offset 4, -12
+  98              		.cfi_offset 5, -8
+  99              		.cfi_offset 14, -4
+  40:.\Plantcontrol.c ****     updateSensors();
+ 100              		.loc 1 40 0
+ 101 0002 FFF7FEFF 		bl	updateSensors
+ 102              	.LVL11:
+  41:.\Plantcontrol.c ****     CyDelay(50);
+ 103              		.loc 1 41 0
+ 104 0006 3220     		mov	r0, #50
+ 105 0008 FFF7FEFF 		bl	CyDelay
+ 106              	.LVL12:
+  42:.\Plantcontrol.c ****     
+  43:.\Plantcontrol.c ****     if(count == 6)
+ 107              		.loc 1 43 0
+ 108 000c 114C     		ldr	r4, .L7
+ 109 000e 2378     		ldrb	r3, [r4]
+ 110 0010 062B     		cmp	r3, #6
+ 111 0012 0DD1     		bne	.L5
+  44:.\Plantcontrol.c ****     {      
+  45:.\Plantcontrol.c ****         sendSensorData(sensors_);
+ 112              		.loc 1 45 0
+ 113 0014 104B     		ldr	r3, .L7+4
+ 114 0016 5888     		ldrh	r0, [r3, #2]
+ 115 0018 1A88     		ldrh	r2, [r3]
+ 116 001a D988     		ldrh	r1, [r3, #6]
+ 117 001c 0004     		lsl	r0, r0, #16
+ 118 001e 1043     		orr	r0, r2
+ 119 0020 9A88     		ldrh	r2, [r3, #4]
+ 120 0022 0904     		lsl	r1, r1, #16
+ARM GAS  C:\temp\ccuGPhU9.s 			page 4
+
+
+ 121 0024 1143     		orr	r1, r2
+ 122 0026 1A89     		ldrh	r2, [r3, #8]
+ 123 0028 FFF7FEFF 		bl	sendSensorData
+ 124              	.LVL13:
+  46:.\Plantcontrol.c ****         count = 0;
+ 125              		.loc 1 46 0
+ 126 002c 0023     		mov	r3, #0
+ 127 002e 2370     		strb	r3, [r4]
+ 128              	.L5:
+  47:.\Plantcontrol.c ****     }
+  48:.\Plantcontrol.c ****     
+  49:.\Plantcontrol.c ****     //Rotere
+  50:.\Plantcontrol.c ****     rotate(wantedRotate);
+ 129              		.loc 1 50 0
+ 130 0030 0020     		mov	r0, #0
+ 131 0032 0A4D     		ldr	r5, .L7+8
+  51:.\Plantcontrol.c ****     wantedRotate = 0;
+  52:.\Plantcontrol.c ****     start();
+  53:.\Plantcontrol.c ****     stop();
+  54:.\Plantcontrol.c ****     //Pumpe
+  55:.\Plantcontrol.c ****     if(wantedMoisture >= sensors_.currentMoisture)  //hvis den værdi devkit sender er større end 
+  56:.\Plantcontrol.c ****     {
+  57:.\Plantcontrol.c **** //       start();
+  58:.\Plantcontrol.c **** //        CyDelay(1000);
+  59:.\Plantcontrol.c **** //       stop();
+  60:.\Plantcontrol.c ****     }
+  61:.\Plantcontrol.c ****     
+  62:.\Plantcontrol.c ****     count++;
+  63:.\Plantcontrol.c ****     CyDelay(60000);
+  64:.\Plantcontrol.c **** }
+ 132              		.loc 1 64 0
+ 133              		@ sp needed
+  50:.\Plantcontrol.c ****     wantedRotate = 0;
+ 134              		.loc 1 50 0
+ 135 0034 2856     		ldrsb	r0, [r5, r0]
+ 136 0036 FFF7FEFF 		bl	rotate
+ 137              	.LVL14:
+  51:.\Plantcontrol.c ****     wantedRotate = 0;
+ 138              		.loc 1 51 0
+ 139 003a 0023     		mov	r3, #0
+ 140 003c 2B70     		strb	r3, [r5]
+  52:.\Plantcontrol.c ****     stop();
+ 141              		.loc 1 52 0
+ 142 003e FFF7FEFF 		bl	start
+ 143              	.LVL15:
+  53:.\Plantcontrol.c ****     //Pumpe
+ 144              		.loc 1 53 0
+ 145 0042 FFF7FEFF 		bl	stop
+ 146              	.LVL16:
+  62:.\Plantcontrol.c ****     CyDelay(60000);
+ 147              		.loc 1 62 0
+ 148 0046 2378     		ldrb	r3, [r4]
+  63:.\Plantcontrol.c **** }
+ 149              		.loc 1 63 0
+ 150 0048 0548     		ldr	r0, .L7+12
+  62:.\Plantcontrol.c ****     CyDelay(60000);
+ 151              		.loc 1 62 0
+ARM GAS  C:\temp\ccuGPhU9.s 			page 5
+
+
+ 152 004a 0133     		add	r3, r3, #1
+ 153 004c 2370     		strb	r3, [r4]
+  63:.\Plantcontrol.c **** }
+ 154              		.loc 1 63 0
+ 155 004e FFF7FEFF 		bl	CyDelay
+ 156              	.LVL17:
+ 157              		.loc 1 64 0
+ 158 0052 38BD     		pop	{r3, r4, r5, pc}
+ 159              	.L8:
+ 160              		.align	2
+ 161              	.L7:
+ 162 0054 00000000 		.word	.LANCHOR0
+ 163 0058 00000000 		.word	sensors_
+ 164 005c 00000000 		.word	wantedRotate
+ 165 0060 60EA0000 		.word	60000
+ 166              		.cfi_endproc
+ 167              	.LFE34:
+ 168              		.size	run, .-run
+ 169              		.global	count
+ 170              		.comm	sensors_,10,2
+ 171              		.comm	wantedRotate,1,1
+ 172              		.comm	water,1,1
+ 173              		.comm	battery,1,1
+ 174              		.comm	light,1,1
+ 175              		.comm	maxTemperature,1,1
+ 176              		.comm	wantedMoisture,1,1
+ 177              		.comm	ID,1,1
+ 178              		.comm	indexnummer1,2,2
+ 179              		.comm	lightlevel,16,2
+ 180              		.comm	batterylevel,16,2
+ 181              		.comm	temperature,16,2
+ 182              		.comm	waterlevel,100,2
+ 183              		.comm	moisture,100,2
+ 184              		.data
+ 185              		.set	.LANCHOR0,. + 0
+ 186              		.type	count, %object
+ 187              		.size	count, 1
+ 188              	count:
+ 189 0000 06       		.byte	6
+ 190              		.text
+ 191              	.Letext0:
+ 192              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 193              		.file 3 "./Plantcontrol.h"
+ 194              		.file 4 "./sensors.h"
+ 195              		.file 5 "./motor.h"
+ 196              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
+ 197              		.file 7 "./wifi.h"
+ 198              		.file 8 "./pump.h"
+ 199              		.section	.debug_info,"",%progbits
+ 200              	.Ldebug_info0:
+ 201 0000 78030000 		.4byte	0x378
+ 202 0004 0400     		.2byte	0x4
+ 203 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 204 000a 04       		.byte	0x4
+ 205 000b 01       		.uleb128 0x1
+ 206 000c 14000000 		.4byte	.LASF45
+ 207 0010 01       		.byte	0x1
+ARM GAS  C:\temp\ccuGPhU9.s 			page 6
+
+
+ 208 0011 6C020000 		.4byte	.LASF46
+ 209 0015 AB020000 		.4byte	.LASF47
+ 210 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 211 001d 00000000 		.4byte	0
+ 212 0021 00000000 		.4byte	.Ldebug_line0
+ 213 0025 02       		.uleb128 0x2
+ 214 0026 01       		.byte	0x1
+ 215 0027 06       		.byte	0x6
+ 216 0028 9F020000 		.4byte	.LASF0
+ 217 002c 02       		.uleb128 0x2
+ 218 002d 01       		.byte	0x1
+ 219 002e 08       		.byte	0x8
+ 220 002f 09010000 		.4byte	.LASF1
+ 221 0033 02       		.uleb128 0x2
+ 222 0034 02       		.byte	0x2
+ 223 0035 05       		.byte	0x5
+ 224 0036 51020000 		.4byte	.LASF2
+ 225 003a 02       		.uleb128 0x2
+ 226 003b 02       		.byte	0x2
+ 227 003c 07       		.byte	0x7
+ 228 003d CF000000 		.4byte	.LASF3
+ 229 0041 02       		.uleb128 0x2
+ 230 0042 04       		.byte	0x4
+ 231 0043 05       		.byte	0x5
+ 232 0044 C6000000 		.4byte	.LASF4
+ 233 0048 02       		.uleb128 0x2
+ 234 0049 04       		.byte	0x4
+ 235 004a 07       		.byte	0x7
+ 236 004b 2D010000 		.4byte	.LASF5
+ 237 004f 02       		.uleb128 0x2
+ 238 0050 08       		.byte	0x8
+ 239 0051 05       		.byte	0x5
+ 240 0052 FD010000 		.4byte	.LASF6
+ 241 0056 02       		.uleb128 0x2
+ 242 0057 08       		.byte	0x8
+ 243 0058 07       		.byte	0x7
+ 244 0059 D0010000 		.4byte	.LASF7
+ 245 005d 03       		.uleb128 0x3
+ 246 005e 04       		.byte	0x4
+ 247 005f 05       		.byte	0x5
+ 248 0060 696E7400 		.ascii	"int\000"
+ 249 0064 02       		.uleb128 0x2
+ 250 0065 04       		.byte	0x4
+ 251 0066 07       		.byte	0x7
+ 252 0067 A1010000 		.4byte	.LASF8
+ 253 006b 04       		.uleb128 0x4
+ 254 006c 4C010000 		.4byte	.LASF9
+ 255 0070 02       		.byte	0x2
+ 256 0071 C2       		.byte	0xc2
+ 257 0072 2C000000 		.4byte	0x2c
+ 258 0076 04       		.uleb128 0x4
+ 259 0077 9A010000 		.4byte	.LASF10
+ 260 007b 02       		.byte	0x2
+ 261 007c C4       		.byte	0xc4
+ 262 007d 48000000 		.4byte	0x48
+ 263 0081 04       		.uleb128 0x4
+ 264 0082 85010000 		.4byte	.LASF11
+ARM GAS  C:\temp\ccuGPhU9.s 			page 7
+
+
+ 265 0086 02       		.byte	0x2
+ 266 0087 C5       		.byte	0xc5
+ 267 0088 25000000 		.4byte	0x25
+ 268 008c 04       		.uleb128 0x4
+ 269 008d 99020000 		.4byte	.LASF12
+ 270 0091 02       		.byte	0x2
+ 271 0092 C6       		.byte	0xc6
+ 272 0093 33000000 		.4byte	0x33
+ 273 0097 02       		.uleb128 0x2
+ 274 0098 04       		.byte	0x4
+ 275 0099 04       		.byte	0x4
+ 276 009a B1000000 		.4byte	.LASF13
+ 277 009e 02       		.uleb128 0x2
+ 278 009f 08       		.byte	0x8
+ 279 00a0 04       		.byte	0x4
+ 280 00a1 67010000 		.4byte	.LASF14
+ 281 00a5 02       		.uleb128 0x2
+ 282 00a6 01       		.byte	0x1
+ 283 00a7 08       		.byte	0x8
+ 284 00a8 06000000 		.4byte	.LASF15
+ 285 00ac 02       		.uleb128 0x2
+ 286 00ad 04       		.byte	0x4
+ 287 00ae 07       		.byte	0x7
+ 288 00af F4010000 		.4byte	.LASF16
+ 289 00b3 05       		.uleb128 0x5
+ 290 00b4 5B020000 		.4byte	.LASF48
+ 291 00b8 0A       		.byte	0xa
+ 292 00b9 03       		.byte	0x3
+ 293 00ba 1C       		.byte	0x1c
+ 294 00bb FC000000 		.4byte	0xfc
+ 295 00bf 06       		.uleb128 0x6
+ 296 00c0 8A010000 		.4byte	.LASF17
+ 297 00c4 03       		.byte	0x3
+ 298 00c5 1E       		.byte	0x1e
+ 299 00c6 8C000000 		.4byte	0x8c
+ 300 00ca 00       		.byte	0
+ 301 00cb 06       		.uleb128 0x6
+ 302 00cc A2000000 		.4byte	.LASF18
+ 303 00d0 03       		.byte	0x3
+ 304 00d1 1F       		.byte	0x1f
+ 305 00d2 8C000000 		.4byte	0x8c
+ 306 00d6 02       		.byte	0x2
+ 307 00d7 06       		.uleb128 0x6
+ 308 00d8 2D020000 		.4byte	.LASF19
+ 309 00dc 03       		.byte	0x3
+ 310 00dd 20       		.byte	0x20
+ 311 00de 8C000000 		.4byte	0x8c
+ 312 00e2 04       		.byte	0x4
+ 313 00e3 06       		.uleb128 0x6
+ 314 00e4 7D020000 		.4byte	.LASF20
+ 315 00e8 03       		.byte	0x3
+ 316 00e9 21       		.byte	0x21
+ 317 00ea 8C000000 		.4byte	0x8c
+ 318 00ee 06       		.byte	0x6
+ 319 00ef 06       		.uleb128 0x6
+ 320 00f0 1A020000 		.4byte	.LASF21
+ 321 00f4 03       		.byte	0x3
+ARM GAS  C:\temp\ccuGPhU9.s 			page 8
+
+
+ 322 00f5 22       		.byte	0x22
+ 323 00f6 8C000000 		.4byte	0x8c
+ 324 00fa 08       		.byte	0x8
+ 325 00fb 00       		.byte	0
+ 326 00fc 07       		.uleb128 0x7
+ 327 00fd E2000000 		.4byte	.LASF22
+ 328 0101 01       		.byte	0x1
+ 329 0102 10       		.byte	0x10
+ 330 0103 00000000 		.4byte	.LFB33
+ 331 0107 44000000 		.4byte	.LFE33-.LFB33
+ 332 010b 01       		.uleb128 0x1
+ 333 010c 9C       		.byte	0x9c
+ 334 010d 75010000 		.4byte	0x175
+ 335 0111 08       		.uleb128 0x8
+ 336 0112 06000000 		.4byte	.LVL0
+ 337 0116 FB020000 		.4byte	0x2fb
+ 338 011a 08       		.uleb128 0x8
+ 339 011b 0A000000 		.4byte	.LVL1
+ 340 011f 06030000 		.4byte	0x306
+ 341 0123 08       		.uleb128 0x8
+ 342 0124 0E000000 		.4byte	.LVL2
+ 343 0128 11030000 		.4byte	0x311
+ 344 012c 08       		.uleb128 0x8
+ 345 012d 12000000 		.4byte	.LVL3
+ 346 0131 1C030000 		.4byte	0x31c
+ 347 0135 08       		.uleb128 0x8
+ 348 0136 16000000 		.4byte	.LVL4
+ 349 013a 27030000 		.4byte	0x327
+ 350 013e 08       		.uleb128 0x8
+ 351 013f 1A000000 		.4byte	.LVL5
+ 352 0143 11030000 		.4byte	0x311
+ 353 0147 08       		.uleb128 0x8
+ 354 0148 22000000 		.4byte	.LVL6
+ 355 014c 06030000 		.4byte	0x306
+ 356 0150 08       		.uleb128 0x8
+ 357 0151 28000000 		.4byte	.LVL7
+ 358 0155 FB020000 		.4byte	0x2fb
+ 359 0159 08       		.uleb128 0x8
+ 360 015a 2E000000 		.4byte	.LVL8
+ 361 015e 06030000 		.4byte	0x306
+ 362 0162 08       		.uleb128 0x8
+ 363 0163 34000000 		.4byte	.LVL9
+ 364 0167 1C030000 		.4byte	0x31c
+ 365 016b 08       		.uleb128 0x8
+ 366 016c 3A000000 		.4byte	.LVL10
+ 367 0170 27030000 		.4byte	0x327
+ 368 0174 00       		.byte	0
+ 369 0175 09       		.uleb128 0x9
+ 370 0176 72756E00 		.ascii	"run\000"
+ 371 017a 01       		.byte	0x1
+ 372 017b 26       		.byte	0x26
+ 373 017c 00000000 		.4byte	.LFB34
+ 374 0180 64000000 		.4byte	.LFE34-.LFB34
+ 375 0184 01       		.uleb128 0x1
+ 376 0185 9C       		.byte	0x9c
+ 377 0186 DD010000 		.4byte	0x1dd
+ 378 018a 08       		.uleb128 0x8
+ARM GAS  C:\temp\ccuGPhU9.s 			page 9
+
+
+ 379 018b 06000000 		.4byte	.LVL11
+ 380 018f FC000000 		.4byte	0xfc
+ 381 0193 0A       		.uleb128 0xa
+ 382 0194 0C000000 		.4byte	.LVL12
+ 383 0198 32030000 		.4byte	0x332
+ 384 019c A7010000 		.4byte	0x1a7
+ 385 01a0 0B       		.uleb128 0xb
+ 386 01a1 01       		.uleb128 0x1
+ 387 01a2 50       		.byte	0x50
+ 388 01a3 02       		.uleb128 0x2
+ 389 01a4 08       		.byte	0x8
+ 390 01a5 32       		.byte	0x32
+ 391 01a6 00       		.byte	0
+ 392 01a7 08       		.uleb128 0x8
+ 393 01a8 2C000000 		.4byte	.LVL13
+ 394 01ac 43030000 		.4byte	0x343
+ 395 01b0 08       		.uleb128 0x8
+ 396 01b1 3A000000 		.4byte	.LVL14
+ 397 01b5 54030000 		.4byte	0x354
+ 398 01b9 08       		.uleb128 0x8
+ 399 01ba 42000000 		.4byte	.LVL15
+ 400 01be 65030000 		.4byte	0x365
+ 401 01c2 08       		.uleb128 0x8
+ 402 01c3 46000000 		.4byte	.LVL16
+ 403 01c7 72030000 		.4byte	0x372
+ 404 01cb 0C       		.uleb128 0xc
+ 405 01cc 52000000 		.4byte	.LVL17
+ 406 01d0 32030000 		.4byte	0x332
+ 407 01d4 0B       		.uleb128 0xb
+ 408 01d5 01       		.uleb128 0x1
+ 409 01d6 50       		.byte	0x50
+ 410 01d7 03       		.uleb128 0x3
+ 411 01d8 0A       		.byte	0xa
+ 412 01d9 60EA     		.2byte	0xea60
+ 413 01db 00       		.byte	0
+ 414 01dc 00       		.byte	0
+ 415 01dd 0D       		.uleb128 0xd
+ 416 01de 8C000000 		.4byte	0x8c
+ 417 01e2 ED010000 		.4byte	0x1ed
+ 418 01e6 0E       		.uleb128 0xe
+ 419 01e7 AC000000 		.4byte	0xac
+ 420 01eb 31       		.byte	0x31
+ 421 01ec 00       		.byte	0
+ 422 01ed 0F       		.uleb128 0xf
+ 423 01ee BD000000 		.4byte	.LASF23
+ 424 01f2 04       		.byte	0x4
+ 425 01f3 12       		.byte	0x12
+ 426 01f4 DD010000 		.4byte	0x1dd
+ 427 01f8 05       		.uleb128 0x5
+ 428 01f9 03       		.byte	0x3
+ 429 01fa 00000000 		.4byte	moisture
+ 430 01fe 0F       		.uleb128 0xf
+ 431 01ff 22010000 		.4byte	.LASF24
+ 432 0203 04       		.byte	0x4
+ 433 0204 13       		.byte	0x13
+ 434 0205 DD010000 		.4byte	0x1dd
+ 435 0209 05       		.uleb128 0x5
+ARM GAS  C:\temp\ccuGPhU9.s 			page 10
+
+
+ 436 020a 03       		.byte	0x3
+ 437 020b 00000000 		.4byte	waterlevel
+ 438 020f 0D       		.uleb128 0xd
+ 439 0210 8C000000 		.4byte	0x8c
+ 440 0214 1F020000 		.4byte	0x21f
+ 441 0218 0E       		.uleb128 0xe
+ 442 0219 AC000000 		.4byte	0xac
+ 443 021d 07       		.byte	0x7
+ 444 021e 00       		.byte	0
+ 445 021f 0F       		.uleb128 0xf
+ 446 0220 FD000000 		.4byte	.LASF25
+ 447 0224 04       		.byte	0x4
+ 448 0225 14       		.byte	0x14
+ 449 0226 0F020000 		.4byte	0x20f
+ 450 022a 05       		.uleb128 0x5
+ 451 022b 03       		.byte	0x3
+ 452 022c 00000000 		.4byte	temperature
+ 453 0230 0F       		.uleb128 0xf
+ 454 0231 B4010000 		.4byte	.LASF26
+ 455 0235 04       		.byte	0x4
+ 456 0236 15       		.byte	0x15
+ 457 0237 0F020000 		.4byte	0x20f
+ 458 023b 05       		.uleb128 0x5
+ 459 023c 03       		.byte	0x3
+ 460 023d 00000000 		.4byte	batterylevel
+ 461 0241 0F       		.uleb128 0xf
+ 462 0242 17010000 		.4byte	.LASF27
+ 463 0246 04       		.byte	0x4
+ 464 0247 16       		.byte	0x16
+ 465 0248 0F020000 		.4byte	0x20f
+ 466 024c 05       		.uleb128 0x5
+ 467 024d 03       		.byte	0x3
+ 468 024e 00000000 		.4byte	lightlevel
+ 469 0252 0F       		.uleb128 0xf
+ 470 0253 3F010000 		.4byte	.LASF28
+ 471 0257 05       		.byte	0x5
+ 472 0258 11       		.byte	0x11
+ 473 0259 8C000000 		.4byte	0x8c
+ 474 025d 05       		.uleb128 0x5
+ 475 025e 03       		.byte	0x3
+ 476 025f 00000000 		.4byte	indexnummer1
+ 477 0263 10       		.uleb128 0x10
+ 478 0264 494400   		.ascii	"ID\000"
+ 479 0267 03       		.byte	0x3
+ 480 0268 14       		.byte	0x14
+ 481 0269 81000000 		.4byte	0x81
+ 482 026d 05       		.uleb128 0x5
+ 483 026e 03       		.byte	0x3
+ 484 026f 00000000 		.4byte	ID
+ 485 0273 0F       		.uleb128 0xf
+ 486 0274 6E010000 		.4byte	.LASF29
+ 487 0278 03       		.byte	0x3
+ 488 0279 15       		.byte	0x15
+ 489 027a 81000000 		.4byte	0x81
+ 490 027e 05       		.uleb128 0x5
+ 491 027f 03       		.byte	0x3
+ 492 0280 00000000 		.4byte	wantedMoisture
+ARM GAS  C:\temp\ccuGPhU9.s 			page 11
+
+
+ 493 0284 0F       		.uleb128 0xf
+ 494 0285 F1020000 		.4byte	.LASF30
+ 495 0289 03       		.byte	0x3
+ 496 028a 16       		.byte	0x16
+ 497 028b 81000000 		.4byte	0x81
+ 498 028f 05       		.uleb128 0x5
+ 499 0290 03       		.byte	0x3
+ 500 0291 00000000 		.4byte	maxTemperature
+ 501 0295 0F       		.uleb128 0xf
+ 502 0296 00000000 		.4byte	.LASF31
+ 503 029a 03       		.byte	0x3
+ 504 029b 17       		.byte	0x17
+ 505 029c 81000000 		.4byte	0x81
+ 506 02a0 05       		.uleb128 0x5
+ 507 02a1 03       		.byte	0x3
+ 508 02a2 00000000 		.4byte	light
+ 509 02a6 0F       		.uleb128 0xf
+ 510 02a7 7D010000 		.4byte	.LASF32
+ 511 02ab 03       		.byte	0x3
+ 512 02ac 18       		.byte	0x18
+ 513 02ad 81000000 		.4byte	0x81
+ 514 02b1 05       		.uleb128 0x5
+ 515 02b2 03       		.byte	0x3
+ 516 02b3 00000000 		.4byte	battery
+ 517 02b7 0F       		.uleb128 0xf
+ 518 02b8 3A020000 		.4byte	.LASF33
+ 519 02bc 03       		.byte	0x3
+ 520 02bd 19       		.byte	0x19
+ 521 02be 81000000 		.4byte	0x81
+ 522 02c2 05       		.uleb128 0x5
+ 523 02c3 03       		.byte	0x3
+ 524 02c4 00000000 		.4byte	water
+ 525 02c8 0F       		.uleb128 0xf
+ 526 02c9 E7010000 		.4byte	.LASF34
+ 527 02cd 03       		.byte	0x3
+ 528 02ce 1A       		.byte	0x1a
+ 529 02cf 81000000 		.4byte	0x81
+ 530 02d3 05       		.uleb128 0x5
+ 531 02d4 03       		.byte	0x3
+ 532 02d5 00000000 		.4byte	wantedRotate
+ 533 02d9 0F       		.uleb128 0xf
+ 534 02da 0B000000 		.4byte	.LASF35
+ 535 02de 03       		.byte	0x3
+ 536 02df 25       		.byte	0x25
+ 537 02e0 B3000000 		.4byte	0xb3
+ 538 02e4 05       		.uleb128 0x5
+ 539 02e5 03       		.byte	0x3
+ 540 02e6 00000000 		.4byte	sensors_
+ 541 02ea 0F       		.uleb128 0xf
+ 542 02eb B7000000 		.4byte	.LASF36
+ 543 02ef 01       		.byte	0x1
+ 544 02f0 0E       		.byte	0xe
+ 545 02f1 6B000000 		.4byte	0x6b
+ 546 02f5 05       		.uleb128 0x5
+ 547 02f6 03       		.byte	0x3
+ 548 02f7 00000000 		.4byte	count
+ 549 02fb 11       		.uleb128 0x11
+ARM GAS  C:\temp\ccuGPhU9.s 			page 12
+
+
+ 550 02fc 40020000 		.4byte	.LASF37
+ 551 0300 04       		.byte	0x4
+ 552 0301 1B       		.byte	0x1b
+ 553 0302 8C000000 		.4byte	0x8c
+ 554 0306 11       		.uleb128 0x11
+ 555 0307 C1010000 		.4byte	.LASF38
+ 556 030b 04       		.byte	0x4
+ 557 030c 1C       		.byte	0x1c
+ 558 030d 8C000000 		.4byte	0x8c
+ 559 0311 11       		.uleb128 0x11
+ 560 0312 F0000000 		.4byte	.LASF39
+ 561 0316 04       		.byte	0x4
+ 562 0317 18       		.byte	0x18
+ 563 0318 8C000000 		.4byte	0x8c
+ 564 031c 11       		.uleb128 0x11
+ 565 031d 52010000 		.4byte	.LASF40
+ 566 0321 04       		.byte	0x4
+ 567 0322 1A       		.byte	0x1a
+ 568 0323 8C000000 		.4byte	0x8c
+ 569 0327 11       		.uleb128 0x11
+ 570 0328 0B020000 		.4byte	.LASF41
+ 571 032c 04       		.byte	0x4
+ 572 032d 19       		.byte	0x19
+ 573 032e 8C000000 		.4byte	0x8c
+ 574 0332 12       		.uleb128 0x12
+ 575 0333 00030000 		.4byte	.LASF42
+ 576 0337 06       		.byte	0x6
+ 577 0338 57       		.byte	0x57
+ 578 0339 43030000 		.4byte	0x343
+ 579 033d 13       		.uleb128 0x13
+ 580 033e 76000000 		.4byte	0x76
+ 581 0342 00       		.byte	0
+ 582 0343 12       		.uleb128 0x12
+ 583 0344 8A020000 		.4byte	.LASF43
+ 584 0348 07       		.byte	0x7
+ 585 0349 20       		.byte	0x20
+ 586 034a 54030000 		.4byte	0x354
+ 587 034e 13       		.uleb128 0x13
+ 588 034f B3000000 		.4byte	0xb3
+ 589 0353 00       		.byte	0
+ 590 0354 12       		.uleb128 0x12
+ 591 0355 60010000 		.4byte	.LASF44
+ 592 0359 05       		.byte	0x5
+ 593 035a 13       		.byte	0x13
+ 594 035b 65030000 		.4byte	0x365
+ 595 035f 13       		.uleb128 0x13
+ 596 0360 8C000000 		.4byte	0x8c
+ 597 0364 00       		.byte	0
+ 598 0365 14       		.uleb128 0x14
+ 599 0366 AE010000 		.4byte	.LASF49
+ 600 036a 08       		.byte	0x8
+ 601 036b 10       		.byte	0x10
+ 602 036c 72030000 		.4byte	0x372
+ 603 0370 15       		.uleb128 0x15
+ 604 0371 00       		.byte	0
+ 605 0372 16       		.uleb128 0x16
+ 606 0373 5B010000 		.4byte	.LASF50
+ARM GAS  C:\temp\ccuGPhU9.s 			page 13
+
+
+ 607 0377 08       		.byte	0x8
+ 608 0378 11       		.byte	0x11
+ 609 0379 15       		.uleb128 0x15
+ 610 037a 00       		.byte	0
+ 611 037b 00       		.byte	0
+ 612              		.section	.debug_abbrev,"",%progbits
+ 613              	.Ldebug_abbrev0:
+ 614 0000 01       		.uleb128 0x1
+ 615 0001 11       		.uleb128 0x11
+ 616 0002 01       		.byte	0x1
+ 617 0003 25       		.uleb128 0x25
+ 618 0004 0E       		.uleb128 0xe
+ 619 0005 13       		.uleb128 0x13
+ 620 0006 0B       		.uleb128 0xb
+ 621 0007 03       		.uleb128 0x3
+ 622 0008 0E       		.uleb128 0xe
+ 623 0009 1B       		.uleb128 0x1b
+ 624 000a 0E       		.uleb128 0xe
+ 625 000b 55       		.uleb128 0x55
+ 626 000c 17       		.uleb128 0x17
+ 627 000d 11       		.uleb128 0x11
+ 628 000e 01       		.uleb128 0x1
+ 629 000f 10       		.uleb128 0x10
+ 630 0010 17       		.uleb128 0x17
+ 631 0011 00       		.byte	0
+ 632 0012 00       		.byte	0
+ 633 0013 02       		.uleb128 0x2
+ 634 0014 24       		.uleb128 0x24
+ 635 0015 00       		.byte	0
+ 636 0016 0B       		.uleb128 0xb
+ 637 0017 0B       		.uleb128 0xb
+ 638 0018 3E       		.uleb128 0x3e
+ 639 0019 0B       		.uleb128 0xb
+ 640 001a 03       		.uleb128 0x3
+ 641 001b 0E       		.uleb128 0xe
+ 642 001c 00       		.byte	0
+ 643 001d 00       		.byte	0
+ 644 001e 03       		.uleb128 0x3
+ 645 001f 24       		.uleb128 0x24
+ 646 0020 00       		.byte	0
+ 647 0021 0B       		.uleb128 0xb
+ 648 0022 0B       		.uleb128 0xb
+ 649 0023 3E       		.uleb128 0x3e
+ 650 0024 0B       		.uleb128 0xb
+ 651 0025 03       		.uleb128 0x3
+ 652 0026 08       		.uleb128 0x8
+ 653 0027 00       		.byte	0
+ 654 0028 00       		.byte	0
+ 655 0029 04       		.uleb128 0x4
+ 656 002a 16       		.uleb128 0x16
+ 657 002b 00       		.byte	0
+ 658 002c 03       		.uleb128 0x3
+ 659 002d 0E       		.uleb128 0xe
+ 660 002e 3A       		.uleb128 0x3a
+ 661 002f 0B       		.uleb128 0xb
+ 662 0030 3B       		.uleb128 0x3b
+ 663 0031 0B       		.uleb128 0xb
+ARM GAS  C:\temp\ccuGPhU9.s 			page 14
+
+
+ 664 0032 49       		.uleb128 0x49
+ 665 0033 13       		.uleb128 0x13
+ 666 0034 00       		.byte	0
+ 667 0035 00       		.byte	0
+ 668 0036 05       		.uleb128 0x5
+ 669 0037 13       		.uleb128 0x13
+ 670 0038 01       		.byte	0x1
+ 671 0039 03       		.uleb128 0x3
+ 672 003a 0E       		.uleb128 0xe
+ 673 003b 0B       		.uleb128 0xb
+ 674 003c 0B       		.uleb128 0xb
+ 675 003d 3A       		.uleb128 0x3a
+ 676 003e 0B       		.uleb128 0xb
+ 677 003f 3B       		.uleb128 0x3b
+ 678 0040 0B       		.uleb128 0xb
+ 679 0041 01       		.uleb128 0x1
+ 680 0042 13       		.uleb128 0x13
+ 681 0043 00       		.byte	0
+ 682 0044 00       		.byte	0
+ 683 0045 06       		.uleb128 0x6
+ 684 0046 0D       		.uleb128 0xd
+ 685 0047 00       		.byte	0
+ 686 0048 03       		.uleb128 0x3
+ 687 0049 0E       		.uleb128 0xe
+ 688 004a 3A       		.uleb128 0x3a
+ 689 004b 0B       		.uleb128 0xb
+ 690 004c 3B       		.uleb128 0x3b
+ 691 004d 0B       		.uleb128 0xb
+ 692 004e 49       		.uleb128 0x49
+ 693 004f 13       		.uleb128 0x13
+ 694 0050 38       		.uleb128 0x38
+ 695 0051 0B       		.uleb128 0xb
+ 696 0052 00       		.byte	0
+ 697 0053 00       		.byte	0
+ 698 0054 07       		.uleb128 0x7
+ 699 0055 2E       		.uleb128 0x2e
+ 700 0056 01       		.byte	0x1
+ 701 0057 3F       		.uleb128 0x3f
+ 702 0058 19       		.uleb128 0x19
+ 703 0059 03       		.uleb128 0x3
+ 704 005a 0E       		.uleb128 0xe
+ 705 005b 3A       		.uleb128 0x3a
+ 706 005c 0B       		.uleb128 0xb
+ 707 005d 3B       		.uleb128 0x3b
+ 708 005e 0B       		.uleb128 0xb
+ 709 005f 11       		.uleb128 0x11
+ 710 0060 01       		.uleb128 0x1
+ 711 0061 12       		.uleb128 0x12
+ 712 0062 06       		.uleb128 0x6
+ 713 0063 40       		.uleb128 0x40
+ 714 0064 18       		.uleb128 0x18
+ 715 0065 9742     		.uleb128 0x2117
+ 716 0067 19       		.uleb128 0x19
+ 717 0068 01       		.uleb128 0x1
+ 718 0069 13       		.uleb128 0x13
+ 719 006a 00       		.byte	0
+ 720 006b 00       		.byte	0
+ARM GAS  C:\temp\ccuGPhU9.s 			page 15
+
+
+ 721 006c 08       		.uleb128 0x8
+ 722 006d 898201   		.uleb128 0x4109
+ 723 0070 00       		.byte	0
+ 724 0071 11       		.uleb128 0x11
+ 725 0072 01       		.uleb128 0x1
+ 726 0073 31       		.uleb128 0x31
+ 727 0074 13       		.uleb128 0x13
+ 728 0075 00       		.byte	0
+ 729 0076 00       		.byte	0
+ 730 0077 09       		.uleb128 0x9
+ 731 0078 2E       		.uleb128 0x2e
+ 732 0079 01       		.byte	0x1
+ 733 007a 3F       		.uleb128 0x3f
+ 734 007b 19       		.uleb128 0x19
+ 735 007c 03       		.uleb128 0x3
+ 736 007d 08       		.uleb128 0x8
+ 737 007e 3A       		.uleb128 0x3a
+ 738 007f 0B       		.uleb128 0xb
+ 739 0080 3B       		.uleb128 0x3b
+ 740 0081 0B       		.uleb128 0xb
+ 741 0082 11       		.uleb128 0x11
+ 742 0083 01       		.uleb128 0x1
+ 743 0084 12       		.uleb128 0x12
+ 744 0085 06       		.uleb128 0x6
+ 745 0086 40       		.uleb128 0x40
+ 746 0087 18       		.uleb128 0x18
+ 747 0088 9742     		.uleb128 0x2117
+ 748 008a 19       		.uleb128 0x19
+ 749 008b 01       		.uleb128 0x1
+ 750 008c 13       		.uleb128 0x13
+ 751 008d 00       		.byte	0
+ 752 008e 00       		.byte	0
+ 753 008f 0A       		.uleb128 0xa
+ 754 0090 898201   		.uleb128 0x4109
+ 755 0093 01       		.byte	0x1
+ 756 0094 11       		.uleb128 0x11
+ 757 0095 01       		.uleb128 0x1
+ 758 0096 31       		.uleb128 0x31
+ 759 0097 13       		.uleb128 0x13
+ 760 0098 01       		.uleb128 0x1
+ 761 0099 13       		.uleb128 0x13
+ 762 009a 00       		.byte	0
+ 763 009b 00       		.byte	0
+ 764 009c 0B       		.uleb128 0xb
+ 765 009d 8A8201   		.uleb128 0x410a
+ 766 00a0 00       		.byte	0
+ 767 00a1 02       		.uleb128 0x2
+ 768 00a2 18       		.uleb128 0x18
+ 769 00a3 9142     		.uleb128 0x2111
+ 770 00a5 18       		.uleb128 0x18
+ 771 00a6 00       		.byte	0
+ 772 00a7 00       		.byte	0
+ 773 00a8 0C       		.uleb128 0xc
+ 774 00a9 898201   		.uleb128 0x4109
+ 775 00ac 01       		.byte	0x1
+ 776 00ad 11       		.uleb128 0x11
+ 777 00ae 01       		.uleb128 0x1
+ARM GAS  C:\temp\ccuGPhU9.s 			page 16
+
+
+ 778 00af 31       		.uleb128 0x31
+ 779 00b0 13       		.uleb128 0x13
+ 780 00b1 00       		.byte	0
+ 781 00b2 00       		.byte	0
+ 782 00b3 0D       		.uleb128 0xd
+ 783 00b4 01       		.uleb128 0x1
+ 784 00b5 01       		.byte	0x1
+ 785 00b6 49       		.uleb128 0x49
+ 786 00b7 13       		.uleb128 0x13
+ 787 00b8 01       		.uleb128 0x1
+ 788 00b9 13       		.uleb128 0x13
+ 789 00ba 00       		.byte	0
+ 790 00bb 00       		.byte	0
+ 791 00bc 0E       		.uleb128 0xe
+ 792 00bd 21       		.uleb128 0x21
+ 793 00be 00       		.byte	0
+ 794 00bf 49       		.uleb128 0x49
+ 795 00c0 13       		.uleb128 0x13
+ 796 00c1 2F       		.uleb128 0x2f
+ 797 00c2 0B       		.uleb128 0xb
+ 798 00c3 00       		.byte	0
+ 799 00c4 00       		.byte	0
+ 800 00c5 0F       		.uleb128 0xf
+ 801 00c6 34       		.uleb128 0x34
+ 802 00c7 00       		.byte	0
+ 803 00c8 03       		.uleb128 0x3
+ 804 00c9 0E       		.uleb128 0xe
+ 805 00ca 3A       		.uleb128 0x3a
+ 806 00cb 0B       		.uleb128 0xb
+ 807 00cc 3B       		.uleb128 0x3b
+ 808 00cd 0B       		.uleb128 0xb
+ 809 00ce 49       		.uleb128 0x49
+ 810 00cf 13       		.uleb128 0x13
+ 811 00d0 3F       		.uleb128 0x3f
+ 812 00d1 19       		.uleb128 0x19
+ 813 00d2 02       		.uleb128 0x2
+ 814 00d3 18       		.uleb128 0x18
+ 815 00d4 00       		.byte	0
+ 816 00d5 00       		.byte	0
+ 817 00d6 10       		.uleb128 0x10
+ 818 00d7 34       		.uleb128 0x34
+ 819 00d8 00       		.byte	0
+ 820 00d9 03       		.uleb128 0x3
+ 821 00da 08       		.uleb128 0x8
+ 822 00db 3A       		.uleb128 0x3a
+ 823 00dc 0B       		.uleb128 0xb
+ 824 00dd 3B       		.uleb128 0x3b
+ 825 00de 0B       		.uleb128 0xb
+ 826 00df 49       		.uleb128 0x49
+ 827 00e0 13       		.uleb128 0x13
+ 828 00e1 3F       		.uleb128 0x3f
+ 829 00e2 19       		.uleb128 0x19
+ 830 00e3 02       		.uleb128 0x2
+ 831 00e4 18       		.uleb128 0x18
+ 832 00e5 00       		.byte	0
+ 833 00e6 00       		.byte	0
+ 834 00e7 11       		.uleb128 0x11
+ARM GAS  C:\temp\ccuGPhU9.s 			page 17
+
+
+ 835 00e8 2E       		.uleb128 0x2e
+ 836 00e9 00       		.byte	0
+ 837 00ea 3F       		.uleb128 0x3f
+ 838 00eb 19       		.uleb128 0x19
+ 839 00ec 03       		.uleb128 0x3
+ 840 00ed 0E       		.uleb128 0xe
+ 841 00ee 3A       		.uleb128 0x3a
+ 842 00ef 0B       		.uleb128 0xb
+ 843 00f0 3B       		.uleb128 0x3b
+ 844 00f1 0B       		.uleb128 0xb
+ 845 00f2 27       		.uleb128 0x27
+ 846 00f3 19       		.uleb128 0x19
+ 847 00f4 49       		.uleb128 0x49
+ 848 00f5 13       		.uleb128 0x13
+ 849 00f6 3C       		.uleb128 0x3c
+ 850 00f7 19       		.uleb128 0x19
+ 851 00f8 00       		.byte	0
+ 852 00f9 00       		.byte	0
+ 853 00fa 12       		.uleb128 0x12
+ 854 00fb 2E       		.uleb128 0x2e
+ 855 00fc 01       		.byte	0x1
+ 856 00fd 3F       		.uleb128 0x3f
+ 857 00fe 19       		.uleb128 0x19
+ 858 00ff 03       		.uleb128 0x3
+ 859 0100 0E       		.uleb128 0xe
+ 860 0101 3A       		.uleb128 0x3a
+ 861 0102 0B       		.uleb128 0xb
+ 862 0103 3B       		.uleb128 0x3b
+ 863 0104 0B       		.uleb128 0xb
+ 864 0105 27       		.uleb128 0x27
+ 865 0106 19       		.uleb128 0x19
+ 866 0107 3C       		.uleb128 0x3c
+ 867 0108 19       		.uleb128 0x19
+ 868 0109 01       		.uleb128 0x1
+ 869 010a 13       		.uleb128 0x13
+ 870 010b 00       		.byte	0
+ 871 010c 00       		.byte	0
+ 872 010d 13       		.uleb128 0x13
+ 873 010e 05       		.uleb128 0x5
+ 874 010f 00       		.byte	0
+ 875 0110 49       		.uleb128 0x49
+ 876 0111 13       		.uleb128 0x13
+ 877 0112 00       		.byte	0
+ 878 0113 00       		.byte	0
+ 879 0114 14       		.uleb128 0x14
+ 880 0115 2E       		.uleb128 0x2e
+ 881 0116 01       		.byte	0x1
+ 882 0117 3F       		.uleb128 0x3f
+ 883 0118 19       		.uleb128 0x19
+ 884 0119 03       		.uleb128 0x3
+ 885 011a 0E       		.uleb128 0xe
+ 886 011b 3A       		.uleb128 0x3a
+ 887 011c 0B       		.uleb128 0xb
+ 888 011d 3B       		.uleb128 0x3b
+ 889 011e 0B       		.uleb128 0xb
+ 890 011f 3C       		.uleb128 0x3c
+ 891 0120 19       		.uleb128 0x19
+ARM GAS  C:\temp\ccuGPhU9.s 			page 18
+
+
+ 892 0121 01       		.uleb128 0x1
+ 893 0122 13       		.uleb128 0x13
+ 894 0123 00       		.byte	0
+ 895 0124 00       		.byte	0
+ 896 0125 15       		.uleb128 0x15
+ 897 0126 18       		.uleb128 0x18
+ 898 0127 00       		.byte	0
+ 899 0128 00       		.byte	0
+ 900 0129 00       		.byte	0
+ 901 012a 16       		.uleb128 0x16
+ 902 012b 2E       		.uleb128 0x2e
+ 903 012c 01       		.byte	0x1
+ 904 012d 3F       		.uleb128 0x3f
+ 905 012e 19       		.uleb128 0x19
+ 906 012f 03       		.uleb128 0x3
+ 907 0130 0E       		.uleb128 0xe
+ 908 0131 3A       		.uleb128 0x3a
+ 909 0132 0B       		.uleb128 0xb
+ 910 0133 3B       		.uleb128 0x3b
+ 911 0134 0B       		.uleb128 0xb
+ 912 0135 3C       		.uleb128 0x3c
+ 913 0136 19       		.uleb128 0x19
+ 914 0137 00       		.byte	0
+ 915 0138 00       		.byte	0
+ 916 0139 00       		.byte	0
+ 917              		.section	.debug_aranges,"",%progbits
+ 918 0000 24000000 		.4byte	0x24
+ 919 0004 0200     		.2byte	0x2
+ 920 0006 00000000 		.4byte	.Ldebug_info0
+ 921 000a 04       		.byte	0x4
+ 922 000b 00       		.byte	0
+ 923 000c 0000     		.2byte	0
+ 924 000e 0000     		.2byte	0
+ 925 0010 00000000 		.4byte	.LFB33
+ 926 0014 44000000 		.4byte	.LFE33-.LFB33
+ 927 0018 00000000 		.4byte	.LFB34
+ 928 001c 64000000 		.4byte	.LFE34-.LFB34
+ 929 0020 00000000 		.4byte	0
+ 930 0024 00000000 		.4byte	0
+ 931              		.section	.debug_ranges,"",%progbits
+ 932              	.Ldebug_ranges0:
+ 933 0000 00000000 		.4byte	.LFB33
+ 934 0004 44000000 		.4byte	.LFE33
+ 935 0008 00000000 		.4byte	.LFB34
+ 936 000c 64000000 		.4byte	.LFE34
+ 937 0010 00000000 		.4byte	0
+ 938 0014 00000000 		.4byte	0
+ 939              		.section	.debug_line,"",%progbits
+ 940              	.Ldebug_line0:
+ 941 0000 E8000000 		.section	.debug_str,"MS",%progbits,1
+ 941      02009E00 
+ 941      00000201 
+ 941      FB0E0D00 
+ 941      01010101 
+ 942              	.LASF31:
+ 943 0000 6C696768 		.ascii	"light\000"
+ 943      7400
+ARM GAS  C:\temp\ccuGPhU9.s 			page 19
+
+
+ 944              	.LASF15:
+ 945 0006 63686172 		.ascii	"char\000"
+ 945      00
+ 946              	.LASF35:
+ 947 000b 73656E73 		.ascii	"sensors_\000"
+ 947      6F72735F 
+ 947      00
+ 948              	.LASF45:
+ 949 0014 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 949      4320342E 
+ 949      392E3320 
+ 949      32303135 
+ 949      30333033 
+ 950 0047 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 950      20726576 
+ 950      6973696F 
+ 950      6E203232 
+ 950      31323230 
+ 951 007a 73202D66 		.ascii	"s -ffunction-sections -ffat-lto-objects\000"
+ 951      66756E63 
+ 951      74696F6E 
+ 951      2D736563 
+ 951      74696F6E 
+ 952              	.LASF18:
+ 953 00a2 63757272 		.ascii	"currentBattery\000"
+ 953      656E7442 
+ 953      61747465 
+ 953      727900
+ 954              	.LASF13:
+ 955 00b1 666C6F61 		.ascii	"float\000"
+ 955      7400
+ 956              	.LASF36:
+ 957 00b7 636F756E 		.ascii	"count\000"
+ 957      7400
+ 958              	.LASF23:
+ 959 00bd 6D6F6973 		.ascii	"moisture\000"
+ 959      74757265 
+ 959      00
+ 960              	.LASF4:
+ 961 00c6 6C6F6E67 		.ascii	"long int\000"
+ 961      20696E74 
+ 961      00
+ 962              	.LASF3:
+ 963 00cf 73686F72 		.ascii	"short unsigned int\000"
+ 963      7420756E 
+ 963      7369676E 
+ 963      65642069 
+ 963      6E7400
+ 964              	.LASF22:
+ 965 00e2 75706461 		.ascii	"updateSensors\000"
+ 965      74655365 
+ 965      6E736F72 
+ 965      7300
+ 966              	.LASF39:
+ 967 00f0 6765745F 		.ascii	"get_moisture\000"
+ 967      6D6F6973 
+ 967      74757265 
+ARM GAS  C:\temp\ccuGPhU9.s 			page 20
+
+
+ 967      00
+ 968              	.LASF25:
+ 969 00fd 74656D70 		.ascii	"temperature\000"
+ 969      65726174 
+ 969      75726500 
+ 970              	.LASF1:
+ 971 0109 756E7369 		.ascii	"unsigned char\000"
+ 971      676E6564 
+ 971      20636861 
+ 971      7200
+ 972              	.LASF27:
+ 973 0117 6C696768 		.ascii	"lightlevel\000"
+ 973      746C6576 
+ 973      656C00
+ 974              	.LASF24:
+ 975 0122 77617465 		.ascii	"waterlevel\000"
+ 975      726C6576 
+ 975      656C00
+ 976              	.LASF5:
+ 977 012d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 977      20756E73 
+ 977      69676E65 
+ 977      6420696E 
+ 977      7400
+ 978              	.LASF28:
+ 979 013f 696E6465 		.ascii	"indexnummer1\000"
+ 979      786E756D 
+ 979      6D657231 
+ 979      00
+ 980              	.LASF9:
+ 981 014c 75696E74 		.ascii	"uint8\000"
+ 981      3800
+ 982              	.LASF40:
+ 983 0152 6765745F 		.ascii	"get_temp\000"
+ 983      74656D70 
+ 983      00
+ 984              	.LASF50:
+ 985 015b 73746F70 		.ascii	"stop\000"
+ 985      00
+ 986              	.LASF44:
+ 987 0160 726F7461 		.ascii	"rotate\000"
+ 987      746500
+ 988              	.LASF14:
+ 989 0167 646F7562 		.ascii	"double\000"
+ 989      6C6500
+ 990              	.LASF29:
+ 991 016e 77616E74 		.ascii	"wantedMoisture\000"
+ 991      65644D6F 
+ 991      69737475 
+ 991      726500
+ 992              	.LASF32:
+ 993 017d 62617474 		.ascii	"battery\000"
+ 993      65727900 
+ 994              	.LASF11:
+ 995 0185 696E7438 		.ascii	"int8\000"
+ 995      00
+ 996              	.LASF17:
+ARM GAS  C:\temp\ccuGPhU9.s 			page 21
+
+
+ 997 018a 63757272 		.ascii	"currentMoisture\000"
+ 997      656E744D 
+ 997      6F697374 
+ 997      75726500 
+ 998              	.LASF10:
+ 999 019a 75696E74 		.ascii	"uint32\000"
+ 999      333200
+ 1000              	.LASF8:
+ 1001 01a1 756E7369 		.ascii	"unsigned int\000"
+ 1001      676E6564 
+ 1001      20696E74 
+ 1001      00
+ 1002              	.LASF49:
+ 1003 01ae 73746172 		.ascii	"start\000"
+ 1003      7400
+ 1004              	.LASF26:
+ 1005 01b4 62617474 		.ascii	"batterylevel\000"
+ 1005      6572796C 
+ 1005      6576656C 
+ 1005      00
+ 1006              	.LASF38:
+ 1007 01c1 6765745F 		.ascii	"get_lightlevel\000"
+ 1007      6C696768 
+ 1007      746C6576 
+ 1007      656C00
+ 1008              	.LASF7:
+ 1009 01d0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1009      206C6F6E 
+ 1009      6720756E 
+ 1009      7369676E 
+ 1009      65642069 
+ 1010              	.LASF34:
+ 1011 01e7 77616E74 		.ascii	"wantedRotate\000"
+ 1011      6564526F 
+ 1011      74617465 
+ 1011      00
+ 1012              	.LASF16:
+ 1013 01f4 73697A65 		.ascii	"sizetype\000"
+ 1013      74797065 
+ 1013      00
+ 1014              	.LASF6:
+ 1015 01fd 6C6F6E67 		.ascii	"long long int\000"
+ 1015      206C6F6E 
+ 1015      6720696E 
+ 1015      7400
+ 1016              	.LASF41:
+ 1017 020b 6765745F 		.ascii	"get_waterlevel\000"
+ 1017      77617465 
+ 1017      726C6576 
+ 1017      656C00
+ 1018              	.LASF21:
+ 1019 021a 63757272 		.ascii	"currentTemperature\000"
+ 1019      656E7454 
+ 1019      656D7065 
+ 1019      72617475 
+ 1019      726500
+ 1020              	.LASF19:
+ARM GAS  C:\temp\ccuGPhU9.s 			page 22
+
+
+ 1021 022d 63757272 		.ascii	"currentWater\000"
+ 1021      656E7457 
+ 1021      61746572 
+ 1021      00
+ 1022              	.LASF33:
+ 1023 023a 77617465 		.ascii	"water\000"
+ 1023      7200
+ 1024              	.LASF37:
+ 1025 0240 6765745F 		.ascii	"get_batterylevel\000"
+ 1025      62617474 
+ 1025      6572796C 
+ 1025      6576656C 
+ 1025      00
+ 1026              	.LASF2:
+ 1027 0251 73686F72 		.ascii	"short int\000"
+ 1027      7420696E 
+ 1027      7400
+ 1028              	.LASF48:
+ 1029 025b 75706461 		.ascii	"updateParameters\000"
+ 1029      74655061 
+ 1029      72616D65 
+ 1029      74657273 
+ 1029      00
+ 1030              	.LASF46:
+ 1031 026c 2E5C506C 		.ascii	".\\Plantcontrol.c\000"
+ 1031      616E7463 
+ 1031      6F6E7472 
+ 1031      6F6C2E63 
+ 1031      00
+ 1032              	.LASF20:
+ 1033 027d 63757272 		.ascii	"currentLight\000"
+ 1033      656E744C 
+ 1033      69676874 
+ 1033      00
+ 1034              	.LASF43:
+ 1035 028a 73656E64 		.ascii	"sendSensorData\000"
+ 1035      53656E73 
+ 1035      6F724461 
+ 1035      746100
+ 1036              	.LASF12:
+ 1037 0299 696E7431 		.ascii	"int16\000"
+ 1037      3600
+ 1038              	.LASF0:
+ 1039 029f 7369676E 		.ascii	"signed char\000"
+ 1039      65642063 
+ 1039      68617200 
+ 1040              	.LASF47:
+ 1041 02ab 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
+ 1041      73657273 
+ 1041      5C424541 
+ 1041      53545C44 
+ 1041      65736B74 
+ 1042 02d9 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
+ 1042      6E745F63 
+ 1042      6F6E7472 
+ 1042      6F6C325F 
+ 1042      302E6379 
+ARM GAS  C:\temp\ccuGPhU9.s 			page 23
+
+
+ 1043              	.LASF30:
+ 1044 02f1 6D617854 		.ascii	"maxTemperature\000"
+ 1044      656D7065 
+ 1044      72617475 
+ 1044      726500
+ 1045              	.LASF42:
+ 1046 0300 43794465 		.ascii	"CyDelay\000"
+ 1046      6C617900 
+ 1047              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

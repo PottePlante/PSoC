@@ -9,16 +9,13 @@
  *
  * ========================================
 */
-#include<sensors.h>
-
+#include <sensors.h>
 
 uint8 moisture_ptr = 0;
 uint8 waterlevel_ptr=0;
 uint8 temperature_ptr=0;
 uint8 batterylevel_ptr=0;
 uint8 lightlevel_ptr=0;
-
-
 
 CY_ISR(isr_EOC_vec)
 {

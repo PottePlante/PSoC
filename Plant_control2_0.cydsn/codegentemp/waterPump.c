@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pumpe.c  
+* File Name: waterPump.c  
 * Version 2.10
 *
 * Description:
@@ -15,18 +15,18 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Pumpe.h"
+#include "waterPump.h"
 
 #define SetP4PinDriveMode(shift, mode)  \
     do { \
-        Pumpe_PC =   (Pumpe_PC & \
-                                (uint32)(~(uint32)(Pumpe_DRIVE_MODE_IND_MASK << (Pumpe_DRIVE_MODE_BITS * (shift))))) | \
-                                (uint32)((uint32)(mode) << (Pumpe_DRIVE_MODE_BITS * (shift))); \
+        waterPump_PC =   (waterPump_PC & \
+                                (uint32)(~(uint32)(waterPump_DRIVE_MODE_IND_MASK << (waterPump_DRIVE_MODE_BITS * (shift))))) | \
+                                (uint32)((uint32)(mode) << (waterPump_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 
 
 /*******************************************************************************
-* Function Name: Pumpe_Write
+* Function Name: waterPump_Write
 ********************************************************************************
 *
 * Summary:
@@ -39,16 +39,16 @@
 *  None 
 *  
 *******************************************************************************/
-void Pumpe_Write(uint8 value) 
+void waterPump_Write(uint8 value) 
 {
-    uint8 drVal = (uint8)(Pumpe_DR & (uint8)(~Pumpe_MASK));
-    drVal = (drVal | ((uint8)(value << Pumpe_SHIFT) & Pumpe_MASK));
-    Pumpe_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(waterPump_DR & (uint8)(~waterPump_MASK));
+    drVal = (drVal | ((uint8)(value << waterPump_SHIFT) & waterPump_MASK));
+    waterPump_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Pumpe_SetDriveMode
+* Function Name: waterPump_SetDriveMode
 ********************************************************************************
 *
 * Summary:
@@ -57,27 +57,27 @@ void Pumpe_Write(uint8 value)
 * Parameters:  
 *  mode:  Change the pins to one of the following drive modes.
 *
-*  Pumpe_DM_STRONG     Strong Drive 
-*  Pumpe_DM_OD_HI      Open Drain, Drives High 
-*  Pumpe_DM_OD_LO      Open Drain, Drives Low 
-*  Pumpe_DM_RES_UP     Resistive Pull Up 
-*  Pumpe_DM_RES_DWN    Resistive Pull Down 
-*  Pumpe_DM_RES_UPDWN  Resistive Pull Up/Down 
-*  Pumpe_DM_DIG_HIZ    High Impedance Digital 
-*  Pumpe_DM_ALG_HIZ    High Impedance Analog 
+*  waterPump_DM_STRONG     Strong Drive 
+*  waterPump_DM_OD_HI      Open Drain, Drives High 
+*  waterPump_DM_OD_LO      Open Drain, Drives Low 
+*  waterPump_DM_RES_UP     Resistive Pull Up 
+*  waterPump_DM_RES_DWN    Resistive Pull Down 
+*  waterPump_DM_RES_UPDWN  Resistive Pull Up/Down 
+*  waterPump_DM_DIG_HIZ    High Impedance Digital 
+*  waterPump_DM_ALG_HIZ    High Impedance Analog 
 *
 * Return: 
 *  None
 *
 *******************************************************************************/
-void Pumpe_SetDriveMode(uint8 mode) 
+void waterPump_SetDriveMode(uint8 mode) 
 {
-	SetP4PinDriveMode(Pumpe__0__SHIFT, mode);
+	SetP4PinDriveMode(waterPump__0__SHIFT, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Pumpe_Read
+* Function Name: waterPump_Read
 ********************************************************************************
 *
 * Summary:
@@ -91,17 +91,17 @@ void Pumpe_SetDriveMode(uint8 mode)
 *  Returns the current value of the Digital Port as a right justified number
 *  
 * Note:
-*  Macro Pumpe_ReadPS calls this function. 
+*  Macro waterPump_ReadPS calls this function. 
 *  
 *******************************************************************************/
-uint8 Pumpe_Read(void) 
+uint8 waterPump_Read(void) 
 {
-    return (uint8)((Pumpe_PS & Pumpe_MASK) >> Pumpe_SHIFT);
+    return (uint8)((waterPump_PS & waterPump_MASK) >> waterPump_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Pumpe_ReadDataReg
+* Function Name: waterPump_ReadDataReg
 ********************************************************************************
 *
 * Summary:
@@ -114,17 +114,17 @@ uint8 Pumpe_Read(void)
 *  Returns the current value assigned to the Digital Port's data output register
 *  
 *******************************************************************************/
-uint8 Pumpe_ReadDataReg(void) 
+uint8 waterPump_ReadDataReg(void) 
 {
-    return (uint8)((Pumpe_DR & Pumpe_MASK) >> Pumpe_SHIFT);
+    return (uint8)((waterPump_DR & waterPump_MASK) >> waterPump_SHIFT);
 }
 
 
 /* If Interrupts Are Enabled for this Pins component */ 
-#if defined(Pumpe_INTSTAT) 
+#if defined(waterPump_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: Pumpe_ClearInterrupt
+    * Function Name: waterPump_ClearInterrupt
     ********************************************************************************
     *
     * Summary:
@@ -138,11 +138,11 @@ uint8 Pumpe_ReadDataReg(void)
     *  Returns the value of the interrupt status register
     *  
     *******************************************************************************/
-    uint8 Pumpe_ClearInterrupt(void) 
+    uint8 waterPump_ClearInterrupt(void) 
     {
-		uint8 maskedStatus = (uint8)(Pumpe_INTSTAT & Pumpe_MASK);
-		Pumpe_INTSTAT = maskedStatus;
-        return maskedStatus >> Pumpe_SHIFT;
+		uint8 maskedStatus = (uint8)(waterPump_INTSTAT & waterPump_MASK);
+		waterPump_INTSTAT = maskedStatus;
+        return maskedStatus >> waterPump_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

@@ -1,0 +1,125 @@
+--------------- Rebuild Started: 12/06/2015 03:14:29 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Release ---------------
+Deleting file ".\CortexM0\ARM_GCC_493\Release\main.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Plantcontrol.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\sensors.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\pump.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\wifi.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\motor.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cymetadata.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_IRQ.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_intClock.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Cm0Start.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyFlash.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyLib.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cyPm.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\cyutils.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\CyLFClk.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Fugt.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\temperatur.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Niveau_vandtank.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Lysfoler.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\isr_EOC.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\stromstyring_plus.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Clock_1.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Clock_out_capasitiv_sensors.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_BOOT.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\isr_UART.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\UART_IntClock.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Rotor_motor1_plus_BLK.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Rotor_motor2_plus_RED.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Rotor_motor1_minus_GRN.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Rotor_motor2_minus_BLU.o"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Plant_control2_0.hex"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\Plant_control2_0.map"
+Deleting file ".\Plant_control2_0.cycdx"
+Deleting file ".\Plant_control2_0.svd"
+Deleting file ".\Plant_control2_0.rpt"
+Deleting file ".\Plant_control2_0_timing.html"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\.deps\C_FILE.P"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\.deps\ARM_C_FILE.P"
+Deleting file ".\CortexM0\ARM_GCC_493\Release\.deps\GNU_ARM_ASM_FILE.P"
+cydsfit.exe -.appdatapath "C:\Users\BEAST\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p "C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj" -d CY8C4245AXI-483 -s "C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+ADD: pft.M0040: information: The following 4 pin(s) will be assigned a location by the fitter: Rotor_motor1_minus_GRN(0), Rotor_motor1_plus_BLK(0), Rotor_motor2_minus_BLU(0), Rotor_motor2_plus_RED(0)
+Analog Placement ...
+Analog Routing ...
+Analog Code Generation ...
+Digital Placement ...
+Digital Routing ...
+Bitstream Generation ...
+Static timing analysis ...
+API Generation ...
+Dependency Generation ...
+Clean Temporary Files ...
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/main.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Release\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Plantcontrol.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Plantcontrol.c -o .\CortexM0\ARM_GCC_493\Release\Plantcontrol.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/sensors.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\sensors.c -o .\CortexM0\ARM_GCC_493\Release\sensors.o
+.\sensors.c: In function 'get_waterlevel':
+.\sensors.c:128:18: warning: unused variable 'bufchar' [-Wunused-variable]
+             char bufchar[50];
+                  ^
+.\sensors.c: In function 'get_temp':
+.\sensors.c:179:18: warning: unused variable 'temp_data' [-Wunused-variable]
+             char temp_data[50];
+                  ^
+.\sensors.c: In function 'get_batterylevel':
+.\sensors.c:217:18: warning: unused variable 'battery_data' [-Wunused-variable]
+             char battery_data[50];
+                  ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/pump.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\pump.c -o .\CortexM0\ARM_GCC_493\Release\pump.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/wifi.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\wifi.c -o .\CortexM0\ARM_GCC_493\Release\wifi.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/motor.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\motor.c -o .\CortexM0\ARM_GCC_493\Release\motor.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cyfitter_cfg.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cymetadata.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_493\Release\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/ADC_SAR_Seq_1.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\ADC_SAR_Seq_1.c -o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/ADC_SAR_Seq_1_PM.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\ADC_SAR_Seq_1_PM.c -o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/ADC_SAR_Seq_1_INT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\ADC_SAR_Seq_1_INT.c -o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/ADC_SAR_Seq_1_IRQ.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.c -o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_IRQ.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/ADC_SAR_Seq_1_intClock.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.c -o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_intClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Cm0Start.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Cm0Start.c -o .\CortexM0\ARM_GCC_493\Release\Cm0Start.o
+arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_493\Release/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o .\Generated_Source\PSoC4\CyBootAsmGnu.s
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CyFlash.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CyFlash.c -o .\CortexM0\ARM_GCC_493\Release\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CyLib.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CyLib.c -o .\CortexM0\ARM_GCC_493\Release\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cyPm.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cyPm.c -o .\CortexM0\ARM_GCC_493\Release\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/cyutils.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\cyutils.c -o .\CortexM0\ARM_GCC_493\Release\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/CyLFClk.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\CyLFClk.c -o .\CortexM0\ARM_GCC_493\Release\CyLFClk.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Fugt.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Fugt.c -o .\CortexM0\ARM_GCC_493\Release\Fugt.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/temperatur.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\temperatur.c -o .\CortexM0\ARM_GCC_493\Release\temperatur.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Niveau_vandtank.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Niveau_vandtank.c -o .\CortexM0\ARM_GCC_493\Release\Niveau_vandtank.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Lysfoler.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Lysfoler.c -o .\CortexM0\ARM_GCC_493\Release\Lysfoler.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/isr_EOC.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\isr_EOC.c -o .\CortexM0\ARM_GCC_493\Release\isr_EOC.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/stromstyring_plus.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\stromstyring_plus.c -o .\CortexM0\ARM_GCC_493\Release\stromstyring_plus.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Clock_1.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Clock_1.c -o .\CortexM0\ARM_GCC_493\Release\Clock_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Clock_out_capasitiv_sensors.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.c -o .\CortexM0\ARM_GCC_493\Release\Clock_out_capasitiv_sensors.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART.c -o .\CortexM0\ARM_GCC_493\Release\UART.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_PM.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_PM.c -o .\CortexM0\ARM_GCC_493\Release\UART_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_INT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_INT.c -o .\CortexM0\ARM_GCC_493\Release\UART_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_BOOT.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_BOOT.c -o .\CortexM0\ARM_GCC_493\Release\UART_BOOT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/isr_UART.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\isr_UART.c -o .\CortexM0\ARM_GCC_493\Release\isr_UART.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/UART_IntClock.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\UART_IntClock.c -o .\CortexM0\ARM_GCC_493\Release\UART_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Rotor_motor1_plus_BLK.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.c -o .\CortexM0\ARM_GCC_493\Release\Rotor_motor1_plus_BLK.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Rotor_motor2_plus_RED.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor2_plus_RED.c -o .\CortexM0\ARM_GCC_493\Release\Rotor_motor2_plus_RED.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Rotor_motor1_minus_GRN.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.c -o .\CortexM0\ARM_GCC_493\Release\Rotor_motor1_minus_GRN.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Rotor_motor2_minus_BLU.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.c -o .\CortexM0\ARM_GCC_493\Release\Rotor_motor2_minus_BLU.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Release/Pump.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects -c .\Generated_Source\PSoC4\Pump.c -o .\CortexM0\ARM_GCC_493\Release\Pump.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Release\Plant_control2_0.a .\CortexM0\ARM_GCC_493\Release\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1.o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_PM.o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_INT.o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_IRQ.o .\CortexM0\ARM_GCC_493\Release\ADC_SAR_Seq_1_intClock.o .\CortexM0\ARM_GCC_493\Release\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Release\CyFlash.o .\CortexM0\ARM_GCC_493\Release\CyLib.o .\CortexM0\ARM_GCC_493\Release\cyPm.o .\CortexM0\ARM_GCC_493\Release\cyutils.o .\CortexM0\ARM_GCC_493\Release\CyLFClk.o .\CortexM0\ARM_GCC_493\Release\Fugt.o .\CortexM0\ARM_GCC_493\Release\temperatur.o .\CortexM0\ARM_GCC_493\Release\Niveau_vandtank.o .\CortexM0\ARM_GCC_493\Release\Lysfoler.o .\CortexM0\ARM_GCC_493\Release\isr_EOC.o .\CortexM0\ARM_GCC_493\Release\stromstyring_plus.o .\CortexM0\ARM_GCC_493\Release\Clock_1.o .\CortexM0\ARM_GCC_493\Release\Clock_out_capasitiv_sensors.o .\CortexM0\ARM_GCC_493\Release\UART.o .\CortexM0\ARM_GCC_493\Release\UART_PM.o .\CortexM0\ARM_GCC_493\Release\UART_INT.o .\CortexM0\ARM_GCC_493\Release\UART_BOOT.o .\CortexM0\ARM_GCC_493\Release\isr_UART.o .\CortexM0\ARM_GCC_493\Release\UART_IntClock.o .\CortexM0\ARM_GCC_493\Release\Rotor_motor1_plus_BLK.o .\CortexM0\ARM_GCC_493\Release\Rotor_motor2_plus_RED.o .\CortexM0\ARM_GCC_493\Release\Rotor_motor1_minus_GRN.o .\CortexM0\ARM_GCC_493\Release\Rotor_motor2_minus_BLU.o .\CortexM0\ARM_GCC_493\Release\Pump.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Release\Plant_control2_0.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Release\Plant_control2_0.elf .\CortexM0\ARM_GCC_493\Release\main.o .\CortexM0\ARM_GCC_493\Release\Plantcontrol.o .\CortexM0\ARM_GCC_493\Release\sensors.o .\CortexM0\ARM_GCC_493\Release\pump.o .\CortexM0\ARM_GCC_493\Release\wifi.o .\CortexM0\ARM_GCC_493\Release\motor.o .\CortexM0\ARM_GCC_493\Release\cymetadata.o .\CortexM0\ARM_GCC_493\Release\Cm0Start.o .\CortexM0\ARM_GCC_493\Release\Plant_control2_0.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Release\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Os -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Release/Plant_control2_0.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+.\CortexM0\ARM_GCC_493\Release\Plantcontrol.o: In function `run':
+C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn/.\Plantcontrol.c:56: undefined reference to `start'
+C:\Users\BEAST\Desktop\GITHUB PSOC PLANTE\PSoC\Plant_control2_0.cydsn/.\Plantcontrol.c:58: undefined reference to `stop'
+collect2.exe: error: ld returned 1 exit status
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Rebuild Failed: 12/06/2015 03:14:41 ---------------
