@@ -27,7 +27,7 @@ struct updateParameters;
 /*******************************************FUNKTIONS PROTOTYPER***********************************************/ 
 CY_ISR_PROTO(UART_ISR);                                     //interrupt når der er data i RX bufferen (se design).
 void updateBuf();                                           //funktion for at updatere receive bufferen og gemme dataet fra bufferen
-void initPSoC(char *, char *, char *);                  //initierer ESP8266 modulet, så PSoCen er klar til at modtage/sende data
+void initPSoCWifi(char *, char *, char *);                  //initierer ESP8266 modulet, så PSoCen er klar til at modtage/sende data
 void updatePlantData(char *);                               //opdaterer setpunktet for en pottes dataType f.eks. [M]oisture
 void sendSensorData(struct updateParameters sensors);       //sender sensor data for planter til DevKit -- Her indtastes de referencen som fås fra sensorenes struct
 char getStringFromUart(char *);                             //finder strings på UARTen

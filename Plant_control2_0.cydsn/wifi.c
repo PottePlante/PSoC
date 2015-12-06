@@ -262,17 +262,11 @@ void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et 
     UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)  
 }
 
-void initPSoC(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
+void initPSoCWifi(char *wifiSSID, char *wifiPASS, char *DevKitIPAddress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
 {
     char sendString[255];                       //char array, så det kan have texten som bliver kopieret fra sprintf()
     int i = 0;
-   
-    CyGlobalIntEnable;                          //enabler global interrupt
-        
-    ADC_SAR_Seq_1_Start();
-    ADC_SAR_Seq_1_StartConvert();
-    isr_EOC_StartEx(isr_EOC_vec);
-    
+
     isr_UART_StartEx(UART_ISR);                 //initierer en bruger defineret interrupt service: UART_ISR, på intern pin: isr_UART
     UART_Start();                               //Initier UARTEN
 
@@ -308,7 +302,7 @@ void initPSoC(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af
        
     CyDelay(100);
         
-    sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAdress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
+    sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAddress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
     CyDelay(50);
     UART_PutString(sendString);                                                     //sendString printes på uarten
     CyDelay(1000);
@@ -322,7 +316,7 @@ void initPSoC(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af
         }
         else
         {
-            sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAdress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
+            sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAddress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
             CyDelay(50);
             UART_PutString(sendString);                                                     //sendString printes på uarten
             CyDelay(1000);

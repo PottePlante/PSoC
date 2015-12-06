@@ -300,6 +300,7 @@ int16 get_lightlevel(void)
             int16 lightLux = 0;
             
             //ref modstand 500Ohm.
+
             if(light_avg <= 0)
                 lightLux = 0;
             else if(light_avg <= 228)
