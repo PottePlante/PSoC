@@ -9,14 +9,12 @@
  *
  * ========================================
 */
-
 #ifndef PUMP_H
 #define PUMP_H
 #include <project.h>
-    
+
 void start();
 void stop();
 
 #endif
-
 /* [] END OF FILE */

@@ -12,14 +12,28 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <wifi.h>
+#include "wifi.h"
 
 /***********************************DIVERSE GLOBALE VARIABLER********************************/
 uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er data i RX bufferen, '0' hvis der ikke er data...
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
 char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
-uint8 plantID = '-';                        //Pottens ID / PSoC ID - Sættes til '-' for at teste om DevKittet kan give den en anderledes værdi
+
+struct updateParameters;
+
+CY_ISR_PROTO(UART_ISR);                                     //interrupt når der er data i RX bufferen (se design).
+void updateBuf();                                           //funktion for at updatere receive bufferen og gemme dataet fra bufferen
+void sendDataDevkit(char *);                                //sender data til devkit
+struct responses setPlantData(char *);                                  //funktion til at opdatere set punkter for plante data
+struct responses updatePlantData(char *);                               //opdaterer setpunktet for en pottes dataType f.eks. [M]oisture
+void requestDevKitData();                                   //sender en anmodnig til DevKit for at få opdateret plante parametre
+char getStringFromUart(char *);                             //finder strings på UARTen
+int connectToWiFi(char *, char *);                          //forbinder til WiFi
+int connectToDevKit(char *);                                //forbinder til DevKittet
+uint8 receiveDataDevKit(char * , char *);                   //modtager data fra DevKittet gennem wifi
+uint8 findResponse(char *);                                 //finder chars på UARTen
+void tick();                                                //debugging
 
 CY_ISR(UART_ISR)
 {
@@ -88,6 +102,63 @@ uint8 findResponse(char *textToFind)
     return 0;                                       //hvis ingen text findes returneres false
 }
 
+int connectToWiFi(char *wifiSSID, char *wifiPASS)
+{
+    char sendString[255];                                            //char array på 64 pladser, så det kan have texten som bliver kopieret fra sprintf()
+    sprintf(sendString,"AT+CWJAP=\"%s\",\"%s\"\r\n",wifiSSID, wifiPASS);    //tilslut net med SSID og PASS --> gemmes i sendString
+    UART_PutString(sendString);                                     //sendString printes på uarten
+    CyDelay(5000);
+    if(findResponse("OK"))
+    {
+        CyDelay(100);
+        return 1;
+    }
+    else
+        return 0;
+}
+
+int connectToDevKit(char *DevKitIPAdress)
+{
+    char sendString[255];
+    sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAdress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
+    CyDelay(500);
+    UART_PutString(sendString);                                                     //sendString printes på uarten
+    CyDelay(1000);
+    if(findResponse("OK"))
+    {
+        CyDelay(100);
+        return 1;
+    }
+    else
+        return 0;
+}
+
+void sendDataDevkit(char *dataToSend)
+{
+    char sendString[255];                               //char array på 254 chars, muligt at højst sende 1024 bytes på én gang. 
+    uint16 length=0;
+    length=strlen(dataToSend);                          //længden af den mængde data man vil sende
+    sprintf(sendString,"AT+CIPSEND=%d\r\n",length);     //AT kommando for at sende, syntax er AT+CIPSEND=length, dvs. det antal bytes man vil sende
+    UART_PutString(sendString);                         //sendString printes på uarten
+    CyDelay(100);
+    if(findResponse("link"))                            //hvis den ikke er forbundet, forbinder den sig selv til portnr / Ip og sender beskeden igen når der er forbindelse
+    {
+        CyDelay(300);
+        if(connectToDevKit(DevKitIP))                   //forbinder til net
+        {
+            while(findResponse("OK"));                  //venter på OK svar
+            UART_PutString(sendString);
+            CyDelay(100);
+            UART_PutString(dataToSend);
+        }
+    }
+    else
+    {
+        CyDelay(100);
+        UART_PutString(dataToSend);                     //printer hvis den er forbundet til serveren
+    }
+}
+
 uint8 receiveDataDevKit(char *inputString, char *data)
 {
     getStringFromUart(inputString);
@@ -130,21 +201,19 @@ uint8 receiveDataDevKit(char *inputString, char *data)
     return len;
 }
 
-void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der kan sættes, resten valideres bare
+struct responses updatePlantData(char* inputString)      //det er kun Moisture og Rotate der kan sættes, resten valideres bare
 {
     int i = 0;
-    char plantMoist[4];
-    char plantRotate[4];
     char dataBuf[255];  ///string med data modtaget fra DevKittet
     char value_char[8];
     uint8 plantIDLocal;
-    uint8 valueMoist = 0;
-    uint8 valueRotate = 0;
 
     while(receiveDataDevKit(inputString,dataBuf) == 0u);
     //M1065R1099  -- Protokollen kan opdateres og gøres mere effectiv, evt. blot sende chars over UARTen, samt kun sende ID 1 gang og ikke specificere værdiernes dataTyper
     plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID. 
-
+    //SKAL FJERNES SENERE....
+    
+    //WOOOOOP
     for(i=0;i<3;i++)
         value_char[i] = dataBuf[i+2];   //Tager moist value
     for(i=0;i<3;i++)
@@ -152,37 +221,53 @@ void updatePlantData(char* inputString)      //det er kun Moisture og Rotate der
         
     value_char[6] = 0;
     
-    if (plantIDLocal >= 0 || plantID == '-') //plante IDen valideres
-    {
-        plantID = plantIDLocal;
-        
-        for(i=0;i<3;i++)
-        {
-            plantMoist[i] = value_char[i];
-            plantRotate[i] = value_char[i+3];
-        }
+    struct responses values = setPlantData(value_char);
+    values.ID = plantIDLocal;
+    return values;
 
-        plantMoist[3] = 0;
-        plantRotate[3] = 0;
-
-        valueMoist = atoi(plantMoist);       //data fra dataBuf læses fra pladserne [2-4] hvor der kan stå 0-999 som pr. protocol definitionen. Laves fra char til int.
-        valueRotate = atoi(plantRotate);     
-    
-        if(valueMoist >=10 && valueMoist <=100)             //moisture samt rotate validering
-            wantedMoisture = valueMoist;
-
-        if(valueRotate >=0 && valueRotate <= 200)
-            wantedRotate = valueRotate;
-    }
-    else
-        return;
 }
 
-void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
+struct responses setPlantData(char *plantValue)
 {
-    uint16 length=0;
-    char WiFiString[128]; //lokal string til behandling af sprintf
-    char sendString[128];
+    int i;
+    struct responses values;
+    values.moisture = 0;
+    values.rotate = 0;
+
+    char plantMoist[4];
+    char plantRotate[4];
+    
+    for(i=0;i<3;i++)
+        plantMoist[i] = plantValue[i];
+    
+    for(i=0;i<3;i++)
+        plantRotate[i] = plantValue[i+3];
+    
+    plantMoist[3] = 0;
+    plantRotate[3] = 0;
+
+    values.moisture = atoi(plantMoist);       //data fra dataBuf læses fra pladserne [2-4] hvor der kan stå 0-999 som pr. protocol definitionen. Laves fra char til int.
+    values.rotate = atoi(plantRotate);     
+    
+    if(!(values.moisture >=10 && values.moisture <=100))             //moisture samt rotate validering
+    {
+        values.moisture = 0;
+        UART_PutString("Value outside permitted plant set data for Moist\r\n");       //debugging
+    }
+
+    if(!(values.rotate >=0 && values.rotate <= 200))
+    {
+        values.rotate = 0;
+        UART_PutString("Value outside permitted plant set data for Rotate\r\n");       //debugging
+    }
+    
+    return values;
+    
+}
+
+struct responses sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et mellemrum " " i slutningen af de forksellige data forsendelser!!!!!!!
+{
+    char sendString[128]; //lokal string til behandling af sprintf
     //Sender alt i 1 lang string
     char moistureString[16];
     char waterString[16];
@@ -192,81 +277,58 @@ void sendSensorData(struct updateParameters sensors) // OBS der er tilføjes et 
     
     //Moisture fejlhåndtering
     if(sensors.currentMoisture > 99)
-        sprintf(moistureString,"M%c%d",plantID,sensors.currentMoisture);
+        sprintf(moistureString,"M%c%d",getID(),sensors.currentMoisture);
     else if(sensors.currentMoisture <= 99 && sensors.currentMoisture >= 10)
-        sprintf(moistureString,"M%c0%d",plantID,sensors.currentMoisture);
+        sprintf(moistureString,"M%c0%d",getID(),sensors.currentMoisture);
     else if(sensors.currentMoisture < 10 && sensors.currentMoisture >=0)
-        sprintf(moistureString,"M%c00%d",plantID,sensors.currentMoisture);
+        sprintf(moistureString,"M%c00%d",getID(),sensors.currentMoisture);
         
     //Water fejlhåndtering    
     if(sensors.currentWater > 99)
-        sprintf(waterString,"W%c%d",plantID,sensors.currentWater);
+        sprintf(waterString,"W%c%d",getID(),sensors.currentWater);
     else if(sensors.currentWater <= 99 && sensors.currentWater >= 10)
-        sprintf(waterString,"W%c0%d",plantID,sensors.currentWater);
+        sprintf(waterString,"W%c0%d",getID(),sensors.currentWater);
     else if(sensors.currentWater < 10 && sensors.currentWater >=0)
-        sprintf(waterString,"W%c00%d",plantID,sensors.currentWater);
+        sprintf(waterString,"W%c00%d",getID(),sensors.currentWater);
     
     //Light fejlhåndtering    
     if(sensors.currentLight > 99)
-        sprintf(lightString,"L%c%d",plantID,sensors.currentLight);
+        sprintf(lightString,"L%c%d",getID(),sensors.currentLight);
     else if(sensors.currentLight <= 99 && sensors.currentLight >= 10)
-        sprintf(lightString,"L%c0%d",plantID,sensors.currentLight);
+        sprintf(lightString,"L%c0%d",getID(),sensors.currentLight);
     else if(sensors.currentLight < 10 && sensors.currentLight >=0)
-        sprintf(lightString,"L%c00%d",plantID,sensors.currentLight);
-        
+        sprintf(lightString,"L%c00%d",getID(),sensors.currentLight);
+    
     //Battery fejlhåndtering    
     if(sensors.currentBattery > 99)
-        sprintf(batteryString,"B%c%d",plantID,sensors.currentBattery);
+        sprintf(batteryString,"B%c%d",getID(),sensors.currentBattery);
     else if(sensors.currentBattery <= 99 && sensors.currentBattery >= 10)
-        sprintf(batteryString,"B%c0%d",plantID,sensors.currentBattery);
+        sprintf(batteryString,"B%c0%d",getID(),sensors.currentBattery);
     else if(sensors.currentBattery < 10 && sensors.currentBattery >=0)
-        sprintf(batteryString,"B%c00%d",plantID,sensors.currentBattery);
+        sprintf(batteryString,"B%c00%d",getID(),sensors.currentBattery);
          
     //Temperature fejlhåndtering    
     if(sensors.currentTemperature > 99)
-        sprintf(temperatureString,"T%c%d",plantID,sensors.currentTemperature);
+        sprintf(temperatureString,"T%c%d",getID(),sensors.currentTemperature);
     else if(sensors.currentTemperature <= 99 && sensors.currentTemperature >= 10)
-        sprintf(temperatureString,"T%c0%d",plantID,sensors.currentTemperature);
+        sprintf(temperatureString,"T%c0%d",getID(),sensors.currentTemperature);
     else if(sensors.currentTemperature < 10 && sensors.currentTemperature >=0)
-        sprintf(temperatureString,"T%c00%d",plantID,sensors.currentTemperature);
+        sprintf(temperatureString,"T%c00%d",getID(),sensors.currentTemperature);
         
     sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,temperatureString,batteryString);
-    
-    length=strlen(sendString);                          //længden af den mængde data man vil sende
-    sprintf(WiFiString,"AT+CIPSEND=%d\r\n",length);     //AT kommando for at sende, syntax er AT+CIPSEND=length, dvs. det antal bytes man vil sende
-    CyDelay(50);
-    UART_PutString(WiFiString);                         //sendString printes på uarten
-    CyDelay(100);
-    if(findResponse("link"))                            //hvis den ikke er forbundet, forbinder den sig selv til portnr / Ip og sender beskeden igen når der er forbindelse
-    {
-        CyDelay(300);
-        
-        sprintf(WiFiString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIP, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
-        CyDelay(50);
-        UART_PutString(WiFiString);                                                     //sendString printes på uarten
-        CyDelay(1000);
-        
-        while(findResponse("OK"));                      //venter på OK svar
-        sprintf(WiFiString,"AT+CIPSEND=%d\r\n",length);
-        CyDelay(50);
-        UART_PutString(WiFiString);
-        CyDelay(100);
-        UART_PutString(sendString);
-    }
-    else
-        UART_PutString(sendString);                     //printer hvis den er forbundet til serveren
-    
-    updatePlantData(uartString);
+    sendDataDevkit(sendString);
+    struct responses values = updatePlantData(uartString);
 
     CyDelay(2000);
     UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)  
+    return values;
 }
 
-void initPSoCWifi(char *wifiSSID, char *wifiPASS, char *DevKitIPAddress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
+void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
 {
-    char sendString[255];                       //char array, så det kan have texten som bliver kopieret fra sprintf()
     int i = 0;
-
+   
+    CyGlobalIntEnable;                          //enabler global interrupt
     isr_UART_StartEx(UART_ISR);                 //initierer en bruger defineret interrupt service: UART_ISR, på intern pin: isr_UART
     UART_Start();                               //Initier UARTEN
 
@@ -278,77 +340,44 @@ void initPSoCWifi(char *wifiSSID, char *wifiPASS, char *DevKitIPAddress) //Opsta
     
     UART_PutString("AT+CWMODE=3\r\n");          //WiFI mode sættes til AP+station mode
     CyDelay(500);
-                                     
-    sprintf(sendString,"AT+CWJAP=\"%s\",\"%s\"\r\n",wifiSSID, wifiPASS);    //tilslut net med SSID og PASS --> gemmes i sendString
-    CyDelay(50);
-    UART_PutString(sendString);                                         //sendString printes på uarten
-    CyDelay(5000);
     
     for(i=0;i<3;i++)
     {
-        if(findResponse("OK"))
-        {
-            CyDelay(100);
+        if(connectToWiFi(wifiSSID,wifiPASS))    //forbinde til WiFi
             break;
-        }
-        else
-        {
-            sprintf(sendString,"AT+CWJAP=\"%s\",\"%s\"\r\n",wifiSSID, wifiPASS);    //tilslut net med SSID og PASS --> gemmes i sendString
-            CyDelay(50);
-            UART_PutString(sendString);                                         //sendString printes på uarten
-            CyDelay(5000);
-        }
     }
-       
+   
     CyDelay(100);
-        
-    sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAddress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
-    CyDelay(50);
-    UART_PutString(sendString);                                                     //sendString printes på uarten
-    CyDelay(1000);
-
     for(i=0;i<3;i++)                            //forbinde til DevKit
     {
-        if(findResponse("OK"))
-        {
-            CyDelay(100);
+        if(connectToDevKit(DevKitIPAdress))
             break;
-        }
-        else
-        {
-            sprintf(sendString,"AT+CIPSTART=\"TCP\",\"%s\",%d\r\n",DevKitIPAddress, DevKitPortNr); //tilslut net med SSID og PASS --> gemmes i sendstring
-            CyDelay(50);
-            UART_PutString(sendString);                                                     //sendString printes på uarten
-            CyDelay(1000);
-        }
     }
+    CyDelay(1000);
 }
 
-void tick()   
-{
-    char sendString[128];                        //temp string til at handle lidt printning -- fjernes senere ved endelig prog
-    if(getStringFromUart(uartString) != 0)
-    {
-        if(strcmp(uartString,"GG") == 0)
-        {
-            UART_PutString("Works...");
-        }
-        else if(strcmp(uartString,"Print all") == 0)
-        {
-            sprintf(sendString,"Moist:%d Rotate:%d CurMoist:%d CurWater:%d CurBattery:%d CurTemp:%d CurLight:%d\r\n",wantedMoisture,wantedRotate,sensors_.currentMoisture,sensors_.currentWater,sensors_.currentBattery,sensors_.currentTemperature, sensors_.currentLight);
-            UART_PutString(sendString);
-        }
-        else if(strcmp(uartString,"Print sensor") == 0)
-        {
-            updateSensors();
-            CyDelay(200);
-            sendSensorData(sensors_);
-        }
-        else if(strcmp(uartString,"Update sensor") == 0)
-        {
-            updateSensors();
-        }
-    }
-}
+//void tick()   
+//{
+//    char sendString[128];                        //temp string til at handle lidt printning -- fjernes senere ved endelig prog
+//    if(getStringFromUart(uartString) != 0)
+//    {
+//        if(strcmp(uartString,"GG") == 0)
+//        {
+//            UART_PutString("Works...");
+//        }
+//        else if(strcmp(uartString,"Print all") == 0)
+//        {
+//            sprintf(sendString,"Moist:%d Rotate:%d CurMoist:%d CurWater:%d CurBattery:%d CurTemp:%d\r\n",wantedMoisture,wantedRotate,sensors_.currentMoisture,sensors_.currentWater,sensors_.currentBattery,sensors_.currentTemperature);
+//            UART_PutString(sendString);
+//        }
+//        else if(strcmp(uartString,"Print sensor1") == 0)
+//        {
+//            updateSensors();
+//            CyDelay(200);
+//            
+//            sendSensorData(sensors_);
+//        }
+//    }
+//}
 
 /* [] END OF FILE */

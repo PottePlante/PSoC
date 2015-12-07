@@ -11,55 +11,35 @@
 */
 #include <Plantcontrol.h>
 
-uint8 count = 6;
-
-void updateSensors()
-{
-//    struct updateParameters sensor;
-//    struct updateParameters *updatePtr;
-//    updatePtr =&sensor;
-//    
-    // get funktioner skal hentes en gang før disse data læses (nødvendigt da dette data kan være gammel data i arrays)
-    get_batterylevel();
-    get_lightlevel();
-    get_moisture();
-    get_temp();
-    get_waterlevel();
-    // Data hentes
-
-    sensors_.currentMoisture=get_moisture();
-    sensors_.currentLight=get_lightlevel();
-    sensors_.currentBattery=get_batterylevel();
-    sensors_.currentLight=get_lightlevel();
-    sensors_.currentTemperature=get_temp();
-    sensors_.currentWater=get_waterlevel();
-}
+int8 ID = 2;
+int8 wantedMoisture = 0;
+int8 wantedRotate = 0;
 
 void run()
 {
-    updateSensors();
-    CyDelay(50);
+    struct updateParameters values = getValues();
     
-    if(count == 6)
-    {      
-        sendSensorData(sensors_);
-        count = 0;
-    }
+//    if(wantedMoisture >= values.currentMoisture)
+//    {
+//        start();
+//        CyDelay(1000);
+//        stop();
+//    }
+//    
+//    rotate(wantedRotate);
+//    
+    //struct responses res = sendSensorData(values);
     
-    //Rotere
-    rotate(wantedRotate);
-    wantedRotate = 0;
+//    ID = res.ID;
+//    wantedMoisture = res.moisture;
+//    wantedRotate = res.rotate;
+//    
+    CyDelay(200);
+}
 
-    //Pumpe
-    if(wantedMoisture >= sensors_.currentMoisture)  //hvis den værdi devkit sender er større end sensors værdi så pumpes der
-    {
-        start();
-        CyDelay(1000);
-        stop();
-    }
-    
-    count++;
-    CyDelay(60000);
+int8 getID()
+{
+    return ID;
 }
 
 /* [] END OF FILE */

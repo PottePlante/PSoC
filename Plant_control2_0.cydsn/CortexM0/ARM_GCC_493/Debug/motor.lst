@@ -1,4 +1,4 @@
-ARM GAS  C:\temp\cc3Bff6g.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -37,7 +37,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
    9:.\motor.c     ****  *
   10:.\motor.c     ****  * ========================================
   11:.\motor.c     **** */
-  12:.\motor.c     **** #include <motor.h>
+  12:.\motor.c     **** #include<motor.h>
   13:.\motor.c     **** 
   14:.\motor.c     **** 
   15:.\motor.c     **** void rotate(int16 step)
@@ -58,7 +58,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
   37 0006 1B88     		ldrh	r3, [r3]
   38 0008 002B     		cmp	r3, #0
   39 000a 02D1     		bne	.L2
-ARM GAS  C:\temp\cc3Bff6g.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 2
 
 
   19:.\motor.c     ****         indexnummer1=1;
@@ -118,7 +118,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
   35:.\motor.c     ****         {    
   36:.\motor.c     ****         Rotor_motor2_plus_RED_Write(1);
   78              		.loc 1 36 0
-ARM GAS  C:\temp\cc3Bff6g.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 3
 
 
   79 0040 0120     		mov	r0, #1
@@ -178,7 +178,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  120              		.loc 1 49 0
  121 007e 0A20     		mov	r0, #10
  122 0080 FFF7FEFF 		bl	CyDelay
-ARM GAS  C:\temp\cc3Bff6g.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 4
 
 
  123              	.LVL13:
@@ -238,7 +238,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  165              		.size	rotate, .-rotate
  166              		.comm	indexnummer1,2,2
  167              		.text
-ARM GAS  C:\temp\cc3Bff6g.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 5
 
 
  168              	.Letext0:
@@ -256,37 +256,37 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  180 0006 00000000 		.4byte	.Ldebug_abbrev0
  181 000a 04       		.byte	0x4
  182 000b 01       		.uleb128 0x1
- 183 000c 6A010000 		.4byte	.LASF21
+ 183 000c 5A010000 		.4byte	.LASF21
  184 0010 01       		.byte	0x1
- 185 0011 97000000 		.4byte	.LASF22
- 186 0015 15000000 		.4byte	.LASF23
+ 185 0011 51000000 		.4byte	.LASF22
+ 186 0015 24010000 		.4byte	.LASF23
  187 0019 00000000 		.4byte	.Ldebug_ranges0+0
  188 001d 00000000 		.4byte	0
  189 0021 00000000 		.4byte	.Ldebug_line0
  190 0025 02       		.uleb128 0x2
  191 0026 01       		.byte	0x1
  192 0027 06       		.byte	0x6
- 193 0028 5E010000 		.4byte	.LASF0
+ 193 0028 18010000 		.4byte	.LASF0
  194 002c 02       		.uleb128 0x2
  195 002d 01       		.byte	0x1
  196 002e 08       		.byte	0x8
- 197 002f E3000000 		.4byte	.LASF1
+ 197 002f 9D000000 		.4byte	.LASF1
  198 0033 02       		.uleb128 0x2
  199 0034 02       		.byte	0x2
  200 0035 05       		.byte	0x5
- 201 0036 1B020000 		.4byte	.LASF2
+ 201 0036 0B020000 		.4byte	.LASF2
  202 003a 02       		.uleb128 0x2
  203 003b 02       		.byte	0x2
  204 003c 07       		.byte	0x7
- 205 003d 4B010000 		.4byte	.LASF3
+ 205 003d 05010000 		.4byte	.LASF3
  206 0041 02       		.uleb128 0x2
  207 0042 04       		.byte	0x4
  208 0043 05       		.byte	0x5
- 209 0044 2F010000 		.4byte	.LASF4
+ 209 0044 E9000000 		.4byte	.LASF4
  210 0048 02       		.uleb128 0x2
  211 0049 04       		.byte	0x4
  212 004a 07       		.byte	0x7
- 213 004b AF000000 		.4byte	.LASF5
+ 213 004b 69000000 		.4byte	.LASF5
  214 004f 02       		.uleb128 0x2
  215 0050 08       		.byte	0x8
  216 0051 05       		.byte	0x5
@@ -294,20 +294,20 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  218 0056 02       		.uleb128 0x2
  219 0057 08       		.byte	0x8
  220 0058 07       		.byte	0x7
- 221 0059 C1000000 		.4byte	.LASF7
+ 221 0059 7B000000 		.4byte	.LASF7
  222 005d 03       		.uleb128 0x3
  223 005e 04       		.byte	0x4
  224 005f 05       		.byte	0x5
-ARM GAS  C:\temp\cc3Bff6g.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 6
 
 
  225 0060 696E7400 		.ascii	"int\000"
  226 0064 02       		.uleb128 0x2
  227 0065 04       		.byte	0x4
  228 0066 07       		.byte	0x7
- 229 0067 5B000000 		.4byte	.LASF8
+ 229 0067 15000000 		.4byte	.LASF8
  230 006b 04       		.uleb128 0x4
- 231 006c A9000000 		.4byte	.LASF9
+ 231 006c 63000000 		.4byte	.LASF9
  232 0070 02       		.byte	0x2
  233 0071 C2       		.byte	0xc2
  234 0072 2C000000 		.4byte	0x2c
@@ -317,33 +317,33 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  238 007c C4       		.byte	0xc4
  239 007d 48000000 		.4byte	0x48
  240 0081 04       		.uleb128 0x4
- 241 0082 92000000 		.4byte	.LASF11
+ 241 0082 4C000000 		.4byte	.LASF11
  242 0086 02       		.byte	0x2
  243 0087 C5       		.byte	0xc5
  244 0088 25000000 		.4byte	0x25
  245 008c 04       		.uleb128 0x4
- 246 008d 15020000 		.4byte	.LASF12
+ 246 008d 05020000 		.4byte	.LASF12
  247 0091 02       		.byte	0x2
  248 0092 C6       		.byte	0xc6
  249 0093 33000000 		.4byte	0x33
  250 0097 02       		.uleb128 0x2
  251 0098 04       		.byte	0x4
  252 0099 04       		.byte	0x4
- 253 009a D8000000 		.4byte	.LASF13
+ 253 009a 92000000 		.4byte	.LASF13
  254 009e 02       		.uleb128 0x2
  255 009f 08       		.byte	0x8
  256 00a0 04       		.byte	0x4
- 257 00a1 38010000 		.4byte	.LASF14
+ 257 00a1 F2000000 		.4byte	.LASF14
  258 00a5 02       		.uleb128 0x2
  259 00a6 01       		.byte	0x1
  260 00a7 08       		.byte	0x8
- 261 00a8 DE000000 		.4byte	.LASF15
+ 261 00a8 98000000 		.4byte	.LASF15
  262 00ac 02       		.uleb128 0x2
  263 00ad 04       		.byte	0x4
  264 00ae 07       		.byte	0x7
- 265 00af 25020000 		.4byte	.LASF16
+ 265 00af 15020000 		.4byte	.LASF16
  266 00b3 05       		.uleb128 0x5
- 267 00b4 44010000 		.4byte	.LASF24
+ 267 00b4 FE000000 		.4byte	.LASF24
  268 00b8 01       		.byte	0x1
  269 00b9 0F       		.byte	0xf
  270 00ba 00000000 		.4byte	.LFB33
@@ -352,16 +352,16 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  273 00c3 9C       		.byte	0x9c
  274 00c4 C4010000 		.4byte	0x1c4
  275 00c8 06       		.uleb128 0x6
- 276 00c9 3F010000 		.4byte	.LASF25
+ 276 00c9 F9000000 		.4byte	.LASF25
  277 00cd 01       		.byte	0x1
  278 00ce 0F       		.byte	0xf
  279 00cf 8C000000 		.4byte	0x8c
  280 00d3 00000000 		.4byte	.LLST0
  281 00d7 07       		.uleb128 0x7
-ARM GAS  C:\temp\cc3Bff6g.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 7
 
 
- 282 00d8 F1000000 		.4byte	.LASF26
+ 282 00d8 AB000000 		.4byte	.LASF26
  283 00dc 01       		.byte	0x1
  284 00dd 11       		.byte	0x11
  285 00de 81000000 		.4byte	0x81
@@ -418,7 +418,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  336 0141 00       		.byte	0
  337 0142 08       		.uleb128 0x8
  338 0143 52000000 		.4byte	.LVL8
-ARM GAS  C:\temp\cc3Bff6g.s 			page 8
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 8
 
 
  339 0147 F7010000 		.4byte	0x1f7
@@ -478,7 +478,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  393 01b0 50       		.byte	0x50
  394 01b1 01       		.uleb128 0x1
  395 01b2 3A       		.byte	0x3a
-ARM GAS  C:\temp\cc3Bff6g.s 			page 9
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 9
 
 
  396 01b3 00       		.byte	0
@@ -493,7 +493,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  405 01c2 00       		.byte	0
  406 01c3 00       		.byte	0
  407 01c4 0B       		.uleb128 0xb
- 408 01c5 85000000 		.4byte	.LASF27
+ 408 01c5 3F000000 		.4byte	.LASF27
  409 01c9 07       		.byte	0x7
  410 01ca 11       		.byte	0x11
  411 01cb 8C000000 		.4byte	0x8c
@@ -501,7 +501,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  413 01d0 03       		.byte	0x3
  414 01d1 00000000 		.4byte	indexnummer1
  415 01d5 0C       		.uleb128 0xc
- 416 01d6 F7000000 		.4byte	.LASF17
+ 416 01d6 B1000000 		.4byte	.LASF17
  417 01da 03       		.byte	0x3
  418 01db 1D       		.byte	0x1d
  419 01dc E6010000 		.4byte	0x1e6
@@ -509,7 +509,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  421 01e1 6B000000 		.4byte	0x6b
  422 01e5 00       		.byte	0
  423 01e6 0C       		.uleb128 0xc
- 424 01e7 A1000000 		.4byte	.LASF18
+ 424 01e7 5B000000 		.4byte	.LASF18
  425 01eb 04       		.byte	0x4
  426 01ec 57       		.byte	0x57
  427 01ed F7010000 		.4byte	0x1f7
@@ -517,7 +517,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  429 01f2 76000000 		.4byte	0x76
  430 01f6 00       		.byte	0
  431 01f7 0C       		.uleb128 0xc
- 432 01f8 13010000 		.4byte	.LASF19
+ 432 01f8 CD000000 		.4byte	.LASF19
  433 01fc 05       		.byte	0x5
  434 01fd 1D       		.byte	0x1d
  435 01fe 08020000 		.4byte	0x208
@@ -525,7 +525,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  437 0203 6B000000 		.4byte	0x6b
  438 0207 00       		.byte	0
  439 0208 0C       		.uleb128 0xc
- 440 0209 F8010000 		.4byte	.LASF20
+ 440 0209 E8010000 		.4byte	.LASF20
  441 020d 06       		.byte	0x6
  442 020e 1D       		.byte	0x1d
  443 020f 19020000 		.4byte	0x219
@@ -533,12 +533,12 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  445 0214 6B000000 		.4byte	0x6b
  446 0218 00       		.byte	0
  447 0219 0E       		.uleb128 0xe
- 448 021a 68000000 		.4byte	.LASF28
+ 448 021a 22000000 		.4byte	.LASF28
  449 021e 08       		.byte	0x8
  450 021f 1D       		.byte	0x1d
  451 0220 0D       		.uleb128 0xd
  452 0221 6B000000 		.4byte	0x6b
-ARM GAS  C:\temp\cc3Bff6g.s 			page 10
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 10
 
 
  453 0225 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  507 0032 49       		.uleb128 0x49
  508 0033 13       		.uleb128 0x13
  509 0034 00       		.byte	0
-ARM GAS  C:\temp\cc3Bff6g.s 			page 11
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 11
 
 
  510 0035 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  564 006c 00       		.byte	0
  565 006d 00       		.byte	0
  566 006e 08       		.uleb128 0x8
-ARM GAS  C:\temp\cc3Bff6g.s 			page 12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 12
 
 
  567 006f 898201   		.uleb128 0x4109
@@ -718,7 +718,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  621 00ac 3B       		.uleb128 0x3b
  622 00ad 0B       		.uleb128 0xb
  623 00ae 27       		.uleb128 0x27
-ARM GAS  C:\temp\cc3Bff6g.s 			page 13
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 13
 
 
  624 00af 19       		.uleb128 0x19
@@ -778,7 +778,7 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  678 000b 00       		.byte	0
  679 000c 0000     		.2byte	0
  680 000e 0000     		.2byte	0
-ARM GAS  C:\temp\cc3Bff6g.s 			page 14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 14
 
 
  681 0010 00000000 		.4byte	.LFB33
@@ -806,144 +806,141 @@ ARM GAS  C:\temp\cc3Bff6g.s 			page 1
  696              	.LASF10:
  697 000e 75696E74 		.ascii	"uint32\000"
  697      333200
- 698              	.LASF23:
- 699 0015 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
- 699      73657273 
- 699      5C424541 
- 699      53545C44 
- 699      65736B74 
- 700 0043 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
- 700      6E745F63 
- 700      6F6E7472 
- 700      6F6C325F 
- 700      302E6379 
- 701              	.LASF8:
- 702 005b 756E7369 		.ascii	"unsigned int\000"
- 702      676E6564 
- 702      20696E74 
- 702      00
- 703              	.LASF28:
- 704 0068 526F746F 		.ascii	"Rotor_motor2_minus_BLU_Write\000"
- 704      725F6D6F 
- 704      746F7232 
- 704      5F6D696E 
- 704      75735F42 
- 705              	.LASF27:
- 706 0085 696E6465 		.ascii	"indexnummer1\000"
- 706      786E756D 
- 706      6D657231 
- 706      00
- 707              	.LASF11:
- 708 0092 696E7438 		.ascii	"int8\000"
- 708      00
- 709              	.LASF22:
- 710 0097 2E5C6D6F 		.ascii	".\\motor.c\000"
-ARM GAS  C:\temp\cc3Bff6g.s 			page 15
+ 698              	.LASF8:
+ 699 0015 756E7369 		.ascii	"unsigned int\000"
+ 699      676E6564 
+ 699      20696E74 
+ 699      00
+ 700              	.LASF28:
+ 701 0022 526F746F 		.ascii	"Rotor_motor2_minus_BLU_Write\000"
+ 701      725F6D6F 
+ 701      746F7232 
+ 701      5F6D696E 
+ 701      75735F42 
+ 702              	.LASF27:
+ 703 003f 696E6465 		.ascii	"indexnummer1\000"
+ 703      786E756D 
+ 703      6D657231 
+ 703      00
+ 704              	.LASF11:
+ 705 004c 696E7438 		.ascii	"int8\000"
+ 705      00
+ 706              	.LASF22:
+ 707 0051 2E5C6D6F 		.ascii	".\\motor.c\000"
+ 707      746F722E 
+ 707      6300
+ 708              	.LASF18:
+ 709 005b 43794465 		.ascii	"CyDelay\000"
+ 709      6C617900 
+ 710              	.LASF9:
+ 711 0063 75696E74 		.ascii	"uint8\000"
+ 711      3800
+ 712              	.LASF5:
+ 713 0069 6C6F6E67 		.ascii	"long unsigned int\000"
+ 713      20756E73 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 15
 
 
- 710      746F722E 
- 710      6300
- 711              	.LASF18:
- 712 00a1 43794465 		.ascii	"CyDelay\000"
- 712      6C617900 
- 713              	.LASF9:
- 714 00a9 75696E74 		.ascii	"uint8\000"
- 714      3800
- 715              	.LASF5:
- 716 00af 6C6F6E67 		.ascii	"long unsigned int\000"
- 716      20756E73 
- 716      69676E65 
- 716      6420696E 
- 716      7400
- 717              	.LASF7:
- 718 00c1 6C6F6E67 		.ascii	"long long unsigned int\000"
- 718      206C6F6E 
- 718      6720756E 
- 718      7369676E 
- 718      65642069 
- 719              	.LASF13:
- 720 00d8 666C6F61 		.ascii	"float\000"
- 720      7400
- 721              	.LASF15:
- 722 00de 63686172 		.ascii	"char\000"
- 722      00
- 723              	.LASF1:
- 724 00e3 756E7369 		.ascii	"unsigned char\000"
- 724      676E6564 
- 724      20636861 
- 724      7200
- 725              	.LASF26:
- 726 00f1 73706565 		.ascii	"speed\000"
- 726      6400
- 727              	.LASF17:
- 728 00f7 526F746F 		.ascii	"Rotor_motor1_plus_BLK_Write\000"
- 728      725F6D6F 
- 728      746F7231 
- 728      5F706C75 
- 728      735F424C 
- 729              	.LASF19:
- 730 0113 526F746F 		.ascii	"Rotor_motor2_plus_RED_Write\000"
- 730      725F6D6F 
- 730      746F7232 
- 730      5F706C75 
- 730      735F5245 
- 731              	.LASF4:
- 732 012f 6C6F6E67 		.ascii	"long int\000"
- 732      20696E74 
- 732      00
- 733              	.LASF14:
- 734 0138 646F7562 		.ascii	"double\000"
- 734      6C6500
- 735              	.LASF25:
- 736 013f 73746570 		.ascii	"step\000"
- 736      00
- 737              	.LASF24:
-ARM GAS  C:\temp\cc3Bff6g.s 			page 16
+ 713      69676E65 
+ 713      6420696E 
+ 713      7400
+ 714              	.LASF7:
+ 715 007b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 715      206C6F6E 
+ 715      6720756E 
+ 715      7369676E 
+ 715      65642069 
+ 716              	.LASF13:
+ 717 0092 666C6F61 		.ascii	"float\000"
+ 717      7400
+ 718              	.LASF15:
+ 719 0098 63686172 		.ascii	"char\000"
+ 719      00
+ 720              	.LASF1:
+ 721 009d 756E7369 		.ascii	"unsigned char\000"
+ 721      676E6564 
+ 721      20636861 
+ 721      7200
+ 722              	.LASF26:
+ 723 00ab 73706565 		.ascii	"speed\000"
+ 723      6400
+ 724              	.LASF17:
+ 725 00b1 526F746F 		.ascii	"Rotor_motor1_plus_BLK_Write\000"
+ 725      725F6D6F 
+ 725      746F7231 
+ 725      5F706C75 
+ 725      735F424C 
+ 726              	.LASF19:
+ 727 00cd 526F746F 		.ascii	"Rotor_motor2_plus_RED_Write\000"
+ 727      725F6D6F 
+ 727      746F7232 
+ 727      5F706C75 
+ 727      735F5245 
+ 728              	.LASF4:
+ 729 00e9 6C6F6E67 		.ascii	"long int\000"
+ 729      20696E74 
+ 729      00
+ 730              	.LASF14:
+ 731 00f2 646F7562 		.ascii	"double\000"
+ 731      6C6500
+ 732              	.LASF25:
+ 733 00f9 73746570 		.ascii	"step\000"
+ 733      00
+ 734              	.LASF24:
+ 735 00fe 726F7461 		.ascii	"rotate\000"
+ 735      746500
+ 736              	.LASF3:
+ 737 0105 73686F72 		.ascii	"short unsigned int\000"
+ 737      7420756E 
+ 737      7369676E 
+ 737      65642069 
+ 737      6E7400
+ 738              	.LASF0:
+ 739 0118 7369676E 		.ascii	"signed char\000"
+ 739      65642063 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccJHDh01.s 			page 16
 
 
- 738 0144 726F7461 		.ascii	"rotate\000"
- 738      746500
- 739              	.LASF3:
- 740 014b 73686F72 		.ascii	"short unsigned int\000"
- 740      7420756E 
- 740      7369676E 
- 740      65642069 
- 740      6E7400
- 741              	.LASF0:
- 742 015e 7369676E 		.ascii	"signed char\000"
- 742      65642063 
- 742      68617200 
+ 739      68617200 
+ 740              	.LASF23:
+ 741 0124 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 741      73657273 
+ 741      5C4C6169 
+ 741      6D6F6E61 
+ 741      7349676E 
+ 742 0153 2E637964 		.ascii	".cydsn\000"
+ 742      736E00
  743              	.LASF21:
- 744 016a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 744 015a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  744      4320342E 
  744      392E3320 
  744      32303135 
  744      30333033 
- 745 019d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 745 018d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  745      20726576 
  745      6973696F 
  745      6E203232 
  745      31323230 
- 746 01d0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 746 01c0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  746      66756E63 
  746      74696F6E 
  746      2D736563 
  746      74696F6E 
  747              	.LASF20:
- 748 01f8 526F746F 		.ascii	"Rotor_motor1_minus_GRN_Write\000"
+ 748 01e8 526F746F 		.ascii	"Rotor_motor1_minus_GRN_Write\000"
  748      725F6D6F 
  748      746F7231 
  748      5F6D696E 
  748      75735F47 
  749              	.LASF12:
- 750 0215 696E7431 		.ascii	"int16\000"
+ 750 0205 696E7431 		.ascii	"int16\000"
  750      3600
  751              	.LASF2:
- 752 021b 73686F72 		.ascii	"short int\000"
+ 752 020b 73686F72 		.ascii	"short int\000"
  752      7420696E 
  752      7400
  753              	.LASF16:
- 754 0225 73697A65 		.ascii	"sizetype\000"
+ 754 0215 73697A65 		.ascii	"sizetype\000"
  754      74797065 
  754      00
  755              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

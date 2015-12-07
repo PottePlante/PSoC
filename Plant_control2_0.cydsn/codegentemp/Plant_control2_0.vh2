@@ -2,7 +2,7 @@
 --	Conversion of Plant_control2_0.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Dec 06 03:29:08 2015
+--	Mon Dec 07 15:05:49 2015
 --
 
 USE cypress.cypress.all;
@@ -173,11 +173,11 @@ SIGNAL tmpFB_0__Niveau_vandtank_net_0 : bit;
 SIGNAL tmpIO_0__Niveau_vandtank_net_0 : bit;
 TERMINAL tmpSIOVREF__Niveau_vandtank_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Niveau_vandtank_net_0 : bit;
-SIGNAL tmpOE__waterPump_net_0 : bit;
-SIGNAL tmpFB_0__waterPump_net_0 : bit;
-SIGNAL tmpIO_0__waterPump_net_0 : bit;
-TERMINAL tmpSIOVREF__waterPump_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__waterPump_net_0 : bit;
+SIGNAL tmpOE__Pumpe_net_0 : bit;
+SIGNAL tmpFB_0__Pumpe_net_0 : bit;
+SIGNAL tmpIO_0__Pumpe_net_0 : bit;
+TERMINAL tmpSIOVREF__Pumpe_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Pumpe_net_0 : bit;
 SIGNAL tmpOE__Lysfoler_net_0 : bit;
 SIGNAL tmpFB_0__Lysfoler_net_0 : bit;
 SIGNAL tmpIO_0__Lysfoler_net_0 : bit;
@@ -1427,7 +1427,7 @@ Niveau_vandtank:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Niveau_vandtank_net_0);
-waterPump:cy_psoc3_pins_v1_10
+Pumpe:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"cdb29683-716f-403e-9847-96b4b3b3a154",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
@@ -1485,10 +1485,10 @@ waterPump:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(tmpFB_0__waterPump_net_0),
+		fb=>(tmpFB_0__Pumpe_net_0),
 		analog=>(open),
-		io=>(tmpIO_0__waterPump_net_0),
-		siovref=>(tmpSIOVREF__waterPump_net_0),
+		io=>(tmpIO_0__Pumpe_net_0),
+		siovref=>(tmpSIOVREF__Pumpe_net_0),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -1496,7 +1496,7 @@ waterPump:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__waterPump_net_0);
+		interrupt=>tmpINTERRUPT_0__Pumpe_net_0);
 Lysfoler:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"90601624-71d3-4e4a-a726-51c0a6d5f808",
 		drive_mode=>"000",

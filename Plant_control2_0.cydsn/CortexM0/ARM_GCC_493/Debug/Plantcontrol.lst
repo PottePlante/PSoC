@@ -1,4 +1,4 @@
-ARM GAS  C:\temp\ccCUvomS.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -17,13 +17,13 @@ ARM GAS  C:\temp\ccCUvomS.s 			page 1
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.section	.text.updateSensors,"ax",%progbits
+  17              		.section	.text.run,"ax",%progbits
   18              		.align	2
-  19              		.global	updateSensors
+  19              		.global	run
   20              		.code	16
   21              		.thumb_func
-  22              		.type	updateSensors, %function
-  23              	updateSensors:
+  22              		.type	run, %function
+  23              	run:
   24              	.LFB33:
   25              		.file 1 ".\\Plantcontrol.c"
    1:.\Plantcontrol.c **** /* ========================================
@@ -39,1300 +39,810 @@ ARM GAS  C:\temp\ccCUvomS.s 			page 1
   11:.\Plantcontrol.c **** */
   12:.\Plantcontrol.c **** #include <Plantcontrol.h>
   13:.\Plantcontrol.c **** 
-  14:.\Plantcontrol.c **** uint8 count = 6;
-  15:.\Plantcontrol.c **** 
-  16:.\Plantcontrol.c **** void updateSensors()
-  17:.\Plantcontrol.c **** {
-  26              		.loc 1 17 0
+  14:.\Plantcontrol.c **** int8 ID = 2;
+  15:.\Plantcontrol.c **** int8 wantedMoisture = 0;
+  16:.\Plantcontrol.c **** int8 wantedRotate = 0;
+  17:.\Plantcontrol.c **** 
+  18:.\Plantcontrol.c **** void run()
+  19:.\Plantcontrol.c **** {
+  26              		.loc 1 19 0
   27              		.cfi_startproc
-  28 0000 10B5     		push	{r4, lr}
-  29              		.cfi_def_cfa_offset 8
-  30              		.cfi_offset 4, -8
-  31              		.cfi_offset 14, -4
-  18:.\Plantcontrol.c **** //    struct updateParameters sensor;
-  19:.\Plantcontrol.c **** //    struct updateParameters *updatePtr;
-  20:.\Plantcontrol.c **** //    updatePtr =&sensor;
-  21:.\Plantcontrol.c **** //    
-  22:.\Plantcontrol.c ****     // get funktioner skal hentes en gang før disse data læses (nødvendigt da dette data kan væ
-  23:.\Plantcontrol.c ****     get_batterylevel();
-  32              		.loc 1 23 0
-  33 0002 FFF7FEFF 		bl	get_batterylevel
-  34              	.LVL0:
-ARM GAS  C:\temp\ccCUvomS.s 			page 2
+  28 0000 00B5     		push	{lr}
+  29              		.cfi_def_cfa_offset 4
+  30              		.cfi_offset 14, -4
+  31 0002 85B0     		sub	sp, sp, #20
+  32              		.cfi_def_cfa_offset 24
+  20:.\Plantcontrol.c ****     struct updateParameters values = getValues();
+  33              		.loc 1 20 0
+  34 0004 01A8     		add	r0, sp, #4
+  35 0006 FFF7FEFF 		bl	getValues
+  36              	.LVL0:
+  21:.\Plantcontrol.c ****     
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 2
 
 
-  24:.\Plantcontrol.c ****     get_lightlevel();
-  35              		.loc 1 24 0
-  36 0006 FFF7FEFF 		bl	get_lightlevel
-  37              	.LVL1:
-  25:.\Plantcontrol.c ****     get_moisture();
-  38              		.loc 1 25 0
-  39 000a FFF7FEFF 		bl	get_moisture
-  40              	.LVL2:
-  26:.\Plantcontrol.c ****     get_temp();
-  41              		.loc 1 26 0
-  42 000e FFF7FEFF 		bl	get_temp
-  43              	.LVL3:
-  27:.\Plantcontrol.c ****     get_waterlevel();
-  44              		.loc 1 27 0
-  45 0012 FFF7FEFF 		bl	get_waterlevel
-  46              	.LVL4:
-  28:.\Plantcontrol.c ****     // Data hentes
-  29:.\Plantcontrol.c **** 
-  30:.\Plantcontrol.c ****     sensors_.currentMoisture=get_moisture();
-  47              		.loc 1 30 0
-  48 0016 FFF7FEFF 		bl	get_moisture
-  49              	.LVL5:
-  50 001a 094C     		ldr	r4, .L2
-  51 001c 2080     		strh	r0, [r4]
-  31:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
-  52              		.loc 1 31 0
-  53 001e FFF7FEFF 		bl	get_lightlevel
-  54              	.LVL6:
-  55 0022 E080     		strh	r0, [r4, #6]
-  32:.\Plantcontrol.c ****     sensors_.currentBattery=get_batterylevel();
-  56              		.loc 1 32 0
-  57 0024 FFF7FEFF 		bl	get_batterylevel
-  58              	.LVL7:
-  59 0028 6080     		strh	r0, [r4, #2]
-  33:.\Plantcontrol.c ****     sensors_.currentLight=get_lightlevel();
-  60              		.loc 1 33 0
-  61 002a FFF7FEFF 		bl	get_lightlevel
-  62              	.LVL8:
-  63 002e E080     		strh	r0, [r4, #6]
-  34:.\Plantcontrol.c ****     sensors_.currentTemperature=get_temp();
-  64              		.loc 1 34 0
-  65 0030 FFF7FEFF 		bl	get_temp
-  66              	.LVL9:
-  67 0034 2081     		strh	r0, [r4, #8]
-  35:.\Plantcontrol.c ****     sensors_.currentWater=get_waterlevel();
-  68              		.loc 1 35 0
-  69 0036 FFF7FEFF 		bl	get_waterlevel
-  70              	.LVL10:
-  71 003a A080     		strh	r0, [r4, #4]
-  36:.\Plantcontrol.c **** }
-  72              		.loc 1 36 0
-  73              		@ sp needed
-  74 003c 10BD     		pop	{r4, pc}
-  75              	.L3:
-  76 003e C046     		.align	2
-  77              	.L2:
-  78 0040 00000000 		.word	sensors_
-ARM GAS  C:\temp\ccCUvomS.s 			page 3
+  22:.\Plantcontrol.c **** //    if(wantedMoisture >= values.currentMoisture)
+  23:.\Plantcontrol.c **** //    {
+  24:.\Plantcontrol.c **** //        start();
+  25:.\Plantcontrol.c **** //        CyDelay(1000);
+  26:.\Plantcontrol.c **** //        stop();
+  27:.\Plantcontrol.c **** //    }
+  28:.\Plantcontrol.c **** //    
+  29:.\Plantcontrol.c **** //    rotate(wantedRotate);
+  30:.\Plantcontrol.c **** //    
+  31:.\Plantcontrol.c ****     //struct responses res = sendSensorData(values);
+  32:.\Plantcontrol.c ****     
+  33:.\Plantcontrol.c **** //    ID = res.ID;
+  34:.\Plantcontrol.c **** //    wantedMoisture = res.moisture;
+  35:.\Plantcontrol.c **** //    wantedRotate = res.rotate;
+  36:.\Plantcontrol.c **** //    
+  37:.\Plantcontrol.c ****     CyDelay(200);
+  37              		.loc 1 37 0
+  38 000a C820     		mov	r0, #200
+  39 000c FFF7FEFF 		bl	CyDelay
+  40              	.LVL1:
+  38:.\Plantcontrol.c **** }
+  41              		.loc 1 38 0
+  42 0010 05B0     		add	sp, sp, #20
+  43              		@ sp needed
+  44 0012 00BD     		pop	{pc}
+  45              		.cfi_endproc
+  46              	.LFE33:
+  47              		.size	run, .-run
+  48              		.section	.text.getID,"ax",%progbits
+  49              		.align	2
+  50              		.global	getID
+  51              		.code	16
+  52              		.thumb_func
+  53              		.type	getID, %function
+  54              	getID:
+  55              	.LFB34:
+  39:.\Plantcontrol.c **** 
+  40:.\Plantcontrol.c **** int8 getID()
+  41:.\Plantcontrol.c **** {
+  56              		.loc 1 41 0
+  57              		.cfi_startproc
+  42:.\Plantcontrol.c ****     return ID;
+  58              		.loc 1 42 0
+  59 0000 014B     		ldr	r3, .L3
+  60 0002 0020     		mov	r0, #0
+  61 0004 1856     		ldrsb	r0, [r3, r0]
+  43:.\Plantcontrol.c **** }
+  62              		.loc 1 43 0
+  63              		@ sp needed
+  64 0006 7047     		bx	lr
+  65              	.L4:
+  66              		.align	2
+  67              	.L3:
+  68 0008 00000000 		.word	.LANCHOR0
+  69              		.cfi_endproc
+  70              	.LFE34:
+  71              		.size	getID, .-getID
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 3
 
 
-  79              		.cfi_endproc
-  80              	.LFE33:
-  81              		.size	updateSensors, .-updateSensors
-  82              		.section	.text.run,"ax",%progbits
-  83              		.align	2
-  84              		.global	run
-  85              		.code	16
-  86              		.thumb_func
-  87              		.type	run, %function
-  88              	run:
-  89              	.LFB34:
-  37:.\Plantcontrol.c **** 
-  38:.\Plantcontrol.c **** void run()
-  39:.\Plantcontrol.c **** {
-  90              		.loc 1 39 0
-  91              		.cfi_startproc
-  92 0000 10B5     		push	{r4, lr}
-  93              		.cfi_def_cfa_offset 8
-  94              		.cfi_offset 4, -8
-  95              		.cfi_offset 14, -4
-  40:.\Plantcontrol.c ****     updateSensors();
-  96              		.loc 1 40 0
-  97 0002 FFF7FEFF 		bl	updateSensors
-  98              	.LVL11:
-  41:.\Plantcontrol.c ****     CyDelay(50);
-  99              		.loc 1 41 0
- 100 0006 3220     		mov	r0, #50
- 101 0008 FFF7FEFF 		bl	CyDelay
- 102              	.LVL12:
-  42:.\Plantcontrol.c ****     
-  43:.\Plantcontrol.c ****     if(count == 6)
- 103              		.loc 1 43 0
- 104 000c 184B     		ldr	r3, .L7
- 105 000e 1B78     		ldrb	r3, [r3]
- 106 0010 062B     		cmp	r3, #6
- 107 0012 0ED1     		bne	.L5
-  44:.\Plantcontrol.c ****     {      
-  45:.\Plantcontrol.c ****         sendSensorData(sensors_);
- 108              		.loc 1 45 0
- 109 0014 174B     		ldr	r3, .L7+4
- 110 0016 1A88     		ldrh	r2, [r3]
- 111 0018 5888     		ldrh	r0, [r3, #2]
- 112 001a 0004     		lsl	r0, r0, #16
- 113 001c 1043     		orr	r0, r2
- 114 001e 9A88     		ldrh	r2, [r3, #4]
- 115 0020 D988     		ldrh	r1, [r3, #6]
- 116 0022 0904     		lsl	r1, r1, #16
- 117 0024 1143     		orr	r1, r2
- 118 0026 1A89     		ldrh	r2, [r3, #8]
- 119 0028 FFF7FEFF 		bl	sendSensorData
- 120              	.LVL13:
-  46:.\Plantcontrol.c ****         count = 0;
- 121              		.loc 1 46 0
- 122 002c 104B     		ldr	r3, .L7
- 123 002e 0022     		mov	r2, #0
- 124 0030 1A70     		strb	r2, [r3]
- 125              	.L5:
-ARM GAS  C:\temp\ccCUvomS.s 			page 4
+  72              		.global	wantedRotate
+  73              		.global	wantedMoisture
+  74              		.global	ID
+  75              		.comm	indexnummer1,2,2
+  76              		.data
+  77              		.set	.LANCHOR0,. + 0
+  78              		.type	ID, %object
+  79              		.size	ID, 1
+  80              	ID:
+  81 0000 02       		.byte	2
+  82              		.bss
+  83              		.type	wantedRotate, %object
+  84              		.size	wantedRotate, 1
+  85              	wantedRotate:
+  86 0000 00       		.space	1
+  87              		.type	wantedMoisture, %object
+  88              		.size	wantedMoisture, 1
+  89              	wantedMoisture:
+  90 0001 00       		.space	1
+  91              		.text
+  92              	.Letext0:
+  93              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+  94              		.file 3 "./sensors.h"
+  95              		.file 4 "./motor.h"
+  96              		.file 5 "Generated_Source\\PSoC4/CyLib.h"
+  97              		.section	.debug_info,"",%progbits
+  98              	.Ldebug_info0:
+  99 0000 AC010000 		.4byte	0x1ac
+ 100 0004 0400     		.2byte	0x4
+ 101 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 102 000a 04       		.byte	0x4
+ 103 000b 01       		.uleb128 0x1
+ 104 000c E0000000 		.4byte	.LASF24
+ 105 0010 01       		.byte	0x1
+ 106 0011 F9010000 		.4byte	.LASF25
+ 107 0015 C3010000 		.4byte	.LASF26
+ 108 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 109 001d 00000000 		.4byte	0
+ 110 0021 00000000 		.4byte	.Ldebug_line0
+ 111 0025 02       		.uleb128 0x2
+ 112 0026 01       		.byte	0x1
+ 113 0027 06       		.byte	0x6
+ 114 0028 17020000 		.4byte	.LASF0
+ 115 002c 02       		.uleb128 0x2
+ 116 002d 01       		.byte	0x1
+ 117 002e 08       		.byte	0x8
+ 118 002f 2E000000 		.4byte	.LASF1
+ 119 0033 02       		.uleb128 0x2
+ 120 0034 02       		.byte	0x2
+ 121 0035 05       		.byte	0x5
+ 122 0036 A8010000 		.4byte	.LASF2
+ 123 003a 02       		.uleb128 0x2
+ 124 003b 02       		.byte	0x2
+ 125 003c 07       		.byte	0x7
+ 126 003d 61000000 		.4byte	.LASF3
+ 127 0041 02       		.uleb128 0x2
+ 128 0042 04       		.byte	0x4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 4
 
 
-  47:.\Plantcontrol.c ****     }
-  48:.\Plantcontrol.c ****     
-  49:.\Plantcontrol.c ****     //Rotere
-  50:.\Plantcontrol.c ****     rotate(wantedRotate);
- 126              		.loc 1 50 0
- 127 0032 114C     		ldr	r4, .L7+8
- 128 0034 0020     		mov	r0, #0
- 129 0036 2056     		ldrsb	r0, [r4, r0]
- 130 0038 FFF7FEFF 		bl	rotate
- 131              	.LVL14:
-  51:.\Plantcontrol.c ****     wantedRotate = 0;
- 132              		.loc 1 51 0
- 133 003c 0023     		mov	r3, #0
- 134 003e 2370     		strb	r3, [r4]
-  52:.\Plantcontrol.c **** 
-  53:.\Plantcontrol.c ****     //Pumpe
-  54:.\Plantcontrol.c ****     if(wantedMoisture >= sensors_.currentMoisture)  //hvis den værdi devkit sender er større end 
- 135              		.loc 1 54 0
- 136 0040 0E4B     		ldr	r3, .L7+12
- 137 0042 0022     		mov	r2, #0
- 138 0044 9A56     		ldrsb	r2, [r3, r2]
- 139 0046 0B4B     		ldr	r3, .L7+4
- 140 0048 0021     		mov	r1, #0
- 141 004a 5B5E     		ldrsh	r3, [r3, r1]
- 142 004c 9A42     		cmp	r2, r3
- 143 004e 07DB     		blt	.L6
-  55:.\Plantcontrol.c ****     {
-  56:.\Plantcontrol.c ****         start();
- 144              		.loc 1 56 0
- 145 0050 FFF7FEFF 		bl	start
- 146              	.LVL15:
-  57:.\Plantcontrol.c ****         CyDelay(1000);
- 147              		.loc 1 57 0
- 148 0054 FA20     		mov	r0, #250
- 149 0056 8000     		lsl	r0, r0, #2
- 150 0058 FFF7FEFF 		bl	CyDelay
- 151              	.LVL16:
-  58:.\Plantcontrol.c ****         stop();
- 152              		.loc 1 58 0
- 153 005c FFF7FEFF 		bl	stop
- 154              	.LVL17:
- 155              	.L6:
-  59:.\Plantcontrol.c ****     }
-  60:.\Plantcontrol.c ****     
-  61:.\Plantcontrol.c ****     count++;
- 156              		.loc 1 61 0
- 157 0060 034A     		ldr	r2, .L7
- 158 0062 1378     		ldrb	r3, [r2]
- 159 0064 0133     		add	r3, r3, #1
- 160 0066 1370     		strb	r3, [r2]
-  62:.\Plantcontrol.c ****     CyDelay(60000);
- 161              		.loc 1 62 0
- 162 0068 0548     		ldr	r0, .L7+16
- 163 006a FFF7FEFF 		bl	CyDelay
- 164              	.LVL18:
-  63:.\Plantcontrol.c **** }
- 165              		.loc 1 63 0
-ARM GAS  C:\temp\ccCUvomS.s 			page 5
+ 129 0043 05       		.byte	0x5
+ 130 0044 15000000 		.4byte	.LASF4
+ 131 0048 02       		.uleb128 0x2
+ 132 0049 04       		.byte	0x4
+ 133 004a 07       		.byte	0x7
+ 134 004b 42000000 		.4byte	.LASF5
+ 135 004f 02       		.uleb128 0x2
+ 136 0050 08       		.byte	0x8
+ 137 0051 05       		.byte	0x5
+ 138 0052 6E010000 		.4byte	.LASF6
+ 139 0056 02       		.uleb128 0x2
+ 140 0057 08       		.byte	0x8
+ 141 0058 07       		.byte	0x7
+ 142 0059 B3000000 		.4byte	.LASF7
+ 143 005d 03       		.uleb128 0x3
+ 144 005e 04       		.byte	0x4
+ 145 005f 05       		.byte	0x5
+ 146 0060 696E7400 		.ascii	"int\000"
+ 147 0064 02       		.uleb128 0x2
+ 148 0065 04       		.byte	0x4
+ 149 0066 07       		.byte	0x7
+ 150 0067 A6000000 		.4byte	.LASF8
+ 151 006b 04       		.uleb128 0x4
+ 152 006c 9F000000 		.4byte	.LASF9
+ 153 0070 02       		.byte	0x2
+ 154 0071 C4       		.byte	0xc4
+ 155 0072 48000000 		.4byte	0x48
+ 156 0076 04       		.uleb128 0x4
+ 157 0077 8A000000 		.4byte	.LASF10
+ 158 007b 02       		.byte	0x2
+ 159 007c C5       		.byte	0xc5
+ 160 007d 25000000 		.4byte	0x25
+ 161 0081 04       		.uleb128 0x4
+ 162 0082 3C000000 		.4byte	.LASF11
+ 163 0086 02       		.byte	0x2
+ 164 0087 C6       		.byte	0xc6
+ 165 0088 33000000 		.4byte	0x33
+ 166 008c 02       		.uleb128 0x2
+ 167 008d 04       		.byte	0x4
+ 168 008e 04       		.byte	0x4
+ 169 008f 1E000000 		.4byte	.LASF12
+ 170 0093 02       		.uleb128 0x2
+ 171 0094 08       		.byte	0x8
+ 172 0095 04       		.byte	0x4
+ 173 0096 74000000 		.4byte	.LASF13
+ 174 009a 02       		.uleb128 0x2
+ 175 009b 01       		.byte	0x1
+ 176 009c 08       		.byte	0x8
+ 177 009d 7C010000 		.4byte	.LASF14
+ 178 00a1 02       		.uleb128 0x2
+ 179 00a2 04       		.byte	0x4
+ 180 00a3 07       		.byte	0x7
+ 181 00a4 D7000000 		.4byte	.LASF15
+ 182 00a8 05       		.uleb128 0x5
+ 183 00a9 B2010000 		.4byte	.LASF27
+ 184 00ad 0A       		.byte	0xa
+ 185 00ae 03       		.byte	0x3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 5
 
 
- 166              		@ sp needed
- 167 006e 10BD     		pop	{r4, pc}
- 168              	.L8:
- 169              		.align	2
- 170              	.L7:
- 171 0070 00000000 		.word	.LANCHOR0
- 172 0074 00000000 		.word	sensors_
- 173 0078 00000000 		.word	wantedRotate
- 174 007c 00000000 		.word	wantedMoisture
- 175 0080 60EA0000 		.word	60000
- 176              		.cfi_endproc
- 177              	.LFE34:
- 178              		.size	run, .-run
- 179              		.global	count
- 180              		.comm	sensors_,10,4
- 181              		.comm	wantedRotate,1,1
- 182              		.comm	water,1,1
- 183              		.comm	battery,1,1
- 184              		.comm	light,1,1
- 185              		.comm	maxTemperature,1,1
- 186              		.comm	wantedMoisture,1,1
- 187              		.comm	ID,1,1
- 188              		.comm	indexnummer1,2,2
- 189              		.comm	lightlevel,16,4
- 190              		.comm	batterylevel,16,4
- 191              		.comm	temperature,16,4
- 192              		.comm	waterlevel,100,4
- 193              		.comm	moisture,100,4
- 194              		.data
- 195              		.set	.LANCHOR0,. + 0
- 196              		.type	count, %object
- 197              		.size	count, 1
- 198              	count:
- 199 0000 06       		.byte	6
- 200              		.text
- 201              	.Letext0:
- 202              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
- 203              		.file 3 "./Plantcontrol.h"
- 204              		.file 4 "./sensors.h"
- 205              		.file 5 "./motor.h"
- 206              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
- 207              		.file 7 "./wifi.h"
- 208              		.file 8 "./pump.h"
- 209              		.section	.debug_info,"",%progbits
- 210              	.Ldebug_info0:
- 211 0000 8D030000 		.4byte	0x38d
- 212 0004 0400     		.2byte	0x4
- 213 0006 00000000 		.4byte	.Ldebug_abbrev0
- 214 000a 04       		.byte	0x4
- 215 000b 01       		.uleb128 0x1
- 216 000c 6F010000 		.4byte	.LASF45
- 217 0010 01       		.byte	0x1
- 218 0011 6C020000 		.4byte	.LASF46
- 219 0015 AB020000 		.4byte	.LASF47
- 220 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 221 001d 00000000 		.4byte	0
- 222 0021 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\temp\ccCUvomS.s 			page 6
+ 186 00af 10       		.byte	0x10
+ 187 00b0 F1000000 		.4byte	0xf1
+ 188 00b4 06       		.uleb128 0x6
+ 189 00b5 8F000000 		.4byte	.LASF16
+ 190 00b9 03       		.byte	0x3
+ 191 00ba 12       		.byte	0x12
+ 192 00bb 81000000 		.4byte	0x81
+ 193 00bf 00       		.byte	0
+ 194 00c0 06       		.uleb128 0x6
+ 195 00c1 00000000 		.4byte	.LASF17
+ 196 00c5 03       		.byte	0x3
+ 197 00c6 13       		.byte	0x13
+ 198 00c7 81000000 		.4byte	0x81
+ 199 00cb 02       		.byte	0x2
+ 200 00cc 06       		.uleb128 0x6
+ 201 00cd 9B010000 		.4byte	.LASF18
+ 202 00d1 03       		.byte	0x3
+ 203 00d2 14       		.byte	0x14
+ 204 00d3 81000000 		.4byte	0x81
+ 205 00d7 04       		.byte	0x4
+ 206 00d8 06       		.uleb128 0x6
+ 207 00d9 0A020000 		.4byte	.LASF19
+ 208 00dd 03       		.byte	0x3
+ 209 00de 15       		.byte	0x15
+ 210 00df 81000000 		.4byte	0x81
+ 211 00e3 06       		.byte	0x6
+ 212 00e4 06       		.uleb128 0x6
+ 213 00e5 88010000 		.4byte	.LASF20
+ 214 00e9 03       		.byte	0x3
+ 215 00ea 16       		.byte	0x16
+ 216 00eb 81000000 		.4byte	0x81
+ 217 00ef 08       		.byte	0x8
+ 218 00f0 00       		.byte	0
+ 219 00f1 07       		.uleb128 0x7
+ 220 00f2 72756E00 		.ascii	"run\000"
+ 221 00f6 01       		.byte	0x1
+ 222 00f7 12       		.byte	0x12
+ 223 00f8 00000000 		.4byte	.LFB33
+ 224 00fc 14000000 		.4byte	.LFE33-.LFB33
+ 225 0100 01       		.uleb128 0x1
+ 226 0101 9C       		.byte	0x9c
+ 227 0102 39010000 		.4byte	0x139
+ 228 0106 08       		.uleb128 0x8
+ 229 0107 81010000 		.4byte	.LASF28
+ 230 010b 01       		.byte	0x1
+ 231 010c 14       		.byte	0x14
+ 232 010d A8000000 		.4byte	0xa8
+ 233 0111 02       		.uleb128 0x2
+ 234 0112 91       		.byte	0x91
+ 235 0113 6C       		.sleb128 -20
+ 236 0114 09       		.uleb128 0x9
+ 237 0115 0A000000 		.4byte	.LVL0
+ 238 0119 91010000 		.4byte	0x191
+ 239 011d 28010000 		.4byte	0x128
+ 240 0121 0A       		.uleb128 0xa
+ 241 0122 01       		.uleb128 0x1
+ 242 0123 50       		.byte	0x50
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 6
 
 
- 223 0025 02       		.uleb128 0x2
- 224 0026 01       		.byte	0x1
- 225 0027 06       		.byte	0x6
- 226 0028 9F020000 		.4byte	.LASF0
- 227 002c 02       		.uleb128 0x2
- 228 002d 01       		.byte	0x1
- 229 002e 08       		.byte	0x8
- 230 002f 7B000000 		.4byte	.LASF1
- 231 0033 02       		.uleb128 0x2
- 232 0034 02       		.byte	0x2
- 233 0035 05       		.byte	0x5
- 234 0036 51020000 		.4byte	.LASF2
- 235 003a 02       		.uleb128 0x2
- 236 003b 02       		.byte	0x2
- 237 003c 07       		.byte	0x7
- 238 003d 41000000 		.4byte	.LASF3
- 239 0041 02       		.uleb128 0x2
- 240 0042 04       		.byte	0x4
- 241 0043 05       		.byte	0x5
- 242 0044 38000000 		.4byte	.LASF4
- 243 0048 02       		.uleb128 0x2
- 244 0049 04       		.byte	0x4
- 245 004a 07       		.byte	0x7
- 246 004b 9F000000 		.4byte	.LASF5
- 247 004f 02       		.uleb128 0x2
- 248 0050 08       		.byte	0x8
- 249 0051 05       		.byte	0x5
- 250 0052 FD010000 		.4byte	.LASF6
- 251 0056 02       		.uleb128 0x2
- 252 0057 08       		.byte	0x8
- 253 0058 07       		.byte	0x7
- 254 0059 42010000 		.4byte	.LASF7
- 255 005d 03       		.uleb128 0x3
- 256 005e 04       		.byte	0x4
- 257 005f 05       		.byte	0x5
- 258 0060 696E7400 		.ascii	"int\000"
- 259 0064 02       		.uleb128 0x2
- 260 0065 04       		.byte	0x4
- 261 0066 07       		.byte	0x7
- 262 0067 13010000 		.4byte	.LASF8
- 263 006b 04       		.uleb128 0x4
- 264 006c BE000000 		.4byte	.LASF9
- 265 0070 02       		.byte	0x2
- 266 0071 C2       		.byte	0xc2
- 267 0072 2C000000 		.4byte	0x2c
- 268 0076 04       		.uleb128 0x4
- 269 0077 0C010000 		.4byte	.LASF10
- 270 007b 02       		.byte	0x2
- 271 007c C4       		.byte	0xc4
- 272 007d 48000000 		.4byte	0x48
- 273 0081 04       		.uleb128 0x4
- 274 0082 F7000000 		.4byte	.LASF11
- 275 0086 02       		.byte	0x2
- 276 0087 C5       		.byte	0xc5
- 277 0088 25000000 		.4byte	0x25
- 278 008c 04       		.uleb128 0x4
- 279 008d 99020000 		.4byte	.LASF12
-ARM GAS  C:\temp\ccCUvomS.s 			page 7
+ 243 0124 02       		.uleb128 0x2
+ 244 0125 91       		.byte	0x91
+ 245 0126 6C       		.sleb128 -20
+ 246 0127 00       		.byte	0
+ 247 0128 0B       		.uleb128 0xb
+ 248 0129 10000000 		.4byte	.LVL1
+ 249 012d A2010000 		.4byte	0x1a2
+ 250 0131 0A       		.uleb128 0xa
+ 251 0132 01       		.uleb128 0x1
+ 252 0133 50       		.byte	0x50
+ 253 0134 02       		.uleb128 0x2
+ 254 0135 08       		.byte	0x8
+ 255 0136 C8       		.byte	0xc8
+ 256 0137 00       		.byte	0
+ 257 0138 00       		.byte	0
+ 258 0139 0C       		.uleb128 0xc
+ 259 013a 0F000000 		.4byte	.LASF29
+ 260 013e 01       		.byte	0x1
+ 261 013f 28       		.byte	0x28
+ 262 0140 76000000 		.4byte	0x76
+ 263 0144 00000000 		.4byte	.LFB34
+ 264 0148 0C000000 		.4byte	.LFE34-.LFB34
+ 265 014c 01       		.uleb128 0x1
+ 266 014d 9C       		.byte	0x9c
+ 267 014e 0D       		.uleb128 0xd
+ 268 014f 54000000 		.4byte	.LASF21
+ 269 0153 04       		.byte	0x4
+ 270 0154 11       		.byte	0x11
+ 271 0155 81000000 		.4byte	0x81
+ 272 0159 05       		.uleb128 0x5
+ 273 015a 03       		.byte	0x3
+ 274 015b 00000000 		.4byte	indexnummer1
+ 275 015f 0E       		.uleb128 0xe
+ 276 0160 494400   		.ascii	"ID\000"
+ 277 0163 01       		.byte	0x1
+ 278 0164 0E       		.byte	0xe
+ 279 0165 76000000 		.4byte	0x76
+ 280 0169 05       		.uleb128 0x5
+ 281 016a 03       		.byte	0x3
+ 282 016b 00000000 		.4byte	ID
+ 283 016f 0D       		.uleb128 0xd
+ 284 0170 7B000000 		.4byte	.LASF22
+ 285 0174 01       		.byte	0x1
+ 286 0175 0F       		.byte	0xf
+ 287 0176 76000000 		.4byte	0x76
+ 288 017a 05       		.uleb128 0x5
+ 289 017b 03       		.byte	0x3
+ 290 017c 00000000 		.4byte	wantedMoisture
+ 291 0180 0D       		.uleb128 0xd
+ 292 0181 CA000000 		.4byte	.LASF23
+ 293 0185 01       		.byte	0x1
+ 294 0186 10       		.byte	0x10
+ 295 0187 76000000 		.4byte	0x76
+ 296 018b 05       		.uleb128 0x5
+ 297 018c 03       		.byte	0x3
+ 298 018d 00000000 		.4byte	wantedRotate
+ 299 0191 0F       		.uleb128 0xf
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 7
 
 
- 280 0091 02       		.byte	0x2
- 281 0092 C6       		.byte	0xc6
- 282 0093 33000000 		.4byte	0x33
- 283 0097 02       		.uleb128 0x2
- 284 0098 04       		.byte	0x4
- 285 0099 04       		.byte	0x4
- 286 009a 23000000 		.4byte	.LASF13
- 287 009e 02       		.uleb128 0x2
- 288 009f 08       		.byte	0x8
- 289 00a0 04       		.byte	0x4
- 290 00a1 D9000000 		.4byte	.LASF14
- 291 00a5 02       		.uleb128 0x2
- 292 00a6 01       		.byte	0x1
- 293 00a7 08       		.byte	0x8
- 294 00a8 06000000 		.4byte	.LASF15
- 295 00ac 02       		.uleb128 0x2
- 296 00ad 04       		.byte	0x4
- 297 00ae 07       		.byte	0x7
- 298 00af 66010000 		.4byte	.LASF16
- 299 00b3 05       		.uleb128 0x5
- 300 00b4 5B020000 		.4byte	.LASF48
- 301 00b8 0A       		.byte	0xa
- 302 00b9 03       		.byte	0x3
- 303 00ba 1C       		.byte	0x1c
- 304 00bb FC000000 		.4byte	0xfc
- 305 00bf 06       		.uleb128 0x6
- 306 00c0 FC000000 		.4byte	.LASF17
- 307 00c4 03       		.byte	0x3
- 308 00c5 1E       		.byte	0x1e
- 309 00c6 8C000000 		.4byte	0x8c
- 310 00ca 00       		.byte	0
- 311 00cb 06       		.uleb128 0x6
- 312 00cc 14000000 		.4byte	.LASF18
- 313 00d0 03       		.byte	0x3
- 314 00d1 1F       		.byte	0x1f
- 315 00d2 8C000000 		.4byte	0x8c
- 316 00d6 02       		.byte	0x2
- 317 00d7 06       		.uleb128 0x6
- 318 00d8 2D020000 		.4byte	.LASF19
- 319 00dc 03       		.byte	0x3
- 320 00dd 20       		.byte	0x20
- 321 00de 8C000000 		.4byte	0x8c
- 322 00e2 04       		.byte	0x4
- 323 00e3 06       		.uleb128 0x6
- 324 00e4 7D020000 		.4byte	.LASF20
- 325 00e8 03       		.byte	0x3
- 326 00e9 21       		.byte	0x21
- 327 00ea 8C000000 		.4byte	0x8c
- 328 00ee 06       		.byte	0x6
- 329 00ef 06       		.uleb128 0x6
- 330 00f0 1A020000 		.4byte	.LASF21
- 331 00f4 03       		.byte	0x3
- 332 00f5 22       		.byte	0x22
- 333 00f6 8C000000 		.4byte	0x8c
- 334 00fa 08       		.byte	0x8
- 335 00fb 00       		.byte	0
- 336 00fc 07       		.uleb128 0x7
-ARM GAS  C:\temp\ccCUvomS.s 			page 8
+ 300 0192 24000000 		.4byte	.LASF30
+ 301 0196 03       		.byte	0x3
+ 302 0197 19       		.byte	0x19
+ 303 0198 A8000000 		.4byte	0xa8
+ 304 019c A2010000 		.4byte	0x1a2
+ 305 01a0 10       		.uleb128 0x10
+ 306 01a1 00       		.byte	0
+ 307 01a2 11       		.uleb128 0x11
+ 308 01a3 23020000 		.4byte	.LASF31
+ 309 01a7 05       		.byte	0x5
+ 310 01a8 57       		.byte	0x57
+ 311 01a9 12       		.uleb128 0x12
+ 312 01aa 6B000000 		.4byte	0x6b
+ 313 01ae 00       		.byte	0
+ 314 01af 00       		.byte	0
+ 315              		.section	.debug_abbrev,"",%progbits
+ 316              	.Ldebug_abbrev0:
+ 317 0000 01       		.uleb128 0x1
+ 318 0001 11       		.uleb128 0x11
+ 319 0002 01       		.byte	0x1
+ 320 0003 25       		.uleb128 0x25
+ 321 0004 0E       		.uleb128 0xe
+ 322 0005 13       		.uleb128 0x13
+ 323 0006 0B       		.uleb128 0xb
+ 324 0007 03       		.uleb128 0x3
+ 325 0008 0E       		.uleb128 0xe
+ 326 0009 1B       		.uleb128 0x1b
+ 327 000a 0E       		.uleb128 0xe
+ 328 000b 55       		.uleb128 0x55
+ 329 000c 17       		.uleb128 0x17
+ 330 000d 11       		.uleb128 0x11
+ 331 000e 01       		.uleb128 0x1
+ 332 000f 10       		.uleb128 0x10
+ 333 0010 17       		.uleb128 0x17
+ 334 0011 00       		.byte	0
+ 335 0012 00       		.byte	0
+ 336 0013 02       		.uleb128 0x2
+ 337 0014 24       		.uleb128 0x24
+ 338 0015 00       		.byte	0
+ 339 0016 0B       		.uleb128 0xb
+ 340 0017 0B       		.uleb128 0xb
+ 341 0018 3E       		.uleb128 0x3e
+ 342 0019 0B       		.uleb128 0xb
+ 343 001a 03       		.uleb128 0x3
+ 344 001b 0E       		.uleb128 0xe
+ 345 001c 00       		.byte	0
+ 346 001d 00       		.byte	0
+ 347 001e 03       		.uleb128 0x3
+ 348 001f 24       		.uleb128 0x24
+ 349 0020 00       		.byte	0
+ 350 0021 0B       		.uleb128 0xb
+ 351 0022 0B       		.uleb128 0xb
+ 352 0023 3E       		.uleb128 0x3e
+ 353 0024 0B       		.uleb128 0xb
+ 354 0025 03       		.uleb128 0x3
+ 355 0026 08       		.uleb128 0x8
+ 356 0027 00       		.byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 8
 
 
- 337 00fd 54000000 		.4byte	.LASF22
- 338 0101 01       		.byte	0x1
- 339 0102 10       		.byte	0x10
- 340 0103 00000000 		.4byte	.LFB33
- 341 0107 44000000 		.4byte	.LFE33-.LFB33
- 342 010b 01       		.uleb128 0x1
- 343 010c 9C       		.byte	0x9c
- 344 010d 75010000 		.4byte	0x175
- 345 0111 08       		.uleb128 0x8
- 346 0112 06000000 		.4byte	.LVL0
- 347 0116 10030000 		.4byte	0x310
- 348 011a 08       		.uleb128 0x8
- 349 011b 0A000000 		.4byte	.LVL1
- 350 011f 1B030000 		.4byte	0x31b
- 351 0123 08       		.uleb128 0x8
- 352 0124 0E000000 		.4byte	.LVL2
- 353 0128 26030000 		.4byte	0x326
- 354 012c 08       		.uleb128 0x8
- 355 012d 12000000 		.4byte	.LVL3
- 356 0131 31030000 		.4byte	0x331
- 357 0135 08       		.uleb128 0x8
- 358 0136 16000000 		.4byte	.LVL4
- 359 013a 3C030000 		.4byte	0x33c
- 360 013e 08       		.uleb128 0x8
- 361 013f 1A000000 		.4byte	.LVL5
- 362 0143 26030000 		.4byte	0x326
- 363 0147 08       		.uleb128 0x8
- 364 0148 22000000 		.4byte	.LVL6
- 365 014c 1B030000 		.4byte	0x31b
- 366 0150 08       		.uleb128 0x8
- 367 0151 28000000 		.4byte	.LVL7
- 368 0155 10030000 		.4byte	0x310
- 369 0159 08       		.uleb128 0x8
- 370 015a 2E000000 		.4byte	.LVL8
- 371 015e 1B030000 		.4byte	0x31b
- 372 0162 08       		.uleb128 0x8
- 373 0163 34000000 		.4byte	.LVL9
- 374 0167 31030000 		.4byte	0x331
- 375 016b 08       		.uleb128 0x8
- 376 016c 3A000000 		.4byte	.LVL10
- 377 0170 3C030000 		.4byte	0x33c
- 378 0174 00       		.byte	0
- 379 0175 09       		.uleb128 0x9
- 380 0176 72756E00 		.ascii	"run\000"
- 381 017a 01       		.byte	0x1
- 382 017b 26       		.byte	0x26
- 383 017c 00000000 		.4byte	.LFB34
- 384 0180 84000000 		.4byte	.LFE34-.LFB34
- 385 0184 01       		.uleb128 0x1
- 386 0185 9C       		.byte	0x9c
- 387 0186 F2010000 		.4byte	0x1f2
- 388 018a 08       		.uleb128 0x8
- 389 018b 06000000 		.4byte	.LVL11
- 390 018f FC000000 		.4byte	0xfc
- 391 0193 0A       		.uleb128 0xa
- 392 0194 0C000000 		.4byte	.LVL12
- 393 0198 47030000 		.4byte	0x347
-ARM GAS  C:\temp\ccCUvomS.s 			page 9
+ 357 0028 00       		.byte	0
+ 358 0029 04       		.uleb128 0x4
+ 359 002a 16       		.uleb128 0x16
+ 360 002b 00       		.byte	0
+ 361 002c 03       		.uleb128 0x3
+ 362 002d 0E       		.uleb128 0xe
+ 363 002e 3A       		.uleb128 0x3a
+ 364 002f 0B       		.uleb128 0xb
+ 365 0030 3B       		.uleb128 0x3b
+ 366 0031 0B       		.uleb128 0xb
+ 367 0032 49       		.uleb128 0x49
+ 368 0033 13       		.uleb128 0x13
+ 369 0034 00       		.byte	0
+ 370 0035 00       		.byte	0
+ 371 0036 05       		.uleb128 0x5
+ 372 0037 13       		.uleb128 0x13
+ 373 0038 01       		.byte	0x1
+ 374 0039 03       		.uleb128 0x3
+ 375 003a 0E       		.uleb128 0xe
+ 376 003b 0B       		.uleb128 0xb
+ 377 003c 0B       		.uleb128 0xb
+ 378 003d 3A       		.uleb128 0x3a
+ 379 003e 0B       		.uleb128 0xb
+ 380 003f 3B       		.uleb128 0x3b
+ 381 0040 0B       		.uleb128 0xb
+ 382 0041 01       		.uleb128 0x1
+ 383 0042 13       		.uleb128 0x13
+ 384 0043 00       		.byte	0
+ 385 0044 00       		.byte	0
+ 386 0045 06       		.uleb128 0x6
+ 387 0046 0D       		.uleb128 0xd
+ 388 0047 00       		.byte	0
+ 389 0048 03       		.uleb128 0x3
+ 390 0049 0E       		.uleb128 0xe
+ 391 004a 3A       		.uleb128 0x3a
+ 392 004b 0B       		.uleb128 0xb
+ 393 004c 3B       		.uleb128 0x3b
+ 394 004d 0B       		.uleb128 0xb
+ 395 004e 49       		.uleb128 0x49
+ 396 004f 13       		.uleb128 0x13
+ 397 0050 38       		.uleb128 0x38
+ 398 0051 0B       		.uleb128 0xb
+ 399 0052 00       		.byte	0
+ 400 0053 00       		.byte	0
+ 401 0054 07       		.uleb128 0x7
+ 402 0055 2E       		.uleb128 0x2e
+ 403 0056 01       		.byte	0x1
+ 404 0057 3F       		.uleb128 0x3f
+ 405 0058 19       		.uleb128 0x19
+ 406 0059 03       		.uleb128 0x3
+ 407 005a 08       		.uleb128 0x8
+ 408 005b 3A       		.uleb128 0x3a
+ 409 005c 0B       		.uleb128 0xb
+ 410 005d 3B       		.uleb128 0x3b
+ 411 005e 0B       		.uleb128 0xb
+ 412 005f 11       		.uleb128 0x11
+ 413 0060 01       		.uleb128 0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 9
 
 
- 394 019c A7010000 		.4byte	0x1a7
- 395 01a0 0B       		.uleb128 0xb
- 396 01a1 01       		.uleb128 0x1
- 397 01a2 50       		.byte	0x50
- 398 01a3 02       		.uleb128 0x2
- 399 01a4 08       		.byte	0x8
- 400 01a5 32       		.byte	0x32
- 401 01a6 00       		.byte	0
- 402 01a7 08       		.uleb128 0x8
- 403 01a8 2C000000 		.4byte	.LVL13
- 404 01ac 58030000 		.4byte	0x358
- 405 01b0 08       		.uleb128 0x8
- 406 01b1 3C000000 		.4byte	.LVL14
- 407 01b5 69030000 		.4byte	0x369
- 408 01b9 08       		.uleb128 0x8
- 409 01ba 54000000 		.4byte	.LVL15
- 410 01be 7A030000 		.4byte	0x37a
- 411 01c2 0A       		.uleb128 0xa
- 412 01c3 5C000000 		.4byte	.LVL16
- 413 01c7 47030000 		.4byte	0x347
- 414 01cb D7010000 		.4byte	0x1d7
- 415 01cf 0B       		.uleb128 0xb
- 416 01d0 01       		.uleb128 0x1
- 417 01d1 50       		.byte	0x50
- 418 01d2 03       		.uleb128 0x3
- 419 01d3 0A       		.byte	0xa
- 420 01d4 E803     		.2byte	0x3e8
- 421 01d6 00       		.byte	0
- 422 01d7 08       		.uleb128 0x8
- 423 01d8 60000000 		.4byte	.LVL17
- 424 01dc 87030000 		.4byte	0x387
- 425 01e0 0C       		.uleb128 0xc
- 426 01e1 6E000000 		.4byte	.LVL18
- 427 01e5 47030000 		.4byte	0x347
- 428 01e9 0B       		.uleb128 0xb
- 429 01ea 01       		.uleb128 0x1
- 430 01eb 50       		.byte	0x50
- 431 01ec 03       		.uleb128 0x3
- 432 01ed 0A       		.byte	0xa
- 433 01ee 60EA     		.2byte	0xea60
- 434 01f0 00       		.byte	0
- 435 01f1 00       		.byte	0
- 436 01f2 0D       		.uleb128 0xd
- 437 01f3 8C000000 		.4byte	0x8c
- 438 01f7 02020000 		.4byte	0x202
- 439 01fb 0E       		.uleb128 0xe
- 440 01fc AC000000 		.4byte	0xac
- 441 0200 31       		.byte	0x31
- 442 0201 00       		.byte	0
- 443 0202 0F       		.uleb128 0xf
- 444 0203 2F000000 		.4byte	.LASF23
- 445 0207 04       		.byte	0x4
- 446 0208 12       		.byte	0x12
- 447 0209 F2010000 		.4byte	0x1f2
- 448 020d 05       		.uleb128 0x5
- 449 020e 03       		.byte	0x3
- 450 020f 00000000 		.4byte	moisture
-ARM GAS  C:\temp\ccCUvomS.s 			page 10
+ 414 0061 12       		.uleb128 0x12
+ 415 0062 06       		.uleb128 0x6
+ 416 0063 40       		.uleb128 0x40
+ 417 0064 18       		.uleb128 0x18
+ 418 0065 9742     		.uleb128 0x2117
+ 419 0067 19       		.uleb128 0x19
+ 420 0068 01       		.uleb128 0x1
+ 421 0069 13       		.uleb128 0x13
+ 422 006a 00       		.byte	0
+ 423 006b 00       		.byte	0
+ 424 006c 08       		.uleb128 0x8
+ 425 006d 34       		.uleb128 0x34
+ 426 006e 00       		.byte	0
+ 427 006f 03       		.uleb128 0x3
+ 428 0070 0E       		.uleb128 0xe
+ 429 0071 3A       		.uleb128 0x3a
+ 430 0072 0B       		.uleb128 0xb
+ 431 0073 3B       		.uleb128 0x3b
+ 432 0074 0B       		.uleb128 0xb
+ 433 0075 49       		.uleb128 0x49
+ 434 0076 13       		.uleb128 0x13
+ 435 0077 02       		.uleb128 0x2
+ 436 0078 18       		.uleb128 0x18
+ 437 0079 00       		.byte	0
+ 438 007a 00       		.byte	0
+ 439 007b 09       		.uleb128 0x9
+ 440 007c 898201   		.uleb128 0x4109
+ 441 007f 01       		.byte	0x1
+ 442 0080 11       		.uleb128 0x11
+ 443 0081 01       		.uleb128 0x1
+ 444 0082 31       		.uleb128 0x31
+ 445 0083 13       		.uleb128 0x13
+ 446 0084 01       		.uleb128 0x1
+ 447 0085 13       		.uleb128 0x13
+ 448 0086 00       		.byte	0
+ 449 0087 00       		.byte	0
+ 450 0088 0A       		.uleb128 0xa
+ 451 0089 8A8201   		.uleb128 0x410a
+ 452 008c 00       		.byte	0
+ 453 008d 02       		.uleb128 0x2
+ 454 008e 18       		.uleb128 0x18
+ 455 008f 9142     		.uleb128 0x2111
+ 456 0091 18       		.uleb128 0x18
+ 457 0092 00       		.byte	0
+ 458 0093 00       		.byte	0
+ 459 0094 0B       		.uleb128 0xb
+ 460 0095 898201   		.uleb128 0x4109
+ 461 0098 01       		.byte	0x1
+ 462 0099 11       		.uleb128 0x11
+ 463 009a 01       		.uleb128 0x1
+ 464 009b 31       		.uleb128 0x31
+ 465 009c 13       		.uleb128 0x13
+ 466 009d 00       		.byte	0
+ 467 009e 00       		.byte	0
+ 468 009f 0C       		.uleb128 0xc
+ 469 00a0 2E       		.uleb128 0x2e
+ 470 00a1 00       		.byte	0
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 10
 
 
- 451 0213 0F       		.uleb128 0xf
- 452 0214 94000000 		.4byte	.LASF24
- 453 0218 04       		.byte	0x4
- 454 0219 13       		.byte	0x13
- 455 021a F2010000 		.4byte	0x1f2
- 456 021e 05       		.uleb128 0x5
- 457 021f 03       		.byte	0x3
- 458 0220 00000000 		.4byte	waterlevel
- 459 0224 0D       		.uleb128 0xd
- 460 0225 8C000000 		.4byte	0x8c
- 461 0229 34020000 		.4byte	0x234
- 462 022d 0E       		.uleb128 0xe
- 463 022e AC000000 		.4byte	0xac
- 464 0232 07       		.byte	0x7
- 465 0233 00       		.byte	0
- 466 0234 0F       		.uleb128 0xf
- 467 0235 6F000000 		.4byte	.LASF25
- 468 0239 04       		.byte	0x4
- 469 023a 14       		.byte	0x14
- 470 023b 24020000 		.4byte	0x224
- 471 023f 05       		.uleb128 0x5
- 472 0240 03       		.byte	0x3
- 473 0241 00000000 		.4byte	temperature
- 474 0245 0F       		.uleb128 0xf
- 475 0246 26010000 		.4byte	.LASF26
- 476 024a 04       		.byte	0x4
- 477 024b 15       		.byte	0x15
- 478 024c 24020000 		.4byte	0x224
- 479 0250 05       		.uleb128 0x5
- 480 0251 03       		.byte	0x3
- 481 0252 00000000 		.4byte	batterylevel
- 482 0256 0F       		.uleb128 0xf
- 483 0257 89000000 		.4byte	.LASF27
- 484 025b 04       		.byte	0x4
- 485 025c 16       		.byte	0x16
- 486 025d 24020000 		.4byte	0x224
- 487 0261 05       		.uleb128 0x5
- 488 0262 03       		.byte	0x3
- 489 0263 00000000 		.4byte	lightlevel
- 490 0267 0F       		.uleb128 0xf
- 491 0268 B1000000 		.4byte	.LASF28
- 492 026c 05       		.byte	0x5
- 493 026d 11       		.byte	0x11
- 494 026e 8C000000 		.4byte	0x8c
- 495 0272 05       		.uleb128 0x5
- 496 0273 03       		.byte	0x3
- 497 0274 00000000 		.4byte	indexnummer1
- 498 0278 10       		.uleb128 0x10
- 499 0279 494400   		.ascii	"ID\000"
- 500 027c 03       		.byte	0x3
- 501 027d 14       		.byte	0x14
- 502 027e 81000000 		.4byte	0x81
- 503 0282 05       		.uleb128 0x5
- 504 0283 03       		.byte	0x3
- 505 0284 00000000 		.4byte	ID
- 506 0288 0F       		.uleb128 0xf
- 507 0289 E0000000 		.4byte	.LASF29
-ARM GAS  C:\temp\ccCUvomS.s 			page 11
+ 471 00a2 3F       		.uleb128 0x3f
+ 472 00a3 19       		.uleb128 0x19
+ 473 00a4 03       		.uleb128 0x3
+ 474 00a5 0E       		.uleb128 0xe
+ 475 00a6 3A       		.uleb128 0x3a
+ 476 00a7 0B       		.uleb128 0xb
+ 477 00a8 3B       		.uleb128 0x3b
+ 478 00a9 0B       		.uleb128 0xb
+ 479 00aa 49       		.uleb128 0x49
+ 480 00ab 13       		.uleb128 0x13
+ 481 00ac 11       		.uleb128 0x11
+ 482 00ad 01       		.uleb128 0x1
+ 483 00ae 12       		.uleb128 0x12
+ 484 00af 06       		.uleb128 0x6
+ 485 00b0 40       		.uleb128 0x40
+ 486 00b1 18       		.uleb128 0x18
+ 487 00b2 9742     		.uleb128 0x2117
+ 488 00b4 19       		.uleb128 0x19
+ 489 00b5 00       		.byte	0
+ 490 00b6 00       		.byte	0
+ 491 00b7 0D       		.uleb128 0xd
+ 492 00b8 34       		.uleb128 0x34
+ 493 00b9 00       		.byte	0
+ 494 00ba 03       		.uleb128 0x3
+ 495 00bb 0E       		.uleb128 0xe
+ 496 00bc 3A       		.uleb128 0x3a
+ 497 00bd 0B       		.uleb128 0xb
+ 498 00be 3B       		.uleb128 0x3b
+ 499 00bf 0B       		.uleb128 0xb
+ 500 00c0 49       		.uleb128 0x49
+ 501 00c1 13       		.uleb128 0x13
+ 502 00c2 3F       		.uleb128 0x3f
+ 503 00c3 19       		.uleb128 0x19
+ 504 00c4 02       		.uleb128 0x2
+ 505 00c5 18       		.uleb128 0x18
+ 506 00c6 00       		.byte	0
+ 507 00c7 00       		.byte	0
+ 508 00c8 0E       		.uleb128 0xe
+ 509 00c9 34       		.uleb128 0x34
+ 510 00ca 00       		.byte	0
+ 511 00cb 03       		.uleb128 0x3
+ 512 00cc 08       		.uleb128 0x8
+ 513 00cd 3A       		.uleb128 0x3a
+ 514 00ce 0B       		.uleb128 0xb
+ 515 00cf 3B       		.uleb128 0x3b
+ 516 00d0 0B       		.uleb128 0xb
+ 517 00d1 49       		.uleb128 0x49
+ 518 00d2 13       		.uleb128 0x13
+ 519 00d3 3F       		.uleb128 0x3f
+ 520 00d4 19       		.uleb128 0x19
+ 521 00d5 02       		.uleb128 0x2
+ 522 00d6 18       		.uleb128 0x18
+ 523 00d7 00       		.byte	0
+ 524 00d8 00       		.byte	0
+ 525 00d9 0F       		.uleb128 0xf
+ 526 00da 2E       		.uleb128 0x2e
+ 527 00db 01       		.byte	0x1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 11
 
 
- 508 028d 03       		.byte	0x3
- 509 028e 15       		.byte	0x15
- 510 028f 81000000 		.4byte	0x81
- 511 0293 05       		.uleb128 0x5
- 512 0294 03       		.byte	0x3
- 513 0295 00000000 		.4byte	wantedMoisture
- 514 0299 0F       		.uleb128 0xf
- 515 029a F1020000 		.4byte	.LASF30
- 516 029e 03       		.byte	0x3
- 517 029f 16       		.byte	0x16
- 518 02a0 81000000 		.4byte	0x81
- 519 02a4 05       		.uleb128 0x5
- 520 02a5 03       		.byte	0x3
- 521 02a6 00000000 		.4byte	maxTemperature
- 522 02aa 0F       		.uleb128 0xf
- 523 02ab 00000000 		.4byte	.LASF31
- 524 02af 03       		.byte	0x3
- 525 02b0 17       		.byte	0x17
- 526 02b1 81000000 		.4byte	0x81
- 527 02b5 05       		.uleb128 0x5
- 528 02b6 03       		.byte	0x3
- 529 02b7 00000000 		.4byte	light
- 530 02bb 0F       		.uleb128 0xf
- 531 02bc EF000000 		.4byte	.LASF32
- 532 02c0 03       		.byte	0x3
- 533 02c1 18       		.byte	0x18
- 534 02c2 81000000 		.4byte	0x81
- 535 02c6 05       		.uleb128 0x5
- 536 02c7 03       		.byte	0x3
- 537 02c8 00000000 		.4byte	battery
- 538 02cc 0F       		.uleb128 0xf
- 539 02cd 3A020000 		.4byte	.LASF33
- 540 02d1 03       		.byte	0x3
- 541 02d2 19       		.byte	0x19
- 542 02d3 81000000 		.4byte	0x81
- 543 02d7 05       		.uleb128 0x5
- 544 02d8 03       		.byte	0x3
- 545 02d9 00000000 		.4byte	water
- 546 02dd 0F       		.uleb128 0xf
- 547 02de 59010000 		.4byte	.LASF34
- 548 02e2 03       		.byte	0x3
- 549 02e3 1A       		.byte	0x1a
- 550 02e4 81000000 		.4byte	0x81
- 551 02e8 05       		.uleb128 0x5
- 552 02e9 03       		.byte	0x3
- 553 02ea 00000000 		.4byte	wantedRotate
- 554 02ee 0F       		.uleb128 0xf
- 555 02ef 0B000000 		.4byte	.LASF35
- 556 02f3 03       		.byte	0x3
- 557 02f4 25       		.byte	0x25
- 558 02f5 B3000000 		.4byte	0xb3
- 559 02f9 05       		.uleb128 0x5
- 560 02fa 03       		.byte	0x3
- 561 02fb 00000000 		.4byte	sensors_
- 562 02ff 0F       		.uleb128 0xf
- 563 0300 29000000 		.4byte	.LASF36
- 564 0304 01       		.byte	0x1
-ARM GAS  C:\temp\ccCUvomS.s 			page 12
+ 528 00dc 3F       		.uleb128 0x3f
+ 529 00dd 19       		.uleb128 0x19
+ 530 00de 03       		.uleb128 0x3
+ 531 00df 0E       		.uleb128 0xe
+ 532 00e0 3A       		.uleb128 0x3a
+ 533 00e1 0B       		.uleb128 0xb
+ 534 00e2 3B       		.uleb128 0x3b
+ 535 00e3 0B       		.uleb128 0xb
+ 536 00e4 49       		.uleb128 0x49
+ 537 00e5 13       		.uleb128 0x13
+ 538 00e6 3C       		.uleb128 0x3c
+ 539 00e7 19       		.uleb128 0x19
+ 540 00e8 01       		.uleb128 0x1
+ 541 00e9 13       		.uleb128 0x13
+ 542 00ea 00       		.byte	0
+ 543 00eb 00       		.byte	0
+ 544 00ec 10       		.uleb128 0x10
+ 545 00ed 18       		.uleb128 0x18
+ 546 00ee 00       		.byte	0
+ 547 00ef 00       		.byte	0
+ 548 00f0 00       		.byte	0
+ 549 00f1 11       		.uleb128 0x11
+ 550 00f2 2E       		.uleb128 0x2e
+ 551 00f3 01       		.byte	0x1
+ 552 00f4 3F       		.uleb128 0x3f
+ 553 00f5 19       		.uleb128 0x19
+ 554 00f6 03       		.uleb128 0x3
+ 555 00f7 0E       		.uleb128 0xe
+ 556 00f8 3A       		.uleb128 0x3a
+ 557 00f9 0B       		.uleb128 0xb
+ 558 00fa 3B       		.uleb128 0x3b
+ 559 00fb 0B       		.uleb128 0xb
+ 560 00fc 27       		.uleb128 0x27
+ 561 00fd 19       		.uleb128 0x19
+ 562 00fe 3C       		.uleb128 0x3c
+ 563 00ff 19       		.uleb128 0x19
+ 564 0100 00       		.byte	0
+ 565 0101 00       		.byte	0
+ 566 0102 12       		.uleb128 0x12
+ 567 0103 05       		.uleb128 0x5
+ 568 0104 00       		.byte	0
+ 569 0105 49       		.uleb128 0x49
+ 570 0106 13       		.uleb128 0x13
+ 571 0107 00       		.byte	0
+ 572 0108 00       		.byte	0
+ 573 0109 00       		.byte	0
+ 574              		.section	.debug_aranges,"",%progbits
+ 575 0000 24000000 		.4byte	0x24
+ 576 0004 0200     		.2byte	0x2
+ 577 0006 00000000 		.4byte	.Ldebug_info0
+ 578 000a 04       		.byte	0x4
+ 579 000b 00       		.byte	0
+ 580 000c 0000     		.2byte	0
+ 581 000e 0000     		.2byte	0
+ 582 0010 00000000 		.4byte	.LFB33
+ 583 0014 14000000 		.4byte	.LFE33-.LFB33
+ 584 0018 00000000 		.4byte	.LFB34
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 12
 
 
- 565 0305 0E       		.byte	0xe
- 566 0306 6B000000 		.4byte	0x6b
- 567 030a 05       		.uleb128 0x5
- 568 030b 03       		.byte	0x3
- 569 030c 00000000 		.4byte	count
- 570 0310 11       		.uleb128 0x11
- 571 0311 40020000 		.4byte	.LASF37
- 572 0315 04       		.byte	0x4
- 573 0316 1B       		.byte	0x1b
- 574 0317 8C000000 		.4byte	0x8c
- 575 031b 11       		.uleb128 0x11
- 576 031c 33010000 		.4byte	.LASF38
- 577 0320 04       		.byte	0x4
- 578 0321 1C       		.byte	0x1c
- 579 0322 8C000000 		.4byte	0x8c
- 580 0326 11       		.uleb128 0x11
- 581 0327 62000000 		.4byte	.LASF39
- 582 032b 04       		.byte	0x4
- 583 032c 18       		.byte	0x18
- 584 032d 8C000000 		.4byte	0x8c
- 585 0331 11       		.uleb128 0x11
- 586 0332 C4000000 		.4byte	.LASF40
- 587 0336 04       		.byte	0x4
- 588 0337 1A       		.byte	0x1a
- 589 0338 8C000000 		.4byte	0x8c
- 590 033c 11       		.uleb128 0x11
- 591 033d 0B020000 		.4byte	.LASF41
- 592 0341 04       		.byte	0x4
- 593 0342 19       		.byte	0x19
- 594 0343 8C000000 		.4byte	0x8c
- 595 0347 12       		.uleb128 0x12
- 596 0348 00030000 		.4byte	.LASF42
- 597 034c 06       		.byte	0x6
- 598 034d 57       		.byte	0x57
- 599 034e 58030000 		.4byte	0x358
- 600 0352 13       		.uleb128 0x13
- 601 0353 76000000 		.4byte	0x76
- 602 0357 00       		.byte	0
- 603 0358 12       		.uleb128 0x12
- 604 0359 8A020000 		.4byte	.LASF43
- 605 035d 07       		.byte	0x7
- 606 035e 20       		.byte	0x20
- 607 035f 69030000 		.4byte	0x369
- 608 0363 13       		.uleb128 0x13
- 609 0364 B3000000 		.4byte	0xb3
- 610 0368 00       		.byte	0
- 611 0369 12       		.uleb128 0x12
- 612 036a D2000000 		.4byte	.LASF44
- 613 036e 05       		.byte	0x5
- 614 036f 13       		.byte	0x13
- 615 0370 7A030000 		.4byte	0x37a
- 616 0374 13       		.uleb128 0x13
- 617 0375 8C000000 		.4byte	0x8c
- 618 0379 00       		.byte	0
- 619 037a 14       		.uleb128 0x14
- 620 037b 20010000 		.4byte	.LASF49
- 621 037f 08       		.byte	0x8
-ARM GAS  C:\temp\ccCUvomS.s 			page 13
+ 585 001c 0C000000 		.4byte	.LFE34-.LFB34
+ 586 0020 00000000 		.4byte	0
+ 587 0024 00000000 		.4byte	0
+ 588              		.section	.debug_ranges,"",%progbits
+ 589              	.Ldebug_ranges0:
+ 590 0000 00000000 		.4byte	.LFB33
+ 591 0004 14000000 		.4byte	.LFE33
+ 592 0008 00000000 		.4byte	.LFB34
+ 593 000c 0C000000 		.4byte	.LFE34
+ 594 0010 00000000 		.4byte	0
+ 595 0014 00000000 		.4byte	0
+ 596              		.section	.debug_line,"",%progbits
+ 597              	.Ldebug_line0:
+ 598 0000 9D000000 		.section	.debug_str,"MS",%progbits,1
+ 598      02007200 
+ 598      00000201 
+ 598      FB0E0D00 
+ 598      01010101 
+ 599              	.LASF17:
+ 600 0000 63757272 		.ascii	"currentBattery\000"
+ 600      656E7442 
+ 600      61747465 
+ 600      727900
+ 601              	.LASF29:
+ 602 000f 67657449 		.ascii	"getID\000"
+ 602      4400
+ 603              	.LASF4:
+ 604 0015 6C6F6E67 		.ascii	"long int\000"
+ 604      20696E74 
+ 604      00
+ 605              	.LASF12:
+ 606 001e 666C6F61 		.ascii	"float\000"
+ 606      7400
+ 607              	.LASF30:
+ 608 0024 67657456 		.ascii	"getValues\000"
+ 608      616C7565 
+ 608      7300
+ 609              	.LASF1:
+ 610 002e 756E7369 		.ascii	"unsigned char\000"
+ 610      676E6564 
+ 610      20636861 
+ 610      7200
+ 611              	.LASF11:
+ 612 003c 696E7431 		.ascii	"int16\000"
+ 612      3600
+ 613              	.LASF5:
+ 614 0042 6C6F6E67 		.ascii	"long unsigned int\000"
+ 614      20756E73 
+ 614      69676E65 
+ 614      6420696E 
+ 614      7400
+ 615              	.LASF21:
+ 616 0054 696E6465 		.ascii	"indexnummer1\000"
+ 616      786E756D 
+ 616      6D657231 
+ 616      00
+ 617              	.LASF3:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 13
 
 
- 622 0380 11       		.byte	0x11
- 623 0381 87030000 		.4byte	0x387
- 624 0385 15       		.uleb128 0x15
- 625 0386 00       		.byte	0
- 626 0387 16       		.uleb128 0x16
- 627 0388 CD000000 		.4byte	.LASF50
- 628 038c 08       		.byte	0x8
- 629 038d 12       		.byte	0x12
- 630 038e 15       		.uleb128 0x15
- 631 038f 00       		.byte	0
- 632 0390 00       		.byte	0
- 633              		.section	.debug_abbrev,"",%progbits
- 634              	.Ldebug_abbrev0:
- 635 0000 01       		.uleb128 0x1
- 636 0001 11       		.uleb128 0x11
- 637 0002 01       		.byte	0x1
- 638 0003 25       		.uleb128 0x25
- 639 0004 0E       		.uleb128 0xe
- 640 0005 13       		.uleb128 0x13
- 641 0006 0B       		.uleb128 0xb
- 642 0007 03       		.uleb128 0x3
- 643 0008 0E       		.uleb128 0xe
- 644 0009 1B       		.uleb128 0x1b
- 645 000a 0E       		.uleb128 0xe
- 646 000b 55       		.uleb128 0x55
- 647 000c 17       		.uleb128 0x17
- 648 000d 11       		.uleb128 0x11
- 649 000e 01       		.uleb128 0x1
- 650 000f 10       		.uleb128 0x10
- 651 0010 17       		.uleb128 0x17
- 652 0011 00       		.byte	0
- 653 0012 00       		.byte	0
- 654 0013 02       		.uleb128 0x2
- 655 0014 24       		.uleb128 0x24
- 656 0015 00       		.byte	0
- 657 0016 0B       		.uleb128 0xb
- 658 0017 0B       		.uleb128 0xb
- 659 0018 3E       		.uleb128 0x3e
- 660 0019 0B       		.uleb128 0xb
- 661 001a 03       		.uleb128 0x3
- 662 001b 0E       		.uleb128 0xe
- 663 001c 00       		.byte	0
- 664 001d 00       		.byte	0
- 665 001e 03       		.uleb128 0x3
- 666 001f 24       		.uleb128 0x24
- 667 0020 00       		.byte	0
- 668 0021 0B       		.uleb128 0xb
- 669 0022 0B       		.uleb128 0xb
- 670 0023 3E       		.uleb128 0x3e
- 671 0024 0B       		.uleb128 0xb
- 672 0025 03       		.uleb128 0x3
- 673 0026 08       		.uleb128 0x8
- 674 0027 00       		.byte	0
- 675 0028 00       		.byte	0
- 676 0029 04       		.uleb128 0x4
- 677 002a 16       		.uleb128 0x16
- 678 002b 00       		.byte	0
-ARM GAS  C:\temp\ccCUvomS.s 			page 14
+ 618 0061 73686F72 		.ascii	"short unsigned int\000"
+ 618      7420756E 
+ 618      7369676E 
+ 618      65642069 
+ 618      6E7400
+ 619              	.LASF13:
+ 620 0074 646F7562 		.ascii	"double\000"
+ 620      6C6500
+ 621              	.LASF22:
+ 622 007b 77616E74 		.ascii	"wantedMoisture\000"
+ 622      65644D6F 
+ 622      69737475 
+ 622      726500
+ 623              	.LASF10:
+ 624 008a 696E7438 		.ascii	"int8\000"
+ 624      00
+ 625              	.LASF16:
+ 626 008f 63757272 		.ascii	"currentMoisture\000"
+ 626      656E744D 
+ 626      6F697374 
+ 626      75726500 
+ 627              	.LASF9:
+ 628 009f 75696E74 		.ascii	"uint32\000"
+ 628      333200
+ 629              	.LASF8:
+ 630 00a6 756E7369 		.ascii	"unsigned int\000"
+ 630      676E6564 
+ 630      20696E74 
+ 630      00
+ 631              	.LASF7:
+ 632 00b3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 632      206C6F6E 
+ 632      6720756E 
+ 632      7369676E 
+ 632      65642069 
+ 633              	.LASF23:
+ 634 00ca 77616E74 		.ascii	"wantedRotate\000"
+ 634      6564526F 
+ 634      74617465 
+ 634      00
+ 635              	.LASF15:
+ 636 00d7 73697A65 		.ascii	"sizetype\000"
+ 636      74797065 
+ 636      00
+ 637              	.LASF24:
+ 638 00e0 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 638      4320342E 
+ 638      392E3320 
+ 638      32303135 
+ 638      30333033 
+ 639 0113 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 639      20726576 
+ 639      6973696F 
+ 639      6E203232 
+ 639      31323230 
+ 640 0146 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 640      66756E63 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 14
 
 
- 679 002c 03       		.uleb128 0x3
- 680 002d 0E       		.uleb128 0xe
- 681 002e 3A       		.uleb128 0x3a
- 682 002f 0B       		.uleb128 0xb
- 683 0030 3B       		.uleb128 0x3b
- 684 0031 0B       		.uleb128 0xb
- 685 0032 49       		.uleb128 0x49
- 686 0033 13       		.uleb128 0x13
- 687 0034 00       		.byte	0
- 688 0035 00       		.byte	0
- 689 0036 05       		.uleb128 0x5
- 690 0037 13       		.uleb128 0x13
- 691 0038 01       		.byte	0x1
- 692 0039 03       		.uleb128 0x3
- 693 003a 0E       		.uleb128 0xe
- 694 003b 0B       		.uleb128 0xb
- 695 003c 0B       		.uleb128 0xb
- 696 003d 3A       		.uleb128 0x3a
- 697 003e 0B       		.uleb128 0xb
- 698 003f 3B       		.uleb128 0x3b
- 699 0040 0B       		.uleb128 0xb
- 700 0041 01       		.uleb128 0x1
- 701 0042 13       		.uleb128 0x13
- 702 0043 00       		.byte	0
- 703 0044 00       		.byte	0
- 704 0045 06       		.uleb128 0x6
- 705 0046 0D       		.uleb128 0xd
- 706 0047 00       		.byte	0
- 707 0048 03       		.uleb128 0x3
- 708 0049 0E       		.uleb128 0xe
- 709 004a 3A       		.uleb128 0x3a
- 710 004b 0B       		.uleb128 0xb
- 711 004c 3B       		.uleb128 0x3b
- 712 004d 0B       		.uleb128 0xb
- 713 004e 49       		.uleb128 0x49
- 714 004f 13       		.uleb128 0x13
- 715 0050 38       		.uleb128 0x38
- 716 0051 0B       		.uleb128 0xb
- 717 0052 00       		.byte	0
- 718 0053 00       		.byte	0
- 719 0054 07       		.uleb128 0x7
- 720 0055 2E       		.uleb128 0x2e
- 721 0056 01       		.byte	0x1
- 722 0057 3F       		.uleb128 0x3f
- 723 0058 19       		.uleb128 0x19
- 724 0059 03       		.uleb128 0x3
- 725 005a 0E       		.uleb128 0xe
- 726 005b 3A       		.uleb128 0x3a
- 727 005c 0B       		.uleb128 0xb
- 728 005d 3B       		.uleb128 0x3b
- 729 005e 0B       		.uleb128 0xb
- 730 005f 11       		.uleb128 0x11
- 731 0060 01       		.uleb128 0x1
- 732 0061 12       		.uleb128 0x12
- 733 0062 06       		.uleb128 0x6
- 734 0063 40       		.uleb128 0x40
- 735 0064 18       		.uleb128 0x18
-ARM GAS  C:\temp\ccCUvomS.s 			page 15
+ 640      74696F6E 
+ 640      2D736563 
+ 640      74696F6E 
+ 641              	.LASF6:
+ 642 016e 6C6F6E67 		.ascii	"long long int\000"
+ 642      206C6F6E 
+ 642      6720696E 
+ 642      7400
+ 643              	.LASF14:
+ 644 017c 63686172 		.ascii	"char\000"
+ 644      00
+ 645              	.LASF28:
+ 646 0181 76616C75 		.ascii	"values\000"
+ 646      657300
+ 647              	.LASF20:
+ 648 0188 63757272 		.ascii	"currentTemperature\000"
+ 648      656E7454 
+ 648      656D7065 
+ 648      72617475 
+ 648      726500
+ 649              	.LASF18:
+ 650 019b 63757272 		.ascii	"currentWater\000"
+ 650      656E7457 
+ 650      61746572 
+ 650      00
+ 651              	.LASF2:
+ 652 01a8 73686F72 		.ascii	"short int\000"
+ 652      7420696E 
+ 652      7400
+ 653              	.LASF27:
+ 654 01b2 75706461 		.ascii	"updateParameters\000"
+ 654      74655061 
+ 654      72616D65 
+ 654      74657273 
+ 654      00
+ 655              	.LASF26:
+ 656 01c3 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 656      73657273 
+ 656      5C4C6169 
+ 656      6D6F6E61 
+ 656      7349676E 
+ 657 01f2 2E637964 		.ascii	".cydsn\000"
+ 657      736E00
+ 658              	.LASF25:
+ 659 01f9 2E5C506C 		.ascii	".\\Plantcontrol.c\000"
+ 659      616E7463 
+ 659      6F6E7472 
+ 659      6F6C2E63 
+ 659      00
+ 660              	.LASF19:
+ 661 020a 63757272 		.ascii	"currentLight\000"
+ 661      656E744C 
+ 661      69676874 
+ 661      00
+ 662              	.LASF0:
+ 663 0217 7369676E 		.ascii	"signed char\000"
+ 663      65642063 
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cc2Fg9QN.s 			page 15
 
 
- 736 0065 9742     		.uleb128 0x2117
- 737 0067 19       		.uleb128 0x19
- 738 0068 01       		.uleb128 0x1
- 739 0069 13       		.uleb128 0x13
- 740 006a 00       		.byte	0
- 741 006b 00       		.byte	0
- 742 006c 08       		.uleb128 0x8
- 743 006d 898201   		.uleb128 0x4109
- 744 0070 00       		.byte	0
- 745 0071 11       		.uleb128 0x11
- 746 0072 01       		.uleb128 0x1
- 747 0073 31       		.uleb128 0x31
- 748 0074 13       		.uleb128 0x13
- 749 0075 00       		.byte	0
- 750 0076 00       		.byte	0
- 751 0077 09       		.uleb128 0x9
- 752 0078 2E       		.uleb128 0x2e
- 753 0079 01       		.byte	0x1
- 754 007a 3F       		.uleb128 0x3f
- 755 007b 19       		.uleb128 0x19
- 756 007c 03       		.uleb128 0x3
- 757 007d 08       		.uleb128 0x8
- 758 007e 3A       		.uleb128 0x3a
- 759 007f 0B       		.uleb128 0xb
- 760 0080 3B       		.uleb128 0x3b
- 761 0081 0B       		.uleb128 0xb
- 762 0082 11       		.uleb128 0x11
- 763 0083 01       		.uleb128 0x1
- 764 0084 12       		.uleb128 0x12
- 765 0085 06       		.uleb128 0x6
- 766 0086 40       		.uleb128 0x40
- 767 0087 18       		.uleb128 0x18
- 768 0088 9742     		.uleb128 0x2117
- 769 008a 19       		.uleb128 0x19
- 770 008b 01       		.uleb128 0x1
- 771 008c 13       		.uleb128 0x13
- 772 008d 00       		.byte	0
- 773 008e 00       		.byte	0
- 774 008f 0A       		.uleb128 0xa
- 775 0090 898201   		.uleb128 0x4109
- 776 0093 01       		.byte	0x1
- 777 0094 11       		.uleb128 0x11
- 778 0095 01       		.uleb128 0x1
- 779 0096 31       		.uleb128 0x31
- 780 0097 13       		.uleb128 0x13
- 781 0098 01       		.uleb128 0x1
- 782 0099 13       		.uleb128 0x13
- 783 009a 00       		.byte	0
- 784 009b 00       		.byte	0
- 785 009c 0B       		.uleb128 0xb
- 786 009d 8A8201   		.uleb128 0x410a
- 787 00a0 00       		.byte	0
- 788 00a1 02       		.uleb128 0x2
- 789 00a2 18       		.uleb128 0x18
- 790 00a3 9142     		.uleb128 0x2111
- 791 00a5 18       		.uleb128 0x18
- 792 00a6 00       		.byte	0
-ARM GAS  C:\temp\ccCUvomS.s 			page 16
-
-
- 793 00a7 00       		.byte	0
- 794 00a8 0C       		.uleb128 0xc
- 795 00a9 898201   		.uleb128 0x4109
- 796 00ac 01       		.byte	0x1
- 797 00ad 11       		.uleb128 0x11
- 798 00ae 01       		.uleb128 0x1
- 799 00af 31       		.uleb128 0x31
- 800 00b0 13       		.uleb128 0x13
- 801 00b1 00       		.byte	0
- 802 00b2 00       		.byte	0
- 803 00b3 0D       		.uleb128 0xd
- 804 00b4 01       		.uleb128 0x1
- 805 00b5 01       		.byte	0x1
- 806 00b6 49       		.uleb128 0x49
- 807 00b7 13       		.uleb128 0x13
- 808 00b8 01       		.uleb128 0x1
- 809 00b9 13       		.uleb128 0x13
- 810 00ba 00       		.byte	0
- 811 00bb 00       		.byte	0
- 812 00bc 0E       		.uleb128 0xe
- 813 00bd 21       		.uleb128 0x21
- 814 00be 00       		.byte	0
- 815 00bf 49       		.uleb128 0x49
- 816 00c0 13       		.uleb128 0x13
- 817 00c1 2F       		.uleb128 0x2f
- 818 00c2 0B       		.uleb128 0xb
- 819 00c3 00       		.byte	0
- 820 00c4 00       		.byte	0
- 821 00c5 0F       		.uleb128 0xf
- 822 00c6 34       		.uleb128 0x34
- 823 00c7 00       		.byte	0
- 824 00c8 03       		.uleb128 0x3
- 825 00c9 0E       		.uleb128 0xe
- 826 00ca 3A       		.uleb128 0x3a
- 827 00cb 0B       		.uleb128 0xb
- 828 00cc 3B       		.uleb128 0x3b
- 829 00cd 0B       		.uleb128 0xb
- 830 00ce 49       		.uleb128 0x49
- 831 00cf 13       		.uleb128 0x13
- 832 00d0 3F       		.uleb128 0x3f
- 833 00d1 19       		.uleb128 0x19
- 834 00d2 02       		.uleb128 0x2
- 835 00d3 18       		.uleb128 0x18
- 836 00d4 00       		.byte	0
- 837 00d5 00       		.byte	0
- 838 00d6 10       		.uleb128 0x10
- 839 00d7 34       		.uleb128 0x34
- 840 00d8 00       		.byte	0
- 841 00d9 03       		.uleb128 0x3
- 842 00da 08       		.uleb128 0x8
- 843 00db 3A       		.uleb128 0x3a
- 844 00dc 0B       		.uleb128 0xb
- 845 00dd 3B       		.uleb128 0x3b
- 846 00de 0B       		.uleb128 0xb
- 847 00df 49       		.uleb128 0x49
- 848 00e0 13       		.uleb128 0x13
- 849 00e1 3F       		.uleb128 0x3f
-ARM GAS  C:\temp\ccCUvomS.s 			page 17
-
-
- 850 00e2 19       		.uleb128 0x19
- 851 00e3 02       		.uleb128 0x2
- 852 00e4 18       		.uleb128 0x18
- 853 00e5 00       		.byte	0
- 854 00e6 00       		.byte	0
- 855 00e7 11       		.uleb128 0x11
- 856 00e8 2E       		.uleb128 0x2e
- 857 00e9 00       		.byte	0
- 858 00ea 3F       		.uleb128 0x3f
- 859 00eb 19       		.uleb128 0x19
- 860 00ec 03       		.uleb128 0x3
- 861 00ed 0E       		.uleb128 0xe
- 862 00ee 3A       		.uleb128 0x3a
- 863 00ef 0B       		.uleb128 0xb
- 864 00f0 3B       		.uleb128 0x3b
- 865 00f1 0B       		.uleb128 0xb
- 866 00f2 27       		.uleb128 0x27
- 867 00f3 19       		.uleb128 0x19
- 868 00f4 49       		.uleb128 0x49
- 869 00f5 13       		.uleb128 0x13
- 870 00f6 3C       		.uleb128 0x3c
- 871 00f7 19       		.uleb128 0x19
- 872 00f8 00       		.byte	0
- 873 00f9 00       		.byte	0
- 874 00fa 12       		.uleb128 0x12
- 875 00fb 2E       		.uleb128 0x2e
- 876 00fc 01       		.byte	0x1
- 877 00fd 3F       		.uleb128 0x3f
- 878 00fe 19       		.uleb128 0x19
- 879 00ff 03       		.uleb128 0x3
- 880 0100 0E       		.uleb128 0xe
- 881 0101 3A       		.uleb128 0x3a
- 882 0102 0B       		.uleb128 0xb
- 883 0103 3B       		.uleb128 0x3b
- 884 0104 0B       		.uleb128 0xb
- 885 0105 27       		.uleb128 0x27
- 886 0106 19       		.uleb128 0x19
- 887 0107 3C       		.uleb128 0x3c
- 888 0108 19       		.uleb128 0x19
- 889 0109 01       		.uleb128 0x1
- 890 010a 13       		.uleb128 0x13
- 891 010b 00       		.byte	0
- 892 010c 00       		.byte	0
- 893 010d 13       		.uleb128 0x13
- 894 010e 05       		.uleb128 0x5
- 895 010f 00       		.byte	0
- 896 0110 49       		.uleb128 0x49
- 897 0111 13       		.uleb128 0x13
- 898 0112 00       		.byte	0
- 899 0113 00       		.byte	0
- 900 0114 14       		.uleb128 0x14
- 901 0115 2E       		.uleb128 0x2e
- 902 0116 01       		.byte	0x1
- 903 0117 3F       		.uleb128 0x3f
- 904 0118 19       		.uleb128 0x19
- 905 0119 03       		.uleb128 0x3
- 906 011a 0E       		.uleb128 0xe
-ARM GAS  C:\temp\ccCUvomS.s 			page 18
-
-
- 907 011b 3A       		.uleb128 0x3a
- 908 011c 0B       		.uleb128 0xb
- 909 011d 3B       		.uleb128 0x3b
- 910 011e 0B       		.uleb128 0xb
- 911 011f 3C       		.uleb128 0x3c
- 912 0120 19       		.uleb128 0x19
- 913 0121 01       		.uleb128 0x1
- 914 0122 13       		.uleb128 0x13
- 915 0123 00       		.byte	0
- 916 0124 00       		.byte	0
- 917 0125 15       		.uleb128 0x15
- 918 0126 18       		.uleb128 0x18
- 919 0127 00       		.byte	0
- 920 0128 00       		.byte	0
- 921 0129 00       		.byte	0
- 922 012a 16       		.uleb128 0x16
- 923 012b 2E       		.uleb128 0x2e
- 924 012c 01       		.byte	0x1
- 925 012d 3F       		.uleb128 0x3f
- 926 012e 19       		.uleb128 0x19
- 927 012f 03       		.uleb128 0x3
- 928 0130 0E       		.uleb128 0xe
- 929 0131 3A       		.uleb128 0x3a
- 930 0132 0B       		.uleb128 0xb
- 931 0133 3B       		.uleb128 0x3b
- 932 0134 0B       		.uleb128 0xb
- 933 0135 3C       		.uleb128 0x3c
- 934 0136 19       		.uleb128 0x19
- 935 0137 00       		.byte	0
- 936 0138 00       		.byte	0
- 937 0139 00       		.byte	0
- 938              		.section	.debug_aranges,"",%progbits
- 939 0000 24000000 		.4byte	0x24
- 940 0004 0200     		.2byte	0x2
- 941 0006 00000000 		.4byte	.Ldebug_info0
- 942 000a 04       		.byte	0x4
- 943 000b 00       		.byte	0
- 944 000c 0000     		.2byte	0
- 945 000e 0000     		.2byte	0
- 946 0010 00000000 		.4byte	.LFB33
- 947 0014 44000000 		.4byte	.LFE33-.LFB33
- 948 0018 00000000 		.4byte	.LFB34
- 949 001c 84000000 		.4byte	.LFE34-.LFB34
- 950 0020 00000000 		.4byte	0
- 951 0024 00000000 		.4byte	0
- 952              		.section	.debug_ranges,"",%progbits
- 953              	.Ldebug_ranges0:
- 954 0000 00000000 		.4byte	.LFB33
- 955 0004 44000000 		.4byte	.LFE33
- 956 0008 00000000 		.4byte	.LFB34
- 957 000c 84000000 		.4byte	.LFE34
- 958 0010 00000000 		.4byte	0
- 959 0014 00000000 		.4byte	0
- 960              		.section	.debug_line,"",%progbits
- 961              	.Ldebug_line0:
- 962 0000 DC000000 		.section	.debug_str,"MS",%progbits,1
- 962      02009E00 
-ARM GAS  C:\temp\ccCUvomS.s 			page 19
-
-
- 962      00000201 
- 962      FB0E0D00 
- 962      01010101 
- 963              	.LASF31:
- 964 0000 6C696768 		.ascii	"light\000"
- 964      7400
- 965              	.LASF15:
- 966 0006 63686172 		.ascii	"char\000"
- 966      00
- 967              	.LASF35:
- 968 000b 73656E73 		.ascii	"sensors_\000"
- 968      6F72735F 
- 968      00
- 969              	.LASF18:
- 970 0014 63757272 		.ascii	"currentBattery\000"
- 970      656E7442 
- 970      61747465 
- 970      727900
- 971              	.LASF13:
- 972 0023 666C6F61 		.ascii	"float\000"
- 972      7400
- 973              	.LASF36:
- 974 0029 636F756E 		.ascii	"count\000"
- 974      7400
- 975              	.LASF23:
- 976 002f 6D6F6973 		.ascii	"moisture\000"
- 976      74757265 
- 976      00
- 977              	.LASF4:
- 978 0038 6C6F6E67 		.ascii	"long int\000"
- 978      20696E74 
- 978      00
- 979              	.LASF3:
- 980 0041 73686F72 		.ascii	"short unsigned int\000"
- 980      7420756E 
- 980      7369676E 
- 980      65642069 
- 980      6E7400
- 981              	.LASF22:
- 982 0054 75706461 		.ascii	"updateSensors\000"
- 982      74655365 
- 982      6E736F72 
- 982      7300
- 983              	.LASF39:
- 984 0062 6765745F 		.ascii	"get_moisture\000"
- 984      6D6F6973 
- 984      74757265 
- 984      00
- 985              	.LASF25:
- 986 006f 74656D70 		.ascii	"temperature\000"
- 986      65726174 
- 986      75726500 
- 987              	.LASF1:
- 988 007b 756E7369 		.ascii	"unsigned char\000"
- 988      676E6564 
- 988      20636861 
- 988      7200
-ARM GAS  C:\temp\ccCUvomS.s 			page 20
-
-
- 989              	.LASF27:
- 990 0089 6C696768 		.ascii	"lightlevel\000"
- 990      746C6576 
- 990      656C00
- 991              	.LASF24:
- 992 0094 77617465 		.ascii	"waterlevel\000"
- 992      726C6576 
- 992      656C00
- 993              	.LASF5:
- 994 009f 6C6F6E67 		.ascii	"long unsigned int\000"
- 994      20756E73 
- 994      69676E65 
- 994      6420696E 
- 994      7400
- 995              	.LASF28:
- 996 00b1 696E6465 		.ascii	"indexnummer1\000"
- 996      786E756D 
- 996      6D657231 
- 996      00
- 997              	.LASF9:
- 998 00be 75696E74 		.ascii	"uint8\000"
- 998      3800
- 999              	.LASF40:
- 1000 00c4 6765745F 		.ascii	"get_temp\000"
- 1000      74656D70 
- 1000      00
- 1001              	.LASF50:
- 1002 00cd 73746F70 		.ascii	"stop\000"
- 1002      00
- 1003              	.LASF44:
- 1004 00d2 726F7461 		.ascii	"rotate\000"
- 1004      746500
- 1005              	.LASF14:
- 1006 00d9 646F7562 		.ascii	"double\000"
- 1006      6C6500
- 1007              	.LASF29:
- 1008 00e0 77616E74 		.ascii	"wantedMoisture\000"
- 1008      65644D6F 
- 1008      69737475 
- 1008      726500
- 1009              	.LASF32:
- 1010 00ef 62617474 		.ascii	"battery\000"
- 1010      65727900 
- 1011              	.LASF11:
- 1012 00f7 696E7438 		.ascii	"int8\000"
- 1012      00
- 1013              	.LASF17:
- 1014 00fc 63757272 		.ascii	"currentMoisture\000"
- 1014      656E744D 
- 1014      6F697374 
- 1014      75726500 
- 1015              	.LASF10:
- 1016 010c 75696E74 		.ascii	"uint32\000"
- 1016      333200
- 1017              	.LASF8:
- 1018 0113 756E7369 		.ascii	"unsigned int\000"
- 1018      676E6564 
-ARM GAS  C:\temp\ccCUvomS.s 			page 21
-
-
- 1018      20696E74 
- 1018      00
- 1019              	.LASF49:
- 1020 0120 73746172 		.ascii	"start\000"
- 1020      7400
- 1021              	.LASF26:
- 1022 0126 62617474 		.ascii	"batterylevel\000"
- 1022      6572796C 
- 1022      6576656C 
- 1022      00
- 1023              	.LASF38:
- 1024 0133 6765745F 		.ascii	"get_lightlevel\000"
- 1024      6C696768 
- 1024      746C6576 
- 1024      656C00
- 1025              	.LASF7:
- 1026 0142 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1026      206C6F6E 
- 1026      6720756E 
- 1026      7369676E 
- 1026      65642069 
- 1027              	.LASF34:
- 1028 0159 77616E74 		.ascii	"wantedRotate\000"
- 1028      6564526F 
- 1028      74617465 
- 1028      00
- 1029              	.LASF16:
- 1030 0166 73697A65 		.ascii	"sizetype\000"
- 1030      74797065 
- 1030      00
- 1031              	.LASF45:
- 1032 016f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1032      4320342E 
- 1032      392E3320 
- 1032      32303135 
- 1032      30333033 
- 1033 01a2 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 1033      20726576 
- 1033      6973696F 
- 1033      6E203232 
- 1033      31323230 
- 1034 01d5 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1034      66756E63 
- 1034      74696F6E 
- 1034      2D736563 
- 1034      74696F6E 
- 1035              	.LASF6:
- 1036 01fd 6C6F6E67 		.ascii	"long long int\000"
- 1036      206C6F6E 
- 1036      6720696E 
- 1036      7400
- 1037              	.LASF41:
- 1038 020b 6765745F 		.ascii	"get_waterlevel\000"
- 1038      77617465 
- 1038      726C6576 
- 1038      656C00
- 1039              	.LASF21:
-ARM GAS  C:\temp\ccCUvomS.s 			page 22
-
-
- 1040 021a 63757272 		.ascii	"currentTemperature\000"
- 1040      656E7454 
- 1040      656D7065 
- 1040      72617475 
- 1040      726500
- 1041              	.LASF19:
- 1042 022d 63757272 		.ascii	"currentWater\000"
- 1042      656E7457 
- 1042      61746572 
- 1042      00
- 1043              	.LASF33:
- 1044 023a 77617465 		.ascii	"water\000"
- 1044      7200
- 1045              	.LASF37:
- 1046 0240 6765745F 		.ascii	"get_batterylevel\000"
- 1046      62617474 
- 1046      6572796C 
- 1046      6576656C 
- 1046      00
- 1047              	.LASF2:
- 1048 0251 73686F72 		.ascii	"short int\000"
- 1048      7420696E 
- 1048      7400
- 1049              	.LASF48:
- 1050 025b 75706461 		.ascii	"updateParameters\000"
- 1050      74655061 
- 1050      72616D65 
- 1050      74657273 
- 1050      00
- 1051              	.LASF46:
- 1052 026c 2E5C506C 		.ascii	".\\Plantcontrol.c\000"
- 1052      616E7463 
- 1052      6F6E7472 
- 1052      6F6C2E63 
- 1052      00
- 1053              	.LASF20:
- 1054 027d 63757272 		.ascii	"currentLight\000"
- 1054      656E744C 
- 1054      69676874 
- 1054      00
- 1055              	.LASF43:
- 1056 028a 73656E64 		.ascii	"sendSensorData\000"
- 1056      53656E73 
- 1056      6F724461 
- 1056      746100
- 1057              	.LASF12:
- 1058 0299 696E7431 		.ascii	"int16\000"
- 1058      3600
- 1059              	.LASF0:
- 1060 029f 7369676E 		.ascii	"signed char\000"
- 1060      65642063 
- 1060      68617200 
- 1061              	.LASF47:
- 1062 02ab 433A5C55 		.ascii	"C:\\Users\\BEAST\\Desktop\\GITHUB PSOC PLANTE\\PSoC"
- 1062      73657273 
- 1062      5C424541 
- 1062      53545C44 
-ARM GAS  C:\temp\ccCUvomS.s 			page 23
-
-
- 1062      65736B74 
- 1063 02d9 5C506C61 		.ascii	"\\Plant_control2_0.cydsn\000"
- 1063      6E745F63 
- 1063      6F6E7472 
- 1063      6F6C325F 
- 1063      302E6379 
- 1064              	.LASF30:
- 1065 02f1 6D617854 		.ascii	"maxTemperature\000"
- 1065      656D7065 
- 1065      72617475 
- 1065      726500
- 1066              	.LASF42:
- 1067 0300 43794465 		.ascii	"CyDelay\000"
- 1067      6C617900 
- 1068              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 663      68617200 
+ 664              	.LASF31:
+ 665 0223 43794465 		.ascii	"CyDelay\000"
+ 665      6C617900 
+ 666              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

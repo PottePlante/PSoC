@@ -449,6 +449,6 @@
   <block name="Clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Clock_out_capasitiv_sensors" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="isr_EOC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="waterPump" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pumpe" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Lysfoler" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

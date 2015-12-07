@@ -13,19 +13,16 @@
 #define SENSORS_H
 #include <project.h>
 
-CY_ISR_PROTO(isr_EOC_vec);
-    
-int16 moisture[50];
-int16 waterlevel[50];
-int16 temperature[8];
-int16 batterylevel[8];
-int16 lightlevel[8];
+struct updateParameters
+{
+    int16 currentMoisture;
+    int16 currentBattery;
+    int16 currentWater;
+    int16 currentLight;
+    int16 currentTemperature;
+};
 
-int16 get_moisture(void);
-int16 get_waterlevel(void);
-int16 get_temp(void);
-int16 get_batterylevel(void);
-int16 get_lightlevel(void);
+struct updateParameters getValues();
 
 #endif
 /* [] END OF FILE */

@@ -1,108 +1,96 @@
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/main.o : C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmFunc.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmInstr.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydisabledsheets.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/project.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/waterPump.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/waterPump_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Plantcontrol.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/main.c C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/motor.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/pump.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/sensors.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/wifi.h 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/sensors.o : C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmFunc.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmInstr.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydisabledsheets.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/project.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/sensors.c C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/sensors.h 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Pumpe_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmFunc.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmInstr.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmFunc.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmInstr.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydisabledsheets.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydisabledsheets.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/project.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/project.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/waterPump.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/waterPump_aliases.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Plantcontrol.h : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/sensors.c : 
 
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/main.c : 
-
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/motor.h : 
-
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/pump.h : 
-
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/sensors.h : 
-
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/wifi.h : 
-
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/CortexM0/ARM_GCC_493/Debug/wifi.o : C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_IRQ.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/ADC_SAR_Seq_1_intClock.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_1.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Clock_out_capasitiv_sensors_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Fugt_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Lysfoler_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Niveau_vandtank_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_minus_GRN_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor1_plus_BLK_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_minus_BLU_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/Rotor_motor2_plus_RED_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/UART_IntClock.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmFunc.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/core_cmInstr.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cydisabledsheets.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_EOC.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/isr_UART.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/project.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/stromstyring_plus_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/temperatur_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/waterPump.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Generated_Source/PSoC4/waterPump_aliases.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/Plantcontrol.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/motor.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/pump.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/sensors.h C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/wifi.c C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/wifi.h 
-
-C:/Users/BEAST/Desktop/GITHUB\ PSOC\ PLANTE/PSoC/Plant_control2_0.cydsn/wifi.c : 
+C:/Users/LaimonasIgnas/Desktop/Plant_control2_0.cydsn/sensors.h : 
 

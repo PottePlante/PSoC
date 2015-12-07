@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Plant_control2_0-000\Plant_control2_0\Source Files\sensors.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Plant_control2_0-000\Plant_control2_0\Header Files\wifi.h">
 <ExpandedNodeIds>
 <v>Plant_control2_0-000</v>
 <v>Plant_control2_0-000\Plant_control2_0</v>
@@ -95,6 +95,10 @@
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Niveau_vandtank\Niveau_vandtank.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Niveau_vandtank\Niveau_vandtank.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Niveau_vandtank\Niveau_vandtank_aliases.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe\Pumpe.c</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe\Pumpe.h</v>
+<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Pumpe\Pumpe_aliases.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN\Rotor_motor1_minus_GRN.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\Rotor_motor1_minus_GRN\Rotor_motor1_minus_GRN.h</v>
@@ -128,10 +132,6 @@
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\UART_IntClock</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\UART_IntClock\UART_IntClock.c</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\UART_IntClock\UART_IntClock.h</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\waterPump</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\waterPump\waterPump.c</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\waterPump\waterPump.h</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\waterPump\waterPump_aliases.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cycodeshareimport.ld</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cycodeshareimport.scat</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cydevice_trm.h</v>
@@ -197,7 +197,6 @@
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
 <v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
-<v>Plant_control2_0-000\Plant_control2_0\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -247,6 +246,7 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Niveau_vandtank.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Plantcontrol.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\pump.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Pumpe.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_minus_GRN.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_plus_BLK.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor2_minus_BLU.lst</v>
@@ -259,54 +259,10 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_IntClock.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\waterPump.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\wifi.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.hex</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.map</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\ADC_SAR_Seq_1.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\ADC_SAR_Seq_1_INT.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\ADC_SAR_Seq_1_intClock.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\ADC_SAR_Seq_1_IRQ.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\ADC_SAR_Seq_1_PM.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Clock_1.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Clock_out_capasitiv_sensors.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Cm0Start.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\CyBootAsmGnu.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\cyfitter_cfg.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\CyFlash.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\CyLFClk.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\CyLib.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\cymetadata.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\cyPm.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\cyutils.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Fugt.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\isr_EOC.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\isr_UART.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Lysfoler.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\main.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\motor.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Niveau_vandtank.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Plantcontrol.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\pump.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Rotor_motor1_minus_GRN.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Rotor_motor1_plus_BLK.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Rotor_motor2_minus_BLU.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\Rotor_motor2_plus_RED.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\sensors.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\stromstyring_plus.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\temperatur.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\UART.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\UART_BOOT.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\UART_INT.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\UART_IntClock.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\UART_PM.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Listing Files\wifi.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Plant_control2_0.elf</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Plant_control2_0.hex</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release\Plant_control2_0.map</v>
 <v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0.gpdsc</v>
 <v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0.rpt</v>
 <v>Plant_control2_0-000\Plant_control2_0\Plant_control2_0_timing.html</v>
@@ -343,6 +299,7 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Niveau_vandtank.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Plantcontrol.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\pump.lst</v>
+<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Pumpe.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_minus_GRN.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor1_plus_BLK.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\Rotor_motor2_minus_BLU.lst</v>
@@ -355,12 +312,10 @@
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_IntClock.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\waterPump.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Listing Files\wifi.lst</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.hex</v>
 <v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.map</v>
-<v>Plant_control2_0-000\Plant_control2_0\CortexM0\ARM_GCC_493\Release</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -411,7 +366,13 @@
 <CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
 <indicators>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="338" DocumentName=".\wifi.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="26" DocumentName=".\Plantcontrol.h" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="246" DocumentName=".\wifi.c" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="352" DocumentName=".\wifi.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 </indicators>
 </CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
@@ -421,12 +382,12 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\wifi.c" />
-<name v=".\Plantcontrol.c" />
 <name v=".\Plantcontrol.h" />
 <name v=".\wifi.h" />
 <name v=".\sensors.c" />
 <name v=".\main.c" />
 <name v=".\Plant_control2_0.cydwr" />
+<name v=".\Plantcontrol.c" />
 <name v=".\sensors.h" />
 <name v=".\motor.h" />
 <name v=".\TopDesign\TopDesign.cysch" />
@@ -436,7 +397,7 @@
 <name v=".\pump.h" />
 <name v=".\pump.c" />
 </OpenDocs>
-<config v="Debug" />
+<config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
 </CyXmlSerializer>

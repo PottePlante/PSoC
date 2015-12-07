@@ -49,7 +49,7 @@ set_io "Fugt(0)" iocell 2 0
 set_io "stromstyring_plus(0)" iocell 2 7
 set_io "temperatur(0)" iocell 2 4
 set_io "Niveau_vandtank(0)" iocell 2 6
-set_io "waterPump(0)" iocell 0 1
+set_io "Pumpe(0)" iocell 0 1
 set_io "Lysfoler(0)" iocell 2 5
 set_io "Rotor_motor1_plus_BLK(0)" iocell 0 2
 set_io "Rotor_motor1_minus_GRN(0)" iocell 0 3

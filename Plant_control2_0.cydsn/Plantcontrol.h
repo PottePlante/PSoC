@@ -13,31 +13,14 @@
 #define PLANTCONTROL_H
 #include <project.h>
 #include <sensors.h>
+#include <pump.h>
 #include <wifi.h>
 #include <motor.h>
-#include <pump.h>
+  
+struct updateParameters;
 
-int8 ID;
-int8 wantedMoisture;
-int8 maxTemperature;
-int8 light;
-int8 battery;
-int8 water;
-int8 wantedRotate;
-       
-struct updateParameters
-{
-    int16 currentMoisture;
-    int16 currentBattery;
-    int16 currentWater;
-    int16 currentLight;
-    int16 currentTemperature;
-};
-
-struct updateParameters sensors_;
-
-void updateSensors();
 void run();
+int8 getID();
 
 #endif
 

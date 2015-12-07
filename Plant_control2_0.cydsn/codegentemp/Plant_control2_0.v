@@ -1,6 +1,6 @@
 // ======================================================================
 // Plant_control2_0.v generated from TopDesign.cysch
-// 12/06/2015 at 03:29
+// 12/07/2015 at 15:05
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1243,11 +1243,11 @@ module top ;
 
 	assign tmpOE__Niveau_vandtank_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-	wire [0:0] tmpOE__waterPump_net;
-	wire [0:0] tmpFB_0__waterPump_net;
-	wire [0:0] tmpIO_0__waterPump_net;
-	wire [0:0] tmpINTERRUPT_0__waterPump_net;
-	electrical [0:0] tmpSIOVREF__waterPump_net;
+	wire [0:0] tmpOE__Pumpe_net;
+	wire [0:0] tmpFB_0__Pumpe_net;
+	wire [0:0] tmpIO_0__Pumpe_net;
+	wire [0:0] tmpINTERRUPT_0__Pumpe_net;
+	electrical [0:0] tmpSIOVREF__Pumpe_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("cdb29683-716f-403e-9847-96b4b3b3a154"),
@@ -1300,13 +1300,13 @@ module top ;
 		  .ovt_needed(1'b0),
 		  .ovt_slew_control(2'b00),
 		  .input_buffer_sel(2'b00))
-		waterPump
-		 (.oe(tmpOE__waterPump_net),
+		Pumpe
+		 (.oe(tmpOE__Pumpe_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__waterPump_net[0:0]}),
-		  .io({tmpIO_0__waterPump_net[0:0]}),
-		  .siovref(tmpSIOVREF__waterPump_net),
-		  .interrupt({tmpINTERRUPT_0__waterPump_net[0:0]}),
+		  .fb({tmpFB_0__Pumpe_net[0:0]}),
+		  .io({tmpIO_0__Pumpe_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pumpe_net),
+		  .interrupt({tmpINTERRUPT_0__Pumpe_net[0:0]}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -1314,7 +1314,7 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__waterPump_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+	assign tmpOE__Pumpe_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__Lysfoler_net;
 	wire [0:0] tmpFB_0__Lysfoler_net;
