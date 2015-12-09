@@ -1,5 +1,5 @@
-C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\Plant_control2_0.cyprj|38d53b0e-f06f-43ae-a3b8-08f903eafec6
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b0abc945-d681-4f6a-a4c0-a43930b6bc8c
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|704cbdff-95f6-49a2-894e-4d022f116d2a
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|690edd96-8a70-4a96-8748-210cbc8731d9
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|1d01d8f8-8d3d-4660-99a7-d282567811f5
+C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj|cdf0758a-b7ac-4a26-99ff-2c7126616fbc
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7cf918de-819e-49b3-80e9-22e70ae97e22
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|27ab00b9-b08c-4a3c-bf43-04c4cea18772
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|88eb61c1-ad91-4b8b-8710-442da29bd8ef
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e06a1902-07be-424a-9f40-cbed790bbfb8

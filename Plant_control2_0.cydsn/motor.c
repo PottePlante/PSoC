@@ -11,7 +11,6 @@
 */
 #include<motor.h>
 
-
 void rotate(int16 step)
 {
     int8 speed=10;

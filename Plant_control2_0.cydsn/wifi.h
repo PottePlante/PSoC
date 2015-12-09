@@ -13,14 +13,12 @@
 #include <project.h>
 #include <Plantcontrol.h>
     
-/*******************************************MAKROER***********************************************************/
+/*********************MAKROER***************************/
 #define SSID "Lemonade"                    //Router SSID
 #define PASS "ESPisBEST"                   //Router PASSWORD
-//#define DevKitIP "192.168.43.125"          //DevKit IP Adresse
-#define DevKitIP "192.168.43.49"
+#define DevKitIP "192.168.43.125"          //DevKit IP Adresse
 #define DevKitPortNr 8888                  //DevKit Port Nr.
-#define SSID2 "Mom Use This One"             //brugt til test
-#define PASS2 "Laimonasisthebest12345"       //brugt til test
+ //#define DevKitIP "192.168.43.49"        //debugging
  
 struct responses
 {
@@ -30,8 +28,8 @@ struct responses
 };
     
 /*******************************************FUNKTIONS PROTOTYPER***********************************************/ 
-void initPSoCWiFi(char *, char *, char *);                  //initierer ESP8266 modulet, så PSoCen er klar til at modtage/sende data
-struct responses sendSensorData(struct updateParameters sensors);       //sender sensor data for planter til DevKit -- Her indtastes de referencen som fås fra sensorenes struct
+void initPSoCWiFi(char *, char *, char *);                          //initierer ESP-12 modulet, så PSoCen kan sende modtage/sende data
+struct responses sendSensorData(struct updateParameters sensors);   //sender sensor data til DevKit - Modtager data fra devkit, og returnerer det i form af en struct
 
 #endif
 /* [] END OF FILE */

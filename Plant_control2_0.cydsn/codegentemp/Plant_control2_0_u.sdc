@@ -1,3 +1,3 @@
-# Component constraints for C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\Plant_control2_0.cyprj
-# Date: Mon, 07 Dec 2015 14:05:48 GMT
+# Component constraints for C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj
+# Date: Tue, 08 Dec 2015 08:47:02 GMT

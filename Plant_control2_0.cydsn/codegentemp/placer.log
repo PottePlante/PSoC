@@ -6,7 +6,7 @@
 
 #Build Date:         Aug 18 2015 10:30:14
 
-#File Generated:     Dec 7 2015 15:05:50
+#File Generated:     Dec 8 2015 09:47:04
 
 #Purpose:            
 
@@ -113,7 +113,7 @@ Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.1 (sec)
+D2088: Phase 7, elapsed time : 0.2 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	9
@@ -147,109 +147,13 @@ Number of clocks: 10
 Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
 Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
 Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyHFCLK              | Frequency:   2.4 MHz | Target:  48.0 MHz
+Clock: CyHFCLK              | Frequency:   2.6 MHz | Target:  48.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
-
-======================================================================
-                     End of Clock Summary
-######################################################################
-
-Phase 6
-
-######################################################################
-Placement Timing Summary
-
-The timing summary is based on estimated routing delays after
-placement. For final timing report, please carry out the timing
-analysis after routing.
-======================================================================
-
-######################################################################
-                     Clock Summary 
-======================================================================
-Number of clocks: 10
-Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
-Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
-Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyHFCLK              | Frequency:   2.4 MHz | Target:  48.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
-Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
-Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
-
-======================================================================
-                     End of Clock Summary
-######################################################################
-
-D2088: Phase 6, elapsed time : 0.0 (sec)
-
-Phase 7
-######################################################################
-                     Clock Summary 
-======================================================================
-Number of clocks: 10
-Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
-Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
-Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyHFCLK              | Frequency:   2.4 MHz | Target:  48.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
-Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
-Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
-
-======================================================================
-                     End of Clock Summary
-######################################################################
-D2088: Phase 7, elapsed time : 0.1 (sec)
-
-Final Design Statistics
-    Number of Combinational MCs 	:	9
-    Number of Sequential MCs    	:	17
-    Number of DPs               	:	3
-    Number of Controls          	:	1
-    Number of Status            	:	2
-    Number of SyncCells         	:	0
-    Number of count7cells       	:	1
-    Number of IOs       	:	14
-
-Device Utilization Summary
-    Macrocells                  :	26/32
-    IOs                         :	14/36
-
-
-
-######################################################################
-Placement Timing Summary
-
-The timing summary is based on estimated routing delays after
-placement. For final timing report, please carry out the timing
-analysis after routing.
-======================================================================
-
-
-######################################################################
-                     Clock Summary 
-======================================================================
-Number of clocks: 10
-Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
-Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
-Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyHFCLK              | Frequency:   2.5 MHz | Target:  48.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
-Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
-Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
-Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
-Clock: UART_IntClock        | Frequency:   2.5 MHz | Target:   0.2 MHz
+Clock: UART_IntClock        | Frequency:   2.6 MHz | Target:   0.2 MHz
 
 ======================================================================
                      End of Clock Summary

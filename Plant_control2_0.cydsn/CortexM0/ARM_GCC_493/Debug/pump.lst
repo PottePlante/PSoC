@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
   38 0008 08BD     		pop	{r3, pc}
   39              		.cfi_endproc
   40              	.LFE33:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 2
 
 
   41              		.size	start, .-start
@@ -102,40 +102,40 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
   74 0006 00000000 		.4byte	.Ldebug_abbrev0
   75 000a 04       		.byte	0x4
   76 000b 01       		.uleb128 0x1
-  77 000c E8000000 		.4byte	.LASF15
+  77 000c E4000000 		.4byte	.LASF15
   78 0010 01       		.byte	0x1
-  79 0011 5C000000 		.4byte	.LASF16
-  80 0015 B2000000 		.4byte	.LASF17
+  79 0011 8E000000 		.4byte	.LASF16
+  80 0015 0E000000 		.4byte	.LASF17
   81 0019 00000000 		.4byte	.Ldebug_ranges0+0
   82 001d 00000000 		.4byte	0
   83 0021 00000000 		.4byte	.Ldebug_line0
   84 0025 02       		.uleb128 0x2
   85 0026 01       		.byte	0x1
   86 0027 06       		.byte	0x6
-  87 0028 A6000000 		.4byte	.LASF0
+  87 0028 D8000000 		.4byte	.LASF0
   88 002c 02       		.uleb128 0x2
   89 002d 01       		.byte	0x1
   90 002e 08       		.byte	0x8
-  91 002f 65000000 		.4byte	.LASF1
+  91 002f 97000000 		.4byte	.LASF1
   92 0033 02       		.uleb128 0x2
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 3
 
 
   93 0034 02       		.byte	0x2
   94 0035 05       		.byte	0x5
-  95 0036 76010000 		.4byte	.LASF2
+  95 0036 72010000 		.4byte	.LASF2
   96 003a 02       		.uleb128 0x2
   97 003b 02       		.byte	0x2
   98 003c 07       		.byte	0x7
-  99 003d 93000000 		.4byte	.LASF3
+  99 003d C5000000 		.4byte	.LASF3
  100 0041 02       		.uleb128 0x2
  101 0042 04       		.byte	0x4
  102 0043 05       		.byte	0x5
- 103 0044 7E000000 		.4byte	.LASF4
+ 103 0044 B0000000 		.4byte	.LASF4
  104 0048 02       		.uleb128 0x2
  105 0049 04       		.byte	0x4
  106 004a 07       		.byte	0x7
- 107 004b 2D000000 		.4byte	.LASF5
+ 107 004b 5F000000 		.4byte	.LASF5
  108 004f 02       		.uleb128 0x2
  109 0050 08       		.byte	0x8
  110 0051 05       		.byte	0x5
@@ -143,7 +143,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  112 0056 02       		.uleb128 0x2
  113 0057 08       		.byte	0x8
  114 0058 07       		.byte	0x7
- 115 0059 3F000000 		.4byte	.LASF7
+ 115 0059 71000000 		.4byte	.LASF7
  116 005d 03       		.uleb128 0x3
  117 005e 04       		.byte	0x4
  118 005f 05       		.byte	0x5
@@ -151,34 +151,34 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  120 0064 02       		.uleb128 0x2
  121 0065 04       		.byte	0x4
  122 0066 07       		.byte	0x7
- 123 0067 0E000000 		.4byte	.LASF8
+ 123 0067 7C010000 		.4byte	.LASF8
  124 006b 04       		.uleb128 0x4
- 125 006c 27000000 		.4byte	.LASF18
+ 125 006c 59000000 		.4byte	.LASF18
  126 0070 02       		.byte	0x2
  127 0071 C2       		.byte	0xc2
  128 0072 2C000000 		.4byte	0x2c
  129 0076 02       		.uleb128 0x2
  130 0077 04       		.byte	0x4
  131 0078 04       		.byte	0x4
- 132 0079 56000000 		.4byte	.LASF9
+ 132 0079 88000000 		.4byte	.LASF9
  133 007d 02       		.uleb128 0x2
  134 007e 08       		.byte	0x8
  135 007f 04       		.byte	0x4
- 136 0080 87000000 		.4byte	.LASF10
+ 136 0080 B9000000 		.4byte	.LASF10
  137 0084 02       		.uleb128 0x2
  138 0085 01       		.byte	0x1
  139 0086 08       		.byte	0x8
- 140 0087 73000000 		.4byte	.LASF11
+ 140 0087 A5000000 		.4byte	.LASF11
  141 008b 02       		.uleb128 0x2
  142 008c 04       		.byte	0x4
  143 008d 07       		.byte	0x7
- 144 008e 80010000 		.4byte	.LASF12
+ 144 008e 89010000 		.4byte	.LASF12
  145 0092 05       		.uleb128 0x5
- 146 0093 78000000 		.4byte	.LASF13
+ 146 0093 AA000000 		.4byte	.LASF13
  147 0097 01       		.byte	0x1
  148 0098 0E       		.byte	0xe
  149 0099 00000000 		.4byte	.LFB33
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 4
 
 
  150 009d 0A000000 		.4byte	.LFE33-.LFB33
@@ -196,7 +196,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  162 00b5 00       		.byte	0
  163 00b6 00       		.byte	0
  164 00b7 05       		.uleb128 0x5
- 165 00b8 8E000000 		.4byte	.LASF14
+ 165 00b8 C0000000 		.4byte	.LASF14
  166 00bc 01       		.byte	0x1
  167 00bd 13       		.byte	0x13
  168 00be 00000000 		.4byte	.LFB34
@@ -215,7 +215,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  181 00da 00       		.byte	0
  182 00db 00       		.byte	0
  183 00dc 08       		.uleb128 0x8
- 184 00dd 1B000000 		.4byte	.LASF19
+ 184 00dd 4D000000 		.4byte	.LASF19
  185 00e1 03       		.byte	0x3
  186 00e2 1D       		.byte	0x1d
  187 00e3 09       		.uleb128 0x9
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  204 000b 55       		.uleb128 0x55
  205 000c 17       		.uleb128 0x17
  206 000d 11       		.uleb128 0x11
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 5
 
 
  207 000e 01       		.uleb128 0x1
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  261 0044 06       		.uleb128 0x6
  262 0045 40       		.uleb128 0x40
  263 0046 18       		.uleb128 0x18
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 6
 
 
  264 0047 9742     		.uleb128 0x2117
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  318 000b 00       		.byte	0
  319 000c 0000     		.2byte	0
  320 000e 0000     		.2byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 7
 
 
  321 0010 00000000 		.4byte	.LFB33
@@ -387,104 +387,107 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 1
  339      206C6F6E 
  339      6720696E 
  339      7400
- 340              	.LASF8:
- 341 000e 756E7369 		.ascii	"unsigned int\000"
- 341      676E6564 
- 341      20696E74 
- 341      00
- 342              	.LASF19:
- 343 001b 50756D70 		.ascii	"Pumpe_Write\000"
- 343      655F5772 
- 343      69746500 
- 344              	.LASF18:
- 345 0027 75696E74 		.ascii	"uint8\000"
- 345      3800
- 346              	.LASF5:
- 347 002d 6C6F6E67 		.ascii	"long unsigned int\000"
- 347      20756E73 
- 347      69676E65 
- 347      6420696E 
- 347      7400
- 348              	.LASF7:
- 349 003f 6C6F6E67 		.ascii	"long long unsigned int\000"
- 349      206C6F6E 
- 349      6720756E 
- 349      7369676E 
- 349      65642069 
- 350              	.LASF9:
- 351 0056 666C6F61 		.ascii	"float\000"
- 351      7400
- 352              	.LASF16:
- 353 005c 2E5C7075 		.ascii	".\\pump.c\000"
- 353      6D702E63 
- 353      00
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 8
+ 340              	.LASF17:
+ 341 000e 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Git\\PSoC\\Plant"
+ 341      73657273 
+ 341      5C4C6169 
+ 341      6D6F6E61 
+ 341      7349676E 
+ 342 003b 5F636F6E 		.ascii	"_control2_0.cydsn\000"
+ 342      74726F6C 
+ 342      325F302E 
+ 342      63796473 
+ 342      6E00
+ 343              	.LASF19:
+ 344 004d 50756D70 		.ascii	"Pumpe_Write\000"
+ 344      655F5772 
+ 344      69746500 
+ 345              	.LASF18:
+ 346 0059 75696E74 		.ascii	"uint8\000"
+ 346      3800
+ 347              	.LASF5:
+ 348 005f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 348      20756E73 
+ 348      69676E65 
+ 348      6420696E 
+ 348      7400
+ 349              	.LASF7:
+ 350 0071 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 350      206C6F6E 
+ 350      6720756E 
+ 350      7369676E 
+ 350      65642069 
+ 351              	.LASF9:
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 8
 
 
- 354              	.LASF1:
- 355 0065 756E7369 		.ascii	"unsigned char\000"
- 355      676E6564 
- 355      20636861 
- 355      7200
- 356              	.LASF11:
- 357 0073 63686172 		.ascii	"char\000"
- 357      00
- 358              	.LASF13:
- 359 0078 73746172 		.ascii	"start\000"
- 359      7400
- 360              	.LASF4:
- 361 007e 6C6F6E67 		.ascii	"long int\000"
- 361      20696E74 
- 361      00
- 362              	.LASF10:
- 363 0087 646F7562 		.ascii	"double\000"
- 363      6C6500
- 364              	.LASF14:
- 365 008e 73746F70 		.ascii	"stop\000"
- 365      00
- 366              	.LASF3:
- 367 0093 73686F72 		.ascii	"short unsigned int\000"
- 367      7420756E 
- 367      7369676E 
- 367      65642069 
- 367      6E7400
- 368              	.LASF0:
- 369 00a6 7369676E 		.ascii	"signed char\000"
- 369      65642063 
- 369      68617200 
- 370              	.LASF17:
- 371 00b2 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
- 371      73657273 
- 371      5C4C6169 
- 371      6D6F6E61 
- 371      7349676E 
- 372 00e1 2E637964 		.ascii	".cydsn\000"
- 372      736E00
- 373              	.LASF15:
- 374 00e8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 374      4320342E 
- 374      392E3320 
- 374      32303135 
- 374      30333033 
- 375 011b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 375      20726576 
- 375      6973696F 
- 375      6E203232 
- 375      31323230 
- 376 014e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 376      66756E63 
- 376      74696F6E 
- 376      2D736563 
- 376      74696F6E 
- 377              	.LASF2:
- 378 0176 73686F72 		.ascii	"short int\000"
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccPi2T2u.s 			page 9
+ 352 0088 666C6F61 		.ascii	"float\000"
+ 352      7400
+ 353              	.LASF16:
+ 354 008e 2E5C7075 		.ascii	".\\pump.c\000"
+ 354      6D702E63 
+ 354      00
+ 355              	.LASF1:
+ 356 0097 756E7369 		.ascii	"unsigned char\000"
+ 356      676E6564 
+ 356      20636861 
+ 356      7200
+ 357              	.LASF11:
+ 358 00a5 63686172 		.ascii	"char\000"
+ 358      00
+ 359              	.LASF13:
+ 360 00aa 73746172 		.ascii	"start\000"
+ 360      7400
+ 361              	.LASF4:
+ 362 00b0 6C6F6E67 		.ascii	"long int\000"
+ 362      20696E74 
+ 362      00
+ 363              	.LASF10:
+ 364 00b9 646F7562 		.ascii	"double\000"
+ 364      6C6500
+ 365              	.LASF14:
+ 366 00c0 73746F70 		.ascii	"stop\000"
+ 366      00
+ 367              	.LASF3:
+ 368 00c5 73686F72 		.ascii	"short unsigned int\000"
+ 368      7420756E 
+ 368      7369676E 
+ 368      65642069 
+ 368      6E7400
+ 369              	.LASF0:
+ 370 00d8 7369676E 		.ascii	"signed char\000"
+ 370      65642063 
+ 370      68617200 
+ 371              	.LASF15:
+ 372 00e4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 372      4320342E 
+ 372      392E3320 
+ 372      32303135 
+ 372      30333033 
+ 373 0117 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 373      20726576 
+ 373      6973696F 
+ 373      6E203232 
+ 373      31323230 
+ 374 014a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 374      66756E63 
+ 374      74696F6E 
+ 374      2D736563 
+ 374      74696F6E 
+ 375              	.LASF2:
+ 376 0172 73686F72 		.ascii	"short int\000"
+ 376      7420696E 
+ 376      7400
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\cctQXW9h.s 			page 9
 
 
- 378      7420696E 
- 378      7400
+ 377              	.LASF8:
+ 378 017c 756E7369 		.ascii	"unsigned int\000"
+ 378      676E6564 
+ 378      20696E74 
+ 378      00
  379              	.LASF12:
- 380 0180 73697A65 		.ascii	"sizetype\000"
+ 380 0189 73697A65 		.ascii	"sizetype\000"
  380      74797065 
  380      00
  381              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

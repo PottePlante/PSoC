@@ -11,30 +11,38 @@
 */
 #include <Plantcontrol.h>
 
-int8 ID = 2;
-int8 wantedMoisture = 0;
-int8 wantedRotate = 0;
+uint8 ID = 2;
+uint8 wantedMoisture = 0;
+uint8 wantedRotate = 0;
 
 void run()
 {
-    struct updateParameters values = getValues();
+    ADC_SAR_Seq_1_Start();
+    ADC_SAR_Seq_1_StartConvert();
+
+    initPSoCWiFi(SSID,PASS,DevKitIP);
     
-//    if(wantedMoisture >= values.currentMoisture)
-//    {
-//        start();
-//        CyDelay(1000);
-//        stop();
-//    }
-//    
-//    rotate(wantedRotate);
-//    
-    //struct responses res = sendSensorData(values);
-    
-//    ID = res.ID;
-//    wantedMoisture = res.moisture;
-//    wantedRotate = res.rotate;
-//    
-    CyDelay(200);
+    for(;;)
+    {
+        struct updateParameters values = getValues();     
+
+        struct responses res = sendSensorData(values);
+
+        ID = res.ID;
+        wantedMoisture = res.moisture;
+        wantedRotate = res.rotate;
+        
+        if(wantedMoisture >= values.currentMoisture)
+        {
+            start();
+            CyDelay(1000);
+            stop();
+        }
+        
+        rotate(wantedRotate);
+        
+        CyDelay(100000);
+    }
 }
 
 int8 getID()

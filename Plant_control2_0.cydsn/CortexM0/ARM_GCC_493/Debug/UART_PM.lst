@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
   30:.\Generated_Source\PSoC4/UART_PM.c **** 
   31:.\Generated_Source\PSoC4/UART_PM.c **** 
   32:.\Generated_Source\PSoC4/UART_PM.c **** /*******************************************************************************
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/UART_PM.c **** * Function Name: UART_SaveConfig
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
   71:.\Generated_Source\PSoC4/UART_PM.c **** *  None.
   72:.\Generated_Source\PSoC4/UART_PM.c **** *
   73:.\Generated_Source\PSoC4/UART_PM.c **** * Return:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 3
 
 
   74:.\Generated_Source\PSoC4/UART_PM.c **** *  None.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  112:.\Generated_Source\PSoC4/UART_PM.c **** *
  113:.\Generated_Source\PSoC4/UART_PM.c **** * Global Variables:
  114:.\Generated_Source\PSoC4/UART_PM.c **** *  UART_backup - modified when non-retention registers are saved.
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 4
 
 
  115:.\Generated_Source\PSoC4/UART_PM.c **** *
@@ -238,14 +238,14 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  144:.\Generated_Source\PSoC4/UART_PM.c **** }
   83              		.loc 1 144 0
   84              		@ sp needed
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 5
 
 
   85 001c 08BD     		pop	{r3, pc}
   86              	.L7:
   87 001e C046     		.align	2
   88              	.L6:
-  89 0020 90000F40 		.word	1074725008
+  89 0020 93000F40 		.word	1074725011
   90 0024 00000000 		.word	.LANCHOR0
   91              		.cfi_endproc
   92              	.LFE2:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  176:.\Generated_Source\PSoC4/UART_PM.c ****         UART_ClearRxBuffer();
  108              		.loc 1 176 0
  109 0002 FFF7FEFF 		bl	UART_ClearRxBuffer
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 6
 
 
  110              	.LVL1:
@@ -352,20 +352,20 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  148 0006 00000000 		.4byte	.Ldebug_abbrev0
  149 000a 04       		.byte	0x4
  150 000b 01       		.uleb128 0x1
- 151 000c 24010000 		.4byte	.LASF24
+ 151 000c 2D010000 		.4byte	.LASF24
  152 0010 01       		.byte	0x1
- 153 0011 E2010000 		.4byte	.LASF25
+ 153 0011 EB010000 		.4byte	.LASF25
  154 0015 D2000000 		.4byte	.LASF26
  155 0019 00000000 		.4byte	.Ldebug_ranges0+0
  156 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 7
 
 
  157 0021 00000000 		.4byte	.Ldebug_line0
  158 0025 02       		.uleb128 0x2
  159 0026 01       		.byte	0x1
  160 0027 06       		.byte	0x6
- 161 0028 26020000 		.4byte	.LASF0
+ 161 0028 2F020000 		.4byte	.LASF0
  162 002c 02       		.uleb128 0x2
  163 002d 01       		.byte	0x1
  164 002e 08       		.byte	0x8
@@ -373,7 +373,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  166 0033 02       		.uleb128 0x2
  167 0034 02       		.byte	0x2
  168 0035 05       		.byte	0x5
- 169 0036 C5010000 		.4byte	.LASF2
+ 169 0036 CE010000 		.4byte	.LASF2
  170 003a 02       		.uleb128 0x2
  171 003b 02       		.byte	0x2
  172 003c 07       		.byte	0x7
@@ -381,7 +381,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  174 0041 02       		.uleb128 0x2
  175 0042 04       		.byte	0x4
  176 0043 05       		.byte	0x5
- 177 0044 11020000 		.4byte	.LASF4
+ 177 0044 1A020000 		.4byte	.LASF4
  178 0048 02       		.uleb128 0x2
  179 0049 04       		.byte	0x4
  180 004a 07       		.byte	0x7
@@ -389,7 +389,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  182 004f 02       		.uleb128 0x2
  183 0050 08       		.byte	0x8
  184 0051 05       		.byte	0x5
- 185 0052 11010000 		.4byte	.LASF6
+ 185 0052 1A010000 		.4byte	.LASF6
  186 0056 02       		.uleb128 0x2
  187 0057 08       		.byte	0x8
  188 0058 07       		.byte	0x7
@@ -418,10 +418,10 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  211 0084 02       		.uleb128 0x2
  212 0085 01       		.byte	0x1
  213 0086 08       		.byte	0x8
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 8
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 8
 
 
- 214 0087 1F010000 		.4byte	.LASF11
+ 214 0087 28010000 		.4byte	.LASF11
  215 008b 05       		.uleb128 0x5
  216 008c 74000000 		.4byte	.LASF13
  217 0090 02       		.byte	0x2
@@ -432,22 +432,22 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  222 009c 02       		.uleb128 0x2
  223 009d 04       		.byte	0x4
  224 009e 07       		.byte	0x7
- 225 009f 08010000 		.4byte	.LASF14
+ 225 009f 11010000 		.4byte	.LASF14
  226 00a3 07       		.uleb128 0x7
- 227 00a4 B2010000 		.4byte	.LASF27
+ 227 00a4 BB010000 		.4byte	.LASF27
  228 00a8 01       		.byte	0x1
  229 00a9 03       		.byte	0x3
  230 00aa 45       		.byte	0x45
  231 00ab BC000000 		.4byte	0xbc
  232 00af 08       		.uleb128 0x8
- 233 00b0 1A020000 		.4byte	.LASF28
+ 233 00b0 23020000 		.4byte	.LASF28
  234 00b4 03       		.byte	0x3
  235 00b5 47       		.byte	0x47
  236 00b6 6B000000 		.4byte	0x6b
  237 00ba 00       		.byte	0
  238 00bb 00       		.byte	0
  239 00bc 04       		.uleb128 0x4
- 240 00bd 32020000 		.4byte	.LASF15
+ 240 00bd 3B020000 		.4byte	.LASF15
  241 00c1 03       		.byte	0x3
  242 00c2 4D       		.byte	0x4d
  243 00c3 A3000000 		.4byte	0xa3
@@ -478,13 +478,13 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  268 00fa 08010000 		.4byte	0x108
  269 00fe 0B       		.uleb128 0xb
  270 00ff 1C000000 		.4byte	.LVL0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 9
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 9
 
 
  271 0103 4A010000 		.4byte	0x14a
  272 0107 00       		.byte	0
  273 0108 0A       		.uleb128 0xa
- 274 0109 05020000 		.4byte	.LASF19
+ 274 0109 0E020000 		.4byte	.LASF19
  275 010d 01       		.byte	0x1
  276 010e AC       		.byte	0xac
  277 010f 00000000 		.4byte	.LFB3
@@ -519,7 +519,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  306 0156 03       		.byte	0x3
  307 0157 75       		.byte	0x75
  308 0158 0D       		.uleb128 0xd
- 309 0159 CF010000 		.4byte	.LASF22
+ 309 0159 D8010000 		.4byte	.LASF22
  310 015d 03       		.byte	0x3
  311 015e 8F       		.byte	0x8f
  312 015f 0D       		.uleb128 0xd
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  325 0006 0B       		.uleb128 0xb
  326 0007 03       		.uleb128 0x3
  327 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 10
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 10
 
 
  328 0009 1B       		.uleb128 0x1b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  382 003f 49       		.uleb128 0x49
  383 0040 13       		.uleb128 0x13
  384 0041 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 11
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 11
 
 
  385 0042 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  439 0078 06       		.uleb128 0x6
  440 0079 40       		.uleb128 0x40
  441 007a 18       		.uleb128 0x18
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 12
 
 
  442 007b 9742     		.uleb128 0x2117
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  496 00b5 2E       		.uleb128 0x2e
  497 00b6 00       		.byte	0
  498 00b7 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 13
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 13
 
 
  499 00b8 19       		.uleb128 0x19
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  547      65436F6E 
  547      66696700 
  548              	.LASF17:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 14
 
 
  549 0010 55415254 		.ascii	"UART_RestoreConfig\000"
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  573 00a5 6C6F6E67 		.ascii	"long long unsigned int\000"
  573      206C6F6E 
  573      6720756E 
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 15
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 15
 
 
  573      7369676E 
@@ -852,84 +852,87 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 1
  577      5F53746F 
  577      7000
  578              	.LASF26:
- 579 00d2 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Plant_control2_0"
+ 579 00d2 433A5C55 		.ascii	"C:\\Users\\LaimonasIgnas\\Desktop\\Git\\PSoC\\Plant"
  579      73657273 
  579      5C4C6169 
  579      6D6F6E61 
  579      7349676E 
- 580 0101 2E637964 		.ascii	".cydsn\000"
- 580      736E00
+ 580 00ff 5F636F6E 		.ascii	"_control2_0.cydsn\000"
+ 580      74726F6C 
+ 580      325F302E 
+ 580      63796473 
+ 580      6E00
  581              	.LASF14:
- 582 0108 73697A65 		.ascii	"sizetype\000"
+ 582 0111 73697A65 		.ascii	"sizetype\000"
  582      74797065 
  582      00
  583              	.LASF6:
- 584 0111 6C6F6E67 		.ascii	"long long int\000"
+ 584 011a 6C6F6E67 		.ascii	"long long int\000"
  584      206C6F6E 
  584      6720696E 
  584      7400
  585              	.LASF11:
- 586 011f 63686172 		.ascii	"char\000"
+ 586 0128 63686172 		.ascii	"char\000"
  586      00
  587              	.LASF24:
- 588 0124 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 588 012d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  588      4320342E 
  588      392E3320 
  588      32303135 
  588      30333033 
- 589 0157 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 589 0160 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  589      20726576 
  589      6973696F 
  589      6E203232 
  589      31323230 
- 590 018a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 590 0193 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  590      66756E63 
  590      74696F6E 
  590      2D736563 
  590      74696F6E 
  591              	.LASF27:
- 592 01b2 55415254 		.ascii	"UART_backupStruct_\000"
+ 592 01bb 55415254 		.ascii	"UART_backupStruct_\000"
  592      5F626163 
  592      6B757053 
  592      74727563 
  592      745F00
  593              	.LASF2:
- 594 01c5 73686F72 		.ascii	"short int\000"
+ 594 01ce 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYJmoXb.s 			page 16
+
+
  594      7420696E 
  594      7400
  595              	.LASF22:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccYyuwpG.s 			page 16
-
-
- 596 01cf 55415254 		.ascii	"UART_ClearTxBuffer\000"
+ 596 01d8 55415254 		.ascii	"UART_ClearTxBuffer\000"
  596      5F436C65 
  596      61725478 
  596      42756666 
  596      657200
  597              	.LASF25:
- 598 01e2 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_PM.c\000"
+ 598 01eb 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_PM.c\000"
  598      6E657261 
  598      7465645F 
  598      536F7572 
  598      63655C50 
  599              	.LASF19:
- 600 0205 55415254 		.ascii	"UART_Wakeup\000"
+ 600 020e 55415254 		.ascii	"UART_Wakeup\000"
  600      5F57616B 
  600      65757000 
  601              	.LASF4:
- 602 0211 6C6F6E67 		.ascii	"long int\000"
+ 602 021a 6C6F6E67 		.ascii	"long int\000"
  602      20696E74 
  602      00
  603              	.LASF28:
- 604 021a 656E6162 		.ascii	"enableState\000"
+ 604 0223 656E6162 		.ascii	"enableState\000"
  604      6C655374 
  604      61746500 
  605              	.LASF0:
- 606 0226 7369676E 		.ascii	"signed char\000"
+ 606 022f 7369676E 		.ascii	"signed char\000"
  606      65642063 
  606      68617200 
  607              	.LASF15:
- 608 0232 55415254 		.ascii	"UART_BACKUP_STRUCT\000"
+ 608 023b 55415254 		.ascii	"UART_BACKUP_STRUCT\000"
  608      5F424143 
  608      4B55505F 
  608      53545255 

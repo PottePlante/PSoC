@@ -1,5 +1,5 @@
 # Plant_control2_0
-# 2015-12-07 14:05:50Z
+# 2015-12-08 08:47:04Z
 
 # IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2
@@ -16,4 +16,8 @@ set_io "Lysfoler(0)" iocell 2 5
 set_io "Clock_out_capasitiv_sensors(0)" iocell 0 0
 set_io "Rx_1(0)" iocell 0 4
 set_io "Tx_1(0)" iocell 0 5
+set_io "Rotor_motor1_plus_BLK(0)" iocell 3 1
+set_io "Rotor_motor2_plus_RED(0)" iocell 3 4
+set_io "Rotor_motor1_minus_GRN(0)" iocell 3 0
+set_io "Rotor_motor2_minus_BLU(0)" iocell 3 6
 set_location "\ADC_SAR_Seq_1:cy_psoc4_sar\" p4sarcell -1 -1 0

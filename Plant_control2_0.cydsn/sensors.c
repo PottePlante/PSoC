@@ -11,7 +11,6 @@
 */
 #include <sensors.h>
 #include <math.h>
-#include <stdio.h>
 
 int16 moisture[50];
 int16 waterlevel[50];
@@ -43,15 +42,14 @@ struct updateParameters getValues()
     
     CyDelay(500);
     
-    //while(waterlevel_ptr != 50u);
+    while(waterlevel_ptr != 50u && moisture_ptr != 50u && temperature_ptr != 8u && batterylevel_ptr != 8u && lightlevel_ptr != 8);
 
     values_.currentMoisture=get_moisture();
-    values_.currentLight=get_lightlevel();
     values_.currentBattery=get_batterylevel();
     values_.currentLight=get_lightlevel();
     values_.currentTemperature=get_temp();
     values_.currentWater=get_waterlevel();
-    
+
     return values_;
 }
 
@@ -62,7 +60,7 @@ CY_ISR(isr_EOC_vec)
         moisture[moisture_ptr]=ADC_SAR_Seq_1_GetResult16(0);
         moisture_ptr++; 
     }
-    if(waterlevel_ptr<50u)
+    if(waterlevel_ptr < 50u)
     {
         waterlevel[waterlevel_ptr]=ADC_SAR_Seq_1_GetResult16(3);
         waterlevel_ptr++;
@@ -84,7 +82,6 @@ CY_ISR(isr_EOC_vec)
     }
 
 }
-
 
 int16 procent_moisture = 0;
 int16 get_moisture(void)
@@ -327,8 +324,8 @@ int16 get_lightlevel(void)
     
     if(lightlevel_ptr == 8u)
         {
-            volatile int16 light_avg = 0;
-            int16 lightLux = 0;
+            int16 light_avg = 0;
+            
             int i;
             
             for(i = 0; i < 8; i++)
@@ -337,21 +334,23 @@ int16 get_lightlevel(void)
             }
             
             light_avg=(light_avg>>3u);
-          
-            //Lys level går fra 3.03V ved 10000 Lux til 0 Lux ved 0V.
             
-            lightLux = (539.9317572*(pow((double)light_avg/(3300 - (double)light_avg), 1.211)))/10;
+            // Behandling af målt avg til et lys niveau efter spænding
+            
+            int16 lightLux = 0;
+            //Lys level går fra 3.02V ved 9990 Lux til 0 Lux ved en spænding under 0.114V. 
+            
+            lightLux = ((567.307*(pow((double)light_avg/(3300 - (double)light_avg), 1.211)))/10);
             if(lightLux >= 999)
                 lightLux = 999;
-            else if(lightLux < 10)
-                lightLux=0;
-            // Behandling af målt avg til et lys niveau eller spænding
+
+            //debugging af sensoren
+            /*
             char light_data[128];
-            //til test af sensorer
-            sprintf(light_data, "lys niveau i volt = %d\n\r lysintensitet i lux = %d\n\n\n\r", light_avg,lightLux);
+            sprintf(light_data, "lys niveau i volt = %d\r\n lysintensitet i lux = %d\r\n\n", light_avg,lightLux);
             UART_PutString(light_data);
             CyDelay(500);
-            
+            */
             
             lightlevel_ptr=0;
             return lightLux;

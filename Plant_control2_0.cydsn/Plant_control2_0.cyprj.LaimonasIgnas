@@ -1254,7 +1254,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="130939707564497333" />
+<deps_time v="130940380301311188" />
 <top_block v="TopDesign" />
 <last_generation v="2" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
@@ -1265,160 +1265,6 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM0\ARM_GCC_493\Debug\sensors.o">
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_1.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\Fugt.h" />
-<dep name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Lysfoler.h" />
-<dep name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
-<dep name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Pumpe.h" />
-<dep name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\UART.h" />
-<dep name=".\Generated_Source\PSoC4\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
-<dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC4\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC4\cyPm.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC4\cypins.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-<dep name=".\Generated_Source\PSoC4\isr_EOC.h" />
-<dep name=".\Generated_Source\PSoC4\isr_UART.h" />
-<dep name=".\Generated_Source\PSoC4\project.h" />
-<dep name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
-<dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\sensors.c" />
-<dep name=".\sensors.h" />
-</file>
-<file name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
-<file name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
-<file name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
-<file name=".\Generated_Source\PSoC4\Clock_1.h" />
-<file name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
-<file name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
-<file name=".\Generated_Source\PSoC4\CyFlash.h" />
-<file name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<file name=".\Generated_Source\PSoC4\CyLib.h" />
-<file name=".\Generated_Source\PSoC4\Fugt.h" />
-<file name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Lysfoler.h" />
-<file name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
-<file name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Pumpe.h" />
-<file name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU_aliases.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.h" />
-<file name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED_aliases.h" />
-<file name=".\Generated_Source\PSoC4\UART.h" />
-<file name=".\Generated_Source\PSoC4\UART_IntClock.h" />
-<file name=".\Generated_Source\PSoC4\core_cm0.h" />
-<file name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
-<file name=".\Generated_Source\PSoC4\core_cmFunc.h" />
-<file name=".\Generated_Source\PSoC4\core_cmInstr.h" />
-<file name=".\Generated_Source\PSoC4\cyPm.h" />
-<file name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<file name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
-<file name=".\Generated_Source\PSoC4\cyfitter.h" />
-<file name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<file name=".\Generated_Source\PSoC4\cypins.h" />
-<file name=".\Generated_Source\PSoC4\cytypes.h" />
-<file name=".\Generated_Source\PSoC4\isr_EOC.h" />
-<file name=".\Generated_Source\PSoC4\isr_UART.h" />
-<file name=".\Generated_Source\PSoC4\project.h" />
-<file name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
-<file name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
-<file name=".\Generated_Source\PSoC4\temperatur.h" />
-<file name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<file name=".\sensors.c" />
-<file name=".\sensors.h" />
-<file name=".\CortexM0\ARM_GCC_493\Debug\main.o">
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
-<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_1.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
-<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\Fugt.h" />
-<dep name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Lysfoler.h" />
-<dep name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
-<dep name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Pumpe.h" />
-<dep name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.h" />
-<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\UART.h" />
-<dep name=".\Generated_Source\PSoC4\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
-<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
-<dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC4\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC4\cyPm.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC4\cypins.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-<dep name=".\Generated_Source\PSoC4\isr_EOC.h" />
-<dep name=".\Generated_Source\PSoC4\isr_UART.h" />
-<dep name=".\Generated_Source\PSoC4\project.h" />
-<dep name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
-<dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur.h" />
-<dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
-<dep name=".\Plantcontrol.h" />
-<dep name=".\main.c" />
-<dep name=".\motor.h" />
-<dep name=".\pump.h" />
-<dep name=".\sensors.h" />
-<dep name=".\wifi.h" />
-</file>
-<file name=".\Plantcontrol.h" />
-<file name=".\main.c" />
-<file name=".\motor.h" />
-<file name=".\pump.h" />
-<file name=".\wifi.h" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
@@ -1472,7 +1318,107 @@
 <dep name=".\sensors.h" />
 <dep name=".\wifi.h" />
 </file>
+<file name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
+<file name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
+<file name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
+<file name=".\Generated_Source\PSoC4\Clock_1.h" />
+<file name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
+<file name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
+<file name=".\Generated_Source\PSoC4\CyFlash.h" />
+<file name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<file name=".\Generated_Source\PSoC4\CyLib.h" />
+<file name=".\Generated_Source\PSoC4\Fugt.h" />
+<file name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Lysfoler.h" />
+<file name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
+<file name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Pumpe.h" />
+<file name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU_aliases.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.h" />
+<file name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED_aliases.h" />
+<file name=".\Generated_Source\PSoC4\UART.h" />
+<file name=".\Generated_Source\PSoC4\UART_IntClock.h" />
+<file name=".\Generated_Source\PSoC4\core_cm0.h" />
+<file name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
+<file name=".\Generated_Source\PSoC4\core_cmFunc.h" />
+<file name=".\Generated_Source\PSoC4\core_cmInstr.h" />
+<file name=".\Generated_Source\PSoC4\cyPm.h" />
+<file name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<file name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
+<file name=".\Generated_Source\PSoC4\cyfitter.h" />
+<file name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<file name=".\Generated_Source\PSoC4\cypins.h" />
+<file name=".\Generated_Source\PSoC4\cytypes.h" />
+<file name=".\Generated_Source\PSoC4\isr_EOC.h" />
+<file name=".\Generated_Source\PSoC4\isr_UART.h" />
+<file name=".\Generated_Source\PSoC4\project.h" />
+<file name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
+<file name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
+<file name=".\Generated_Source\PSoC4\temperatur.h" />
+<file name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
 <file name=".\Plantcontrol.c" />
+<file name=".\Plantcontrol.h" />
+<file name=".\motor.h" />
+<file name=".\pump.h" />
+<file name=".\sensors.h" />
+<file name=".\wifi.h" />
+<file name=".\CortexM0\ARM_GCC_493\Debug\sensors.o">
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_1.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\Fugt.h" />
+<dep name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Lysfoler.h" />
+<dep name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
+<dep name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Pumpe.h" />
+<dep name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\UART.h" />
+<dep name=".\Generated_Source\PSoC4\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
+<dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC4\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC4\cyPm.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC4\cypins.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+<dep name=".\Generated_Source\PSoC4\isr_EOC.h" />
+<dep name=".\Generated_Source\PSoC4\isr_UART.h" />
+<dep name=".\Generated_Source\PSoC4\project.h" />
+<dep name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
+<dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\temperatur.h" />
+<dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
+<dep name=".\sensors.c" />
+<dep name=".\sensors.h" />
+</file>
+<file name=".\sensors.c" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\wifi.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
@@ -1527,6 +1473,60 @@
 <dep name=".\wifi.h" />
 </file>
 <file name=".\wifi.c" />
+<file name=".\CortexM0\ARM_GCC_493\Debug\main.o">
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
+<dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_1.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors.h" />
+<dep name=".\Generated_Source\PSoC4\Clock_out_capasitiv_sensors_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\Fugt.h" />
+<dep name=".\Generated_Source\PSoC4\Fugt_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Lysfoler.h" />
+<dep name=".\Generated_Source\PSoC4\Lysfoler_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Niveau_vandtank.h" />
+<dep name=".\Generated_Source\PSoC4\Niveau_vandtank_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Pumpe.h" />
+<dep name=".\Generated_Source\PSoC4\Pumpe_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor1_plus_BLK_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.h" />
+<dep name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\UART.h" />
+<dep name=".\Generated_Source\PSoC4\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0.h" />
+<dep name=".\Generated_Source\PSoC4\core_cm0_psoc4.h" />
+<dep name=".\Generated_Source\PSoC4\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC4\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC4\cyPm.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC4\cypins.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+<dep name=".\Generated_Source\PSoC4\isr_EOC.h" />
+<dep name=".\Generated_Source\PSoC4\isr_UART.h" />
+<dep name=".\Generated_Source\PSoC4\project.h" />
+<dep name=".\Generated_Source\PSoC4\stromstyring_plus.h" />
+<dep name=".\Generated_Source\PSoC4\stromstyring_plus_aliases.h" />
+<dep name=".\Generated_Source\PSoC4\temperatur.h" />
+<dep name=".\Generated_Source\PSoC4\temperatur_aliases.h" />
+<dep name=".\Plantcontrol.h" />
+<dep name=".\main.c" />
+<dep name=".\motor.h" />
+<dep name=".\pump.h" />
+<dep name=".\sensors.h" />
+<dep name=".\wifi.h" />
+</file>
+<file name=".\main.c" />
 <file name=".\CortexM0\ARM_GCC_493\Debug\motor.o">
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1.h" />
 <dep name=".\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ.h" />
@@ -2269,27 +2269,32 @@
 <name_val_pair name=".\Generated_Source\PSoC4\Rotor_motor2_plus_RED.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects" />
 <name_val_pair name=".\Generated_Source\PSoC4\Rotor_motor1_minus_GRN.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects" />
 <name_val_pair name=".\Generated_Source\PSoC4\Rotor_motor2_minus_BLU.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects" />
+<name_val_pair name="C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.hex" v="-mcpu=cortex-m0 -mthumb -g -ffunction-sections -Og -l m -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections" />
 </name>
 </genericCmdLineData>
-<codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\LaimonasIgnas\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\Plant_control2_0.cyprj -d CY8C4245AXI-483 -s C:\Users\LaimonasIgnas\Desktop\Plant_control2_0.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
+<codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\LaimonasIgnas\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj -d CY8C4245AXI-483 -s C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
 </CyGuid_b0374e30-ce3a-47f2-ad85-821643292c68>
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="130939936586881833" />
+<deps_time v="130941324659518248" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
-<debugger_breakpoint_list />
+<debugger_breakpoint_list>
+<CyGuid_da1648eb-f713-4789-813b-89e33e3769c0 type_name="CyDesigner.Common.Debugger.CyWatchpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" variable="wantedRotate" access="WRITE" />
+<CyGuid_da1648eb-f713-4789-813b-89e33e3769c0 type_name="CyDesigner.Common.Debugger.CyWatchpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" variable="wantedRotate" access="READ" />
+</debugger_breakpoint_list>
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>
 <dataGuid v="bf610382-39c6-441f-80b8-b04622ea7845">
 <CyGuid_bf610382-39c6-441f-80b8-b04622ea7845 type_name="CyDesigner.Common.Debugger.CyWatchedVariableList" version="1">
 <debugger_watch_list>
-<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="lightLux" radix="decimal" />
-<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="light_avg" radix="decimal" />
-<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="test" radix="Default" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="values.moisture" radix="decimal" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="values.rotate" radix="decimal" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="wantedMoisture" radix="decimal" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="wantedRotate" radix="decimal" />
 </debugger_watch_list>
 </CyGuid_bf610382-39c6-441f-80b8-b04622ea7845>
 </dataGuid>

@@ -14,11 +14,10 @@
 #define MOTOR_H
 #include <project.h>
     
-    int16 indexnummer1;
-    
-    
-    void rotate(int16); // step 1-200 =1-360 grader i step af 1.8 grader
-       
+int16 indexnummer1;
+
+void rotate(int16); // step 1-200 =1-360 grader i step af 1.8 grader
+   
 #endif
 
 /* [] END OF FILE */
