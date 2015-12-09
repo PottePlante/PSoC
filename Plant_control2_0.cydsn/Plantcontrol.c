@@ -26,11 +26,11 @@ void run()
     {
         struct updateParameters values = getValues();     
 
-        struct responses res = sendSensorData(values);
+        struct responses received = sendSensorData(values);
 
-        ID = res.ID;
-        wantedMoisture = res.moisture;
-        wantedRotate = res.rotate;
+        ID = received.ID;
+        wantedMoisture = received.moisture;
+        wantedRotate = received.rotate;
         
         if(wantedMoisture >= values.currentMoisture)
         {
@@ -41,7 +41,7 @@ void run()
         
         rotate(wantedRotate);
         
-        CyDelay(100000);
+        CyDelay(600000); //10 min delay
     }
 }
 

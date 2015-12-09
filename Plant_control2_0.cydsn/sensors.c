@@ -108,12 +108,12 @@ int16 get_moisture(void)
             
             double procent_d;
             
-            if(pp>= 1117)
+            if(pp>= 1190)
             {
-                  procent_d = (-0.223834*((double)pp/1000)+0.583310)*100;
+                  procent_d = (-0.08013*((double)pp/1000)+0.1939)*100;
             }else
             {
-                  procent_d = (-1.08366*((double)pp/1000)+1.54356)*100; 
+                  procent_d = (-2.32558*((double)pp/1000)+2.97)*100; 
             }
             if(procent_d < 0)
             {
