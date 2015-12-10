@@ -1,19 +1,12 @@
---------------- Build Started: 12/09/2015 12:01:04 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 12/10/2015 11:46:24 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
+.\main.c: In function 'main':
+.\main.c:24:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/Plantcontrol.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Plantcontrol.c -o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/sensors.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\sensors.c -o .\CortexM0\ARM_GCC_493\Debug\sensors.o
-.\sensors.c: In function 'get_waterlevel':
-.\sensors.c:164:18: warning: unused variable 'bufchar' [-Wunused-variable]
-             char bufchar[50];
-                  ^
-.\sensors.c: In function 'get_temp':
-.\sensors.c:215:18: warning: unused variable 'temp_data' [-Wunused-variable]
-             char temp_data[50];
-                  ^
-.\sensors.c: In function 'get_batterylevel':
-.\sensors.c:253:18: warning: unused variable 'battery_data' [-Wunused-variable]
-             char battery_data[50];
-                  ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/wifi.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\wifi.c -o .\CortexM0\ARM_GCC_493\Debug\wifi.o
 arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_INT.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_SAR_Seq_1_intClock.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\Fugt.o .\CortexM0\ARM_GCC_493\Debug\temperatur.o .\CortexM0\ARM_GCC_493\Debug\Niveau_vandtank.o .\CortexM0\ARM_GCC_493\Debug\Pumpe.o .\CortexM0\ARM_GCC_493\Debug\Lysfoler.o .\CortexM0\ARM_GCC_493\Debug\isr_EOC.o .\CortexM0\ARM_GCC_493\Debug\stromstyring_plus.o .\CortexM0\ARM_GCC_493\Debug\Clock_1.o .\CortexM0\ARM_GCC_493\Debug\Clock_out_capasitiv_sensors.o .\CortexM0\ARM_GCC_493\Debug\UART.o .\CortexM0\ARM_GCC_493\Debug\UART_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\isr_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_IntClock.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_plus_BLK.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_plus_RED.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor1_minus_GRN.o .\CortexM0\ARM_GCC_493\Debug\Rotor_motor2_minus_BLU.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\Plantcontrol.o .\CortexM0\ARM_GCC_493\Debug\sensors.o .\CortexM0\ARM_GCC_493\Debug\pump.o .\CortexM0\ARM_GCC_493\Debug\wifi.o .\CortexM0\ARM_GCC_493\Debug\motor.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -Og -l m -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/Plant_control2_0.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
@@ -21,4 +14,4 @@ cyelftool.exe -C C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\
 cyelftool.exe -S C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf
 Flash used: 24576 of 32768 bytes (75,0 %).
 SRAM used: 2908 of 4096 bytes (71,0 %). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 12/09/2015 12:01:06 ---------------
+--------------- Build Succeeded: 12/10/2015 11:46:26 ---------------

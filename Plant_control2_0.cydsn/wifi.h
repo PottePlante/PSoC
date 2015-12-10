@@ -16,9 +16,9 @@
 /*********************MAKROER***************************/
 #define SSID "Lemonade"                    //Router SSID
 #define PASS "ESPisBEST"                   //Router PASSWORD
-#define DevKitIP "192.168.43.125"          //DevKit IP Adresse
+//#define DevKitIP "192.168.43.125"          //DevKit IP Adresse
 #define DevKitPortNr 8888                  //DevKit Port Nr.
- //#define DevKitIP "192.168.43.49"        //debugging
+#define DevKitIP "192.168.43.49"        //debugging
  
 struct responses
 {

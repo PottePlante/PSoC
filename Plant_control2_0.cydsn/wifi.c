@@ -18,23 +18,23 @@
 uint8 RXnewData;                            //Benyttes til ISR - '1' hvis der er data i RX bufferen, '0' hvis der ikke er data...
 uint8 stringRX_len = 0;                     //Længde af RX buffer
 char stringRX[255] = {0};                   //RX buffer til interrupts
-char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget
+char uartString[255] = {0};                 //string som UARTen benytter til at modtage / har modtaget data
 int8 sendDone = 0;
 
 struct updateParameters;
 
-CY_ISR_PROTO(UART_ISR);                                     //interrupt når der er data i RX bufferen (se design).
+/**************************************HJÆLPE FUNKTIONER***********************************/
+CY_ISR_PROTO(UART_ISR);                                     //interrupt når der er data i RX bufferen. 
+struct responses setPlantData(char *);                      //funktion til at opdatere set punkter for plante data
+struct responses updatePlantData(char *);                   //opdaterer setpunktet for en pottes dataType f.eks. [M]oisture
+char getStringFromUart(char *);                             //finder strings på UARTen
 void updateBuf();                                           //funktion for at updatere receive bufferen og gemme dataet fra bufferen
 void sendDataDevkit(char *);                                //sender data til devkit
-struct responses setPlantData(char *);                                  //funktion til at opdatere set punkter for plante data
-struct responses updatePlantData(char *);                               //opdaterer setpunktet for en pottes dataType f.eks. [M]oisture
-void requestDevKitData();                                   //sender en anmodnig til DevKit for at få opdateret plante parametre
-char getStringFromUart(char *);                             //finder strings på UARTen
 int connectToWiFi(char *, char *);                          //forbinder til WiFi
 int connectToDevKit(char *);                                //forbinder til DevKittet
 uint8 receiveDataDevKit(char * , char *);                   //modtager data fra DevKittet gennem wifi
 uint8 findResponse(char *);                                 //finder chars på UARTen
-void tick();                                                //debugging
+
 
 CY_ISR(UART_ISR)
 {
@@ -51,14 +51,14 @@ void updateBuf()
     {
         char rxdata = (char)UART_ReadRxData();      //læser data fra uarten
 
-        if(rxdata == 0 || rxdata == '\n' || rxdata == '\r' || stringRX_len == 255)   //hvis der ikke er data eller stringen er afsluttet eller stringRX_len er 255 så:
+        if(rxdata == 0 || rxdata == '\n' || rxdata == '\r' || stringRX_len == 255)
         {
-            stringRX[stringRX_len] = 0;     //buffer sættes til 0 på index stringRX_len
-            RXnewData = 1;                  //RXnewData sættes til 1 for at enable interrupt
+            stringRX[stringRX_len] = 0;             //buffer sættes til 0 på index stringRX_len
+            RXnewData = 1;                  
             return;
         }
         
-        stringRX[stringRX_len] = rxdata;    //data fra uarten skrives ind i stringRX med index stringRX_len
+        stringRX[stringRX_len] = rxdata;            //data fra uarten skrives ind i stringRX med index stringRX_len
         stringRX_len++;  
     }
 }
@@ -133,11 +133,11 @@ int connectToDevKit(char *DevKitIPAdress)
 
 void sendDataDevkit(char *dataToSend)
 {
-    char sendString[255];                               //char array på 254 chars, muligt at højst sende 1024 bytes på én gang. 
+    char sendString[255];                               
     uint16 length=0;
     length=strlen(dataToSend);                          //længden af den mængde data man vil sende
     sprintf(sendString,"AT+CIPSEND=%d\r\n",length);     //AT kommando for at sende, syntax er AT+CIPSEND=length, dvs. det antal bytes man vil sende
-    UART_PutString(sendString);                         //sendString printes på uarten
+    UART_PutString(sendString);                         
     CyDelay(100);
     if(findResponse("link"))                            //hvis den ikke er forbundet, forbinder den sig selv til portnr / Ip og sender beskeden igen når der er forbindelse
     {
@@ -173,7 +173,7 @@ uint8 receiveDataDevKit(char *inputString, char *data)
             return 0;
     }
 
-    //Så længde man ikke mødder ":" i inputString læses dataene over i bytesLength_char så der vides hvilken længde data'en er på
+    //Så længde man ikke møder ":" i inputString læses dataene over i bytesLength_char så der vides hvilken længde data'en er på
     char bytesLength_char[4];
     uint8 len = 0;
     uint8 bytesPos = 0;
@@ -193,12 +193,12 @@ uint8 receiveDataDevKit(char *inputString, char *data)
     //data overføres fra den modtagne string og over i 
     bytesPos++;
     dataPos = bytesPos + 5;
-    for(i=0; i<len; i++)        //f.eks. +IPD,8:Hello123   --> len = 8.                  
+    for(i=0; i<len; i++)        //f.eks. +IPD,8:Hello123 --> len = 8.                  
     {
            data[i] = inputString[(i+dataPos)];
     }
     
-    data[dataPos + len] = 0;        //afslutter arrayet ved pladsen efter det sidst modtagne data.
+    data[dataPos + len] = 0;        //afslutter arrayet med \0 ved pladsen efter det sidst modtagne data.
     
     return len;
 }
@@ -214,7 +214,7 @@ struct responses updatePlantData(char* inputString)      //det er kun Moisture o
     {
         while(receiveDataDevKit(inputString,dataBuf) == 0u);
     
-        plantIDLocal = dataBuf[1];  //værdien på index 1 modtaget fra devkit gemmes som plantens ID lokalt. 
+        plantIDLocal = dataBuf[1];          //værdien på index 1 modtaget fra devkit gemmes som plantens ID lokalt. 
 
         for(i=0;i<3;i++)
             value_char[i] = dataBuf[i+2];   //Tager moist value
@@ -224,7 +224,7 @@ struct responses updatePlantData(char* inputString)      //det er kun Moisture o
         value_char[6] = 0;
         
         struct responses values = setPlantData(value_char);
-        values.ID = plantIDLocal-48; //omregner fra ascii eftersom det er hvad der modtages, 48 = 0 i decimal.
+        values.ID = plantIDLocal-48;        //omregner fra ascii eftersom det er hvad der modtages, 48 = 0 i decimal.
         
         return values;
     }
@@ -328,13 +328,13 @@ struct responses sendSensorData(struct updateParameters sensors)
         
     sprintf(sendString,"%s%s%s%s%s",moistureString,waterString,lightString,temperatureString,batteryString);
     sendDataDevkit(sendString);
-    struct responses values = updatePlantData(uartString);
+    struct responses values = updatePlantData(uartString);  //Modtager data fra Devkit
 
     CyDelay(2500);
-    UART_PutString("AT+CIPCLOSE\r\n");  //lukker forbindelse til tcp serveren(devkit)  
+    UART_PutString("AT+CIPCLOSE\r\n");                      //lukker forbindelse til tcp serveren(devkit)  
     CyDelay(100);
     
-    return values;
+    return values;                                          //returnerer struct med wantedMoisture, wantedRotate og ID
 }
 
 void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstart af WiFi modul tager ~10-12 sekunder pga. delays
@@ -350,12 +350,12 @@ void initPSoCWiFi(char *wifiSSID, char *wifiPASS, char *DevKitIPAdress) //Opstar
     UART_PutString("AT+RST\r\n");
     CyDelay(3000);
     
-    UART_PutString("AT+CWMODE=3\r\n");          
+    UART_PutString("AT+CWMODE=3\r\n");          //AP+Station mode valgt for esp-12
     CyDelay(500);
     
     for(i=0;i<3;i++)
     {
-        if(connectToWiFi(wifiSSID,wifiPASS))
+        if(connectToWiFi(wifiSSID,wifiPASS))    //hvis den ikke kan forbinde til wifi prøver den igen op til 3 gange.
             break;
     }
     
