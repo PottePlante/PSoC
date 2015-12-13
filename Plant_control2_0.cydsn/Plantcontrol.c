@@ -41,7 +41,7 @@ void run()
         
         rotate(wantedRotate);
         
-        CyDelay(600000); //10 min delay
+        CyDelay(6000); //10 min delay
     }
 }
 

@@ -1,4 +1,4 @@
---------------- Build Started: 12/10/2015 11:46:24 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 12/11/2015 10:56:51 Project: Plant_control2_0, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
 .\main.c: In function 'main':
@@ -14,4 +14,4 @@ cyelftool.exe -C C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\
 cyelftool.exe -S C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\CortexM0\ARM_GCC_493\Debug\Plant_control2_0.elf
 Flash used: 24576 of 32768 bytes (75,0 %).
 SRAM used: 2908 of 4096 bytes (71,0 %). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 12/10/2015 11:46:26 ---------------
+--------------- Build Succeeded: 12/11/2015 10:56:53 ---------------

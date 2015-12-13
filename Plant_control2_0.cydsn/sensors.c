@@ -255,52 +255,50 @@ int16   get_batterylevel(void)
            
             //batteri styringen går fra 3.3V ved fuld opladt batteri til 2.7 diff 600mV
             int16 battery_pro=0;
-            battery_avg=battery_avg+1970;
-         
             
             if(battery_avg > 3300)
             {
                 battery_pro=100;
             }
-            else if(battery_avg > 3240)
+            else if(battery_avg > 3196)
             {
                 battery_pro=90;
             }
-            else if(battery_avg > 3180)
+            else if(battery_avg > 3093)
             {
                 battery_pro=80;
             }
-            else if(battery_avg > 3120)
+            else if(battery_avg > 2989)
             {
                 battery_pro=70;
             }
-            else if(battery_avg > 3060)
+            else if(battery_avg > 2885)
             {
                 battery_pro=60;
             }
-            else if(battery_avg > 3000)
+            else if(battery_avg > 2781)
             {
                 battery_pro=50;
             }
-            else if(battery_avg > 2940)
+            else if(battery_avg > 2678)
             {
                 battery_pro=40;
             }
-            else if(battery_avg > 2880)
+            else if(battery_avg > 2574)
             {
                 battery_pro=30;
             }
-            else if(battery_avg > 2820)
+            else if(battery_avg > 2470)
             {
                 battery_pro=20;
             }
-            else if(battery_avg > 2760)
+            else if(battery_avg > 2367)
             {
                 battery_pro=10;
             }
-            else
+            else if(battery_avg <= 2367)
             {
-                battery_pro=5;
+                battery_pro=0;
             }
            
           

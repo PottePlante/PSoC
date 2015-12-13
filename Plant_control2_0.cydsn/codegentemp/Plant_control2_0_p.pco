@@ -54,5 +54,5 @@ set_io "Lysfoler(0)" iocell 2 5
 set_io "Rotor_motor1_plus_BLK(0)" iocell 3 1
 set_io "Rotor_motor1_minus_GRN(0)" iocell 3 0
 set_io "Rotor_motor2_plus_RED(0)" iocell 3 4
-set_io "Rotor_motor2_minus_BLU(0)" iocell 3 6
+set_io "Rotor_motor2_minus_BLU(0)" iocell 0 6
 set_location "isr_EOC" interrupt -1 -1 3

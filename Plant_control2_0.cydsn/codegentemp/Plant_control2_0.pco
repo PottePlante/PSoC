@@ -1,5 +1,5 @@
 # Plant_control2_0
-# 2015-12-08 08:47:05Z
+# 2015-12-11 09:43:06Z
 
 # IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2
@@ -21,7 +21,7 @@ set_io "Tx_1(0)" iocell 0 5
 set_io "Rotor_motor1_plus_BLK(0)" iocell 3 1
 set_io "Rotor_motor2_plus_RED(0)" iocell 3 4
 set_io "Rotor_motor1_minus_GRN(0)" iocell 3 0
-set_io "Rotor_motor2_minus_BLU(0)" iocell 3 6
+set_io "Rotor_motor2_minus_BLU(0)" iocell 0 6
 set_location "Net_705" 1 0 0 2
 set_location "\UART:BUART:counter_load_not\" 1 0 1 2
 set_location "\UART:BUART:tx_status_0\" 0 0 0 3

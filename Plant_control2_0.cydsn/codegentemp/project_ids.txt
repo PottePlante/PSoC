@@ -1,5 +1,7 @@
-C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj|cdf0758a-b7ac-4a26-99ff-2c7126616fbc
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7cf918de-819e-49b3-80e9-22e70ae97e22
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|27ab00b9-b08c-4a3c-bf43-04c4cea18772
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|88eb61c1-ad91-4b8b-8710-442da29bd8ef
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e06a1902-07be-424a-9f40-cbed790bbfb8
+C:\Users\LaimonasIgnas\Desktop\Git\PSoC\Plant_control2_0.cydsn\Plant_control2_0.cyprj|c7b053bb-0493-4935-a215-7ef99b37ddba
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c25a931f-2233-48ff-b58c-c8f88637792a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|249b796a-82a2-4f34-ade7-69c0cc6228d0
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|be8375d0-f91a-4aad-b134-e26f5cb23722
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|83b1bc14-20de-40de-b28c-99e86c943729
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev\psoc4\PSoC4AnalogDevice\psoc4arch.cydsn\psoc4arch.cyprj|32618c0b-87c0-437b-97af-b89cf00dab54
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|1a9ccfc9-dde6-49cb-9e3b-870df1291d99

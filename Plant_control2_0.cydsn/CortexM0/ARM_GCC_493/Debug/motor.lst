@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
   38 0008 002B     		cmp	r3, #0
   39 000a 02D1     		bne	.L2
   18:.\motor.c     ****         indexnummer1=1;
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 2
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 2
 
 
   40              		.loc 1 18 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
   35:.\motor.c     ****         Rotor_motor2_plus_RED_Write(1);
   78              		.loc 1 35 0
   79 0040 0120     		mov	r0, #1
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 3
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 3
 
 
   80 0042 FFF7FEFF 		bl	Rotor_motor2_plus_RED_Write
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  121 007e 0A20     		mov	r0, #10
  122 0080 FFF7FEFF 		bl	CyDelay
  123              	.LVL13:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 4
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 4
 
 
   49:.\motor.c     ****         Rotor_motor2_minus_BLU_Write(0);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  166              		.comm	indexnummer1,2,2
  167              		.text
  168              	.Letext0:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 5
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 5
 
 
  169              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  223 005e 04       		.byte	0x4
  224 005f 05       		.byte	0x5
  225 0060 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 6
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 6
 
 
  226 0064 02       		.uleb128 0x2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  280 00d3 00000000 		.4byte	.LLST0
  281 00d7 07       		.uleb128 0x7
  282 00d8 DD000000 		.4byte	.LASF26
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 7
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 7
 
 
  283 00dc 01       		.byte	0x1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  337 0142 08       		.uleb128 0x8
  338 0143 52000000 		.4byte	.LVL8
  339 0147 F7010000 		.4byte	0x1f7
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 8
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 8
 
 
  340 014b 55010000 		.4byte	0x155
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  394 01b1 01       		.uleb128 0x1
  395 01b2 3A       		.byte	0x3a
  396 01b3 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 9
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 9
 
 
  397 01b4 0A       		.uleb128 0xa
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  451 0220 0D       		.uleb128 0xd
  452 0221 6B000000 		.4byte	0x6b
  453 0225 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 10
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 10
 
 
  454 0226 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  508 0033 13       		.uleb128 0x13
  509 0034 00       		.byte	0
  510 0035 00       		.byte	0
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 11
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 11
 
 
  511 0036 05       		.uleb128 0x5
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  565 006d 00       		.byte	0
  566 006e 08       		.uleb128 0x8
  567 006f 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 12
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 12
 
 
  568 0072 01       		.byte	0x1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  622 00ad 0B       		.uleb128 0xb
  623 00ae 27       		.uleb128 0x27
  624 00af 19       		.uleb128 0x19
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 13
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 13
 
 
  625 00b0 3C       		.uleb128 0x3c
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  679 000c 0000     		.2byte	0
  680 000e 0000     		.2byte	0
  681 0010 00000000 		.4byte	.LFB33
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 14
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 14
 
 
  682 0014 B0000000 		.4byte	.LFE33-.LFB33
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  710 008d 43794465 		.ascii	"CyDelay\000"
  710      6C617900 
  711              	.LASF9:
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 15
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 15
 
 
  712 0095 75696E74 		.ascii	"uint8\000"
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 1
  738 0137 73686F72 		.ascii	"short unsigned int\000"
  738      7420756E 
  738      7369676E 
-ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccrhrgZw.s 			page 16
+ARM GAS  C:\Users\LAIMON~1\AppData\Local\Temp\ccqrTIoa.s 			page 16
 
 
  738      65642069 

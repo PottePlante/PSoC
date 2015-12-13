@@ -7815,59 +7815,59 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  910              	/* Rotor_motor2_minus_BLU */
  911              	.set Rotor_motor2_minus_BLU__0__DM__MASK, 0x1C0000
  912              	.set Rotor_motor2_minus_BLU__0__DM__SHIFT, 18
- 913              	.set Rotor_motor2_minus_BLU__0__DR, CYREG_PRT3_DR
- 914              	.set Rotor_motor2_minus_BLU__0__HSIOM, CYREG_HSIOM_PORT_SEL3
+ 913              	.set Rotor_motor2_minus_BLU__0__DR, CYREG_PRT0_DR
+ 914              	.set Rotor_motor2_minus_BLU__0__HSIOM, CYREG_HSIOM_PORT_SEL0
  915              	.set Rotor_motor2_minus_BLU__0__HSIOM_MASK, 0x0F000000
  916              	.set Rotor_motor2_minus_BLU__0__HSIOM_SHIFT, 24
- 917              	.set Rotor_motor2_minus_BLU__0__INTCFG, CYREG_PRT3_INTCFG
- 918              	.set Rotor_motor2_minus_BLU__0__INTSTAT, CYREG_PRT3_INTSTAT
+ 917              	.set Rotor_motor2_minus_BLU__0__INTCFG, CYREG_PRT0_INTCFG
+ 918              	.set Rotor_motor2_minus_BLU__0__INTSTAT, CYREG_PRT0_INTSTAT
  919              	.set Rotor_motor2_minus_BLU__0__MASK, 0x40
- 920              	.set Rotor_motor2_minus_BLU__0__PA__CFG0, CYREG_UDB_PA3_CFG0
- 921              	.set Rotor_motor2_minus_BLU__0__PA__CFG1, CYREG_UDB_PA3_CFG1
- 922              	.set Rotor_motor2_minus_BLU__0__PA__CFG10, CYREG_UDB_PA3_CFG10
- 923              	.set Rotor_motor2_minus_BLU__0__PA__CFG11, CYREG_UDB_PA3_CFG11
- 924              	.set Rotor_motor2_minus_BLU__0__PA__CFG12, CYREG_UDB_PA3_CFG12
- 925              	.set Rotor_motor2_minus_BLU__0__PA__CFG13, CYREG_UDB_PA3_CFG13
- 926              	.set Rotor_motor2_minus_BLU__0__PA__CFG14, CYREG_UDB_PA3_CFG14
- 927              	.set Rotor_motor2_minus_BLU__0__PA__CFG2, CYREG_UDB_PA3_CFG2
- 928              	.set Rotor_motor2_minus_BLU__0__PA__CFG3, CYREG_UDB_PA3_CFG3
- 929              	.set Rotor_motor2_minus_BLU__0__PA__CFG4, CYREG_UDB_PA3_CFG4
- 930              	.set Rotor_motor2_minus_BLU__0__PA__CFG5, CYREG_UDB_PA3_CFG5
- 931              	.set Rotor_motor2_minus_BLU__0__PA__CFG6, CYREG_UDB_PA3_CFG6
- 932              	.set Rotor_motor2_minus_BLU__0__PA__CFG7, CYREG_UDB_PA3_CFG7
- 933              	.set Rotor_motor2_minus_BLU__0__PA__CFG8, CYREG_UDB_PA3_CFG8
- 934              	.set Rotor_motor2_minus_BLU__0__PA__CFG9, CYREG_UDB_PA3_CFG9
- 935              	.set Rotor_motor2_minus_BLU__0__PC, CYREG_PRT3_PC
- 936              	.set Rotor_motor2_minus_BLU__0__PC2, CYREG_PRT3_PC2
- 937              	.set Rotor_motor2_minus_BLU__0__PORT, 3
- 938              	.set Rotor_motor2_minus_BLU__0__PS, CYREG_PRT3_PS
+ 920              	.set Rotor_motor2_minus_BLU__0__PA__CFG0, CYREG_UDB_PA0_CFG0
+ 921              	.set Rotor_motor2_minus_BLU__0__PA__CFG1, CYREG_UDB_PA0_CFG1
+ 922              	.set Rotor_motor2_minus_BLU__0__PA__CFG10, CYREG_UDB_PA0_CFG10
+ 923              	.set Rotor_motor2_minus_BLU__0__PA__CFG11, CYREG_UDB_PA0_CFG11
+ 924              	.set Rotor_motor2_minus_BLU__0__PA__CFG12, CYREG_UDB_PA0_CFG12
+ 925              	.set Rotor_motor2_minus_BLU__0__PA__CFG13, CYREG_UDB_PA0_CFG13
+ 926              	.set Rotor_motor2_minus_BLU__0__PA__CFG14, CYREG_UDB_PA0_CFG14
+ 927              	.set Rotor_motor2_minus_BLU__0__PA__CFG2, CYREG_UDB_PA0_CFG2
+ 928              	.set Rotor_motor2_minus_BLU__0__PA__CFG3, CYREG_UDB_PA0_CFG3
+ 929              	.set Rotor_motor2_minus_BLU__0__PA__CFG4, CYREG_UDB_PA0_CFG4
+ 930              	.set Rotor_motor2_minus_BLU__0__PA__CFG5, CYREG_UDB_PA0_CFG5
+ 931              	.set Rotor_motor2_minus_BLU__0__PA__CFG6, CYREG_UDB_PA0_CFG6
+ 932              	.set Rotor_motor2_minus_BLU__0__PA__CFG7, CYREG_UDB_PA0_CFG7
+ 933              	.set Rotor_motor2_minus_BLU__0__PA__CFG8, CYREG_UDB_PA0_CFG8
+ 934              	.set Rotor_motor2_minus_BLU__0__PA__CFG9, CYREG_UDB_PA0_CFG9
+ 935              	.set Rotor_motor2_minus_BLU__0__PC, CYREG_PRT0_PC
+ 936              	.set Rotor_motor2_minus_BLU__0__PC2, CYREG_PRT0_PC2
+ 937              	.set Rotor_motor2_minus_BLU__0__PORT, 0
+ 938              	.set Rotor_motor2_minus_BLU__0__PS, CYREG_PRT0_PS
  939              	.set Rotor_motor2_minus_BLU__0__SHIFT, 6
- 940              	.set Rotor_motor2_minus_BLU__DR, CYREG_PRT3_DR
- 941              	.set Rotor_motor2_minus_BLU__INTCFG, CYREG_PRT3_INTCFG
- 942              	.set Rotor_motor2_minus_BLU__INTSTAT, CYREG_PRT3_INTSTAT
+ 940              	.set Rotor_motor2_minus_BLU__DR, CYREG_PRT0_DR
+ 941              	.set Rotor_motor2_minus_BLU__INTCFG, CYREG_PRT0_INTCFG
+ 942              	.set Rotor_motor2_minus_BLU__INTSTAT, CYREG_PRT0_INTSTAT
  943              	.set Rotor_motor2_minus_BLU__MASK, 0x40
- 944              	.set Rotor_motor2_minus_BLU__PA__CFG0, CYREG_UDB_PA3_CFG0
- 945              	.set Rotor_motor2_minus_BLU__PA__CFG1, CYREG_UDB_PA3_CFG1
- 946              	.set Rotor_motor2_minus_BLU__PA__CFG10, CYREG_UDB_PA3_CFG10
- 947              	.set Rotor_motor2_minus_BLU__PA__CFG11, CYREG_UDB_PA3_CFG11
- 948              	.set Rotor_motor2_minus_BLU__PA__CFG12, CYREG_UDB_PA3_CFG12
- 949              	.set Rotor_motor2_minus_BLU__PA__CFG13, CYREG_UDB_PA3_CFG13
- 950              	.set Rotor_motor2_minus_BLU__PA__CFG14, CYREG_UDB_PA3_CFG14
- 951              	.set Rotor_motor2_minus_BLU__PA__CFG2, CYREG_UDB_PA3_CFG2
- 952              	.set Rotor_motor2_minus_BLU__PA__CFG3, CYREG_UDB_PA3_CFG3
- 953              	.set Rotor_motor2_minus_BLU__PA__CFG4, CYREG_UDB_PA3_CFG4
- 954              	.set Rotor_motor2_minus_BLU__PA__CFG5, CYREG_UDB_PA3_CFG5
- 955              	.set Rotor_motor2_minus_BLU__PA__CFG6, CYREG_UDB_PA3_CFG6
+ 944              	.set Rotor_motor2_minus_BLU__PA__CFG0, CYREG_UDB_PA0_CFG0
+ 945              	.set Rotor_motor2_minus_BLU__PA__CFG1, CYREG_UDB_PA0_CFG1
+ 946              	.set Rotor_motor2_minus_BLU__PA__CFG10, CYREG_UDB_PA0_CFG10
+ 947              	.set Rotor_motor2_minus_BLU__PA__CFG11, CYREG_UDB_PA0_CFG11
+ 948              	.set Rotor_motor2_minus_BLU__PA__CFG12, CYREG_UDB_PA0_CFG12
+ 949              	.set Rotor_motor2_minus_BLU__PA__CFG13, CYREG_UDB_PA0_CFG13
+ 950              	.set Rotor_motor2_minus_BLU__PA__CFG14, CYREG_UDB_PA0_CFG14
+ 951              	.set Rotor_motor2_minus_BLU__PA__CFG2, CYREG_UDB_PA0_CFG2
+ 952              	.set Rotor_motor2_minus_BLU__PA__CFG3, CYREG_UDB_PA0_CFG3
+ 953              	.set Rotor_motor2_minus_BLU__PA__CFG4, CYREG_UDB_PA0_CFG4
+ 954              	.set Rotor_motor2_minus_BLU__PA__CFG5, CYREG_UDB_PA0_CFG5
+ 955              	.set Rotor_motor2_minus_BLU__PA__CFG6, CYREG_UDB_PA0_CFG6
 ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 132
 
 
- 956              	.set Rotor_motor2_minus_BLU__PA__CFG7, CYREG_UDB_PA3_CFG7
- 957              	.set Rotor_motor2_minus_BLU__PA__CFG8, CYREG_UDB_PA3_CFG8
- 958              	.set Rotor_motor2_minus_BLU__PA__CFG9, CYREG_UDB_PA3_CFG9
- 959              	.set Rotor_motor2_minus_BLU__PC, CYREG_PRT3_PC
- 960              	.set Rotor_motor2_minus_BLU__PC2, CYREG_PRT3_PC2
- 961              	.set Rotor_motor2_minus_BLU__PORT, 3
- 962              	.set Rotor_motor2_minus_BLU__PS, CYREG_PRT3_PS
+ 956              	.set Rotor_motor2_minus_BLU__PA__CFG7, CYREG_UDB_PA0_CFG7
+ 957              	.set Rotor_motor2_minus_BLU__PA__CFG8, CYREG_UDB_PA0_CFG8
+ 958              	.set Rotor_motor2_minus_BLU__PA__CFG9, CYREG_UDB_PA0_CFG9
+ 959              	.set Rotor_motor2_minus_BLU__PC, CYREG_PRT0_PC
+ 960              	.set Rotor_motor2_minus_BLU__PC2, CYREG_PRT0_PC2
+ 961              	.set Rotor_motor2_minus_BLU__PORT, 0
+ 962              	.set Rotor_motor2_minus_BLU__PS, CYREG_PRT0_PS
  963              	.set Rotor_motor2_minus_BLU__SHIFT, 6
  964              	
  965              	/* Clock_out_capasitiv_sensors */

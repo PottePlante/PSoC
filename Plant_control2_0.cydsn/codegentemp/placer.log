@@ -6,7 +6,7 @@
 
 #Build Date:         Aug 18 2015 10:30:14
 
-#File Generated:     Dec 8 2015 09:47:04
+#File Generated:     Dec 11 2015 10:43:06
 
 #Purpose:            
 
@@ -76,14 +76,12 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 10
+Number of clocks: 8
 Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
 Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
 Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyHFCLK              | Frequency:  44.8 MHz | Target:  48.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
-Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
 Clock: UART_IntClock        | Frequency:  44.8 MHz | Target:   0.2 MHz
@@ -98,14 +96,12 @@ Phase 7
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 10
+Number of clocks: 8
 Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
 Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
 Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyHFCLK              | Frequency:   2.4 MHz | Target:  48.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
-Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
 Clock: UART_IntClock        | Frequency:   2.4 MHz | Target:   0.2 MHz
@@ -143,14 +139,12 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 10
+Number of clocks: 8
 Clock: ADC_SAR_Seq_1_intClock | Frequency: N/A       | Target:  16.0 MHz
 Clock: ADC_SAR_Seq_1_intClock(FFB) | Frequency: N/A       | Target:  16.0 MHz
 Clock: Clock_1              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyHFCLK              | Frequency:   2.6 MHz | Target:  48.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  48.0 MHz
-Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  48.0 MHz
 Clock: UART_IntClock        | Frequency:   2.6 MHz | Target:   0.2 MHz
@@ -164,5 +158,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.7 sec.
+I2076: Total run-time: 0.6 sec.
 
